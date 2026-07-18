@@ -1,11 +1,12 @@
 "use client";
 
-import React, { useState } from 'react';
-import { toast } from 'react-toastify';
-import { Mail, Phone, MapPin } from 'lucide-react';
-import Header from '../../components/Header';
-import Footer from '../../components/Footer';
-import PageHero from '../../components/PageHero';
+import React, { useState } from "react";
+import { toast } from "react-toastify";
+import { Mail, Phone, MapPin } from "lucide-react";
+import Header from "@/components/layout/Header";
+import Footer from "@/components/layout/Footer";
+import PageHero from "@/components/layout/PageHero";
+import BlobButton from "@/components/ui/BlobButton";
 
 export default function Contact() {
   const [submitting, setSubmitting] = useState(false);
@@ -15,102 +16,105 @@ export default function Contact() {
     setSubmitting(true);
     setTimeout(() => {
       setSubmitting(false);
-      toast.success('Your message has been sent. Our team will contact you shortly.');
+      toast.success("Your message has been sent. Our team will contact you shortly.");
       (e.target as HTMLFormElement).reset();
     }, 1000);
   };
 
   return (
-    <div>
+    <div className="bg-background min-h-screen text-foreground select-none">
       <Header />
       <main>
         <PageHero
           label="Contact Us"
           title="Let's Build Something Strong Together"
           description="Reach out for product inquiries, quotes, or technical support from our engineering team."
-          image="https://images.unsplash.com/photo-1487958449943-2429e8be8625?q=80&w=1920&auto=format&fit=crop"
+          image="/images/hero_crusher.png"
         />
 
-        <section className="py-16 lg:py-24 bg-white">
+        <section className="py-16 lg:py-24 bg-background">
           <div className="max-w-7xl mx-auto px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-5 gap-12">
             <div className="lg:col-span-2 space-y-6">
-              <div className="flex items-start gap-4 p-6 rounded-2xl bg-mewar-section border border-mewar-border">
-                <MapPin size={22} className="text-mewar-yellowDark shrink-0" />
+              <div className="flex items-start gap-4 p-6 rounded-2xl bg-card border border-border">
+                <MapPin size={22} className="text-primary shrink-0" />
                 <div>
-                  <h2 className="font-heading font-bold text-mewar-heading">Address</h2>
-                  <p className="text-mewar-body text-sm mt-1">Industrial Area, Udaipur, Rajasthan, India</p>
+                  <h2 className="font-heading font-black text-foreground uppercase text-sm">Address</h2>
+                  <p className="text-muted-foreground text-xs mt-1 font-semibold">Industrial Area, Udaipur, Rajasthan, India</p>
                 </div>
               </div>
-              <div className="flex items-start gap-4 p-6 rounded-2xl bg-mewar-section border border-mewar-border">
-                <Phone size={22} className="text-mewar-yellowDark shrink-0" />
+              <div className="flex items-start gap-4 p-6 rounded-2xl bg-card border border-border">
+                <Phone size={22} className="text-primary shrink-0" />
                 <div>
-                  <h2 className="font-heading font-bold text-mewar-heading">Phone</h2>
-                  <p className="text-mewar-body text-sm mt-1">+91 98765 43210</p>
+                  <h2 className="font-heading font-black text-foreground uppercase text-sm">Phone</h2>
+                  <p className="text-muted-foreground text-xs mt-1 font-semibold">+91 98765 43210</p>
                 </div>
               </div>
-              <div className="flex items-start gap-4 p-6 rounded-2xl bg-mewar-section border border-mewar-border">
-                <Mail size={22} className="text-mewar-yellowDark shrink-0" />
+              <div className="flex items-start gap-4 p-6 rounded-2xl bg-card border border-border">
+                <Mail size={22} className="text-primary shrink-0" />
                 <div>
-                  <h2 className="font-heading font-bold text-mewar-heading">Email</h2>
-                  <p className="text-mewar-body text-sm mt-1">info@mewarhitech.com</p>
+                  <h2 className="font-heading font-black text-foreground uppercase text-sm">Email</h2>
+                  <p className="text-muted-foreground text-xs mt-1 font-semibold">info@keestrack.com</p>
                 </div>
               </div>
             </div>
 
-            <form onSubmit={handleSubmit} className="lg:col-span-3 space-y-5" aria-label="Contact form">
+            <form onSubmit={handleSubmit} className="lg:col-span-3 space-y-5 font-semibold" aria-label="Contact form">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                 <div>
-                  <label htmlFor="name" className="block text-sm font-semibold text-mewar-heading mb-2">
+                  <label htmlFor="name" className="block text-[10px] uppercase font-bold text-muted-foreground mb-2">
                     Full Name
                   </label>
                   <input
                     id="name"
                     required
                     type="text"
-                    className="w-full rounded-lg border border-mewar-border px-4 py-3 focus:outline-none focus:ring-2 focus:ring-mewar-yellow/50 transition-all duration-200"
+                    className="w-full rounded-lg border border-border px-4 py-3 focus:outline-none focus:border-primary text-foreground bg-card text-xs"
                   />
                 </div>
                 <div>
-                  <label htmlFor="email" className="block text-sm font-semibold text-mewar-heading mb-2">
-                    Email
+                  <label htmlFor="email" className="block text-[10px] uppercase font-bold text-muted-foreground mb-2">
+                    Email Address
                   </label>
                   <input
                     id="email"
                     required
                     type="email"
-                    className="w-full rounded-lg border border-mewar-border px-4 py-3 focus:outline-none focus:ring-2 focus:ring-mewar-yellow/50 transition-all duration-200"
+                    className="w-full rounded-lg border border-border px-4 py-3 focus:outline-none focus:border-primary text-foreground bg-card text-xs"
                   />
                 </div>
               </div>
               <div>
-                <label htmlFor="subject" className="block text-sm font-semibold text-mewar-heading mb-2">
+                <label htmlFor="subject" className="block text-[10px] uppercase font-bold text-muted-foreground mb-2">
                   Subject
                 </label>
                 <input
                   id="subject"
                   required
                   type="text"
-                  className="w-full rounded-lg border border-mewar-border px-4 py-3 focus:outline-none focus:ring-2 focus:ring-mewar-yellow/50 transition-all duration-200"
+                  className="w-full rounded-lg border border-border px-4 py-3 focus:outline-none focus:border-primary text-foreground bg-card text-xs"
                 />
               </div>
               <div>
-                <label htmlFor="message" className="block text-sm font-semibold text-mewar-heading mb-2">
+                <label htmlFor="message" className="block text-[10px] uppercase font-bold text-muted-foreground mb-2">
                   Message
                 </label>
                 <textarea
                   id="message"
                   required
                   rows={5}
-                  className="w-full rounded-lg border border-mewar-border px-4 py-3 focus:outline-none focus:ring-2 focus:ring-mewar-yellow/50 transition-all duration-200 resize-none"
+                  className="w-full rounded-lg border border-border px-4 py-3 focus:outline-none focus:border-primary text-foreground bg-card text-xs resize-none"
                 />
               </div>
-              <button
-                type="submit"
-                disabled={submitting}
-                className="inline-flex items-center gap-2 bg-mewar-yellow text-mewar-ink font-bold px-8 py-4 rounded-full hover:bg-mewar-yellowDark hover:scale-105 transition-all duration-200 disabled:opacity-60 disabled:hover:scale-100"
-              >
-                {submitting ? 'Sending...' : 'Send Message'}
-              </button>
+              <div className="pt-2">
+                <BlobButton
+                  type="submit"
+                  disabled={submitting}
+                  variant="primary"
+                  className="!py-3.5 !px-8 text-xs font-black"
+                >
+                  {submitting ? "Sending..." : "Send Message"}
+                </BlobButton>
+              </div>
             </form>
           </div>
         </section>

@@ -1,21 +1,23 @@
 "use client";
-import React, { useState } from 'react';
-import { motion } from 'framer-motion';
-import Link from 'next/link';
+
+import React, { useState } from "react";
+import { motion } from "framer-motion";
+import Link from "next/link";
+import BlobButton from "@/components/ui/BlobButton";
 
 const ContactSignupBox: React.FC = () => {
-  const [email, setEmail] = useState('');
-  const [name, setName] = useState('');
+  const [email, setEmail] = useState("");
+  const [name, setName] = useState("");
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    alert(`Thank you for subscribing, ${name || 'friend'}!`);
-    setEmail('');
-    setName('');
+    alert(`Thank you for subscribing, ${name || "friend"}!`);
+    setEmail("");
+    setName("");
   };
 
   return (
-    <section className="py-16 bg-[#F7F7F7] select-none border-t border-[#E4E4E4]">
+    <section className="py-16 bg-background select-none border-t border-border/30">
       <div className="max-w-[1400px] mx-auto px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-stretch">
         
         {/* Left Column: Newsletter Signup (Cols 1-7) */}
@@ -24,18 +26,18 @@ const ContactSignupBox: React.FC = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="lg:col-span-7 bg-white border border-[#E4E4E4] p-8 lg:p-10 flex flex-col justify-between"
+          className="lg:col-span-7 bg-card border border-border/50 p-8 lg:p-10 rounded-2xl flex flex-col justify-between"
         >
           <div>
-            <h3 className="font-heading text-2xl font-extrabold text-[#111111] uppercase tracking-wide mb-3">
+            <h3 className="font-heading text-2xl font-black text-foreground uppercase tracking-wide mb-3">
               Subscribe to our newsletter
             </h3>
-            <p className="text-[#666666] text-xs leading-relaxed mb-8 max-w-md">
+            <p className="text-muted-foreground text-xs leading-relaxed mb-8 max-w-md">
               Receive news, press updates, and alerts regarding new product launches and heavy machinery developments directly to your inbox.
             </p>
           </div>
 
-          <form onSubmit={handleSubmit} className="space-y-4">
+          <form onSubmit={handleSubmit} className="space-y-4 font-semibold">
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <input
                 type="text"
@@ -43,7 +45,7 @@ const ContactSignupBox: React.FC = () => {
                 value={name}
                 onChange={(e) => setName(e.target.value)}
                 required
-                className="w-full border border-[#E4E4E4] px-4 py-3 text-sm rounded-none focus:outline-none focus:border-[#F4B400] text-black bg-white"
+                className="w-full border border-border px-4 py-3 text-xs rounded-lg focus:outline-none focus:border-primary text-foreground bg-background"
               />
               <input
                 type="email"
@@ -51,15 +53,14 @@ const ContactSignupBox: React.FC = () => {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
-                className="w-full border border-[#E4E4E4] px-4 py-3 text-sm rounded-none focus:outline-none focus:border-[#F4B400] text-black bg-white"
+                className="w-full border border-border px-4 py-3 text-xs rounded-lg focus:outline-none focus:border-primary text-foreground bg-background"
               />
             </div>
-            <button
-              type="submit"
-              className="bg-[#F4B400] hover:bg-[#D89B00] text-black font-extrabold text-xs uppercase tracking-wider px-8 py-3.5 transition-colors rounded-none"
-            >
-              Sign Up
-            </button>
+            <div>
+              <BlobButton type="submit" variant="primary" className="!py-3 !px-6 text-xs font-black">
+                Sign Up
+              </BlobButton>
+            </div>
           </form>
         </motion.div>
 
@@ -69,13 +70,13 @@ const ContactSignupBox: React.FC = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.15 }}
-          className="lg:col-span-5 relative rounded-none overflow-hidden min-h-[280px] flex flex-col justify-end p-8 lg:p-10 text-white"
+          className="lg:col-span-5 relative rounded-2xl overflow-hidden min-h-[280px] flex flex-col justify-end p-8 lg:p-10 text-white"
         >
           {/* Background Image */}
           <div className="absolute inset-0 w-full h-full z-0">
             <img
               src="/images/latest-process-machinery.jpg"
-              alt="Mewar Hi-Tech headquarters office"
+              alt="Keestrack headquarters office"
               className="w-full h-full object-cover"
             />
             {/* Dark overlay */}
@@ -84,14 +85,15 @@ const ContactSignupBox: React.FC = () => {
 
           {/* Content */}
           <div className="relative z-10 space-y-6">
-            <h3 className="font-heading text-2xl font-black uppercase tracking-wide leading-tight">
-              You have questions?<br />Contact us!
+            <h3 className="font-heading text-2xl font-black uppercase tracking-wide leading-tight text-white">
+              You have questions?
+              <br />
+              Contact us!
             </h3>
-            <Link
-              href="/contact"
-              className="inline-flex items-center gap-2 bg-[#F4B400] hover:bg-[#D89B00] text-black font-extrabold text-xs uppercase tracking-wider px-8 py-3.5 transition-colors rounded-none shadow-md"
-            >
-              <span>Contact us</span>
+            <Link href="/contact">
+              <BlobButton variant="primary" className="!py-3 !px-6 text-xs font-black">
+                Contact us
+              </BlobButton>
             </Link>
           </div>
         </motion.div>

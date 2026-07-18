@@ -108,7 +108,7 @@ module.exports = {
           "sans-serif"
         ],
         heading: [
-          "'Manrope'",
+          "'Teko'",
           "ui-sans-serif",
           "system-ui",
           "sans-serif"

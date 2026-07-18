@@ -1,20 +1,21 @@
 "use client";
-import React from 'react';
-import { motion } from 'framer-motion';
-import Link from 'next/link';
+
+import React from "react";
+import { motion } from "framer-motion";
+import Link from "next/link";
 
 const ServiceNetworkBanner: React.FC = () => {
   return (
-    <section className="relative h-[400px] lg:h-[500px] w-full flex items-center overflow-hidden bg-[#111111] select-none">
+    <section className="relative h-[400px] lg:h-[500px] w-full flex items-center overflow-hidden bg-secondary select-none">
       {/* Background Image */}
       <div className="absolute inset-0 w-full h-full z-0">
         <img
           src="/images/after-sales-1.jpg"
-          alt="Field service network van support"
-          className="w-full h-full object-cover object-center"
+          alt="Field service support"
+          className="w-full h-full object-cover object-center opacity-40"
         />
         {/* Gradient Overlay */}
-        <div className="absolute inset-0 bg-black/60 lg:bg-gradient-to-r lg:from-black/85 lg:via-black/50 lg:to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-r from-secondary via-secondary/70 to-transparent" />
       </div>
 
       {/* Content */}
@@ -24,30 +25,32 @@ const ServiceNetworkBanner: React.FC = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="max-w-xl"
+          className="max-w-xl space-y-4"
         >
           {/* Subtitle */}
-          <span className="text-mewar-yellow font-bold text-xs md:text-sm tracking-[0.2em] uppercase mb-4 inline-block">
+          <span className="text-primary font-bold text-xs uppercase tracking-widest block">
             Global Support
           </span>
 
           {/* Title */}
-          <h2 className="font-heading text-2xl sm:text-4xl font-extrabold text-white leading-tight mb-4 uppercase">
+          <h2 className="font-heading text-2xl sm:text-4xl font-black text-white leading-tight uppercase">
             Built for Low Maintenance and Reliable Performance
           </h2>
 
           {/* Paragraph */}
-          <p className="text-white/80 text-sm mb-6 leading-relaxed">
+          <p className="text-white/80 text-sm leading-relaxed">
             Our dedicated technical support network and rapid spare parts delivery ensure your mobile crushers and screeners maintain maximum uptime on site.
           </p>
 
           {/* Read More Link */}
-          <Link
-            href="/services"
-            className="text-mewar-yellow hover:text-mewar-yellowDark text-sm font-bold uppercase tracking-wider transition-colors inline-flex items-center gap-1"
-          >
-            Read more &rarr;
-          </Link>
+          <div className="pt-2">
+            <Link
+              href="/services"
+              className="text-primary hover:text-foreground text-sm font-bold uppercase tracking-wider transition-colors inline-flex items-center gap-1"
+            >
+              Read more &rarr;
+            </Link>
+          </div>
         </motion.div>
       </div>
     </section>

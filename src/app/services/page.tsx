@@ -1,8 +1,8 @@
-import React from 'react';
-import Header from '../../components/Header';
-import Footer from '../../components/Footer';
-import PageHero from '../../components/PageHero';
-import PlaceholderSection from '../../components/PlaceholderSection';
+import React from "react";
+import Header from "@/components/layout/Header";
+import Footer from "@/components/layout/Footer";
+import PageHero from "@/components/layout/PageHero";
+import PlaceholderSection from "@/components/shared/PlaceholderSection";
 
 export default function Services() {
   return (
@@ -11,9 +11,9 @@ export default function Services() {
       <main>
         <PageHero
           label="Services"
-          title="Engineering & Support Services"
+          title="Engineering &amp; Support Services"
           description="Installation, maintenance, and technical support for every machine we manufacture."
-          image="https://images.unsplash.com/photo-1595246140625-573b715d11dc?q=80&w=1920&auto=format&fit=crop"
+          image="/images/hero_crusher.png"
         />
         <PlaceholderSection pageName="Services" />
       </main>

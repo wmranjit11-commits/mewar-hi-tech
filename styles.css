@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Manrope:wght@700;800&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Oswald:wght@700;800&display=swap");
 
 @tailwind base;
 @tailwind components;
@@ -8,22 +9,22 @@
 @layer base {
   :root {
     --background: 0 0% 100%;
-    --foreground: 0 0% 8.6%;
+    --foreground: 224 71.4% 10.8%; /* #111827 */
     --card: 0 0% 100%;
-    --card-foreground: 0 0% 8.6%;
+    --card-foreground: 224 71.4% 10.8%;
     --popover: 0 0% 100%;
-    --popover-foreground: 0 0% 8.6%;
-    --primary: 43 100% 48%;
-    --primary-foreground: 0 0% 6.7%;
-    --secondary: 0 0% 97%;
-    --secondary-foreground: 0 0% 8.6%;
-    --muted: 0 0% 97%;
-    --muted-foreground: 0 0% 40%;
-    --accent: 43 100% 48%;
-    --accent-foreground: 0 0% 6.7%;
-    --border: 0 0% 89%;
-    --input: 0 0% 89%;
-    --ring: 43 100% 48%;
+    --popover-foreground: 224 71.4% 10.8%;
+    --primary: 44 100% 48%; /* #F4B400 */
+    --primary-foreground: 216 56% 14%; /* #0F1E36 */
+    --secondary: 216 56% 14%; /* #0F1E36 */
+    --secondary-foreground: 0 0% 100%;
+    --muted: 220 14% 96%; /* #f3f4f6 */
+    --muted-foreground: 215 16% 34%; /* #4b5563 */
+    --accent: 44 100% 48%;
+    --accent-foreground: 216 56% 14%;
+    --border: 220 13% 91%; /* #e5e7eb */
+    --input: 220 13% 91%;
+    --ring: 44 100% 48%;
     --destructive: 4 74% 50%;
     --destructive-foreground: 0 0% 100%;
     --sidebar-background: 0 0% 97%;
@@ -34,7 +35,7 @@
     --sidebar-accent-foreground: 0 0% 8.6%;
     --sidebar-border: 0 0% 89%;
     --sidebar-ring: 43 100% 48%;
-    --radius: 0.5rem;
+    --radius: 0.75rem;
     --shadow-2xs: 0 1px 3px 0px hsl(0 0% 0% / 0.05);
     --shadow-xs: 0 1px 3px 0px hsl(0 0% 0% / 0.05);
     --shadow-sm: 0 1px 3px 0px hsl(0 0% 0% / 0.1), 0 1px 2px -1px hsl(0 0% 0% / 0.1);
@@ -44,6 +45,20 @@
     --shadow-xl: 0 1px 3px 0px hsl(0 0% 0% / 0.1), 0 8px 10px -1px hsl(0 0% 0% / 0.1);
     --shadow-2xl: 0 1px 3px 0px hsl(0 0% 0% / 0.25);
   }
+
+  .theme-dark {
+    --background: 228 17% 6%;
+    --foreground: 220 14% 96%;
+    --card: 228 14% 10%;
+    --card-foreground: 220 14% 96%;
+    --primary: 44 100% 48%;
+    --primary-foreground: 228 17% 6%;
+    --secondary: 215 28% 17%;
+    --secondary-foreground: 0 0% 100%;
+    --muted: 215 28% 17%;
+    --muted-foreground: 218 11% 65%;
+    --border: 220 11% 20%;
+  }
 }
 
 @layer base {
@@ -52,7 +67,7 @@
   }
 
   body {
-    @apply bg-background text-foreground font-sans antialiased;
+    @apply bg-background text-foreground font-sans antialiased transition-colors duration-300;
   }
 
   html {
@@ -60,11 +75,11 @@
   }
 
   h1, h2, h3, h4, h5, h6 {
-    @apply font-heading;
+    @apply font-heading uppercase tracking-wide;
   }
 
   :focus-visible {
-    outline: 2px solid #F4B400;
+    outline: 2px solid hsl(var(--primary));
     outline-offset: 2px;
   }
 }
@@ -81,4 +96,154 @@
     white-space: nowrap;
     border-width: 0;
   }
+}
+
+/* Gooey Blob Button styling */
+.blob-btn {
+  z-index: 1;
+  position: relative;
+  padding: 14px 36px;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  background-color: transparent;
+  outline: none;
+  border: none;
+  transition: color 0.5s;
+  cursor: pointer;
+  border-radius: 6px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  user-select: none;
+  
+  --btn-color: hsl(var(--primary));
+  --btn-hover-color: hsl(var(--background));
+  --btn-bg: hsl(var(--background));
+  
+  color: var(--btn-color);
+}
+
+.blob-btn:before {
+  content: "";
+  z-index: 1;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  border: 2px solid var(--btn-color);
+  border-radius: 6px;
+}
+
+.blob-btn:after {
+  content: "";
+  z-index: -2;
+  position: absolute;
+  left: 3px;
+  top: 3px;
+  width: 100%;
+  height: 100%;
+  transition: all 0.3s 0.2s;
+  border-radius: 6px;
+}
+
+.blob-btn:hover {
+  color: var(--btn-hover-color);
+}
+
+.blob-btn:hover:after {
+  transition: all 0.3s;
+  left: 0;
+  top: 0;
+}
+
+.blob-btn__inner {
+  z-index: -1;
+  overflow: hidden;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 6px;
+  background: var(--btn-bg);
+}
+
+.blob-btn__blobs {
+  position: relative;
+  display: block;
+  height: 100%;
+  filter: url('#goo');
+}
+
+.blob-btn__blob {
+  position: absolute;
+  top: 2px;
+  width: 25%;
+  height: 100%;
+  background: var(--btn-color);
+  border-radius: 100%;
+  transform: translate3d(0, 150%, 0) scale(1.7);
+  transition: transform 0.45s;
+}
+
+@supports(border-radius: 50%) {
+  .blob-btn__blob {
+    border-radius: 50%;
+  }
+}
+
+.blob-btn__blob:nth-child(1) { left: 0%; transition-delay: 0s; }
+.blob-btn__blob:nth-child(2) { left: 30%; transition-delay: 0.08s; }
+.blob-btn__blob:nth-child(3) { left: 60%; transition-delay: 0.16s; }
+.blob-btn__blob:nth-child(4) { left: 90%; transition-delay: 0.24s; }
+
+.blob-btn:hover .blob-btn__blob {
+  transform: translateZ(0) scale(1.7);
+}
+
+@supports(filter: url('#goo')) {
+  .blob-btn:hover .blob-btn__blob {
+    transform: translateZ(0) scale(1.4);
+  }
+}
+
+/* Secondary Button Colors mapping */
+.blob-btn.blob-btn--secondary {
+  --btn-color: hsl(var(--foreground));
+  --btn-hover-color: hsl(var(--background));
+  --btn-bg: hsl(var(--background));
+}
+
+.theme-dark .blob-btn {
+  --btn-hover-color: #0d0e12;
+}
+
+.theme-dark .blob-btn.blob-btn--secondary {
+  --btn-color: #ffffff;
+  --btn-hover-color: #0d0e12;
+  --btn-bg: #0d0e12;
+}
+
+/* Custom transitions and marquee */
+.transition-theme {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 30s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
 }

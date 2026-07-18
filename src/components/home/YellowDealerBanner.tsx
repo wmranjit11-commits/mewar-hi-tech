@@ -1,17 +1,19 @@
 "use client";
-import React from 'react';
-import { motion } from 'framer-motion';
-import Link from 'next/link';
+
+import React from "react";
+import { motion } from "framer-motion";
+import Link from "next/link";
+import BlobButton from "@/components/ui/BlobButton";
 
 const YellowDealerBanner: React.FC = () => {
   return (
-    <section 
-      className="relative py-12 select-none overflow-hidden bg-gradient-to-r from-[#F4B400] via-[#F8C025] to-[#F4B400] border-y border-[#D89B00]/30 shadow-sm"
+    <section
+      className="relative py-12 select-none overflow-hidden bg-primary border-y border-primary-hover/30 shadow-sm"
       style={{
         backgroundImage: `
           url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 30c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm-20 0c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0-20c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm20 0c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z' fill='%23d89b00' fill-opacity='0.2' fill-rule='evenodd'/%3E%3C/svg%3E"),
-          linear-gradient(to right, #F4B400, #F8C025, #F4B400)
-        `
+          linear-gradient(to right, hsl(var(--primary)), #F8C025, hsl(var(--primary)))
+        `,
       }}
     >
       {/* Decorative left/right soft glows */}
@@ -25,9 +27,9 @@ const YellowDealerBanner: React.FC = () => {
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="font-heading text-lg md:text-xl lg:text-2xl font-black text-[#111111] uppercase tracking-[0.08em] text-center md:text-left"
+          className="font-heading text-lg md:text-xl lg:text-2xl font-black text-primary-foreground uppercase tracking-wider text-center md:text-left"
         >
-          Find an authorized Mewar Hi-Tech Dealer
+          Find an authorized Keestrack Dealer
         </motion.h3>
 
         {/* Right Button */}
@@ -37,11 +39,10 @@ const YellowDealerBanner: React.FC = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
-          <Link
-            href="/contact"
-            className="inline-flex items-center bg-[#232D39] hover:bg-[#111111] text-white font-extrabold text-xs md:text-sm px-8 py-4 rounded-full uppercase tracking-wider transition-all duration-300 shadow-[0_4px_15px_rgba(0,0,0,0.15)] border border-[#232D39] hover:border-[#111111] hover:scale-103"
-          >
-            <span>Dealer locator</span>
+          <Link href="/contact">
+            <BlobButton variant="secondary" className="!py-3 !px-6 text-xs font-black">
+              Dealer Locator
+            </BlobButton>
           </Link>
         </motion.div>
       </div>

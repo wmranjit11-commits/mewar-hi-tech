@@ -1,37 +1,31 @@
-import React from 'react';
-import Header from '../components/Header';
-import Footer from '../components/Footer';
-import HeroSection from '../components/HeroSection';
-import SectorGrid from '../components/SectorGrid';
-import ExploreMachinesSection from '../components/ExploreMachinesSection';
-import AboutTeaser from '../components/AboutTeaser';
-import ClientLogosMarquee from '../components/ClientLogosMarquee';
-import FlagshipProductsGrid from '../components/FlagshipProductsGrid';
-import YellowDealerBanner from '../components/YellowDealerBanner';
-import RevolutionBanner from '../components/RevolutionBanner';
-import WhyChooseUs from '../components/WhyChooseUs';
-import ServiceNetworkBanner from '../components/ServiceNetworkBanner';
-import InsightsPublicationsSection from '../components/InsightsPublicationsSection';
-import ContactSignupBox from '../components/ContactSignupBox';
+import React from "react";
+import Header from "@/components/layout/Header";
+import Footer from "@/components/layout/Footer";
+import HeroSection from "@/components/home/HeroSection";
+import ExploreMachinesSection from "@/components/home/ExploreMachinesSection";
+import WhyChooseUs from "@/components/home/WhyChooseUs";
+import SectorGrid from "@/components/home/SectorGrid";
+import AboutTeaser from "@/components/home/AboutTeaser";
+import FlagshipProductsGrid from "@/components/home/FlagshipProductsGrid";
 
 export default function Home() {
   return (
     <div>
       <Header />
       <main>
-        <h1 className="sr-only">Mewar Hi-Tech - Industrial Machinery Manufacturer</h1>
+        <h1 className="sr-only">Keestrack - Heavy Duty Crushing &amp; Screening Equipment</h1>
+        {/* 1. Hero: BUILT TO CRUSH. MADE TO LAST. */}
         <HeroSection />
-        <SectorGrid />
+        {/* 2. Explore Our Machines: 4 category cards */}
         <ExploreMachinesSection />
-        <AboutTeaser />
-        <ClientLogosMarquee />
-        <FlagshipProductsGrid />
-        <YellowDealerBanner />
-        <RevolutionBanner />
+        {/* 3. Why Choose Us: 4 icon cards */}
         <WhyChooseUs />
-        <ServiceNetworkBanner />
-        <InsightsPublicationsSection />
-        <ContactSignupBox />
+        {/* 4. Find Your Perfect Machine + 3D Experience */}
+        <SectorGrid />
+        {/* 5. Our Impact: Stats + Catalog */}
+        <AboutTeaser />
+        {/* 6. Brochures & Documents: Download + Videos */}
+        <FlagshipProductsGrid />
       </main>
       <Footer />
     </div>
