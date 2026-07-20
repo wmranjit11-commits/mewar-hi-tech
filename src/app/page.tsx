@@ -13,7 +13,7 @@ export default function Home() {
     <div>
       <Header />
       <main>
-        <h1 className="sr-only">Keestrack - Heavy Duty Crushing &amp; Screening Equipment</h1>
+        <h1 className="sr-only">Mewar Hi-Tech - Heavy Duty Crushing &amp; Screening Equipment</h1>
         {/* 1. Hero: BUILT TO CRUSH. MADE TO LAST. */}
         <HeroSection />
         {/* 2. Explore Our Machines: 4 category cards */}

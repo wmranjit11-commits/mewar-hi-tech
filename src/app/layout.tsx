@@ -10,7 +10,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import '../../styles.css';
 
 export const metadata: Metadata = {
-  title: "Keestrack - Heavy Duty Crushing & Screening Equipment",
+  title: "Mewar Hi-Tech - Heavy Duty Crushing & Screening Equipment",
   description: "Innovative crushing and screening solutions engineered to perform and built to last.",
   icons: {
     icon: "/favicon.ico",

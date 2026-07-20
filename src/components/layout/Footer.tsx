@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
+import { useTheme } from "@/components/ui/ThemeContext";
 
 /* ─── Footer Column Data ─── */
 const footerColumns = [
@@ -80,6 +81,7 @@ const socialLinks = [
 
 const Footer: React.FC = () => {
   const [email, setEmail] = useState("");
+  const { theme } = useTheme();
 
   return (
     <footer className="bg-secondary text-secondary-foreground select-none">
@@ -90,12 +92,13 @@ const Footer: React.FC = () => {
         {/* Column 1: Logo & Info */}
         <div className="w-full sm:w-[45%] lg:w-auto lg:max-w-[200px] space-y-4 shrink-0">
           <Link href="/" className="flex items-center gap-2">
-            <div className="w-8 h-8 bg-primary rounded flex items-center justify-center shrink-0">
-              <span className="text-primary-foreground font-sans font-black text-lg">K</span>
+            <div className={`w-full h-[64px] rounded flex items-center justify-center shrink-0 overflow-hidden ${theme === "dark" ? "" : "bg-white border border-border shadow-sm"}`}>
+              <img
+                src={theme === "dark" ? "/logos/logo-dark.png" : "/logos/logo.png"}
+                alt="Mewar Hi-Tech Logo"
+                className="w-full h-full object-contain"
+              />
             </div>
-            <span className="font-sans font-black text-lg text-secondary-foreground tracking-tight">
-              Keestrack
-            </span>
           </Link>
           <p className="text-secondary-foreground/60 text-xs leading-relaxed">
             Engineered to perform.
@@ -174,7 +177,7 @@ const Footer: React.FC = () => {
           
           {/* Copyright & Sub Links */}
           <div className="flex flex-wrap gap-3 md:gap-5 items-center justify-center md:justify-start">
-            <p>&copy; {new Date().getFullYear()} Keestrack. All rights reserved.</p>
+            <p>&copy; {new Date().getFullYear()} Mewar Hi-Tech. All rights reserved.</p>
             <span className="text-secondary-foreground/20">|</span>
             <Link href="/contact" className="hover:text-secondary-foreground transition-colors">
               Privacy Policy

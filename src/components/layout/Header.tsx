@@ -142,17 +142,15 @@ const Header: React.FC = () => {
         <Link
           href="/"
           className="flex items-center gap-2.5 shrink-0"
-          aria-label="Keestrack home"
+          aria-label="Mewar Hi-Tech home"
         >
-          {/* K icon */}
-          <div className="w-9 h-9 bg-primary rounded-lg flex items-center justify-center">
-            <span className="text-primary-foreground font-heading font-black text-lg">K</span>
+          <div className="w-full h-[64px] rounded flex items-center justify-center shrink-0 overflow-hidden">
+            <img
+              src={theme === "dark" ? "/logos/logo-dark.png" : "/logos/logo.png"}
+              alt="Mewar Hi-Tech Logo"
+              className="w-full h-full object-contain"
+            />
           </div>
-          <span className={`font-heading font-black text-lg tracking-tight hidden sm:block ${
-            theme === "light" ? "text-black" : "text-secondary-foreground"
-          }`}>
-            Keestrack
-          </span>
         </Link>
 
         {/* Center: Desktop Navigation */}
@@ -301,13 +299,17 @@ const Header: React.FC = () => {
                   onClick={() => setOpen(false)}
                   className="flex items-center gap-2"
                 >
-                  <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
-                    <span className="text-primary-foreground font-heading font-black text-base">K</span>
+                  <div className="w-5 lg:w-8 h-8 rounded-lg overflow-hidden flex items-center justify-center">
+                    <img
+                      src={theme === "dark" ? "/logos/logo-dark.png" : "/logos/logo.png"}
+                      alt="Mewar Hi-Tech Logo"
+                      className="w-full h-full object-contain"
+                    />
                   </div>
                   <span className={`font-heading font-black text-base ${
                     theme === "light" ? "text-black" : "text-secondary-foreground"
                   }`}>
-                    Keestrack
+                    Mewar Hi-Tech
                   </span>
                 </Link>
                 <button
