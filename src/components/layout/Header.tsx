@@ -3,77 +3,134 @@
 import React, { useEffect, useState, useRef } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Menu, X, ChevronDown, Search, Globe } from "lucide-react";
+import { Menu, X, ChevronDown, ChevronRight, Search, Globe } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import BlobButton from "@/components/ui/BlobButton";
 import { useTheme } from "@/components/ui/ThemeContext";
+import BrochureModal from "@/components/ui/BrochureModal";
 
 /* ─── Navigation Data ─── */
-const navItems = [
+type NavItemChild = {
+  label: string;
+  to?: string;
+  heading?: boolean;
+  children?: NavItemChild[];
+};
+
+type NavItem = {
+  label: string;
+  to?: string;
+  children?: NavItemChild[];
+};
+
+const navItems: NavItem[] = [
+  { label: "Home", to: "/" },
   {
-    label: "Machines",
+    label: "About",
     children: [
-      { label: "Crushers", to: "/products?category=crushers" },
-      { label: "Screeners", to: "/products?category=screens" },
-      { label: "Stackers", to: "/products" },
-      { label: "Feeders", to: "/products?category=feeders" },
-      { label: "View all Machines", to: "/products" },
-    ],
-  },
-  {
-    label: "Applications",
-    children: [
-      { label: "Quarrying", to: "/industries" },
-      { label: "Mining", to: "/industries" },
-      { label: "Recycling", to: "/industries" },
-      { label: "Road & Infra", to: "/industries" },
-      { label: "View all Applications", to: "/industries" },
-    ],
-  },
-  {
-    label: "Support",
-    children: [
-      { label: "Parts & Services", to: "/services" },
-      { label: "Technical Support", to: "/services" },
-      { label: "Service Network", to: "/services" },
-      { label: "Downloads", to: "/services" },
-      { label: "FAQ", to: "/services" },
-    ],
-  },
-  {
-    label: "Parts & Services",
-    to: "/services",
-  },
-  {
-    label: "About Us",
-    children: [
-      { label: "About Us", to: "/about" },
-      { label: "Careers", to: "/careers" },
-      { label: "News & Media", to: "/blogs" },
-      { label: "Contact Us", to: "/contact" },
-    ],
-  },
-  {
-    label: "News & Media",
-    children: [
-      { label: "Latest News", to: "/blogs" },
+      { label: "About Mewar Hitech", to: "/about" },
       { label: "Events", to: "/events" },
-      { label: "Gallery", to: "/gallery" },
-      { label: "Projects", to: "/projects" },
     ],
   },
+  {
+    label: "Products",
+    children: [
+      { label: "Crusher", heading: true,
+        children: [
+          { label: "Double Toggle Oil Jaw Crusher", to: "/products?category=crushers" },
+          { label: "Single Toggle Grease Jaw Crusher", to: "/products?category=crushers" },
+          { label: "Double Toggle Grease Jaw Crusher", to: "/products?category=crushers" },
+          { label: "Cone Crusher", to: "/products?category=crushers" },
+          { label: "Roll Crusher", to: "/products?category=crushers" },
+        ]
+      },
+      { label: "Impactor", heading: true,
+        children: [
+          { label: "Horizontal Shaft Impactor", to: "/products?category=impactors" },
+          { label: "Vertical Shaft Impactor", to: "/products?category=impactors" },
+          { label: "Sand Making Machine", to: "/products?category=impactors" },
+        ]
+      },
+      { label: "Screen", heading: true,
+        children: [
+          { label: "Vibrating Screen", to: "/products?category=screens" },
+          { label: "Sand Washer", to: "/products?category=screens" },
+          { label: "Belt Conveyor", to: "/products?category=screens" },
+        ]
+      },
+      { label: "Feeder", heading: true,
+        children: [
+          { label: "Vibro Feeder", to: "/products?category=feeders" },
+          { label: "Single Shaft Feeders", to: "/products?category=feeders" },
+        ]
+      },
+    ],
+  },
+  {
+    label: "Projects",
+    children: [
+      { label: "Stationery Projects", to: "/projects" },
+      { label: "Mobile Plants", to: "/projects" },
+      { label: "Track Mounted", to: "/projects" },
+      { label: "Wheel Mounted", to: "/projects" },
+    ],
+  },
+  {
+    label: "Infrastructure",
+    children: [
+      { label: "Manufacturing", to: "/industries" },
+      { label: "Casting", to: "/industries" },
+      { label: "Latest Process Machinery", to: "/industries" },
+      { label: "R & D and Design", to: "/industries" },
+    ],
+  },
+  {
+    label: "Services",
+    children: [
+      { label: "After Sales", to: "/services" },
+      { label: "Spare Parts", to: "/services" },
+      { label: "Erection & Commissioning", to: "/services" },
+    ],
+  },
+  {
+    label: "Investors",
+    children: [
+      { label: "Corporate Governance", to: "/contact" },
+      { label: "Shareholding Pattern", to: "/contact" },
+      { label: "Shareholders Meetings", to: "/contact" },
+      { label: "Board Meeting", to: "/contact" },
+      { label: "Financial Results", to: "/contact" },
+      { label: "Annual Reports", to: "/contact" },
+      { label: "Annual Returns", to: "/contact" },
+      { label: "Shareholder Information", to: "/contact" },
+      { label: "Investor Contacts", to: "/contact" },
+      { label: "Disclosure Under Regulation 46 of LODR", to: "/contact" },
+    ],
+  },
+  { label: "Career", to: "/careers" },
+  { label: "Contact", to: "/contact" },
+  { label: "Brochure", to: "/#brochures" },
 ];
 
 const Header: React.FC = () => {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const [visible, setVisible] = useState(true);
+  const [isBrochureOpen, setIsBrochureOpen] = useState(false);
   const [expandedSubmenu, setExpandedSubmenu] = useState<string | null>(null);
   const pathname = usePathname();
   const { theme, setTheme } = useTheme();
 
   const lastScrollYRef = useRef(0);
   const scrollTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+
+  useEffect(() => {
+    const handleOpenBrochure = () => {
+      setIsBrochureOpen(true);
+    };
+    window.addEventListener("open-brochure-modal", handleOpenBrochure);
+    return () => window.removeEventListener("open-brochure-modal", handleOpenBrochure);
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -144,7 +201,7 @@ const Header: React.FC = () => {
           className="flex items-center gap-2.5 shrink-0"
           aria-label="Mewar Hi-Tech home"
         >
-          <div className="w-full h-[64px] rounded flex items-center justify-center shrink-0 overflow-hidden">
+          <div className="w-[100px] rounded flex items-center justify-center shrink-0 overflow-hidden">
             <img
               src={theme === "dark" ? "/logos/logo-dark.png" : "/logos/logo.png"}
               alt="Mewar Hi-Tech Logo"
@@ -155,49 +212,157 @@ const Header: React.FC = () => {
 
         {/* Center: Desktop Navigation */}
         <nav
-          className="hidden xl:flex items-center gap-1"
+          className="hidden xl:flex items-center gap-0.7"
           aria-label="Primary navigation"
         >
           {navItems.map((item) =>
             item.children ? (
               <div key={item.label} className="relative group py-2">
-                <button className={`text-[13px] font-semibold tracking-wide flex items-center gap-1 px-3 py-1.5 transition-colors duration-200 hover:text-primary ${
-                  theme === "light" ? "text-gray-800" : "text-secondary-foreground/80"
-                }`}>
-                  {item.label}
-                  <ChevronDown
-                    size={13}
-                    className="group-hover:rotate-180 transition-transform duration-200 opacity-50"
-                  />
+                <button
+                  type="button"
+                  className={`text-[13px] font-semibold tracking-wide flex items-center gap-1 px-3 py-1.5 transition-colors duration-200 hover:text-primary ${
+                    theme === "light" ? "text-gray-800" : "text-secondary-foreground/80"
+                  }`}
+                >
+                  <span>{item.label}</span>
+                  {/* <ChevronDown size={13} className="opacity-60 transition-transform duration-200 group-hover:rotate-180" /> */}
                 </button>
-                <div className={`absolute top-full left-0 mt-1 min-w-[220px] w-max border shadow-xl rounded-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50 py-2 ${
-                  theme === "light"
-                    ? "bg-white border-gray-200"
-                    : "bg-secondary border-border/30"
-                }`}>
-                  {item.children.map((child) => (
-                    <Link
-                      key={child.label}
-                      href={child.to}
-                      className={`block px-5 py-2.5 text-[13px] hover:bg-primary/10 hover:text-primary transition-colors whitespace-nowrap font-medium ${
-                        theme === "light"
-                          ? "text-gray-700"
-                          : "text-secondary-foreground/70"
-                      }`}
-                    >
-                      {child.label}
-                    </Link>
-                  ))}
-                </div>
+
+                {item.label === "Products" ? (
+                  /* Horizontal Mega Menu Dropdown for Products */
+                  <div
+                    className={`absolute top-full left-[-100px] mt-1 border shadow-2xl rounded-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50 p-7 w-[750px] max-w-[calc(100vw-48px)] ${
+                      theme === "light"
+                        ? "bg-white border-gray-200/80 text-gray-900"
+                        : "bg-secondary border-border/30 text-white"
+                    }`}
+                  >
+                    <div className="grid grid-cols-3 gap-8">
+                      {/* Column 1: Crusher */}
+                      {item.children.filter((c) => c.label.toLowerCase() === "crusher").map((group) => (
+                        <div key={group.label} className="flex flex-col gap-3">
+                          <h4 className={`text-[13px] font-bold uppercase tracking-wider px-3 ${
+                            theme === "light" ? "text-gray-900" : "text-gray-100"
+                          }`}>
+                            {group.label}
+                          </h4>
+                          <div className="flex flex-col gap-0.5">
+                            {group.children?.map((sub) => (
+                              <Link
+                                key={sub.label}
+                                href={sub.to ?? "/products"}
+                                className={`block px-3 py-1.5 rounded-lg text-[13px] font-medium transition-colors ${
+                                  theme === "light"
+                                    ? "text-gray-700 hover:bg-gray-100/80 hover:text-primary"
+                                    : "text-secondary-foreground/80 hover:bg-white/5 hover:text-primary"
+                                }`}
+                              >
+                                {sub.label}
+                              </Link>
+                            ))}
+                          </div>
+                        </div>
+                      ))}
+
+                      {/* Column 2: Impactor + Feeder */}
+                      <div className="flex flex-col gap-6">
+                        {item.children.filter((c) => c.label.toLowerCase() === "impactor" || c.label.toLowerCase() === "feeder").map((group) => (
+                          <div key={group.label} className="flex flex-col gap-3">
+                            <h4 className={`text-[13px] font-bold uppercase tracking-wider px-3 ${
+                              theme === "light" ? "text-gray-900" : "text-gray-100"
+                            }`}>
+                              {group.label}
+                            </h4>
+                            <div className="flex flex-col gap-0.5">
+                              {group.children?.map((sub) => (
+                                <Link
+                                  key={sub.label}
+                                  href={sub.to ?? "/products"}
+                                  className={`block px-3 py-1.5 rounded-lg text-[13px] font-medium transition-colors ${
+                                    theme === "light"
+                                      ? "text-gray-700 hover:bg-gray-100/80 hover:text-primary"
+                                      : "text-secondary-foreground/80 hover:bg-white/5 hover:text-primary"
+                                  }`}
+                                >
+                                  {sub.label}
+                                </Link>
+                              ))}
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+
+                      {/* Column 3: Screen */}
+                      {item.children.filter((c) => c.label.toLowerCase() === "screen").map((group) => (
+                        <div key={group.label} className="flex flex-col gap-3">
+                          <h4 className={`text-[13px] font-bold uppercase tracking-wider px-3 ${
+                            theme === "light" ? "text-gray-900" : "text-gray-100"
+                          }`}>
+                            {group.label}
+                          </h4>
+                          <div className="flex flex-col gap-0.5">
+                            {group.children?.map((sub) => (
+                              <Link
+                                key={sub.label}
+                                href={sub.to ?? "/products"}
+                                className={`block px-3 py-1.5 rounded-lg text-[13px] font-medium transition-colors ${
+                                  theme === "light"
+                                    ? "text-gray-700 hover:bg-gray-100/80 hover:text-primary"
+                                    : "text-secondary-foreground/80 hover:bg-white/5 hover:text-primary"
+                                }`}
+                              >
+                                {sub.label}
+                              </Link>
+                            ))}
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                ) : (
+                  /* Standard Vertical Single-Column Dropdown */
+                  <div
+                    className={`absolute top-full left-0 mt-1 border shadow-xl rounded-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50 py-2 px-1 min-w-[220px] max-w-[280px] ${
+                      theme === "light"
+                        ? "bg-white border-gray-200/80"
+                        : "bg-secondary border-border/30"
+                    }`}
+                  >
+                    <div className="flex flex-col gap-0.5">
+                      {item.children.map((child) => (
+                        <Link
+                          key={child.label}
+                          href={child.to ?? "/"}
+                          className={`block px-3.5 py-2 rounded-lg text-[13px] font-medium transition-colors ${
+                            theme === "light"
+                              ? "text-gray-700 hover:bg-gray-100/80 hover:text-primary"
+                              : "text-secondary-foreground/80 hover:bg-white/5 hover:text-primary"
+                          }`}
+                        >
+                          {child.label}
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+                )}
               </div>
+            ) : item.label === "Brochure" ? (
+              <button
+                key={item.label}
+                type="button"
+                onClick={() => setIsBrochureOpen(true)}
+                className={`text-[13px] font-semibold tracking-wide px-3 py-1.5 transition-colors duration-200 hover:text-primary ${
+                  theme === "light" ? "text-gray-800" : "text-secondary-foreground/80"
+                }`}
+              >
+                {item.label}
+              </button>
             ) : (
               <Link
                 key={item.label}
-                href={item.to!}
+                href={item.to ?? "/"}
                 className={`text-[13px] font-semibold tracking-wide px-3 py-1.5 transition-colors duration-200 hover:text-primary ${
-                  theme === "light"
-                    ? pathname === item.to ? "text-primary" : "text-gray-800"
-                    : pathname === item.to ? "text-primary" : "text-secondary-foreground/80"
+                  theme === "light" ? "text-gray-800" : "text-secondary-foreground/80"
                 }`}
               >
                 {item.label}
@@ -207,7 +372,7 @@ const Header: React.FC = () => {
         </nav>
 
         {/* Right side: Icons + Theme + CTA */}
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-1">
           {/* Theme toggle pills */}
           <div className="hidden lg:flex items-center gap-1.5 mr-1">
             {themes.map((t) => (
@@ -225,27 +390,12 @@ const Header: React.FC = () => {
             ))}
           </div>
 
-          {/* Globe / Language */}
-          <button className={`hidden lg:flex items-center gap-1 hover:text-primary transition-colors p-1.5 ${
-            theme === "light" ? "text-gray-700" : "text-secondary-foreground/60"
-          }`}>
-            <Globe size={16} strokeWidth={1.5} />
-            <span className="text-[11px] font-bold uppercase">EN</span>
-          </button>
-
-          {/* Search */}
-          <button className={`hidden lg:flex hover:text-primary transition-colors p-1.5 ${
-            theme === "light" ? "text-gray-700" : "text-secondary-foreground/60"
-          }`}>
-            <Search size={16} strokeWidth={1.5} />
-          </button>
-
           {/* Contact CTA */}
           <div className="hidden lg:block">
             <Link href="/contact">
               <BlobButton
                 variant="primary"
-                className="!py-2 !px-5 !text-[11px] !font-black"
+                className="!py-2.5 !px-5 ml-1 !text-[11px] !font-black"
               >
                 Contact Us
               </BlobButton>
@@ -267,120 +417,121 @@ const Header: React.FC = () => {
       </div>
     </header>
 
-    {/* ─── Mobile Drawer ─── */}
+    {/* Mobile Slide-out Drawer */}
     <AnimatePresence>
-        {open && (
+      {open && (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.2 }}
+          className="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm xl:hidden"
+          onClick={() => setOpen(false)}
+        >
           <motion.div
-            className="fixed inset-0 z-[60] bg-black/60 backdrop-blur-sm"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            onClick={() => setOpen(false)}
+            initial={{ x: "100%" }}
+            animate={{ x: 0 }}
+            exit={{ x: "100%" }}
+            transition={{ type: "spring", damping: 25, stiffness: 200 }}
+            className={`absolute top-0 right-0 w-[300px] sm:w-[340px] h-full shadow-2xl flex flex-col justify-between ${
+              theme === "light" ? "bg-white text-gray-900" : "bg-secondary text-secondary-foreground"
+            }`}
+            onClick={(e) => e.stopPropagation()}
           >
-            <motion.div
-              role="dialog"
-              aria-modal="true"
-              aria-label="Mobile navigation"
-              className={`absolute right-0 top-0 bottom-0 w-full max-w-xs shadow-2xl flex flex-col overflow-hidden ${
-                theme === "light" ? "bg-white border-l border-gray-100" : "bg-secondary"
-              }`}
-              initial={{ x: "110%" }}
-              animate={{ x: 0 }}
-              exit={{ x: "110%" }}
-              transition={{ type: "spring", damping: 25, stiffness: 200 }}
-              onClick={(e) => e.stopPropagation()}
-            >
-              {/* Drawer header */}
-              <div className={`flex items-center justify-between px-6 h-16 border-b ${
-                theme === "light" ? "border-gray-150" : "border-border/20"
-              }`}>
-                <Link
-                  href="/"
-                  onClick={() => setOpen(false)}
-                  className="flex items-center gap-2"
-                >
-                  <div className="w-5 lg:w-8 h-8 rounded-lg overflow-hidden flex items-center justify-center">
-                    <img
-                      src={theme === "dark" ? "/logos/logo-dark.png" : "/logos/logo.png"}
-                      alt="Mewar Hi-Tech Logo"
-                      className="w-full h-full object-contain"
-                    />
-                  </div>
-                  <span className={`font-heading font-black text-base ${
-                    theme === "light" ? "text-black" : "text-secondary-foreground"
-                  }`}>
-                    Mewar Hi-Tech
-                  </span>
-                </Link>
-                <button
-                  aria-label="Close menu"
-                  onClick={() => setOpen(false)}
-                  className={`p-2 rounded-lg hover:bg-black/5 ${
-                    theme === "light" ? "text-gray-800" : "text-secondary-foreground hover:text-primary"
-                  }`}
-                >
-                  <X size={20} />
-                </button>
-              </div>
-
-              {/* Drawer nav links */}
-              <nav
-                className="flex flex-col p-4 gap-1 overflow-y-auto flex-1"
-                aria-label="Mobile primary navigation"
+            {/* Drawer Header */}
+            <div className={`p-4 flex items-center justify-between border-b ${
+              theme === "light" ? "border-gray-150" : "border-border/20"
+            }`}>
+              <Link
+                href="/"
+                onClick={() => setOpen(false)}
+                className="flex items-center gap-2"
               >
-                {/* Theme selector for mobile */}
-                <div className="flex items-center gap-2 px-4 py-3 mb-2">
-                  <span className="text-[10px] font-bold uppercase tracking-wider text-muted-foreground mr-2">Theme</span>
-                  {themes.map((t) => (
-                    <button
-                      key={t.key}
-                      onClick={() => setTheme(t.key)}
-                      className={`w-6 h-6 rounded-full transition-all ${t.color} ${
-                        theme === t.key
-                          ? "ring-2 ring-primary ring-offset-1 ring-offset-secondary scale-110"
-                          : "opacity-50"
-                      }`}
-                      aria-label={`Switch to ${t.label} theme`}
-                    />
-                  ))}
+                <div className="w-28 h-8 rounded overflow-hidden flex items-center justify-center">
+                  <img
+                    src={theme === "dark" ? "/logos/logo-dark.png" : "/logos/logo.png"}
+                    alt="Mewar Hi-Tech Logo"
+                    className="w-full h-full object-contain"
+                  />
                 </div>
+              </Link>
+              <button
+                aria-label="Close menu"
+                onClick={() => setOpen(false)}
+                className="p-1.5 rounded-lg hover:bg-black/5 dark:hover:bg-white/10 transition-colors text-muted-foreground hover:text-foreground"
+              >
+                <X size={20} />
+              </button>
+            </div>
 
-                {navItems.map((item) => {
-                  const hasChildren = !!item.children;
-                  const isExpanded = expandedSubmenu === item.label;
+            {/* Navigation links inside drawer */}
+            <nav className="flex-1 overflow-y-auto py-4 px-2 space-y-1">
+              {navItems.map((item) => {
+                const isExpanded = expandedSubmenu === item.label;
 
-                  return (
-                    <div key={item.label} className="border-b border-border/5 last:border-b-0">
-                      {hasChildren ? (
-                        <>
-                          <button
-                            onClick={() => setExpandedSubmenu(isExpanded ? null : item.label)}
-                            className={`w-full px-4 py-3 flex items-center justify-between text-sm font-bold transition-colors uppercase tracking-wider text-left ${
-                              theme === "light" ? "text-gray-800 hover:text-primary" : "text-secondary-foreground hover:text-primary"
+                return (
+                  <div key={item.label} className="rounded-lg overflow-hidden">
+                    {item.children ? (
+                      <>
+                        <button
+                          type="button"
+                          onClick={() =>
+                            setExpandedSubmenu(isExpanded ? null : item.label)
+                          }
+                          className={`w-full px-4 py-3 flex items-center justify-between text-sm font-bold uppercase tracking-wider transition-colors ${
+                            theme === "light"
+                              ? "text-gray-800 hover:text-primary"
+                              : "text-secondary-foreground hover:text-primary"
+                          }`}
+                        >
+                          <span>{item.label}</span>
+                          <ChevronRight
+                            size={16}
+                            className={`transition-transform duration-200 ${
+                              isExpanded ? "rotate-90 text-primary" : "text-muted-foreground"
                             }`}
-                          >
-                            <span>{item.label}</span>
-                            <ChevronDown
-                              size={14}
-                              className={`transform transition-transform duration-200 opacity-60 ${
-                                isExpanded ? "rotate-180 text-primary" : ""
-                              }`}
-                            />
-                          </button>
-                          <AnimatePresence initial={false}>
-                            {isExpanded && (
-                              <motion.div
-                                initial={{ height: 0, opacity: 0 }}
-                                animate={{ height: "auto", opacity: 1 }}
-                                exit={{ height: 0, opacity: 0 }}
-                                transition={{ duration: 0.2, ease: "easeInOut" }}
-                                className="overflow-hidden bg-black/[0.03]"
-                              >
-                                <div className="py-2 pl-4 flex flex-col gap-1">
-                                  {item.children!.map((child) => (
+                          />
+                        </button>
+
+                        <AnimatePresence>
+                          {isExpanded && (
+                            <motion.div
+                              initial={{ height: 0, opacity: 0 }}
+                              animate={{ height: "auto", opacity: 1 }}
+                              exit={{ height: 0, opacity: 0 }}
+                              transition={{ duration: 0.2, ease: "easeInOut" }}
+                              className="overflow-hidden bg-black/[0.03]"
+                            >
+                              <div className="py-2 pl-4 flex flex-col gap-1">
+                                {item.children!.map((child) => (
+                                  child.children ? (
+                                    <div key={child.label} className="mt-2 mb-1">
+                                      <div className={`px-4 py-1 text-xs font-bold uppercase tracking-wider ${
+                                        theme === "light" ? "text-gray-900" : "text-secondary-foreground"
+                                      }`}>
+                                        {child.label}
+                                      </div>
+                                      <div className="pl-2 flex flex-col gap-0.5">
+                                        {child.children.map((sub) => (
+                                          <Link
+                                            key={sub.label}
+                                            href={sub.to ?? "/products"}
+                                            onClick={() => setOpen(false)}
+                                            className={`px-4 py-1.5 text-xs font-semibold uppercase tracking-wider transition-colors block ${
+                                              theme === "light"
+                                                ? "text-gray-600 hover:text-primary"
+                                                : "text-secondary-foreground/70 hover:text-primary"
+                                            }`}
+                                          >
+                                            {sub.label}
+                                          </Link>
+                                        ))}
+                                      </div>
+                                    </div>
+                                  ) : (
                                     <Link
                                       key={child.label}
-                                      href={child.to}
+                                      href={child.to ?? "/"}
                                       onClick={() => setOpen(false)}
                                       className={`px-4 py-2 text-xs font-semibold uppercase tracking-wider transition-colors block ${
                                         theme === "light"
@@ -390,29 +541,46 @@ const Header: React.FC = () => {
                                     >
                                       {child.label}
                                     </Link>
-                                  ))}
-                                </div>
-                              </motion.div>
-                            )}
-                          </AnimatePresence>
-                        </>
-                      ) : (
-                        <Link
-                          href={item.to!}
-                          onClick={() => setOpen(false)}
-                          className={`px-4 py-3 text-sm font-bold uppercase tracking-wider transition-colors block ${
-                            theme === "light"
-                              ? "text-gray-800 hover:text-primary"
-                              : "text-secondary-foreground hover:text-primary"
-                          }`}
-                        >
-                          {item.label}
-                        </Link>
-                      )}
-                    </div>
-                  );
-                })}
-              </nav>
+                                  )
+                                ))}
+                              </div>
+                            </motion.div>
+                          )}
+                        </AnimatePresence>
+                      </>
+                    ) : item.label === "Brochure" ? (
+                      <button
+                        key={item.label}
+                        type="button"
+                        onClick={() => {
+                          setOpen(false);
+                          setIsBrochureOpen(true);
+                        }}
+                        className={`w-full px-4 py-3 text-sm font-bold uppercase tracking-wider transition-colors text-left block ${
+                          theme === "light"
+                            ? "text-gray-800 hover:text-primary"
+                            : "text-secondary-foreground hover:text-primary"
+                        }`}
+                      >
+                        {item.label}
+                      </button>
+                    ) : (
+                      <Link
+                        href={item.to ?? "/"}
+                        onClick={() => setOpen(false)}
+                        className={`px-4 py-3 text-sm font-bold uppercase tracking-wider transition-colors block ${
+                          theme === "light"
+                            ? "text-gray-800 hover:text-primary"
+                            : "text-secondary-foreground hover:text-primary"
+                        }`}
+                      >
+                        {item.label}
+                      </Link>
+                    )}
+                  </div>
+                );
+              })}
+            </nav>
 
             {/* Drawer footer CTA */}
             <div className={`p-4 border-t ${
@@ -435,6 +603,12 @@ const Header: React.FC = () => {
         </motion.div>
       )}
     </AnimatePresence>
+
+    {/* Brochure Download Popup Modal */}
+    <BrochureModal
+      isOpen={isBrochureOpen}
+      onClose={() => setIsBrochureOpen(false)}
+    />
   </>
   );
 };

@@ -1,176 +1,458 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import {
+  Calendar,
+  MapPin,
+  Award,
+  ArrowRight,
+  X,
+  ChevronLeft,
+  ChevronRight,
+  ShieldCheck,
+  Globe2,
+  Maximize2,
+  CheckCircle2,
+} from "lucide-react";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
-import { motion } from "framer-motion";
-import { Calendar, MapPin, Award, ArrowRight } from "lucide-react";
+import PageHero from "@/components/layout/PageHero";
+import BlobButton from "@/components/ui/BlobButton";
 import Link from "next/link";
 
-const upcomingEvents = [
-  {
-    title: "EXCON 2026",
-    date: "December 12 - 16, 2026",
-    location: "BIEC, Bangalore, India",
-    desc: "South Asia’s largest construction equipment and technology trade show. Visit our stall to witness live machinery demonstrations.",
-  },
-  {
-    title: "BAUMA 2026",
-    date: "April 07 - 13, 2026",
-    location: "Munich, Germany",
-    desc: "The world’s leading trade fair for construction machinery, building material machines, mining machines, and construction vehicles.",
-  },
-];
+interface EventItem {
+  id: number;
+  title: string;
+  year: string;
+  location: string;
+  category: "India Expos" | "International Expos";
+  image: string;
+  description: string;
+}
 
-const pastExpos = [
+const EVENTS: EventItem[] = [
   {
-    title: "IMME 2024",
-    date: "November 2024",
+    id: 1,
+    title: "Excon 2013",
+    year: "2013",
+    location: "Bangalore, India",
+    category: "India Expos",
+    image: "/images/events-1.jpg",
+    description:
+      "Showcased heavy-duty mobile jaw crushers and vibratory screeners at South Asia's premier construction equipment exhibition.",
+  },
+  {
+    id: 2,
+    title: "Bauma Noida 2014",
+    year: "2014",
+    location: "Greater Noida, India",
+    category: "India Expos",
+    image: "/images/events-2.jpg",
+    description:
+      "Unveiled next-generation tracked cone crushers and high-capacity feeders to international mining stakeholders.",
+  },
+  {
+    id: 3,
+    title: "Construction Expo Colombo 2014",
+    year: "2014",
+    location: "Colombo, Sri Lanka",
+    category: "International Expos",
+    image: "/images/events-3.jpg",
+    description:
+      "Expanded our footprint across South Asia presenting complete quarry aggregate plant setups and technical support.",
+  },
+  {
+    id: 4,
+    title: "Ispe Brazil 2015",
+    year: "2015",
+    location: "São Paulo, Brazil",
+    category: "International Expos",
+    image: "/images/events-4.jpg",
+    description:
+      "Demonstrated robust mining machinery engineering for South American mineral processing and crushing contracts.",
+  },
+  {
+    id: 5,
+    title: "Nepal Buildcon 2015",
+    year: "2015",
+    location: "Kathmandu, Nepal",
+    category: "International Expos",
+    image: "/images/events-5.jpg",
+    description:
+      "Brought high-efficiency mobile crushing plants and sand washers to Himalayan infrastructure development projects.",
+  },
+  {
+    id: 6,
+    title: "Bauma Conexpo 2016",
+    year: "2016",
+    location: "Gurgaon, India",
+    category: "India Expos",
+    image: "/images/events-6.jpg",
+    description:
+      "Exhibited our flag-bearer single-toggle and double-toggle jaw crushing technology to aggregate producers.",
+  },
+  {
+    id: 7,
+    title: "Conmac Guwahati 2017",
+    year: "2017",
+    location: "Guwahati, Assam, India",
+    category: "India Expos",
+    image: "/images/events-7.jpg",
+    description:
+      "Displayed specialized stone size-reduction equipment tailored for North-East Indian mining and quarry conditions.",
+  },
+  {
+    id: 8,
+    title: "IMME Dubai Exhibition",
+    year: "2018",
+    location: "Dubai, UAE",
+    category: "International Expos",
+    image: "/images/events-8.jpg",
+    description:
+      "Middle East heavy machinery trade fair highlighting high-tonnage aggregate crushers, screening plants, and conveyors.",
+  },
+  {
+    id: 9,
+    title: "IMME Kolkata",
+    year: "2022",
     location: "Kolkata, India",
-    desc: "Showcased our latest heavy-duty crushing and screening technology for mining sectors.",
+    category: "India Expos",
+    image: "/images/events-9.jpg",
+    description:
+      "International Mining & Machinery Exhibition presenting industrial foundry castings and heavy crawler crushers.",
   },
   {
-    title: "MINEXPO International 2024",
-    date: "September 2024",
-    location: "Las Vegas, USA",
-    desc: "Connected with global partners and introduced the Kingson brand to North American mining operations.",
+    id: 10,
+    title: "Bauma Conexpo 2024",
+    year: "2024",
+    location: "Greater Noida, India",
+    category: "India Expos",
+    image: "/images/events-10.jpg",
+    description:
+      "Our flagship booth displaying our latest zero-emission electric-drive crusher and screener innovations.",
   },
 ];
 
-const EventsPage: React.FC = () => {
+const CATEGORIES = ["All", "India Expos", "International Expos"] as const;
+
+export default function EventsPage() {
+  const [activeCategory, setActiveCategory] = useState<string>("All");
+  const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
+
+  const filteredEvents =
+    activeCategory === "All"
+      ? EVENTS
+      : EVENTS.filter((item) => item.category === activeCategory);
+
+  const openLightbox = (index: number) => {
+    setLightboxIndex(index);
+  };
+
+  const closeLightbox = () => {
+    setLightboxIndex(null);
+  };
+
+  const nextLightbox = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    if (lightboxIndex !== null) {
+      setLightboxIndex((lightboxIndex + 1) % filteredEvents.length);
+    }
+  };
+
+  const prevLightbox = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    if (lightboxIndex !== null) {
+      setLightboxIndex(
+        (lightboxIndex - 1 + filteredEvents.length) % filteredEvents.length
+      );
+    }
+  };
+
   return (
     <div className="bg-background min-h-screen text-foreground select-none flex flex-col justify-between">
       <Header />
 
-      <main className="pt-28 flex-grow">
-        {/* Page Hero */}
-        <section className="bg-secondary py-16 lg:py-24 text-center relative overflow-hidden">
-          <div className="absolute inset-0 opacity-15">
-            <img src="/images/hero_crusher.png" alt="" className="w-full h-full object-cover" />
-          </div>
-          <div className="max-w-[1400px] mx-auto px-6 lg:px-8 relative z-10">
-            <motion.span
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              className="text-primary font-bold text-xs tracking-widest uppercase block"
-            >
-              Events
-            </motion.span>
-            <motion.h1
-              initial={{ opacity: 0, y: 15 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.1 }}
-              className="font-heading text-3xl sm:text-5xl font-black uppercase mt-3 mb-6 text-secondary-foreground"
-            >
-              Exhibitions &amp; Industry Expos
-            </motion.h1>
-            <motion.p
-              initial={{ opacity: 0, y: 15 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2 }}
-              className="text-secondary-foreground/75 text-sm sm:text-base max-w-2xl mx-auto leading-relaxed font-medium"
-            >
-              Catch us live at international mining, construction, and heavy machinery exhibitions. Discover our products and speak directly with our engineering specialists.
-            </motion.p>
+      <main>
+        {/* ── 1. Page Hero ── */}
+        <PageHero
+          label="Events &amp; Exhibitions"
+          title="Global Industry Presence &amp; Expos"
+          description="Connecting with mining leaders, infrastructure developers, and aggregate producers across world-class trade fairs and global industrial expos."
+          image="/images/slider/about-mewar-hi-tech3.jpg"
+        />
+
+        {/* ── 2. Commitment & Value Pillars ── */}
+        <section className="py-16 lg:py-20 bg-background border-b border-border">
+          <div className="max-w-7xl mx-auto px-6 lg:px-8 space-y-12">
+            
+            <div className="max-w-3xl space-y-3">
+              <span className="text-primary font-bold text-xs uppercase tracking-widest block">
+                Our Global Exhibitions
+              </span>
+              <h2 className="font-heading text-3xl sm:text-4xl font-black text-foreground uppercase tracking-tight leading-tight">
+                Engineering Value &amp; Global Trade Fairs
+              </h2>
+              <p className="text-muted-foreground text-sm sm:text-base leading-relaxed font-normal">
+                Mewar Hi-Tech is profoundly dedicated to offering high-performance crushing machinery and prompt technical support. Every single action is carefully created to give genuine incentive and long-term reliability to our clients.
+              </p>
+            </div>
+
+            {/* Quality Commitment Cards */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              
+              <div className="p-6 rounded-3xl bg-card border border-border shadow-sm space-y-3 hover:border-primary/50 transition-colors">
+                <div className="w-12 h-12 rounded-2xl bg-primary/10 border border-primary/20 flex items-center justify-center text-primary">
+                  <ShieldCheck size={24} />
+                </div>
+                <h3 className="font-heading text-lg font-black text-foreground uppercase tracking-wide">
+                  Repair, Replace &amp; Return
+                </h3>
+                <p className="text-xs text-muted-foreground leading-relaxed font-medium">
+                  Assurance of machine build quality, credible contracts, and immediate engineering response to resolve technical issues promptly.
+                </p>
+              </div>
+
+              <div className="p-6 rounded-3xl bg-card border border-border shadow-sm space-y-3 hover:border-primary/50 transition-colors">
+                <div className="w-12 h-12 rounded-2xl bg-primary/10 border border-primary/20 flex items-center justify-center text-primary">
+                  <Globe2 size={24} />
+                </div>
+                <h3 className="font-heading text-lg font-black text-foreground uppercase tracking-wide">
+                  Global Expo Network
+                </h3>
+                <p className="text-xs text-muted-foreground leading-relaxed font-medium">
+                  Exhibiting continuously across India, Brazil, UAE, Sri Lanka, Nepal, and Germany to showcase next-generation crushing setups.
+                </p>
+              </div>
+
+              <div className="p-6 rounded-3xl bg-card border border-border shadow-sm space-y-3 hover:border-primary/50 transition-colors">
+                <div className="w-12 h-12 rounded-2xl bg-primary/10 border border-primary/20 flex items-center justify-center text-primary">
+                  <CheckCircle2 size={24} />
+                </div>
+                <h3 className="font-heading text-lg font-black text-foreground uppercase tracking-wide">
+                  48-Hour On-Site Support
+                </h3>
+                <p className="text-xs text-muted-foreground leading-relaxed font-medium">
+                  We reach within 48 hours anywhere in India and within 7 days to anywhere on the planet for installation &amp; servicing.
+                </p>
+              </div>
+
+            </div>
+
           </div>
         </section>
 
-        {/* Upcoming Exhibitions */}
-        <section className="py-16 lg:py-24 bg-background">
-          <div className="max-w-[1400px] mx-auto px-6 lg:px-8">
-            <h2 className="font-heading text-2xl lg:text-3xl font-black text-foreground uppercase tracking-wide mb-12 text-center">
-              Upcoming Exhibitions
-            </h2>
+        {/* ── 3. Exhibitions Gallery & Filter Tabs ── */}
+        <section className="py-16 lg:py-24 bg-muted/40 border-b border-border">
+          <div className="max-w-7xl mx-auto px-6 lg:px-8 space-y-10">
+            
+            <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
+              <div>
+                <span className="text-primary font-bold text-xs uppercase tracking-widest block mb-1">
+                  Photo Showcase
+                </span>
+                <h2 className="font-heading text-3xl sm:text-4xl font-black text-foreground uppercase tracking-tight">
+                  Exhibition Gallery ({filteredEvents.length})
+                </h2>
+              </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              {upcomingEvents.map((ex, index) => (
+              {/* Category Filter Pills */}
+              <div className="flex flex-wrap gap-2">
+                {CATEGORIES.map((cat) => (
+                  <button
+                    key={cat}
+                    onClick={() => setActiveCategory(cat)}
+                    className={`px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider transition-all duration-200 ${
+                      activeCategory === cat
+                        ? "bg-primary text-white shadow-lg shadow-primary/25 scale-105"
+                        : "bg-card border border-border text-muted-foreground hover:text-foreground hover:bg-muted"
+                    }`}
+                  >
+                    {cat}
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            {/* Event Photo Cards Grid */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              {filteredEvents.map((item, index) => (
                 <motion.div
-                  key={ex.title}
+                  key={item.id}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ duration: 0.6, delay: index * 0.1 }}
-                  className="border border-border p-8 rounded-2xl bg-card shadow-sm hover:shadow-md transition-shadow relative overflow-hidden flex flex-col justify-between min-h-[250px]"
+                  transition={{ duration: 0.4, delay: index * 0.05 }}
+                  onClick={() => openLightbox(index)}
+                  className="group bg-card border border-border rounded-3xl overflow-hidden shadow-md hover:shadow-2xl hover:border-primary/50 transition-all duration-300 cursor-pointer flex flex-col justify-between"
                 >
-                  <div className="absolute top-0 left-0 right-0 h-[3px] bg-primary" />
-                  
-                  <div className="space-y-4">
-                    <div className="flex flex-wrap gap-4 text-xs font-semibold text-muted-foreground">
-                      <span className="flex items-center gap-1">
+                  {/* Image Container with Hover Zoom */}
+                  <div className="relative h-56 sm:h-60 w-full overflow-hidden bg-black/10">
+                    <img
+                      src={item.image}
+                      alt={item.title}
+                      className="w-full h-full object-cover object-center group-hover:scale-110 transition-transform duration-500"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-70 group-hover:opacity-90 transition-opacity" />
+
+                    {/* Top Badges */}
+                    <div className="absolute top-4 left-4 right-4 flex items-center justify-between z-10">
+                      <span className="px-3 py-1 rounded-full bg-black/60 backdrop-blur-md text-white border border-white/20 text-[10px] font-bold uppercase tracking-wider flex items-center gap-1">
                         <Calendar size={12} className="text-primary" />
-                        {ex.date}
+                        <span>{item.year}</span>
                       </span>
-                      <span className="flex items-center gap-1">
-                        <MapPin size={12} className="text-primary" />
-                        {ex.location}
+                      <span className="w-8 h-8 rounded-full bg-primary/90 text-white flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
+                        <Maximize2 size={14} />
                       </span>
                     </div>
 
-                    <h3 className="font-heading font-black text-xl text-foreground uppercase">
-                      {ex.title}
-                    </h3>
-                    
-                    <p className="text-muted-foreground text-xs leading-relaxed max-w-xl">
-                      {ex.desc}
-                    </p>
+                    {/* Bottom Title inside Image */}
+                    <div className="absolute bottom-4 left-4 right-4 text-white z-10">
+                      <div className="flex items-center gap-1.5 text-primary font-bold text-[11px] uppercase tracking-wider mb-1">
+                        <MapPin size={13} />
+                        <span>{item.location}</span>
+                      </div>
+                      <h3 className="font-heading text-lg font-black uppercase tracking-wide leading-tight">
+                        {item.title}
+                      </h3>
+                    </div>
                   </div>
 
-                  <Link
-                    href="/contact"
-                    className="inline-flex items-center gap-1.5 text-xs font-bold text-primary hover:text-primary-hover uppercase tracking-wider transition-colors mt-6"
-                  >
-                    <span>Schedule a meeting</span>
-                    <ArrowRight size={12} />
-                  </Link>
+                  {/* Card Body Description */}
+                  <div className="p-5 space-y-3 flex-1 flex flex-col justify-between">
+                    <p className="text-xs text-muted-foreground leading-relaxed font-medium line-clamp-2">
+                      {item.description}
+                    </p>
+
+                    <div className="pt-2 border-t border-border/60 flex items-center justify-between text-xs font-bold text-primary group-hover:text-foreground transition-colors uppercase tracking-wider">
+                      <span>View Exhibition Photo</span>
+                      <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
+                    </div>
+                  </div>
                 </motion.div>
               ))}
             </div>
+
           </div>
         </section>
 
-        {/* Past Expos */}
-        <section className="py-16 lg:py-24 bg-muted border-t border-border/30">
-          <div className="max-w-[1400px] mx-auto px-6 lg:px-8">
-            <h2 className="font-heading text-2xl lg:text-3xl font-black text-foreground uppercase tracking-wide mb-12 text-center">
-              Where We&apos;ve Been
-            </h2>
+        {/* ── 4. Next Exhibition Meeting CTA Section ── */}
+        <section className="py-16 lg:py-20 bg-background border-b border-border">
+          <div className="max-w-7xl mx-auto px-6 lg:px-8">
+            <div className="p-8 sm:p-12 rounded-3xl bg-secondary text-secondary-foreground shadow-2xl border border-border/30 relative overflow-hidden flex flex-col lg:flex-row lg:items-center justify-between gap-8">
+              <div className="absolute top-0 right-0 w-64 h-64 bg-primary/10 rounded-full blur-3xl pointer-events-none" />
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              {pastExpos.map((ex, index) => (
-                <motion.div
-                  key={ex.title}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.6, delay: index * 0.1 }}
-                  className="bg-card border border-border p-8 rounded-2xl shadow-sm flex flex-col justify-between min-h-[220px]"
-                >
-                  <div className="space-y-3">
-                    <div className="flex items-center gap-2 text-xs font-semibold text-muted-foreground">
-                      <Award size={12} className="text-primary" />
-                      <span>{ex.date}</span>
-                      <span>&bull;</span>
-                      <span>{ex.location}</span>
-                    </div>
+              <div className="space-y-3 max-w-2xl">
+                <span className="text-primary font-bold text-xs uppercase tracking-widest block">
+                  Connect With Our Engineers
+                </span>
+                <h3 className="font-heading text-2xl sm:text-4xl font-black uppercase tracking-tight text-white">
+                  Meet Us At The Next Global Industrial Expo
+                </h3>
+                <p className="text-xs sm:text-sm text-gray-300 font-medium leading-relaxed">
+                  Planning to visit our booth or need personalized machinery consultation for your aggregate quarry? Schedule an appointment with our Managing Director &amp; Technical Sales Team.
+                </p>
+              </div>
 
-                    <h3 className="font-heading font-black text-lg text-foreground uppercase">
-                      {ex.title}
-                    </h3>
-                    
-                    <p className="text-muted-foreground text-xs leading-relaxed">
-                      {ex.desc}
-                    </p>
-                  </div>
-                </motion.div>
-              ))}
+              <div className="shrink-0">
+                <Link href="/contact">
+                  <BlobButton
+                    variant="primary"
+                    className="!py-3.5 !px-8 !text-xs !font-black !uppercase !tracking-wider"
+                  >
+                    Schedule Exhibition Meeting
+                  </BlobButton>
+                </Link>
+              </div>
             </div>
           </div>
         </section>
       </main>
 
+      {/* ── 5. Lightbox Modal Preview ── */}
+      <AnimatePresence>
+        {lightboxIndex !== null && (
+          <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-8 select-none">
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={closeLightbox}
+              className="fixed inset-0 bg-black/85 backdrop-blur-md"
+            />
+
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9, y: 20 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.9, y: 20 }}
+              transition={{ type: "spring", damping: 25, stiffness: 300 }}
+              className="relative w-full max-w-4xl bg-card border border-border rounded-3xl overflow-hidden shadow-2xl z-10 flex flex-col"
+            >
+              {/* Close Button */}
+              <button
+                onClick={closeLightbox}
+                className="absolute top-4 right-4 z-20 p-2 rounded-full bg-black/60 hover:bg-primary text-white backdrop-blur-md transition-colors"
+                aria-label="Close lightbox"
+              >
+                <X size={20} />
+              </button>
+
+              {/* Lightbox Main Image */}
+              <div className="relative h-[320px] sm:h-[450px] w-full bg-black flex items-center justify-center overflow-hidden">
+                <img
+                  src={filteredEvents[lightboxIndex].image}
+                  alt={filteredEvents[lightboxIndex].title}
+                  className="w-full h-full object-contain"
+                />
+
+                {/* Left & Right Controls */}
+                <button
+                  onClick={prevLightbox}
+                  className="absolute left-4 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-black/50 hover:bg-primary backdrop-blur-md text-white flex items-center justify-center transition-colors"
+                  aria-label="Previous photo"
+                >
+                  <ChevronLeft size={22} />
+                </button>
+                <button
+                  onClick={nextLightbox}
+                  className="absolute right-4 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-black/50 hover:bg-primary backdrop-blur-md text-white flex items-center justify-center transition-colors"
+                  aria-label="Next photo"
+                >
+                  <ChevronRight size={22} />
+                </button>
+              </div>
+
+              {/* Lightbox Content Info */}
+              <div className="p-6 sm:p-8 space-y-3 bg-card border-t border-border">
+                <div className="flex flex-wrap items-center justify-between gap-4">
+                  <div className="flex items-center gap-3">
+                    <span className="px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary font-bold text-xs uppercase tracking-wider">
+                      {filteredEvents[lightboxIndex].year}
+                    </span>
+                    <span className="flex items-center gap-1 text-xs text-muted-foreground font-semibold">
+                      <MapPin size={14} className="text-primary" />
+                      {filteredEvents[lightboxIndex].location}
+                    </span>
+                  </div>
+                  <span className="text-xs font-bold text-muted-foreground">
+                    Photo {lightboxIndex + 1} of {filteredEvents.length}
+                  </span>
+                </div>
+
+                <h3 className="font-heading text-2xl font-black text-foreground uppercase tracking-wide">
+                  {filteredEvents[lightboxIndex].title}
+                </h3>
+
+                <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed font-medium">
+                  {filteredEvents[lightboxIndex].description}
+                </p>
+              </div>
+            </motion.div>
+          </div>
+        )}
+      </AnimatePresence>
+
       <Footer />
     </div>
   );
-};
-
-export default EventsPage;
+}

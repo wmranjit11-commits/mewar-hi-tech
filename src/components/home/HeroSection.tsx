@@ -44,7 +44,7 @@ const stats = [
 
 const HeroSection: React.FC = () => {
   return (
-    <section className="relative min-h-[640px] lg:min-h-[720px] flex flex-col justify-between bg-background select-none pb-12 lg:pb-0">
+    <section className="relative z-30 bg-background select-none pt-28 pb-16 lg:pt-36 lg:pb-24">
       
       {/* Background Image Container */}
       <div className="absolute inset-0 w-full h-full z-0 overflow-hidden">
@@ -58,7 +58,7 @@ const HeroSection: React.FC = () => {
       </div>
 
       {/* Hero Content Area */}
-      <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-20 w-full flex flex-col lg:flex-row justify-between items-center pt-28 pb-12 lg:pt-36 lg:pb-36 flex-grow">
+      <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-20 w-full flex flex-col lg:flex-row justify-between items-center">
         
         {/* Left Content Column */}
         <div className="max-w-xl text-white text-left self-start lg:self-center">
@@ -75,7 +75,7 @@ const HeroSection: React.FC = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="font-heading text-3.5xl sm:text-5xl md:text-7xl font-bold leading-[0.95] mb-5 uppercase tracking-wide"
+            className="font-heading text-4xl sm:text-5xl lg:text-6xl font-black leading-[0.90] mb-4 uppercase tracking-wide"
           >
             BUILT TO <span className="text-primary">CRUSH.</span>
             <br />
@@ -86,7 +86,7 @@ const HeroSection: React.FC = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-xs sm:text-sm text-gray-300 mb-8 max-w-md font-light leading-relaxed"
+            className="text-xs sm:text-sm text-gray-300 mb-6 max-w-md font-normal leading-relaxed"
           >
             Innovative crushing and screening solutions designed for the toughest challenges.
           </motion.p>
@@ -130,7 +130,7 @@ const HeroSection: React.FC = () => {
       </div>
 
       {/* Floating Horizontal White Stats Card */}
-      <div className="relative w-full max-w-7xl px-6 lg:px-8 z-30 mx-auto mt-4 lg:mt-0 lg:absolute lg:bottom-0 lg:left-1/2 lg:-translate-x-1/2 lg:translate-y-1/2">
+      <div className="relative w-full max-w-7xl px-6 lg:px-8 z-40 mx-auto mt-4 lg:mt-0 lg:absolute lg:bottom-0 lg:left-1/2 lg:-translate-x-1/2 lg:translate-y-1/2">
         <div className="bg-card text-foreground shadow-xl rounded-xl border border-border/50 p-5 lg:p-8 grid grid-cols-2 lg:flex lg:flex-row lg:items-center lg:justify-between gap-4 lg:gap-6">
           {stats.map((stat, idx) => {
             const IconComponent = stat.iconComponent;

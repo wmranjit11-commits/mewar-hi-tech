@@ -6,7 +6,7 @@ import BlobButton from "@/components/ui/BlobButton";
 
 const FlagshipProductsGrid: React.FC = () => {
   return (
-    <section className="bg-muted py-14 text-left select-none">
+    <section id="brochures" className="bg-muted py-14 text-left select-none">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           
@@ -24,6 +24,7 @@ const FlagshipProductsGrid: React.FC = () => {
               </p>
               <BlobButton
                 variant="secondary"
+                onClick={() => window.dispatchEvent(new Event("open-brochure-modal"))}
                 className="!py-2.5 !px-5 text-xs font-bold transition-colors flex items-center justify-center rounded whitespace-nowrap"
               >
                 <div className="flex items-center gap-2 whitespace-nowrap">

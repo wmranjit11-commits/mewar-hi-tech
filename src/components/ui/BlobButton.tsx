@@ -20,7 +20,7 @@ export default function BlobButton({
         } ${className}`}
         {...props}
       >
-        <span className="relative z-10">{children}</span>
+        <span className="relative z-10 inline-flex items-center justify-center gap-2">{children}</span>
         <span className="blob-btn__inner">
           <span className="blob-btn__blobs">
             <span className="blob-btn__blob"></span>
