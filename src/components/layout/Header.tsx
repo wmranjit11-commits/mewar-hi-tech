@@ -37,31 +37,31 @@ const navItems: NavItem[] = [
     children: [
       { label: "Crusher", heading: true,
         children: [
-          { label: "Double Toggle Oil Jaw Crusher", to: "/products?category=crushers" },
-          { label: "Single Toggle Grease Jaw Crusher", to: "/products?category=crushers" },
-          { label: "Double Toggle Grease Jaw Crusher", to: "/products?category=crushers" },
-          { label: "Cone Crusher", to: "/products?category=crushers" },
-          { label: "Roll Crusher", to: "/products?category=crushers" },
+          { label: "Double Toggle Oil Jaw Crusher", to: "/products/double-toggle-oil-jaw-crusher" },
+          { label: "Single Toggle Grease Jaw Crusher", to: "/products/single-toggle-grease-jaw-crusher" },
+          { label: "Double Toggle Grease Jaw Crusher", to: "/products/double-toggle-grease-jaw-crusher" },
+          { label: "Cone Crusher", to: "/products/cone-crusher" },
+          { label: "Roll Crusher", to: "/products/roll-crusher" },
         ]
       },
       { label: "Impactor", heading: true,
         children: [
-          { label: "Horizontal Shaft Impactor", to: "/products?category=impactors" },
-          { label: "Vertical Shaft Impactor", to: "/products?category=impactors" },
-          { label: "Sand Making Machine", to: "/products?category=impactors" },
+          { label: "Horizontal Shaft Impactor", to: "/products/horizontal-shaft-impactor" },
+          { label: "Vertical Shaft Impactor", to: "/products/vertical-shaft-impactor" },
+          { label: "Sand Making Machine", to: "/products/sand-making-machine" },
         ]
       },
       { label: "Screen", heading: true,
         children: [
-          { label: "Vibrating Screen", to: "/products?category=screens" },
-          { label: "Sand Washer", to: "/products?category=screens" },
-          { label: "Belt Conveyor", to: "/products?category=screens" },
+          { label: "Vibrating Screen", to: "/products/vibrating-screen" },
+          { label: "Sand Washer", to: "/products/sand-washer" },
+          { label: "Belt Conveyor", to: "/products/belt-conveyor" },
         ]
       },
       { label: "Feeder", heading: true,
         children: [
-          { label: "Vibro Feeder", to: "/products?category=feeders" },
-          { label: "Single Shaft Feeders", to: "/products?category=feeders" },
+          { label: "Vibro Feeder", to: "/products/vibro-feeder" },
+          { label: "Single Shaft Feeders", to: "/products/single-shaft-feeders" },
         ]
       },
     ],

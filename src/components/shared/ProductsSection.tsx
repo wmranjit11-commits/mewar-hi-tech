@@ -9,41 +9,49 @@ export const PRODUCTS = [
     name: "Jaw Crusher",
     description: "Heavy-duty primary crushing for high-capacity ore and rock reduction.",
     image: "/images/double-toggle-oil-jaw-crusher.jpg",
+    slug: "double-toggle-oil-jaw-crusher",
   },
   {
     name: "Cone Crusher",
     description: "Precision secondary crushing engineered for consistent particle shape.",
     image: "/images/cone-crusher.jpg",
+    slug: "cone-crusher",
   },
   {
     name: "Stone Crusher",
     description: "Robust crushing units built for aggregate and mining applications.",
     image: "/images/double-toggle-grease-jaw-crusher.jpg",
+    slug: "double-toggle-grease-jaw-crusher",
   },
   {
     name: "Roll Crusher",
     description: "Efficient compression crushing for medium-hard and soft materials.",
     image: "/images/roll-crusher.jpg",
+    slug: "roll-crusher",
   },
   {
     name: "Vibrating Screen",
     description: "High-frequency screening for precise material grading and separation.",
     image: "/images/vibrating-screen.jpg",
+    slug: "vibrating-screen",
   },
   {
     name: "Sand Washer",
     description: "Advanced washing systems delivering clean, high-quality manufactured sand.",
     image: "/images/sand-washer.jpg",
+    slug: "sand-washer",
   },
   {
     name: "Conveyor System",
     description: "Durable belt conveyors engineered for continuous material transport.",
     image: "/images/belt-conveyor.jpg",
+    slug: "belt-conveyor",
   },
   {
     name: "Vibrating Feeder",
     description: "Controlled, uniform feeding of bulk material into crushing circuits.",
     image: "/images/vibro-feeder.jpg",
+    slug: "vibro-feeder",
   },
 ];
 

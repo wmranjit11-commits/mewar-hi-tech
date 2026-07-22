@@ -23,12 +23,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="en" data-scroll-behavior="smooth">
       <body className="min-h-screen font-sans">
         <Script 
           src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.0.0/model-viewer.min.js" 
           type="module" 
           strategy="afterInteractive" 
+          crossOrigin="anonymous"
         />
         <ThemeProvider>
           <Theme appearance="inherit" radius="large" scaling="100%">
