@@ -32,25 +32,25 @@ export const PRODUCTS = [
   {
     name: "Vibrating Screen",
     description: "High-frequency screening for precise material grading and separation.",
-    image: "/images/vibrating-screen.jpg",
+    image: "/images/vibrating-screen.png",
     slug: "vibrating-screen",
   },
   {
     name: "Sand Washer",
     description: "Advanced washing systems delivering clean, high-quality manufactured sand.",
-    image: "/images/sand-washer.jpg",
+    image: "/images/sand-washer.png",
     slug: "sand-washer",
   },
   {
     name: "Conveyor System",
     description: "Durable belt conveyors engineered for continuous material transport.",
-    image: "/images/belt-conveyor.jpg",
+    image: "/images/belt-conveyor.png",
     slug: "belt-conveyor",
   },
   {
     name: "Vibrating Feeder",
     description: "Controlled, uniform feeding of bulk material into crushing circuits.",
-    image: "/images/vibro-feeder.jpg",
+    image: "/images/vibro-feeder.png",
     slug: "vibro-feeder",
   },
 ];
