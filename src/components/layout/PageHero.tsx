@@ -38,7 +38,7 @@ const PageHero: React.FC<PageHeroProps> = ({
         <span className="text-primary font-bold text-xs uppercase tracking-[0.2em] block">
           {label}
         </span>
-        <h1 className="font-heading text-4xl sm:text-5xl lg:text-6xl font-black text-secondary-foreground uppercase tracking-tight leading-tight">
+        <h1 className="common-heading text-4xl sm:text-5xl lg:text-6xl text-secondary-foreground leading-tight">
           {title}
         </h1>
         <p className="text-secondary-foreground/60 text-base sm:text-lg max-w-2xl mx-auto font-medium">

@@ -27,7 +27,7 @@ const RevolutionBanner: React.FC = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7 }}
-          className="font-heading text-4xl sm:text-6xl lg:text-7xl font-black text-secondary-foreground uppercase tracking-[0.2em] text-center leading-none"
+          className="common-heading text-4xl sm:text-6xl lg:text-7xl text-secondary-foreground tracking-[0.2em] text-center leading-none"
         >
           Join the{" "}
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-[#F8C025] to-[#FFF0B3] drop-shadow-[0_0_20px_rgba(244,180,0,0.3)]">

@@ -173,7 +173,7 @@ export const PRODUCTS_DATA = [
     category: "Crushers",
     subCategory: "Cone Crusher",
     heroImage: "/images/cone-crusher-hero.png",
-    mainImage: "/images/cone-crusher.jpg",
+    mainImage: "/images/cone-crusher.png",
     introText: "Mewar Hi-tech is proud to reveal that it is one of the top Cone Crusher manufacturers providing the highest grade machinery for the crushing of feed materials. We don't simply concentrate on helping our clients in getting their ideal outcomes yet additionally on making the procedure progressively solid, financially savvy, and flexible. Along these lines, we resolve to give you the most lucrative outcome.",
     features: [
       "Higher crushing ratio and production efficiency result in lower spare part consumption and lower operating cost.",

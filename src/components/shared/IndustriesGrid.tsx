@@ -47,7 +47,7 @@ const IndustriesGrid: React.FC = () => {
           <span className="text-primary font-bold text-xs uppercase tracking-widest block">
             Industries We Serve
           </span>
-          <h2 className="font-heading text-3xl sm:text-4xl font-black text-foreground mt-3 uppercase leading-tight">
+          <h2 className="common-heading text-3xl sm:text-4xl text-foreground mt-3 leading-tight">
             Powering Heavy Sectors
           </h2>
         </motion.div>
@@ -72,7 +72,7 @@ const IndustriesGrid: React.FC = () => {
               </div>
 
               {/* Name */}
-              <h3 className="font-heading font-black text-foreground text-base mb-3 uppercase tracking-wide">
+              <h3 className="common-heading text-foreground text-base mb-3 tracking-wide">
                 {ind.name}
               </h3>
 

@@ -23,7 +23,7 @@ const CTASection: React.FC = () => {
         transition={{ duration: 0.6 }}
         className="relative max-w-4xl mx-auto px-6 text-center space-y-6"
       >
-        <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-black text-secondary-foreground uppercase">
+        <h2 className="common-heading text-3xl sm:text-4xl lg:text-5xl text-secondary-foreground">
           Need Industrial Solutions?
         </h2>
         <p className="text-secondary-foreground/75 text-base sm:text-lg max-w-2xl mx-auto">

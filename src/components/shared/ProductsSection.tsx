@@ -78,7 +78,7 @@ const ProductsSection: React.FC<ProductsSectionProps> = ({
           <span className="text-primary font-bold text-xs uppercase tracking-widest block">
             Engineered for Performance
           </span>
-          <h2 className="font-heading text-3xl sm:text-4xl font-black text-foreground mt-3 uppercase">
+          <h2 className="common-heading text-3xl sm:text-4xl text-foreground mt-3">
             {title}
           </h2>
         </motion.div>

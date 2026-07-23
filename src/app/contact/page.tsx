@@ -85,7 +85,7 @@ export default function Contact() {
                   <span className="text-primary font-bold text-xs uppercase tracking-widest block mb-2">
                     Mobile Crusher Manufacturers
                   </span>
-                  <h2 className="font-heading text-3xl sm:text-4xl font-black text-foreground uppercase tracking-tight leading-tight">
+                  <h2 className="common-heading text-3xl sm:text-4xl text-foreground leading-tight">
                     Direct Contact Details
                   </h2>
                   <p className="text-muted-foreground text-sm mt-2 leading-relaxed">
@@ -103,7 +103,7 @@ export default function Contact() {
                         <User size={20} />
                       </div>
                       <div>
-                        <h3 className="font-heading text-base font-black text-foreground uppercase tracking-wide">
+                        <h3 className="common-heading text-base text-foreground tracking-wide">
                           Sales &amp; Marketing
                         </h3>
                         <p className="text-[11px] text-primary font-bold uppercase tracking-wider">
@@ -130,7 +130,7 @@ export default function Contact() {
                         <Building2 size={20} />
                       </div>
                       <div>
-                        <h3 className="font-heading text-base font-black text-foreground uppercase tracking-wide">
+                        <h3 className="common-heading text-base text-foreground tracking-wide">
                           Spare Parts Division
                         </h3>
                         <p className="text-[11px] text-muted-foreground font-semibold uppercase tracking-wider">
@@ -161,7 +161,7 @@ export default function Contact() {
                         <Phone size={20} />
                       </div>
                       <div>
-                        <h3 className="font-heading text-base font-black text-foreground uppercase tracking-wide">
+                        <h3 className="common-heading text-base text-foreground tracking-wide">
                           After Sales Service
                         </h3>
                         <p className="text-[11px] text-muted-foreground font-semibold uppercase tracking-wider">
@@ -192,7 +192,7 @@ export default function Contact() {
                         <MapPin size={20} />
                       </div>
                       <div>
-                        <h3 className="font-heading text-base font-black text-foreground uppercase tracking-wide">
+                        <h3 className="common-heading text-base text-foreground tracking-wide">
                           Factory &amp; Registered Office
                         </h3>
                         <p className="text-xs text-muted-foreground font-medium leading-relaxed mt-1">
@@ -220,7 +220,7 @@ export default function Contact() {
                     <span className="text-primary font-bold text-xs uppercase tracking-widest block mb-1">
                       Quick Assistance
                     </span>
-                    <h2 className="font-heading text-2xl sm:text-3xl font-black text-foreground uppercase tracking-tight">
+                    <h2 className="common-heading text-2xl sm:text-3xl text-foreground">
                       Enquiry Now
                     </h2>
                     <p className="text-xs text-muted-foreground font-semibold mt-1">
@@ -372,7 +372,7 @@ export default function Contact() {
                 <span className="text-primary font-bold text-xs uppercase tracking-widest block mb-1">
                   Visit Our Plant
                 </span>
-                <h2 className="font-heading text-2xl sm:text-3xl font-black text-foreground uppercase tracking-tight">
+                <h2 className="common-heading text-2xl sm:text-3xl text-foreground">
                   Plant Location &amp; Interactive Map
                 </h2>
               </div>
@@ -407,7 +407,7 @@ export default function Contact() {
                   <MapPin size={15} />
                   <span>Factory Location</span>
                 </div>
-                <h4 className="font-heading text-sm font-black uppercase">
+                <h4 className="common-heading text-sm">
                   Mewar Hi-Tech Engineering Ltd.
                 </h4>
                 <p className="text-[11px] text-gray-300 font-medium leading-relaxed">

@@ -38,7 +38,7 @@ const ProductCard: React.FC<ProductCardProps> = ({
             />
           </div>
           <div className="p-6 text-left">
-            <h3 className="font-heading text-lg font-black text-foreground mb-2 uppercase">
+            <h3 className="common-heading text-lg text-foreground mb-2">
               {name}
             </h3>
             <p className="text-muted-foreground text-xs leading-relaxed">

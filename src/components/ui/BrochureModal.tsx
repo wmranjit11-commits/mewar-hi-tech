@@ -89,7 +89,7 @@ export default function BrochureModal({ isOpen, onClose }: BrochureModalProps) {
                 <FileText size={15} />
                 <span>Brochure Request</span>
               </div>
-              <h2 className="font-heading text-xl sm:text-2xl font-black uppercase tracking-tight text-foreground">
+              <h2 className="common-heading text-xl sm:text-2xl text-foreground">
                 Feel this form get brochure
               </h2>
               <p className="text-[11px] text-muted-foreground font-semibold">

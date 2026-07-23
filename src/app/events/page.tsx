@@ -190,7 +190,7 @@ export default function EventsPage() {
               <span className="text-primary font-bold text-xs uppercase tracking-widest block">
                 Our Global Exhibitions
               </span>
-              <h2 className="font-heading text-3xl sm:text-4xl font-black text-foreground uppercase tracking-tight leading-tight">
+              <h2 className="common-heading text-3xl sm:text-4xl text-foreground leading-tight">
                 Engineering Value &amp; Global Trade Fairs
               </h2>
               <p className="text-muted-foreground text-sm sm:text-base leading-relaxed font-normal">
@@ -205,7 +205,7 @@ export default function EventsPage() {
                 <div className="w-12 h-12 rounded-2xl bg-primary/10 border border-primary/20 flex items-center justify-center text-primary">
                   <ShieldCheck size={24} />
                 </div>
-                <h3 className="font-heading text-lg font-black text-foreground uppercase tracking-wide">
+                <h3 className="common-heading text-lg text-foreground tracking-wide">
                   Repair, Replace &amp; Return
                 </h3>
                 <p className="text-xs text-muted-foreground leading-relaxed font-medium">
@@ -217,7 +217,7 @@ export default function EventsPage() {
                 <div className="w-12 h-12 rounded-2xl bg-primary/10 border border-primary/20 flex items-center justify-center text-primary">
                   <Globe2 size={24} />
                 </div>
-                <h3 className="font-heading text-lg font-black text-foreground uppercase tracking-wide">
+                <h3 className="common-heading text-lg text-foreground tracking-wide">
                   Global Expo Network
                 </h3>
                 <p className="text-xs text-muted-foreground leading-relaxed font-medium">
@@ -229,7 +229,7 @@ export default function EventsPage() {
                 <div className="w-12 h-12 rounded-2xl bg-primary/10 border border-primary/20 flex items-center justify-center text-primary">
                   <CheckCircle2 size={24} />
                 </div>
-                <h3 className="font-heading text-lg font-black text-foreground uppercase tracking-wide">
+                <h3 className="common-heading text-lg text-foreground tracking-wide">
                   48-Hour On-Site Support
                 </h3>
                 <p className="text-xs text-muted-foreground leading-relaxed font-medium">
@@ -251,7 +251,7 @@ export default function EventsPage() {
                 <span className="text-primary font-bold text-xs uppercase tracking-widest block mb-1">
                   Photo Showcase
                 </span>
-                <h2 className="font-heading text-3xl sm:text-4xl font-black text-foreground uppercase tracking-tight">
+                <h2 className="common-heading text-3xl sm:text-4xl text-foreground">
                   Exhibition Gallery ({filteredEvents.length})
                 </h2>
               </div>
@@ -312,7 +312,7 @@ export default function EventsPage() {
                         <MapPin size={13} />
                         <span>{item.location}</span>
                       </div>
-                      <h3 className="font-heading text-lg font-black uppercase tracking-wide leading-tight">
+                      <h3 className="common-heading text-lg tracking-wide leading-tight">
                         {item.title}
                       </h3>
                     </div>
@@ -346,7 +346,7 @@ export default function EventsPage() {
                 <span className="text-primary font-bold text-xs uppercase tracking-widest block">
                   Connect With Our Engineers
                 </span>
-                <h3 className="font-heading text-2xl sm:text-4xl font-black uppercase tracking-tight text-white">
+                <h3 className="common-heading text-2xl sm:text-4xl text-white">
                   Meet Us At The Next Global Industrial Expo
                 </h3>
                 <p className="text-xs sm:text-sm text-gray-300 font-medium leading-relaxed">
@@ -439,7 +439,7 @@ export default function EventsPage() {
                   </span>
                 </div>
 
-                <h3 className="font-heading text-2xl font-black text-foreground uppercase tracking-wide">
+                <h3 className="common-heading text-2xl text-foreground tracking-wide">
                   {filteredEvents[lightboxIndex].title}
                 </h3>
 

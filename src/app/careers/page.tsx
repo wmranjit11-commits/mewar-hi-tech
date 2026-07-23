@@ -212,7 +212,7 @@ export default function CareersPage() {
                 <span className="text-primary font-bold text-xs uppercase tracking-widest block mb-1">
                   Workplace &amp; Engineering Environment
                 </span>
-                <h2 className="font-heading text-2xl sm:text-3xl font-black uppercase tracking-tight text-foreground">
+                <h2 className="common-heading text-2xl sm:text-3xl text-foreground">
                   Life At Mewar Hi-Tech
                 </h2>
               </div>
@@ -241,7 +241,7 @@ export default function CareersPage() {
                 <span className="text-primary font-bold text-xs uppercase tracking-widest block mb-2">
                   Engineering &amp; Growth
                 </span>
-                <h2 className="font-heading text-3xl sm:text-4xl font-black text-foreground uppercase tracking-tight leading-tight">
+                <h2 className="common-heading text-3xl sm:text-4xl text-foreground leading-tight">
                   Why Work With Mewar Hi-Tech?
                 </h2>
               </div>
@@ -321,7 +321,7 @@ export default function CareersPage() {
               <span className="text-primary font-bold text-xs uppercase tracking-widest block">
                 Immediate Hiring
               </span>
-              <h2 className="font-heading text-3xl sm:text-4xl font-black text-foreground uppercase tracking-tight">
+              <h2 className="common-heading text-3xl sm:text-4xl text-foreground">
                 Current Job Openings
               </h2>
               <p className="text-xs sm:text-sm text-muted-foreground font-semibold">
@@ -346,7 +346,7 @@ export default function CareersPage() {
                         <span className="text-[11px] font-bold text-primary uppercase tracking-wider block mb-1">
                           {job.dept}
                         </span>
-                        <h3 className="font-heading text-xl font-black text-foreground uppercase tracking-wide">
+                        <h3 className="common-heading text-xl text-foreground tracking-wide">
                           {job.title}
                         </h3>
                       </div>
@@ -407,7 +407,7 @@ export default function CareersPage() {
                   <span className="text-primary font-bold text-xs uppercase tracking-widest block mb-2">
                     Direct Resume Submission
                   </span>
-                  <h2 className="font-heading text-3xl sm:text-4xl font-black text-foreground uppercase tracking-tight leading-tight">
+                  <h2 className="common-heading text-3xl sm:text-4xl text-foreground leading-tight">
                     Apply With Your Detailed Resume
                   </h2>
                   <p className="text-muted-foreground text-sm mt-2 leading-relaxed font-medium">
@@ -422,7 +422,7 @@ export default function CareersPage() {
                         <Mail size={20} />
                       </div>
                       <div>
-                        <h4 className="font-heading text-base font-black text-foreground uppercase">
+                        <h4 className="common-heading text-base text-foreground">
                           Email Your CV
                         </h4>
                         <a
@@ -439,7 +439,7 @@ export default function CareersPage() {
                         <Phone size={20} />
                       </div>
                       <div>
-                        <h4 className="font-heading text-base font-black text-foreground uppercase">
+                        <h4 className="common-heading text-base text-foreground">
                           Telephone Contact
                         </h4>
                         <span className="text-xs font-bold text-muted-foreground block mt-0.5">
@@ -453,7 +453,7 @@ export default function CareersPage() {
                         <MapPin size={20} />
                       </div>
                       <div>
-                        <h4 className="font-heading text-base font-black text-foreground uppercase">
+                        <h4 className="common-heading text-base text-foreground">
                           HR &amp; Plant Address
                         </h4>
                         <p className="text-xs text-muted-foreground font-medium leading-relaxed mt-0.5">
@@ -481,7 +481,7 @@ export default function CareersPage() {
                     <span className="text-primary font-bold text-xs uppercase tracking-widest block mb-1">
                       Online Job Application
                     </span>
-                    <h3 className="font-heading text-2xl sm:text-3xl font-black text-foreground uppercase tracking-tight">
+                    <h3 className="common-heading text-2xl sm:text-3xl text-foreground">
                       Submit Your Profile
                     </h3>
                   </div>

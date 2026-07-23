@@ -27,7 +27,7 @@ const YellowDealerBanner: React.FC = () => {
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="font-heading text-lg md:text-xl lg:text-2xl font-black text-primary-foreground uppercase tracking-wider text-center md:text-left"
+          className="common-heading text-lg md:text-xl lg:text-2xl text-primary-foreground tracking-wider text-center md:text-left"
         >
           Find an authorized Keestrack Dealer
         </motion.h3>

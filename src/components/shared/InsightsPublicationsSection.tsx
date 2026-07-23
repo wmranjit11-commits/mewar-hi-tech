@@ -64,7 +64,7 @@ const InsightsPublicationsSection: React.FC = () => {
               <span className="text-primary font-bold text-xs uppercase tracking-widest block mb-2">
                 Our News
               </span>
-              <h2 className="font-heading text-3xl sm:text-4xl font-black text-foreground uppercase leading-none">
+              <h2 className="common-heading text-3xl sm:text-4xl text-foreground leading-none">
                 Insights Worth{" "}
                 <span className="text-primary">Exploring</span>
               </h2>
@@ -98,7 +98,7 @@ const InsightsPublicationsSection: React.FC = () => {
                     <span className="text-muted-foreground text-xs font-semibold mb-2 block">
                       {item.date}
                     </span>
-                    <h3 className="font-heading font-black text-sm text-foreground mb-6 leading-snug group-hover:text-primary transition-colors uppercase">
+                    <h3 className="common-heading text-sm text-foreground mb-6 leading-snug group-hover:text-primary transition-colors">
                       {item.title}
                     </h3>
                   </div>
@@ -123,7 +123,7 @@ const InsightsPublicationsSection: React.FC = () => {
           {/* Sub-section 2: Publications (Cols 1-7) */}
           <div className="lg:col-span-7 space-y-8">
             <div className="flex items-end justify-between flex-wrap gap-4">
-              <h2 className="font-heading text-2xl font-black text-foreground uppercase tracking-wide">
+              <h2 className="common-heading text-2xl text-foreground tracking-wide">
                 Our Publications
               </h2>
               <Link href="/about">
@@ -147,7 +147,7 @@ const InsightsPublicationsSection: React.FC = () => {
                     <div className="w-8 h-8 flex items-center justify-center border border-red-200 text-red-500 bg-red-50 rounded-lg mb-4">
                       <Download size={16} />
                     </div>
-                    <h4 className="font-heading font-black text-xs text-foreground leading-snug group-hover:text-primary transition-colors mb-2 uppercase">
+                    <h4 className="common-heading text-xs text-foreground leading-snug group-hover:text-primary transition-colors mb-2">
                       {pub.title}
                     </h4>
                   </div>
@@ -161,7 +161,7 @@ const InsightsPublicationsSection: React.FC = () => {
 
           {/* Sub-section 3: Upcoming Exhibitions (Cols 8-12) */}
           <div className="lg:col-span-5 space-y-8">
-            <h2 className="font-heading text-2xl font-black text-foreground uppercase tracking-wide">
+            <h2 className="common-heading text-2xl text-foreground tracking-wide">
               Upcoming Exhibitions
             </h2>
 
@@ -176,7 +176,7 @@ const InsightsPublicationsSection: React.FC = () => {
                   className="border border-border p-5 rounded-2xl bg-card flex items-center justify-between hover:shadow-md transition-all group"
                 >
                   <div className="space-y-2">
-                    <h4 className="font-heading font-black text-sm text-foreground uppercase tracking-wider group-hover:text-primary transition-colors">
+                    <h4 className="common-heading text-sm text-foreground tracking-wider group-hover:text-primary transition-colors">
                       {ex.title}
                     </h4>
                     <div className="flex flex-col gap-1 text-xs text-muted-foreground">

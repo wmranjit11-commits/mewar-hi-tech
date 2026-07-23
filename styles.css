@@ -247,3 +247,8 @@
 .animate-marquee:hover {
   animation-play-state: paused;
 }
+
+/* Common heading helper to replace font-black/font-extrabold utility configurations */
+.common-heading {
+  @apply font-heading font-bold uppercase tracking-tight;
+}

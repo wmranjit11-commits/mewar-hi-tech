@@ -1,22 +1,123 @@
+"use client";
+
 import React from "react";
+import Link from "next/link";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import PageHero from "@/components/layout/PageHero";
-import PlaceholderSection from "@/components/shared/PlaceholderSection";
+import { motion } from "framer-motion";
+import { ArrowRight, Box, Compass, Layers } from "lucide-react";
+import BlobButton from "@/components/ui/BlobButton";
 
-export default function Projects() {
+const PROJECT_CATEGORIES = [
+  {
+    slug: "stationery-projects",
+    title: "Stationery Projects",
+    description: "Global stationary crushing and size-reduction plants with heavy engineering solutions.",
+    image: "/images/stationery-projects/stationery-projects-1.jpg",
+    count: 29,
+    icon: Layers,
+  },
+  {
+    slug: "track-mounted-mobile-projects",
+    title: "Track Mounted Mobile Projects",
+    description: "Highly versatile track-mounted crushers and screeners built for rough mining fields.",
+    image: "/images/track-mounted-mobile-projects/track-mounted-mobile-projects-1.jpg",
+    count: 9,
+    icon: Compass,
+  },
+  {
+    slug: "wheel-mounted-mobile-projects",
+    title: "Wheel Mounted Mobile Projects",
+    description: "Chassis wheel-integrated high-output mobile crushers and screen assemblies.",
+    image: "/images/wheel-mounted-mobile-projects/wheel-mounted-mobile-projects-1.jpg",
+    count: 21,
+    icon: Box,
+  },
+];
+
+export default function ProjectsLandingPage() {
   return (
-    <div>
+    <div className="bg-background min-h-screen text-foreground select-none flex flex-col justify-between">
       <Header />
-      <main>
+
+      <main className="flex-grow">
+        {/* Page Hero Header */}
         <PageHero
-          label="Our Work"
-          title="Featured Projects"
-          description="A showcase of our machinery deployed across major infrastructure and mining projects."
+          label="Our Operations"
+          title="Featured Engineering Projects"
+          description="Explore our complete line of stationary and mobile plant installations active across mining, quarrying, and recycling sites."
           image="/images/hero_crusher.png"
         />
-        <PlaceholderSection pageName="Projects" />
+
+        {/* Categories Section */}
+        <section className="py-16 lg:py-24 bg-background">
+          <div className="max-w-7xl mx-auto px-6 lg:px-8">
+            <div className="max-w-3xl mb-12 text-left">
+              <span className="text-primary font-bold text-xs uppercase tracking-widest block">
+                Portfolio Classification
+              </span>
+              <h2 className="common-heading text-3xl font-black text-foreground mt-2">
+                Project Installations
+              </h2>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              {PROJECT_CATEGORIES.map((category, idx) => {
+                const Icon = category.icon;
+                return (
+                  <motion.div
+                    key={category.slug}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: idx * 0.1 }}
+                    className="flex flex-col rounded-3xl overflow-hidden border border-border bg-card shadow-sm hover:shadow-xl hover:border-border/80 transition-all duration-300 group"
+                  >
+                    {/* Image Header wrapper */}
+                    <div className="relative aspect-[16/10] w-full overflow-hidden bg-muted">
+                      <img
+                        src={category.image}
+                        alt={category.title}
+                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                      />
+                      <div className="absolute top-4 right-4 bg-background/90 backdrop-blur border border-border text-[11px] font-black uppercase tracking-wider text-foreground px-3 py-1 rounded-full">
+                        {category.count} Images
+                      </div>
+                    </div>
+
+                    {/* Content Section */}
+                    <div className="p-6 flex-1 flex flex-col justify-between gap-6 text-left">
+                      <div className="space-y-3">
+                        <div className="flex items-center gap-2 text-primary">
+                          <Icon size={16} />
+                          <span className="text-[10px] font-black uppercase tracking-wider">
+                            Mewar Portfolio
+                          </span>
+                        </div>
+                        <h3 className="common-heading text-xl font-black text-foreground">
+                          {category.title}
+                        </h3>
+                        <p className="text-muted-foreground text-xs leading-relaxed font-semibold">
+                          {category.description}
+                        </p>
+                      </div>
+
+                      <Link href={`/projects/${category.slug}`} className="block">
+                        <BlobButton variant="primary" className="!w-full !h-11 !text-[11px] !font-black !uppercase !tracking-wider flex items-center justify-center gap-2">
+                          <span>Browse Gallery</span>
+                          <ArrowRight size={14} />
+                        </BlobButton>
+                      </Link>
+                    </div>
+                  </motion.div>
+                );
+              })}
+            </div>
+          </div>
+        </section>
       </main>
+
       <Footer />
     </div>
   );

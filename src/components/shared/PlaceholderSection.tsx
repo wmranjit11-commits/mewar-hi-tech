@@ -12,7 +12,7 @@ const PlaceholderSection: React.FC<PlaceholderSectionProps> = ({ pageName }) => 
         <div className="w-16 h-16 rounded-full bg-card border border-border flex items-center justify-center mx-auto mb-6 shadow-sm">
           <Construction size={28} className="text-primary" />
         </div>
-        <h2 className="font-heading text-2xl sm:text-3xl font-black text-foreground mb-3 uppercase">
+        <h2 className="common-heading text-2xl sm:text-3xl text-foreground mb-3">
           Coming Soon
         </h2>
         <p className="text-muted-foreground text-sm font-medium">

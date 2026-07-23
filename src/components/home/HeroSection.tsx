@@ -75,7 +75,7 @@ const HeroSection: React.FC = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="font-heading text-4xl sm:text-5xl lg:text-6xl font-black leading-[0.90] mb-4 uppercase tracking-wide"
+            className="common-heading text-4xl sm:text-5xl lg:text-6xl leading-[0.90] mb-4 tracking-wide"
           >
             BUILT TO <span className="text-primary">CRUSH.</span>
             <br />
@@ -145,7 +145,7 @@ const HeroSection: React.FC = () => {
                 >
                   <IconComponent className="w-8 h-8 lg:w-10 lg:h-10 text-[#FFB800] shrink-0" />
                   <div className="space-y-0.5 min-w-0">
-                    <div className="text-xl lg:text-2xl font-bold font-heading leading-none tracking-wide text-foreground">
+                    <div className="text-xl lg:text-2xl common-heading leading-none tracking-wide text-foreground">
                       {stat.value}
                     </div>
                     <div className="text-[10px] lg:text-xs text-muted-foreground font-semibold truncate">

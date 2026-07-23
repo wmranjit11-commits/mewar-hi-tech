@@ -31,6 +31,16 @@ export default function RootLayout({
           strategy="afterInteractive" 
           crossOrigin="anonymous"
         />
+        <Script id="chunk-load-error-handler" strategy="beforeInteractive">
+          {`
+            window.addEventListener('error', function(e) {
+              var msg = e.message || '';
+              if (msg.indexOf('Loading chunk') > -1 || msg.indexOf('ChunkLoadError') > -1) {
+                window.location.reload();
+              }
+            });
+          `}
+        </Script>
         <ThemeProvider>
           <Theme appearance="inherit" radius="large" scaling="100%">
             <main className="min-h-screen font-sans">
