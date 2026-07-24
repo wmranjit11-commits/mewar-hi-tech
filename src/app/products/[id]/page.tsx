@@ -73,7 +73,7 @@ export default function ProductDetailPage({ params }: PageProps) {
         <Header />
         <main className="flex-grow pt-36 pb-24 flex items-center justify-center">
           <div className="text-center space-y-6 max-w-md px-6">
-            <h1 className="font-heading text-4xl font-black uppercase text-primary">
+            <h1 className="common-heading text-4xl text-primary">
               Product Not Found
             </h1>
             <p className="text-sm text-muted-foreground leading-relaxed">
@@ -195,7 +195,7 @@ export default function ProductDetailPage({ params }: PageProps) {
               </div>
 
               {/* Dynamic Styled Product Title */}
-              <h1 className="font-heading text-4xl sm:text-5xl lg:text-[60px] font-black leading-[0.95] uppercase tracking-tight">
+              <h1 className="common-heading text-4xl sm:text-5xl lg:text-[60px] leading-[0.95]">
                 <span className="text-white">{firstHalf}</span>
                 <br className="hidden sm:block" />
                 <span className="text-primary">{secondHalf}</span>
@@ -300,7 +300,7 @@ export default function ProductDetailPage({ params }: PageProps) {
                   <span className="text-primary font-bold text-xs uppercase tracking-widest block mb-2">
                     Equipment Overview
                   </span>
-                  <h2 className="font-heading text-3xl sm:text-4xl font-black text-foreground uppercase tracking-tight leading-tight">
+                  <h2 className="common-heading text-3xl sm:text-4xl text-foreground leading-tight">
                     Reliable &amp; Engineered Performance
                   </h2>
                 </div>
@@ -310,7 +310,7 @@ export default function ProductDetailPage({ params }: PageProps) {
                 </p>
 
                 <div className="space-y-4 pt-4">
-                  <h3 className="font-heading text-sm font-bold uppercase tracking-wider text-foreground">
+                  <h3 className="common-heading text-sm tracking-wider text-foreground">
                     Key Machine Features:
                   </h3>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -360,7 +360,7 @@ export default function ProductDetailPage({ params }: PageProps) {
                 <span className="text-primary font-bold text-xs uppercase tracking-widest block">
                   Media &amp; Demonstrations
                 </span>
-                <h2 className="font-heading text-3xl font-black text-foreground uppercase tracking-tight">
+                <h2 className="common-heading text-3xl text-foreground">
                   Visuals &amp; Technical Footage
                 </h2>
               </div>
@@ -439,7 +439,7 @@ export default function ProductDetailPage({ params }: PageProps) {
                 <span className="text-primary font-bold text-xs uppercase tracking-widest block">
                   Technical Data
                 </span>
-                <h2 className="font-heading text-3xl font-black text-foreground uppercase tracking-tight">
+                <h2 className="common-heading text-3xl text-foreground">
                   Machine Specifications
                 </h2>
               </div>
@@ -517,7 +517,7 @@ export default function ProductDetailPage({ params }: PageProps) {
                   <span className="text-primary font-bold text-xs uppercase tracking-widest block">
                     Direct Quote Request
                   </span>
-                  <h2 className="font-heading text-3xl font-black text-foreground uppercase tracking-tight leading-tight">
+                  <h2 className="common-heading text-3xl text-foreground leading-tight">
                     Request Pricing &amp; Engineering Specs
                   </h2>
                   <p className="text-muted-foreground text-sm leading-relaxed font-medium">
@@ -531,7 +531,7 @@ export default function ProductDetailPage({ params }: PageProps) {
                       <Zap size={20} />
                     </div>
                     <div>
-                      <h4 className="font-heading text-sm font-black text-foreground uppercase">
+                      <h4 className="common-heading text-sm text-foreground">
                         Instant Engineering Response
                       </h4>
                       <p className="text-[11px] text-muted-foreground font-semibold">
@@ -551,7 +551,7 @@ export default function ProductDetailPage({ params }: PageProps) {
                     <span className="text-primary font-bold text-xs uppercase tracking-widest block mb-1">
                       Quick Inquiry
                     </span>
-                    <h3 className="font-heading text-2xl font-black text-foreground uppercase tracking-tight">
+                    <h3 className="common-heading text-2xl text-foreground">
                       Equipment Enquiry Form
                     </h3>
                   </div>

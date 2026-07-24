@@ -21,6 +21,27 @@ const SectorGrid: React.FC = () => {
   const [capacity, setCapacity] = useState("150 - 300 TPH");
   const [power, setPower] = useState("Electric");
 
+  const viewerRef = React.useRef<any>(null);
+
+  const handleZoomIn = () => {
+    if (viewerRef.current) {
+      viewerRef.current.zoom(1);
+    }
+  };
+
+  const handleZoomOut = () => {
+    if (viewerRef.current) {
+      viewerRef.current.zoom(-1);
+    }
+  };
+
+  const handleReset = () => {
+    if (viewerRef.current) {
+      viewerRef.current.cameraOrbit = "0deg 75deg auto";
+      viewerRef.current.fieldOfView = "auto";
+    }
+  };
+
   return (
     <section className="py-12 bg-background text-foreground select-none text-left border-y border-border/10">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
@@ -168,59 +189,67 @@ const SectorGrid: React.FC = () => {
                   </div>
                 </div>
 
-                {/* 3D Viewer Image Mockup (3/5 Width) */}
-                <div className="md:col-span-3 flex flex-col items-center relative">
+                {/* 3D Viewer model-viewer (3/5 Width) */}
+                <div className="md:col-span-3 flex flex-col items-center relative w-full">
                   
-                  {/* Hotspots overlaying the crusher mockup image */}
-                  <div className="relative w-full max-w-[420px] h-[200px] flex items-center justify-center">
-                    
-                    {/* Hotspot 1: Conveyor Arm Left */}
-                    <div className="absolute top-[32%] left-[28%] w-6 h-6 bg-card rounded-full flex items-center justify-center shadow-md cursor-pointer hover:scale-110 transition-transform z-20 border border-primary/40">
-                      <span className="text-primary font-black text-sm leading-none">+</span>
-                    </div>
-                    
-                    {/* Hotspot 2: Engine Upper Deck */}
-                    <div className="absolute top-[22%] left-[58%] w-6 h-6 bg-card rounded-full flex items-center justify-center shadow-md cursor-pointer hover:scale-110 transition-transform z-20 border border-primary/40">
-                      <span className="text-primary font-black text-sm leading-none">+</span>
-                    </div>
-
-                    {/* Hotspot 3: Feeder Hopper */}
-                    <div className="absolute top-[18%] left-[64%] w-6 h-6 bg-card rounded-full flex items-center justify-center shadow-md cursor-pointer hover:scale-110 transition-transform z-20 border border-primary/40">
-                      <span className="text-primary font-black text-sm leading-none">+</span>
-                    </div>
-
-                    {/* Hotspot 4: Tracks Chassis Back */}
-                    <div className="absolute top-[52%] left-[66%] w-6 h-6 bg-card rounded-full flex items-center justify-center shadow-md cursor-pointer hover:scale-110 transition-transform z-20 border border-primary/40">
-                      <span className="text-primary font-black text-sm leading-none">+</span>
-                    </div>
-
-                    {/* Hotspot 5: Tracks Chassis Front */}
-                    <div className="absolute top-[58%] left-[42%] w-6 h-6 bg-card rounded-full flex items-center justify-center shadow-md cursor-pointer hover:scale-110 transition-transform z-20 border border-primary/40">
-                      <span className="text-primary font-black text-sm leading-none">+</span>
-                    </div>
-
-                    {/* Crusher circular pedestal mockup */}
-                    <img
-                      src="/images/crusher_3d_viewer.png"
-                      alt="Crawler Crusher 3D rotating model"
-                      className="w-full h-auto object-contain z-10 relative dark:opacity-90"
-                    />
+                  <div className="relative w-full aspect-[4/3] rounded-3xl overflow-hidden border border-border bg-card/30 flex items-center justify-center p-2">
+                    <model-viewer
+                      ref={viewerRef}
+                      src="/3dmodel/Meshy_AI_Kingson_Cone_Crusher_0704110926_texture.glb"
+                      poster="/images/robust_crusher_design.png"
+                      alt="3D Kingson Cone Crusher Model"
+                      auto-rotate
+                      camera-controls
+                      ar
+                      shadow-intensity="1"
+                      interaction-prompt="none"
+                      auto-rotate-delay="0"
+                      className="w-full h-full rounded-2xl"
+                      style={{ width: "100%", height: "300px" }}
+                    >
+                      {/* Hotspots */}
+                      <button
+                        slot="hotspot-1"
+                        data-position="-0.2m 0.5m 0.3m"
+                        className="w-6 h-6 bg-card rounded-full flex items-center justify-center shadow-md cursor-pointer hover:scale-110 transition-transform border border-primary/40 text-primary font-black text-xs"
+                      >
+                        +
+                      </button>
+                      <button
+                        slot="hotspot-2"
+                        data-position="0.2m 0.6m -0.1m"
+                        className="w-6 h-6 bg-card rounded-full flex items-center justify-center shadow-md cursor-pointer hover:scale-110 transition-transform border border-primary/40 text-primary font-black text-xs"
+                      >
+                        +
+                      </button>
+                    </model-viewer>
                   </div>
 
                   {/* Floating White View Control Bar */}
                   <div className="flex items-center bg-card rounded-md shadow-md border border-border px-5 py-2.5 gap-4 z-20 mt-4">
-                    <button className="text-muted-foreground hover:text-primary transition-colors flex items-center gap-1 text-[10px] font-black uppercase tracking-wider">
+                    <button 
+                      onClick={handleReset}
+                      type="button"
+                      className="text-muted-foreground hover:text-primary transition-colors flex items-center gap-1 text-[10px] font-black uppercase tracking-wider"
+                    >
                       <span>360°</span>
                       <RotateCcw size={12} strokeWidth={2.5} />
                     </button>
                     <div className="w-[1px] h-3.5 bg-border" />
-                    <button className="text-muted-foreground hover:text-primary transition-colors"><ArrowLeft size={14} strokeWidth={2.5} /></button>
-                    <button className="text-muted-foreground hover:text-primary transition-colors"><ArrowRightIcon size={14} strokeWidth={2.5} /></button>
-                    <div className="w-[1px] h-3.5 bg-border" />
-                    <button className="text-muted-foreground hover:text-primary transition-colors"><Box size={14} strokeWidth={2.5} /></button>
-                    <div className="w-[1px] h-3.5 bg-border" />
-                    <button className="text-muted-foreground hover:text-primary transition-colors"><ZoomOut size={14} strokeWidth={2.5} /></button>
-                    <button className="text-muted-foreground hover:text-primary transition-colors"><ZoomIn size={14} strokeWidth={2.5} /></button>
+                    <button 
+                      onClick={handleZoomOut}
+                      type="button"
+                      className="text-muted-foreground hover:text-primary transition-colors"
+                    >
+                      <ZoomOut size={14} strokeWidth={2.5} />
+                    </button>
+                    <button 
+                      onClick={handleZoomIn}
+                      type="button"
+                      className="text-muted-foreground hover:text-primary transition-colors"
+                    >
+                      <ZoomIn size={14} strokeWidth={2.5} />
+                    </button>
                   </div>
 
                 </div>

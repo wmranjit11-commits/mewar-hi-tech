@@ -150,7 +150,7 @@ export default function MultiCardCarousel({
 
                 {/* Content */}
                 <div className="relative z-10 p-5 sm:p-6 text-white space-y-1.5">
-                  <h3 className="font-heading text-lg sm:text-xl font-black uppercase tracking-wide leading-tight text-white group-hover:text-primary transition-colors">
+                  <h3 className="common-heading text-lg sm:text-xl tracking-wide leading-tight text-white group-hover:text-primary transition-colors">
                     {slide.title}
                   </h3>
                   {(slide.subtitle || slide.desc) && (

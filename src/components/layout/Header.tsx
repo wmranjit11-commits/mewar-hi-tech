@@ -69,19 +69,19 @@ const navItems: NavItem[] = [
   {
     label: "Projects",
     children: [
-      { label: "Stationery Projects", to: "/projects" },
-      { label: "Mobile Plants", to: "/projects" },
-      { label: "Track Mounted", to: "/projects" },
-      { label: "Wheel Mounted", to: "/projects" },
+      { label: "Stationery Projects", to: "/projects/stationery-projects" },
+      { label: "Mobile Plants", heading: true },
+      { label: "Track Mounted", to: "/projects/track-mounted-mobile-projects" },
+      { label: "Wheel Mounted", to: "/projects/wheel-mounted-mobile-projects" },
     ],
   },
   {
     label: "Infrastructure",
     children: [
-      { label: "Manufacturing", to: "/industries" },
-      { label: "Casting", to: "/industries" },
-      { label: "Latest Process Machinery", to: "/industries" },
-      { label: "R & D and Design", to: "/industries" },
+      { label: "Manufacturing", to: "/infrastructure/manufacturing" },
+      { label: "Casting", to: "/infrastructure/casting" },
+      { label: "Latest Process Machinery", to: "/infrastructure/latest-process-machinery" },
+      { label: "R & D and Design", to: "/infrastructure/r-d-design" },
     ],
   },
   {
@@ -330,17 +330,28 @@ const Header: React.FC = () => {
                   >
                     <div className="flex flex-col gap-0.5">
                       {item.children.map((child) => (
-                        <Link
-                          key={child.label}
-                          href={child.to ?? "/"}
-                          className={`block px-3.5 py-2 rounded-lg text-[13px] font-medium transition-colors ${
-                            theme === "light"
-                              ? "text-gray-700 hover:bg-gray-100/80 hover:text-primary"
-                              : "text-secondary-foreground/80 hover:bg-white/5 hover:text-primary"
-                          }`}
-                        >
-                          {child.label}
-                        </Link>
+                        child.heading ? (
+                          <h4
+                            key={child.label}
+                            className={`px-3.5 py-1.5 text-[11px] font-black uppercase tracking-wider mt-2 border-t border-border/10 pt-2 first:mt-0 first:border-0 first:pt-0 ${
+                              theme === "light" ? "text-gray-900 font-bold" : "text-gray-100 font-bold"
+                            }`}
+                          >
+                            {child.label}
+                          </h4>
+                        ) : (
+                          <Link
+                            key={child.label}
+                            href={child.to ?? "/"}
+                            className={`block px-3.5 py-2 rounded-lg text-[13px] font-medium transition-colors ${
+                              theme === "light"
+                                ? "text-gray-700 hover:bg-gray-100/80 hover:text-primary"
+                                : "text-secondary-foreground/80 hover:bg-white/5 hover:text-primary"
+                            }`}
+                          >
+                            {child.label}
+                          </Link>
+                        )
                       ))}
                     </div>
                   </div>
@@ -529,6 +540,16 @@ const Header: React.FC = () => {
                                       </div>
                                     </div>
                                   ) : (
+                                  child.heading ? (
+                                    <div
+                                      key={child.label}
+                                      className={`px-4 py-2 mt-2 text-xs font-bold uppercase tracking-wider ${
+                                        theme === "light" ? "text-gray-900 border-t border-gray-100 pt-3" : "text-gray-200 border-t border-white/5 pt-3"
+                                      }`}
+                                    >
+                                      {child.label}
+                                    </div>
+                                  ) : (
                                     <Link
                                       key={child.label}
                                       href={child.to ?? "/"}
@@ -541,6 +562,7 @@ const Header: React.FC = () => {
                                     >
                                       {child.label}
                                     </Link>
+                                  )
                                   )
                                 ))}
                               </div>

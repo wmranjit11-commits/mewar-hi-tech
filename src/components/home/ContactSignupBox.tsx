@@ -29,7 +29,7 @@ const ContactSignupBox: React.FC = () => {
           className="lg:col-span-7 bg-card border border-border/50 p-8 lg:p-10 rounded-2xl flex flex-col justify-between"
         >
           <div>
-            <h3 className="font-heading text-2xl font-black text-foreground uppercase tracking-wide mb-3">
+            <h3 className="common-heading text-2xl text-foreground tracking-wide mb-3">
               Subscribe to our newsletter
             </h3>
             <p className="text-muted-foreground text-xs leading-relaxed mb-8 max-w-md">
@@ -85,7 +85,7 @@ const ContactSignupBox: React.FC = () => {
 
           {/* Content */}
           <div className="relative z-10 space-y-6">
-            <h3 className="font-heading text-2xl font-black uppercase tracking-wide leading-tight text-white">
+            <h3 className="common-heading text-2xl tracking-wide leading-tight text-white">
               You have questions?
               <br />
               Contact us!

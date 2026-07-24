@@ -33,7 +33,7 @@ const ServiceNetworkBanner: React.FC = () => {
           </span>
 
           {/* Title */}
-          <h2 className="font-heading text-2xl sm:text-4xl font-black text-white leading-tight uppercase">
+          <h2 className="common-heading text-2xl sm:text-4xl text-white leading-tight">
             Built for Low Maintenance and Reliable Performance
           </h2>
 

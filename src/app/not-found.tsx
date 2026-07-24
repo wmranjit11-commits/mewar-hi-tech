@@ -10,8 +10,8 @@ export default function NotFound() {
       <Header />
       <main className="min-h-[70vh] flex items-center justify-center pt-32 pb-24 bg-background">
         <div className="max-w-md mx-auto px-6 text-center">
-          <p className="font-heading text-7xl font-black text-primary mb-4">404</p>
-          <h1 className="font-heading text-2xl font-black text-foreground mb-3 uppercase">
+          <p className="common-heading text-7xl text-primary mb-4">404</p>
+          <h1 className="common-heading text-2xl text-foreground mb-3">
             Page Not Found
           </h1>
           <p className="text-muted-foreground mb-8">

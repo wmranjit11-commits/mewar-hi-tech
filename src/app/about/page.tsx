@@ -180,7 +180,7 @@ export default function About() {
                 <span className="text-primary font-bold text-xs uppercase tracking-widest block mb-1">
                   Factory &amp; Engineering Showcase
                 </span>
-                <h2 className="font-heading text-2xl sm:text-3xl font-black uppercase tracking-tight text-foreground">
+                <h2 className="common-heading text-2xl sm:text-3xl text-foreground">
                   Manufacturing Facility Gallery
                 </h2>
               </div>
@@ -210,7 +210,7 @@ export default function About() {
                   <span className="text-primary font-bold text-xs uppercase tracking-widest block mb-2">
                     Crusher Manufacturing Pioneers
                   </span>
-                  <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-black text-foreground uppercase tracking-tight leading-tight">
+                  <h2 className="common-heading text-3xl sm:text-4xl lg:text-5xl text-foreground leading-tight">
                     100% In-House &amp; Hi-Tech Manufacturing
                   </h2>
                 </div>
@@ -236,21 +236,21 @@ export default function About() {
                   <div className="p-4 rounded-xl bg-card border border-border flex items-center gap-3">
                     <TrendingUp size={24} className="text-primary shrink-0" />
                     <div>
-                      <h4 className="font-heading text-lg font-black text-foreground">20%+</h4>
+                      <h4 className="common-heading text-lg text-foreground">20%+</h4>
                       <p className="text-[11px] text-muted-foreground font-semibold uppercase">Higher Output</p>
                     </div>
                   </div>
                   <div className="p-4 rounded-xl bg-card border border-border flex items-center gap-3">
                     <Factory size={24} className="text-primary shrink-0" />
                     <div>
-                      <h4 className="font-heading text-lg font-black text-foreground">100%</h4>
+                      <h4 className="common-heading text-lg text-foreground">100%</h4>
                       <p className="text-[11px] text-muted-foreground font-semibold uppercase">In-House Castings</p>
                     </div>
                   </div>
                   <div className="p-4 rounded-xl bg-card border border-border flex items-center gap-3">
                     <ShieldCheck size={24} className="text-primary shrink-0" />
                     <div>
-                      <h4 className="font-heading text-lg font-black text-foreground">Strict QA</h4>
+                      <h4 className="common-heading text-lg text-foreground">Strict QA</h4>
                       <p className="text-[11px] text-muted-foreground font-semibold uppercase">Assurance Cell</p>
                     </div>
                   </div>
@@ -301,7 +301,7 @@ export default function About() {
                   <span className="text-primary font-bold text-xs uppercase tracking-widest block">
                     Engineering Mastery
                   </span>
-                  <h3 className="font-heading text-2xl sm:text-3xl font-black text-foreground uppercase tracking-tight">
+                  <h3 className="common-heading text-2xl sm:text-3xl text-foreground">
                     A Powerful &amp; Robust Design
                   </h3>
                   <p className="text-muted-foreground text-sm leading-relaxed">
@@ -350,7 +350,7 @@ export default function About() {
                   <span className="text-primary font-bold text-xs uppercase tracking-widest block">
                     Zero Compromise
                   </span>
-                  <h3 className="font-heading text-2xl sm:text-3xl font-black text-foreground uppercase tracking-tight">
+                  <h3 className="common-heading text-2xl sm:text-3xl text-foreground">
                     Quality Policy
                   </h3>
                   <p className="text-muted-foreground text-sm leading-relaxed">
@@ -426,7 +426,7 @@ export default function About() {
                 <span className="text-primary font-bold text-xs uppercase tracking-widest block mb-2">
                   Human Excellence &amp; Expertise
                 </span>
-                <h2 className="font-heading text-3xl sm:text-4xl font-black text-foreground uppercase tracking-tight leading-tight">
+                <h2 className="common-heading text-3xl sm:text-4xl text-foreground leading-tight">
                   A Team Dedicated of Experts
                 </h2>
               </div>
@@ -459,7 +459,7 @@ export default function About() {
               <span className="text-primary font-bold text-xs uppercase tracking-widest block">
                 Respect, Mission &amp; Philosophy
               </span>
-              <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-black uppercase tracking-tight text-white">
+              <h2 className="common-heading text-3xl sm:text-4xl lg:text-5xl text-white">
                 Our 100% In-House Precision Equipment
               </h2>
               <p className="text-secondary-foreground/70 text-sm sm:text-base font-medium">
@@ -485,7 +485,7 @@ export default function About() {
                         <IconComp size={22} />
                       </div>
                       <div>
-                        <h4 className="font-heading text-base font-black text-white uppercase tracking-wide">
+                        <h4 className="common-heading text-base text-white tracking-wide">
                           {item.title}
                         </h4>
                         <span className="text-[11px] font-bold text-primary uppercase tracking-wider block mt-0.5">
@@ -521,7 +521,7 @@ export default function About() {
                   <span className="text-primary font-bold text-xs uppercase tracking-widest block mb-2">
                     Our Shared Vision
                   </span>
-                  <h2 className="font-heading text-3xl sm:text-4xl font-black text-foreground uppercase tracking-tight leading-tight">
+                  <h2 className="common-heading text-3xl sm:text-4xl text-foreground leading-tight">
                     We Thrive Only When Our Associates Do
                   </h2>
                 </div>

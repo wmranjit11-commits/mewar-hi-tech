@@ -42,7 +42,7 @@ const TestimonialsSection: React.FC = () => {
           <span className="text-primary font-bold text-xs uppercase tracking-widest block">
             Testimonials
           </span>
-          <h2 className="font-heading text-3xl sm:text-4xl font-black text-foreground mt-3 uppercase">
+          <h2 className="common-heading text-3xl sm:text-4xl text-foreground mt-3">
             Trusted by Industry Leaders
           </h2>
         </motion.div>
@@ -74,7 +74,7 @@ const TestimonialsSection: React.FC = () => {
                   className="w-12 h-12 rounded-full object-cover bg-muted"
                 />
                 <div>
-                  <p className="font-heading font-black text-foreground text-sm">
+                  <p className="common-heading text-foreground text-sm">
                     {t.name}
                   </p>
                   <p className="text-muted-foreground text-xs font-semibold">
