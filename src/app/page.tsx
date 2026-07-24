@@ -3,6 +3,7 @@ import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import HeroSection from "@/components/home/HeroSection";
 import ClientLogosMarquee from "@/components/home/ClientLogosMarquee";
+import VerifiedTrustStrip from "@/components/home/VerifiedTrustStrip";
 import WelcomeTeaser from "@/components/home/WelcomeTeaser";
 import WhyKingsonSection from "@/components/home/WhyKingsonSection";
 import ExploreMachinesSection from "@/components/home/ExploreMachinesSection";
@@ -11,8 +12,10 @@ import SectorGrid from "@/components/home/SectorGrid";
 import VideoShowcase from "@/components/home/VideoShowcase";
 import LatestProjects from "@/components/home/LatestProjects";
 import ExportProjects from "@/components/home/ExportProjects";
+import TestimonialsSection from "@/components/home/TestimonialsSection";
 import TeamSection from "@/components/home/TeamSection";
 import AboutTeaser from "@/components/home/AboutTeaser";
+
 import FlagshipProductsGrid from "@/components/home/FlagshipProductsGrid";
 
 export default function Home() {
@@ -28,38 +31,44 @@ export default function Home() {
         {/* 2. Client Partner Logos Marquee */}
         <ClientLogosMarquee />
 
-        {/* 3. Welcome Teaser: copy and stacked index image collage */}
+        {/* 3. Verified Certification & Trust Strip (ISO 9001:2008, #1 Supplier, Leading Provider) */}
+        <VerifiedTrustStrip />
+
+        {/* 4. Welcome Teaser: copy and stacked index image collage */}
         <WelcomeTeaser />
 
-        {/* 4. Why Kingson: Machinery, Infrastructure, Project cards */}
+        {/* 5. Why Kingson: Machinery, Infrastructure, Project cards */}
         <WhyKingsonSection />
 
-        {/* 5. Explore Our Machines: 4 category cards */}
+        {/* 6. Explore Our Machines: 4 category expanding cards */}
         <ExploreMachinesSection />
 
-        {/* 6. Why Choose Us: 4 icon cards */}
+        {/* 7. Why Choose Us: 4 pillar trust cards with section header */}
         <WhyChooseUs />
 
-        {/* 7. Find Your Perfect Machine + 3D Experience */}
+        {/* 8. Find Your Perfect Machine + 3D Experience */}
         <SectorGrid />
 
-        {/* 8. Video Showcase: looping home-page.mp4 & fullscreen playback */}
+        {/* 9. Heavy Engineering Video Showcase */}
         <VideoShowcase />
 
-        {/* 9. Latest Projects: 8-image grid with lightbox modal */}
+        {/* 10. Latest Projects: Bento grid with lightbox modal */}
         <LatestProjects />
 
-        {/* 10. Export Projects (Tanzania): 8-image grid with lightbox modal */}
+        {/* 11. Export Projects (Tanzania): Bento grid with lightbox modal */}
         <ExportProjects />
 
-        {/* 11. Management Team: executive leadership profiles */}
+        {/* 12. Verified Client Reviews & Testimonials */}
+        <TestimonialsSection />
+
+        {/* 13. Management Team: Executive leadership profiles */}
         <TeamSection />
 
-        {/* 12. Our Impact: Stats + Catalog */}
+        {/* 14. Our Impact: Stats + Gold Trophy */}
         <AboutTeaser />
 
-        {/* 13. Brochures & Documents: Download + Videos */}
-        <FlagshipProductsGrid />
+        {/* 16. Technical Downloads Center & Video Popup */}
+          <FlagshipProductsGrid />
       </main>
       <Footer />
     </div>

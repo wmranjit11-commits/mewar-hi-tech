@@ -6,7 +6,7 @@ import Link from "next/link";
 
 const AboutTeaser: React.FC = () => {
   return (
-    <section className="bg-card text-foreground py-14 select-none text-left border-y border-border overflow-hidden">
+    <section className="bg-card text-foreground py-8 lg:py-10 select-none text-left border-y border-border overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-0">
           

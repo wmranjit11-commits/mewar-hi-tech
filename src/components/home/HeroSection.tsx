@@ -49,7 +49,7 @@ const HeroSection: React.FC = () => {
       {/* Background Image Container */}
       <div className="absolute inset-0 w-full h-full z-0 overflow-hidden">
         <img
-          src="/images/hero-crusher.png"
+          src="/images/hero-crusher.webp"
           alt="Keestrack Crawler Crusher background"
           className="w-full h-full object-cover object-center"
         />

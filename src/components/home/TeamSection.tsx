@@ -33,7 +33,7 @@ const TEAM_MEMBERS = [
 
 export default function TeamSection() {
   return (
-    <section className="py-16 lg:py-24 bg-background border-b border-border/60">
+    <section className="py-8 lg:py-12 bg-background border-b border-border/60">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         {/* Section Header */}
         <div className="max-w-3xl mb-12 text-left">
