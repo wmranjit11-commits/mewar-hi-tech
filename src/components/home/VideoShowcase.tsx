@@ -17,7 +17,7 @@ export default function VideoShowcase() {
   }, []);
 
   return (
-    <section className="py-16 lg:py-24 bg-background border-b border-border/60">
+    <section className="py-8 lg:py-12 bg-background border-b border-border/60">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
           
@@ -42,7 +42,7 @@ export default function VideoShowcase() {
               </div>
               <div className="space-y-1">
                 <h4 className="font-heading text-xs font-black uppercase text-foreground">
-                  Shop Floor & Field Footage
+                  Shop Floor &amp; Field Footage
                 </h4>
                 <p className="text-[10px] text-muted-foreground font-bold leading-normal">
                   High-definition mechanism demonstration of primary crushing plants and mobile tracks.

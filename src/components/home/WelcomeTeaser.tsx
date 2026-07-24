@@ -7,7 +7,7 @@ import BlobButton from "@/components/ui/BlobButton";
 
 export default function WelcomeTeaser() {
   return (
-    <section className="py-16 lg:py-24 bg-background overflow-hidden border-b border-border/60">
+    <section className="py-8 lg:py-12 bg-background overflow-hidden border-b border-border/60">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
           {/* Left Text Column */}

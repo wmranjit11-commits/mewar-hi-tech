@@ -2,12 +2,93 @@
 
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Eye, X, ChevronLeft, ChevronRight, Globe } from "lucide-react";
+import {
+  Globe,
+  Eye,
+  X,
+  ChevronLeft,
+  ChevronRight,
+  MapPin,
+  Maximize2,
+  CheckCircle2,
+  Award,
+} from "lucide-react";
 
-const EXPORT_IMAGES = Array.from(
-  { length: 8 },
-  (_, i) => `/images/export-projects-${i + 1}.jpg`
-);
+interface ExportProjectItem {
+  id: number;
+  src: string;
+  title: string;
+  location: string;
+  capacity: string;
+  tag: string;
+}
+
+const EXPORT_PROJECTS_DATA: ExportProjectItem[] = [
+  {
+    id: 1,
+    src: "/images/export-projects-1.jpg",
+    title: "250 TPH Complete Primary & Secondary Plant",
+    location: "Dar es Salaam, Tanzania",
+    capacity: "250 TPH",
+    tag: "African Turnkey",
+  },
+  {
+    id: 2,
+    src: "/images/export-projects-2.jpg",
+    title: "Heavy Duty Mining Screen Installation",
+    location: "Mwanza, Tanzania",
+    capacity: "300 TPH",
+    tag: "Mining Sector",
+  },
+  {
+    id: 3,
+    src: "/images/export-projects-3.jpg",
+    title: "Turnkey Gold Ore Crushing Installation",
+    location: "Geita, Tanzania",
+    capacity: "200 TPH",
+    tag: "Gold Mining",
+  },
+  {
+    id: 4,
+    src: "/images/export-projects-4.jpg",
+    title: "Aggregate Processing & Washing Complex",
+    location: "Arusha, Tanzania",
+    capacity: "180 TPH",
+    tag: "Quarrying",
+  },
+  {
+    id: 5,
+    src: "/images/export-projects-5.jpg",
+    title: "Primary Jaw & Secondary Cone Setup",
+    location: "Dodoma, Tanzania",
+    capacity: "220 TPH",
+    tag: "Heavy Infrastructure",
+  },
+  {
+    id: 6,
+    src: "/images/export-projects-6.jpg",
+    title: "High Capacity Sand Washing Plant",
+    location: "Tanga, Tanzania",
+    capacity: "150 TPH",
+    tag: "Aggregate Plant",
+  },
+  {
+    id: 7,
+    src: "/images/export-projects-7.jpg",
+    title: "Modular Mobile Crushing Station",
+    location: "Mbeya, Tanzania",
+    capacity: "160 TPH",
+    tag: "Mobile Plant",
+  },
+  {
+    id: 8,
+    src: "/images/export-projects-8.jpg",
+    title: "Industrial Quarry Screening Line",
+    location: "Morogoro, Tanzania",
+    capacity: "280 TPH",
+    tag: "Industrial Site",
+  },
+];
 
 export default function ExportProjects() {
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
@@ -15,18 +96,21 @@ export default function ExportProjects() {
   const handlePrev = (e?: React.MouseEvent) => {
     e?.stopPropagation();
     if (lightboxIndex !== null) {
-      setLightboxIndex((prev) => (prev === 0 ? EXPORT_IMAGES.length - 1 : prev! - 1));
+      setLightboxIndex((prev) =>
+        prev === 0 ? EXPORT_PROJECTS_DATA.length - 1 : prev! - 1
+      );
     }
   };
 
   const handleNext = (e?: React.MouseEvent) => {
     e?.stopPropagation();
     if (lightboxIndex !== null) {
-      setLightboxIndex((prev) => (prev === EXPORT_IMAGES.length - 1 ? 0 : prev! + 1));
+      setLightboxIndex((prev) =>
+        prev === EXPORT_PROJECTS_DATA.length - 1 ? 0 : prev! + 1
+      );
     }
   };
 
-  // Keyboard navigation for lightbox
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (lightboxIndex === null) return;
@@ -38,52 +122,180 @@ export default function ExportProjects() {
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, [lightboxIndex]);
 
+  const featuredExport = EXPORT_PROJECTS_DATA[0];
+  const remainingExports = EXPORT_PROJECTS_DATA.slice(1);
+
   return (
-    <section className="py-16 lg:py-24 bg-muted/20 border-b border-border/60">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+    <section className="py-8 lg:py-12 bg-background border-b border-border/60 relative overflow-hidden select-none">
+      {/* Decorative Global Map Accent Background */}
+      <div className="absolute top-1/3 right-10 w-96 h-96 bg-primary/5 rounded-full blur-3xl pointer-events-none" />
+
+      <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
+        
         {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
-          <div className="space-y-2 text-left">
-            <span className="text-primary font-bold text-xs uppercase tracking-widest block">
-              International Footprint
-            </span>
-            <h2 className="common-heading text-3xl sm:text-4xl text-foreground">
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+          <div className="space-y-3 text-left">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary text-[11px] font-extrabold uppercase tracking-widest">
+              <Globe size={13} />
+              <span>International Exports & Projects</span>
+            </div>
+            <h2 className="common-heading text-3xl sm:text-4xl lg:text-5xl text-foreground font-black tracking-tight">
               Export Projects (Tanzania)
             </h2>
+            <p className="text-sm text-muted-foreground font-medium max-w-xl leading-relaxed">
+              Demonstrating engineered reliability across East Africa with robust, high-tonnage turnkey installations.
+            </p>
           </div>
-          <div className="flex items-center gap-2 text-xs font-bold text-muted-foreground bg-muted/40 border border-border/80 px-4 py-2 rounded-xl shrink-0 self-start md:self-end">
-            <Globe size={14} className="text-primary" />
-            <span>Turnkey African Installations</span>
+
+          {/* Turnkey African Badge */}
+          <div className="flex items-center gap-3 bg-card border border-border/80 p-2.5 px-4 rounded-2xl shadow-sm shrink-0 self-start md:self-end">
+            <div className="w-9 h-9 rounded-xl bg-primary/15 text-primary flex items-center justify-center font-black">
+              <Award size={18} />
+            </div>
+            <div className="text-left">
+              <span className="block text-[10px] text-muted-foreground uppercase font-bold tracking-wider">
+                Export Operations
+              </span>
+              <span className="text-sm font-extrabold text-foreground">
+                Turnkey African Installations
+              </span>
+            </div>
           </div>
         </div>
 
-        {/* Gallery Grid - Displays all 8 export photos */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-          {EXPORT_IMAGES.map((src, idx) => (
+        {/* Bento Grid Showcase Layout */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
+          
+          {/* Main Hero Featured Project Card */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            onClick={() => setLightboxIndex(0)}
+            className="lg:col-span-7 relative min-h-[420px] lg:min-h-[520px] rounded-3xl overflow-hidden border border-border bg-card group shadow-lg hover:shadow-2xl transition-all duration-500 cursor-pointer flex flex-col justify-end"
+          >
+            <img
+              src={featuredExport.src}
+              alt={featuredExport.title}
+              className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+            />
+
+            {/* Dark Gradient Overlay */}
+            <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent z-10 opacity-90 group-hover:opacity-95 transition-opacity duration-300" />
+
+            {/* Top Badge */}
+            <div className="absolute top-6 left-6 z-20 flex items-center gap-2">
+              <span className="px-3.5 py-1.5 rounded-full bg-primary text-primary-foreground text-xs font-black uppercase tracking-wider shadow-md">
+                Featured Export Site
+              </span>
+              <span className="px-3.5 py-1.5 rounded-full bg-black/50 backdrop-blur-md border border-white/20 text-white text-xs font-bold">
+                {featuredExport.capacity}
+              </span>
+            </div>
+
+            {/* Expand Icon */}
+            <div className="absolute top-6 right-6 z-20 w-11 h-11 rounded-full bg-white/20 backdrop-blur-md border border-white/30 text-white flex items-center justify-center group-hover:bg-primary group-hover:text-primary-foreground group-hover:scale-110 transition-all duration-300 shadow-md">
+              <Maximize2 size={18} />
+            </div>
+
+            {/* Bottom Content Card */}
+            <div className="relative z-20 p-6 sm:p-8 space-y-2 text-left">
+              <div className="flex items-center gap-2 text-primary font-bold text-xs">
+                <MapPin size={14} />
+                <span>{featuredExport.location}</span>
+              </div>
+              <h3 className="text-xl sm:text-2xl lg:text-3xl font-black text-white uppercase tracking-wide font-heading">
+                {featuredExport.title}
+              </h3>
+              <div className="flex items-center gap-2 text-white/80 text-xs font-semibold pt-2">
+                <span>Click to view full installation photo</span>
+                <ChevronRight size={14} className="text-primary group-hover:translate-x-1 transition-transform" />
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Secondary Grid Column */}
+          <div className="lg:col-span-5 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-6">
+            {remainingExports.slice(0, 3).map((item, idx) => (
+              <motion.div
+                key={item.id}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: (idx + 1) * 0.1 }}
+                onClick={() => setLightboxIndex(idx + 1)}
+                className="relative h-[155px] lg:h-[160px] rounded-2xl overflow-hidden border border-border bg-card group shadow-xs hover:shadow-xl transition-all duration-300 cursor-pointer flex items-end p-4"
+              >
+                <img
+                  src={item.src}
+                  alt={item.title}
+                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-108"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent z-10" />
+
+                <div className="relative z-20 flex items-center justify-between w-full text-left">
+                  <div>
+                    <span className="text-[10px] font-extrabold text-primary uppercase tracking-wider block">
+                      {item.tag} • {item.location}
+                    </span>
+                    <h4 className="text-sm font-bold text-white uppercase tracking-tight line-clamp-1">
+                      {item.title}
+                    </h4>
+                  </div>
+                  <div className="w-8 h-8 rounded-full bg-white/20 backdrop-blur-md border border-white/20 text-white flex items-center justify-center shrink-0 group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-300">
+                    <Eye size={14} />
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+
+        </div>
+
+        {/* Bottom Horizontal Grid of Remaining Installations (4 Cards) */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-6">
+          {remainingExports.slice(3).map((item, idx) => (
             <motion.div
-              key={src}
-              initial={{ opacity: 0, y: 15 }}
+              key={item.id}
+              initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: idx * 0.05 }}
-              onClick={() => setLightboxIndex(idx)}
-              className="relative rounded-2xl overflow-hidden border border-border bg-card aspect-[4/3] cursor-pointer group shadow-xs hover:shadow-xl transition-all duration-300"
+              transition={{ duration: 0.4, delay: idx * 0.08 }}
+              onClick={() => setLightboxIndex(idx + 4)}
+              className="relative h-[220px] rounded-2xl overflow-hidden border border-border bg-card group shadow-sm hover:shadow-xl transition-all duration-300 cursor-pointer flex flex-col justify-between p-5"
             >
               <img
-                src={src}
-                alt={`Export installation in Tanzania ${idx + 1}`}
-                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                loading="lazy"
+                src={item.src}
+                alt={item.title}
+                className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-108"
               />
-              {/* Hover Overlay */}
-              <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                <div className="w-12 h-12 rounded-full bg-primary flex items-center justify-center text-primary-foreground transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300 shadow-lg">
-                  <Eye size={20} />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-black/10 z-10" />
+
+              {/* Tag Badge */}
+              <div className="relative z-20 flex justify-between items-center">
+                <span className="px-2.5 py-1 rounded-md bg-black/40 backdrop-blur-md border border-white/10 text-white text-[10px] font-bold uppercase">
+                  {item.tag}
+                </span>
+                <div className="w-7 h-7 rounded-full bg-white/20 backdrop-blur-md text-white flex items-center justify-center group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
+                  <Eye size={13} />
                 </div>
+              </div>
+
+              {/* Title & Location */}
+              <div className="relative z-20 text-left space-y-1">
+                <div className="flex items-center gap-1 text-[11px] text-primary font-bold">
+                  <MapPin size={12} />
+                  <span>{item.location}</span>
+                </div>
+                <h4 className="text-sm font-bold text-white uppercase tracking-tight line-clamp-1">
+                  {item.title}
+                </h4>
               </div>
             </motion.div>
           ))}
         </div>
+
       </div>
 
       {/* Lightbox Modal */}
@@ -94,52 +306,66 @@ export default function ExportProjects() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={() => setLightboxIndex(null)}
-            className="fixed inset-0 z-50 bg-black/95 flex items-center justify-center p-4 sm:p-8"
+            className="fixed inset-0 z-50 bg-black/95 backdrop-blur-lg flex items-center justify-center p-4 sm:p-8"
           >
-            {/* Close Button & Counter */}
-            <div className="absolute top-4 left-4 right-4 flex justify-between items-center text-white z-10">
-              <span className="text-xs font-black uppercase tracking-wider text-gray-400">
-                Export Image {lightboxIndex + 1} of {EXPORT_IMAGES.length}
-              </span>
+            {/* Header controls */}
+            <div className="absolute top-6 left-6 right-6 flex justify-between items-center text-white z-20">
+              <div className="flex items-center gap-3">
+                <span className="px-3.5 py-1.5 rounded-full bg-primary text-primary-foreground text-xs font-black uppercase">
+                  {EXPORT_PROJECTS_DATA[lightboxIndex].tag}
+                </span>
+                <span className="text-sm font-semibold text-white/80">
+                  {lightboxIndex + 1} of {EXPORT_PROJECTS_DATA.length}
+                </span>
+              </div>
               <button
                 onClick={() => setLightboxIndex(null)}
-                className="w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white transition-colors"
+                className="w-10 h-10 rounded-full bg-white/10 hover:bg-primary hover:text-primary-foreground text-white flex items-center justify-center transition-colors cursor-pointer"
               >
                 <X size={20} />
               </button>
             </div>
 
-            {/* Left navigation arrow */}
-            <button
-              onClick={handlePrev}
-              className="absolute left-4 w-12 h-12 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white transition-colors"
-            >
-              <ChevronLeft size={28} />
-            </button>
-
-            {/* Main Image display */}
-            <motion.div
-              key={lightboxIndex}
-              initial={{ scale: 0.95, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.95, opacity: 0 }}
-              transition={{ duration: 0.2 }}
-              className="relative max-w-5xl max-h-[80vh] flex items-center justify-center"
+            {/* Lightbox Image Preview */}
+            <div
               onClick={(e) => e.stopPropagation()}
+              className="relative max-w-5xl w-full max-h-[80vh] aspect-[16/10] rounded-2xl overflow-hidden shadow-2xl border border-white/10"
             >
               <img
-                src={EXPORT_IMAGES[lightboxIndex]}
-                alt={`Expanded Export view ${lightboxIndex + 1}`}
-                className="max-w-full max-h-[80vh] object-contain rounded-xl shadow-2xl border border-white/5"
+                src={EXPORT_PROJECTS_DATA[lightboxIndex].src}
+                alt={EXPORT_PROJECTS_DATA[lightboxIndex].title}
+                className="w-full h-full object-contain bg-black"
               />
-            </motion.div>
 
-            {/* Right navigation arrow */}
+              {/* Bottom Project Details Bar */}
+              <div className="absolute bottom-0 inset-x-0 p-6 bg-gradient-to-t from-black/90 via-black/70 to-transparent text-left text-white flex flex-col sm:flex-row justify-between items-start sm:items-end gap-3">
+                <div>
+                  <div className="flex items-center gap-2 text-primary text-xs font-bold mb-1">
+                    <MapPin size={14} />
+                    <span>{EXPORT_PROJECTS_DATA[lightboxIndex].location}</span>
+                  </div>
+                  <h3 className="text-xl font-bold uppercase tracking-wide">
+                    {EXPORT_PROJECTS_DATA[lightboxIndex].title}
+                  </h3>
+                </div>
+                <div className="px-4 py-2 rounded-xl bg-white/10 backdrop-blur-md border border-white/10 text-xs font-bold">
+                  Capacity: {EXPORT_PROJECTS_DATA[lightboxIndex].capacity}
+                </div>
+              </div>
+            </div>
+
+            {/* Navigation Arrows */}
+            <button
+              onClick={handlePrev}
+              className="absolute left-6 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-white/10 hover:bg-primary hover:text-primary-foreground text-white flex items-center justify-center transition-all cursor-pointer backdrop-blur-md shadow-lg"
+            >
+              <ChevronLeft size={24} />
+            </button>
             <button
               onClick={handleNext}
-              className="absolute right-4 w-12 h-12 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white transition-colors"
+              className="absolute right-6 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-white/10 hover:bg-primary hover:text-primary-foreground text-white flex items-center justify-center transition-all cursor-pointer backdrop-blur-md shadow-lg"
             >
-              <ChevronRight size={28} />
+              <ChevronRight size={24} />
             </button>
           </motion.div>
         )}
