@@ -7,13 +7,42 @@ import { useTheme } from "@/components/ui/ThemeContext";
 /* ─── Footer Column Data ─── */
 const footerColumns = [
   {
-    title: "MACHINES",
+    title: "COMPANY INFO",
     links: [
-      { label: "Crushers", to: "/products?category=crushers" },
-      { label: "Screeners", to: "/products?category=screens" },
-      { label: "Stackers", to: "/products" },
-      { label: "Feeders", to: "/products?category=feeders" },
-      { label: "View all Machines", to: "/products" },
+      { label: "Home", to: "/" },
+      { label: "About Mewar Hitech", to: "/about" },
+      { label: "Events", to: "/blogs" },
+      { label: "Career", to: "/careers" },
+      { label: "Contact", to: "/contact" },
+      { label: "Privacy Policy", to: "/privacy-policy" },
+    ],
+  },
+  {
+    title: "OUR PRODUCT",
+    links: [
+      { label: "Double Toggle Oil Jaw Crusher", to: "/products" },
+      { label: "Single Toggle Grease Jaw Crusher", to: "/products" },
+      { label: "Double Toggle Grease Jaw Crusher", to: "/products" },
+      { label: "Cone Crusher", to: "/products" },
+      { label: "Roll Crusher", to: "/products" },
+      { label: "Horizontal Shaft Impactor", to: "/products" },
+      { label: "Vertical Shaft Impactor", to: "/products" },
+      { label: "Sand Making Machine", to: "/products" },
+      { label: "Vibrating Screen", to: "/products" },
+      { label: "Vibro Feeder", to: "/products" },
+      { label: "Single Shaft Feeders", to: "/products" },
+      { label: "Sand Washer", to: "/products" },
+      { label: "Belt Conveyor", to: "/products" },
+    ],
+  },
+  {
+    title: "SUPPORT & SERVICES",
+    links: [
+      { label: "Parts & Services", to: "/services" },
+      { label: "Technical Support", to: "/services" },
+      { label: "Service Network", to: "/services" },
+      { label: "Downloads", to: "/services" },
+      { label: "FAQ", to: "/faq" },
     ],
   },
   {
@@ -24,25 +53,6 @@ const footerColumns = [
       { label: "Recycling", to: "/industries" },
       { label: "Road & Infra", to: "/industries" },
       { label: "View all Applications", to: "/industries" },
-    ],
-  },
-  {
-    title: "SUPPORT",
-    links: [
-      { label: "Parts & Services", to: "/services" },
-      { label: "Technical Support", to: "/services" },
-      { label: "Service Network", to: "/services" },
-      { label: "Downloads", to: "/services" },
-      { label: "FAQ", to: "/services" },
-    ],
-  },
-  {
-    title: "COMPANY",
-    links: [
-      { label: "About Us", to: "/about" },
-      { label: "Careers", to: "/careers" },
-      { label: "News & Media", to: "/blogs" },
-      { label: "Contact Us", to: "/contact" },
     ],
   },
 ];
@@ -89,8 +99,8 @@ const Footer: React.FC = () => {
       {/* Upper Footer */}
       <div className="max-w-7xl mx-auto px-6 lg:px-8 py-12 flex flex-col sm:flex-row sm:flex-wrap lg:flex-nowrap justify-between items-start gap-8 text-left">
         
-        {/* Column 1: Logo & Info */}
-        <div className="w-full sm:w-[45%] lg:w-auto lg:max-w-[200px] space-y-4 shrink-0">
+        {/* Column 1: Logo, Brand & Contact Info */}
+        <div className="w-full sm:w-[45%] lg:w-[220px] space-y-5 shrink-0">
           <Link href="/" className="flex items-center gap-2">
             <div className={`w-full h-[64px] rounded flex items-center justify-center shrink-0 overflow-hidden ${theme === "dark" ? "" : "bg-white border border-border shadow-sm"}`}>
               <img
@@ -100,11 +110,21 @@ const Footer: React.FC = () => {
               />
             </div>
           </Link>
-          <p className="text-secondary-foreground/60 text-xs leading-relaxed">
-            Engineered to perform.
-            <br />
-            Built to crush. Made to last.
-          </p>
+          <div className="space-y-4">
+            <p className="text-secondary-foreground/60 text-xs leading-relaxed">
+              Engineered to perform.
+              <br />
+              Built to crush. Made to last.
+            </p>
+
+            <div className="text-secondary-foreground/60 text-xs leading-relaxed space-y-2">
+              <p className="font-bold text-secondary-foreground">Contact Info</p>
+              <p>Mewar Hitech Engineering LTD.</p>
+              <p>Hawa Magri Industrial Area, Sukher, Udaipur</p>
+              <p>Contact No. 9001113333</p>
+              <p>Email Add. <a href="mailto:sales@kingsoncrusher.com" className="hover:text-primary transition-colors">sales@kingsoncrusher.com</a></p>
+            </div>
+          </div>
           
           {/* Social Icons */}
           <div className="flex items-center gap-2.5 pt-2">
@@ -121,7 +141,7 @@ const Footer: React.FC = () => {
           </div>
         </div>
 
-        {/* Column 2 to 5: Link Columns */}
+        {/* Columns 2 to 5: Link Columns */}
         {footerColumns.map((col) => (
           <div key={col.title} className="w-auto space-y-3 shrink-0">
             <h4 className="font-sans font-extrabold text-[10px] uppercase tracking-wider text-secondary-foreground">
@@ -177,17 +197,17 @@ const Footer: React.FC = () => {
           
           {/* Copyright & Sub Links */}
           <div className="flex flex-wrap gap-3 md:gap-5 items-center justify-center md:justify-start">
-            <p>&copy; {new Date().getFullYear()} Mewar Hi-Tech. All rights reserved.</p>
+            <p>Copyright &copy; {new Date().getFullYear()} Mewar Hi-Tech. All rights reserved.</p>
             <span className="text-secondary-foreground/20">|</span>
-            <Link href="/contact" className="hover:text-secondary-foreground transition-colors">
+            <Link href="/privacy-policy" className="hover:text-secondary-foreground transition-colors">
               Privacy Policy
             </Link>
             <span className="text-secondary-foreground/20">|</span>
-            <Link href="/contact" className="hover:text-secondary-foreground transition-colors">
+            <Link href="/terms-of-use" className="hover:text-secondary-foreground transition-colors">
               Terms of Use
             </Link>
             <span className="text-secondary-foreground/20">|</span>
-            <Link href="/contact" className="hover:text-secondary-foreground transition-colors">
+            <Link href="/cookie-policy" className="hover:text-secondary-foreground transition-colors">
               Cookie Settings
             </Link>
           </div>
@@ -195,14 +215,13 @@ const Footer: React.FC = () => {
           {/* Designed Motto & Accent Line */}
           <div className="flex items-center gap-3">
             <span className="font-semibold text-secondary-foreground/60 tracking-wider uppercase text-[10px]">
-              Designed for Performance. Built to Last.
+              DESIGNED FOR PERFORMANCE. BUILT TO LAST.
             </span>
-            <div className="w-16 h-[2px] bg-primary shrink-0" />
+            <div className="w-12 h-[2px] bg-primary rounded-full hidden md:block"></div>
           </div>
 
         </div>
       </div>
-
     </footer>
   );
 };

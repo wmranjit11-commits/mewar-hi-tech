@@ -5,9 +5,17 @@ import { ToastContainer } from 'react-toastify';
 import Script from 'next/script';
 import { ThemeProvider } from '@/components/ui/ThemeContext';
 
+import { Rubik } from 'next/font/google';
+
 import '@radix-ui/themes/styles.css';
 import 'react-toastify/dist/ReactToastify.css';
-import '../../styles.css';
+import './globals.css';
+
+const rubik = Rubik({ 
+  subsets: ['latin'],
+  variable: '--font-rubik',
+  display: 'swap',
+});
 
 export const metadata: Metadata = {
   title: "Mewar Hi-Tech - Heavy Duty Crushing & Screening Equipment",
@@ -23,7 +31,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" data-scroll-behavior="smooth">
+    <html lang="en" data-scroll-behavior="smooth" className={rubik.variable}>
       <body className="min-h-screen font-sans">
         <Script 
           src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.0.0/model-viewer.min.js" 
