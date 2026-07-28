@@ -3,6 +3,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import ProductCard from "@/components/ui/ProductCard";
+import Container from "@/components/ui/Container";
 
 export const PRODUCTS = [
   {
@@ -67,7 +68,7 @@ const ProductsSection: React.FC<ProductsSectionProps> = ({
   const items = limit ? PRODUCTS.slice(0, limit) : PRODUCTS;
   return (
     <section className="py-16 lg:py-24 bg-background select-none">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+      <Container>
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -88,7 +89,7 @@ const ProductsSection: React.FC<ProductsSectionProps> = ({
             <ProductCard key={product.name} index={i} {...product} />
           ))}
         </div>
-      </div>
+      </Container>
     </section>
   );
 };

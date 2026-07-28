@@ -4,11 +4,12 @@ import React from "react";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import BlobButton from "@/components/ui/BlobButton";
+import Container from "../ui/Container";
 
 export default function WelcomeTeaser() {
   return (
     <section className="py-8 lg:py-12 bg-background overflow-hidden border-b border-border/60">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+      <Container>
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
           {/* Left Text Column */}
           <div className="lg:col-span-6 space-y-6 text-left">
@@ -39,7 +40,7 @@ export default function WelcomeTeaser() {
           </div>
 
           {/* Right Image Collage Column */}
-          <div className="lg:col-span-6 flex justify-center relative min-h-[380px] sm:min-h-[440px] w-full">
+          <div className="lg:col-span-6 py-10 flex justify-center relative min-h-[380px] sm:min-h-[440px] w-full">
             {/* Image 1 (Background left) */}
             <div className="absolute left-4 top-8 w-[60%] aspect-square rounded-2xl overflow-hidden border border-border shadow-lg rotate-[-3deg] hover:rotate-0 hover:z-20 transition-all duration-300">
               <img
@@ -66,7 +67,7 @@ export default function WelcomeTeaser() {
             </div>
           </div>
         </div>
-      </div>
+      </Container>
     </section>
   );
 }

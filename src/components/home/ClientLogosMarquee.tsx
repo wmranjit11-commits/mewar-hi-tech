@@ -1,6 +1,7 @@
 "use client";
 import React from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import Container from "../ui/Container";
 
 const brands = [
   "LAFARGE",
@@ -35,7 +36,7 @@ const logoImages = [
 const ClientLogosMarquee: React.FC = () => {
   return (
     <section className="py-12 lg:py-16 bg-background select-none border-y border-border/30 overflow-hidden">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+      <Container>
         {/* Header with arrows */}
         <div className="flex items-center justify-between mb-8">
           <span className="text-primary font-bold text-xs uppercase tracking-widest">
@@ -50,10 +51,10 @@ const ClientLogosMarquee: React.FC = () => {
             </button>
           </div>
         </div>
-      </div>
+      </Container>
 
       {/* Marquee Track */}
-      <div className="animate-marquee">
+      <Container className="animate-marquee">
         {[...logoImages, ...logoImages].map((logoSrc, i) => (
           <div
             key={`${logoSrc}-${i}`}
@@ -66,7 +67,7 @@ const ClientLogosMarquee: React.FC = () => {
             />
           </div>
         ))}
-      </div>
+      </Container>
     </section>
   );
 };

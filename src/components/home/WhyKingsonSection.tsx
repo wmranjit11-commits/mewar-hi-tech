@@ -4,6 +4,7 @@ import React from "react";
 import { Wrench, Settings, ClipboardCheck, ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
 import Link from "next/link";
+import Container from "../ui/Container";
 
 const CARDS_DATA = [
   {
@@ -32,7 +33,7 @@ const CARDS_DATA = [
 export default function WhyKingsonSection() {
   return (
     <section className="py-8 lg:py-12 bg-gradient-to-b from-background via-muted/30 to-background border-b border-border/60 select-none">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+      <Container>
         
         {/* Section Header */}
         <div className="max-w-3xl mb-14 text-left space-y-3">
@@ -92,7 +93,7 @@ export default function WhyKingsonSection() {
             );
           })}
         </div>
-      </div>
+      </Container>
     </section>
   );
 }

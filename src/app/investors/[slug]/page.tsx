@@ -28,6 +28,7 @@ import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import PageHero from "@/components/layout/PageHero";
 import BlobButton from "@/components/ui/BlobButton";
+import Container from "@/components/ui/Container";
 
 // ─── Left Sidebar Menu Data ───
 const INVESTOR_MENU = [
@@ -208,7 +209,7 @@ export default function InvestorPage({ params }: PageProps) {
 
         {/* 2. Top Assurances Indicators Strip */}
         <section className="py-8 bg-card border-b border-border/80 relative overflow-hidden">
-          <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
+          <Container className="relative z-10">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-center divide-y md:divide-y-0 md:divide-x divide-border/60">
               <div className="flex items-center gap-3 px-4 pt-4 md:pt-0 first:pt-0">
                 <ShieldCheck size={20} className="text-primary shrink-0 stroke-[2.2]" />
@@ -232,12 +233,12 @@ export default function InvestorPage({ params }: PageProps) {
                 </div>
               </div>
             </div>
-          </div>
+          </Container>
         </section>
 
         {/* 3. Main Content Grid */}
         <section className="py-12 bg-background">
-          <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <Container>
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
               
               {/* Left Sidebar (Cols 1-4) */}
@@ -650,7 +651,7 @@ export default function InvestorPage({ params }: PageProps) {
               </div>
 
             </div>
-          </div>
+          </Container>
         </section>
 
       </main>

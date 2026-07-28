@@ -3,6 +3,7 @@
 import React from "react";
 import { Mail, Phone, ShieldCheck } from "lucide-react";
 import { motion } from "framer-motion";
+import Container from "../ui/Container";
 
 const TEAM_MEMBERS = [
   {
@@ -14,7 +15,7 @@ const TEAM_MEMBERS = [
     gradient: "from-amber-500 to-yellow-600",
   },
   {
-    name: "Mangilal Rathore",
+    name: "Manilala Rathore",
     role: "Technical Director",
     phone: "+91-9001113334",
     email: "mangi@kingsoncrusher.com",
@@ -34,7 +35,7 @@ const TEAM_MEMBERS = [
 export default function TeamSection() {
   return (
     <section className="py-8 lg:py-12 bg-background border-b border-border/60">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+      <Container>
         {/* Section Header */}
         <div className="max-w-3xl mb-12 text-left">
           <span className="text-primary font-bold text-xs uppercase tracking-widest block">
@@ -72,21 +73,11 @@ export default function TeamSection() {
                 </div>
               </div>
 
-              {/* Contact list */}
-              <div className="w-full pt-3 border-t border-border/60 flex flex-col gap-2 text-xs font-semibold text-muted-foreground">
-                <div className="flex items-center justify-center gap-2 hover:text-primary transition-colors">
-                  <Phone size={13} className="text-primary" />
-                  <span>{member.phone}</span>
-                </div>
-                <div className="flex items-center justify-center gap-2 hover:text-primary transition-colors">
-                  <Mail size={13} className="text-primary animate-pulse" />
-                  <span className="break-all">{member.email}</span>
-                </div>
-              </div>
+              
             </motion.div>
           ))}
         </div>
-      </div>
+      </Container>
     </section>
   );
 }

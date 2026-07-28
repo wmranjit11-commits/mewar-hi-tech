@@ -24,6 +24,7 @@ import {
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import PageHero from "@/components/layout/PageHero";
+import Container from "@/components/ui/Container";
 import BlobButton from "@/components/ui/BlobButton";
 import StatsCounter from "@/components/shared/StatsCounter";
 import CTASection from "@/components/shared/CTASection";
@@ -166,7 +167,7 @@ export default function ServiceSlugPage({ params }: PageProps) {
 
         {/* 2. Top Trust Indicators Strip */}
         <section className="py-8 bg-card border-b border-border/80 relative overflow-hidden">
-          <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
+          <Container className="relative z-10">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-center divide-y md:divide-y-0 md:divide-x divide-border/60">
               <div className="flex items-center gap-3 px-4 pt-4 md:pt-0 first:pt-0">
                 <ShieldCheck size={20} className="text-primary shrink-0 stroke-[2.2]" />
@@ -190,12 +191,12 @@ export default function ServiceSlugPage({ params }: PageProps) {
                 </div>
               </div>
             </div>
-          </div>
+          </Container>
         </section>
 
         {/* 3. Introduction Section */}
         <section className="py-12 bg-background border-b border-border/60">
-          <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <Container>
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
               
               {/* Left Column: Description & Contacts */}
@@ -268,13 +269,13 @@ export default function ServiceSlugPage({ params }: PageProps) {
               </div>
 
             </div>
-          </div>
+          </Container>
         </section>
 
         {/* 4. Page Specific Details: Bullet Sections (For After Sales) */}
         {pageData.sections && (
           <section className="py-12 bg-muted/20 border-b border-border/60">
-            <div className="max-w-7xl mx-auto px-6 lg:px-8">
+            <Container>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                 {pageData.sections.map((sect, sidx) => (
                   <div
@@ -303,14 +304,14 @@ export default function ServiceSlugPage({ params }: PageProps) {
                   </div>
                 ))}
               </div>
-            </div>
+            </Container>
           </section>
         )}
 
         {/* 5. Dynamic Page Galleries (For Spare Parts & Erection) */}
         {galleryImages.length > 0 && (
           <section className="py-12 bg-muted/20 border-b border-border/60">
-            <div className="max-w-7xl mx-auto px-6 lg:px-8">
+            <Container>
               
               {/* Header */}
               <div className="max-w-3xl mb-10 text-left space-y-2">
@@ -343,13 +344,13 @@ export default function ServiceSlugPage({ params }: PageProps) {
                 ))}
               </div>
 
-            </div>
+            </Container>
           </section>
         )}
 
         {/* 6. Form Section */}
         <section className="py-12 bg-background border-b border-border/60">
-          <div className="max-w-7xl mx-auto px-6 lg:px-8 text-left">
+          <Container className="text-left">
             <div className="p-8 lg:p-12 rounded-3xl bg-card border border-border/80 flex flex-col md:flex-row md:items-center justify-between gap-8 shadow-sm">
               <div className="space-y-3">
                 <h3 className="common-heading text-2xl font-black text-foreground">
@@ -366,7 +367,7 @@ export default function ServiceSlugPage({ params }: PageProps) {
                 </BlobButton>
               </Link>
             </div>
-          </div>
+          </Container>
         </section>
 
         <StatsCounter />

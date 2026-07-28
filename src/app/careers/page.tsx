@@ -24,6 +24,7 @@ import Footer from "@/components/layout/Footer";
 import PageHero from "@/components/layout/PageHero";
 import MultiCardCarousel from "@/components/ui/MultiCardCarousel";
 import BlobButton from "@/components/ui/BlobButton";
+import Container from "@/components/ui/Container";
 import { useTheme } from "@/components/ui/ThemeContext";
 
 // Slider Images Data
@@ -206,7 +207,7 @@ export default function CareersPage() {
 
         {/* ── 2. Culture & Facilities Multi-Card Slider Carousel ── */}
         <section className="py-14 bg-muted/40 border-b border-border">
-          <div className="max-w-7xl mx-auto px-6 lg:px-8 space-y-6">
+          <Container className="space-y-6">
             <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
               <div>
                 <span className="text-primary font-bold text-xs uppercase tracking-widest block mb-1">
@@ -222,12 +223,12 @@ export default function CareersPage() {
             </div>
 
             <MultiCardCarousel slides={CULTURE_SLIDES} autoPlayInterval={2000} />
-          </div>
+          </Container>
         </section>
 
         {/* ── 3. Intro & Theme-Aware Career Illustration Section ── */}
         <section className="py-16 lg:py-24 bg-background border-b border-border">
-          <div className="max-w-7xl mx-auto px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          <Container className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             
             {/* Left Column: Vision & Culture */}
             <motion.div
@@ -310,12 +311,12 @@ export default function CareersPage() {
               </div>
             </motion.div>
 
-          </div>
+          </Container>
         </section>
 
         {/* ── 4. Current Job Openings Section ── */}
         <section className="py-16 lg:py-24 bg-muted/40 border-b border-border">
-          <div className="max-w-7xl mx-auto px-6 lg:px-8 space-y-10">
+          <Container className="space-y-10">
             
             <div className="max-w-3xl space-y-2">
               <span className="text-primary font-bold text-xs uppercase tracking-widest block">
@@ -387,12 +388,12 @@ export default function CareersPage() {
               ))}
             </div>
 
-          </div>
+          </Container>
         </section>
 
         {/* ── 5. Resume Application Form & Direct Contact Section ── */}
         <section id="career-apply" className="py-16 lg:py-24 bg-background border-b border-border">
-          <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <Container>
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-stretch">
               
               {/* Left Column: Direct Resume Submission Info */}
@@ -619,7 +620,7 @@ export default function CareersPage() {
               </motion.div>
 
             </div>
-          </div>
+          </Container>
         </section>
       </main>
 

@@ -3,6 +3,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { CheckSquare, Award, ShieldCheck, CheckCircle2 } from "lucide-react";
+import Container from "../ui/Container";
 
 const TRUST_BADGES = [
   {
@@ -31,7 +32,7 @@ export default function VerifiedTrustStrip() {
       {/* Background Subtle Gradient Accent */}
       <div className="absolute inset-0 bg-gradient-to-r from-primary/5 via-transparent to-primary/5 pointer-events-none" />
 
-      <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
+      <Container className="relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 items-center divide-y md:divide-y-0 md:divide-x divide-border/60">
           {TRUST_BADGES.map((badge, idx) => {
             const IconComp = badge.icon;
@@ -62,7 +63,7 @@ export default function VerifiedTrustStrip() {
             );
           })}
         </div>
-      </div>
+      </Container>
     </section>
   );
 }

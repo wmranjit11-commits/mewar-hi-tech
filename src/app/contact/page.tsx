@@ -19,6 +19,7 @@ import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import PageHero from "@/components/layout/PageHero";
 import BlobButton from "@/components/ui/BlobButton";
+import Container from "@/components/ui/Container";
 
 export default function Contact() {
   const [submitting, setSubmitting] = useState(false);
@@ -71,7 +72,7 @@ export default function Contact() {
 
         {/* ── 2. Modern Contact Information & Enquiry Form Section ── */}
         <section className="py-16 lg:py-24 bg-background border-b border-border">
-          <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <Container>
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-stretch">
               
               {/* Left Column: Detailed Contact Information */}
@@ -360,12 +361,12 @@ export default function Contact() {
               </motion.div>
 
             </div>
-          </div>
+          </Container>
         </section>
 
         {/* ── 3. Interactive Map & Address Section at Bottom ── */}
         <section className="py-16 lg:py-20 bg-muted/40 border-b border-border select-none">
-          <div className="max-w-7xl mx-auto px-6 lg:px-8 space-y-8">
+          <Container className="space-y-8">
             
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
               <div>
@@ -416,7 +417,7 @@ export default function Contact() {
               </div>
             </div>
 
-          </div>
+          </Container>
         </section>
       </main>
 

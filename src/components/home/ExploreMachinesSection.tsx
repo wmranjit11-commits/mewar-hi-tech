@@ -5,11 +5,12 @@ import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 import { MachineShowcase } from "../MachineShowcase";
 import BlobButton from "../ui/BlobButton";
+import Container from "../ui/Container";
 
 const ExploreMachinesSection: React.FC = () => {
   return (
     <section className="bg-muted py-8 lg:py-12 select-none text-left border-b border-border/10">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+      <Container>
         
         {/* Main Cards Showcase (Full-Width) */}
         <div className="w-full">
@@ -26,7 +27,7 @@ const ExploreMachinesSection: React.FC = () => {
           </Link>
         </div>
 
-      </div>
+      </Container>
     </section>
   );
 };

@@ -4,6 +4,7 @@ import React, { useState, useEffect } from "react";
 import { Download, Play, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import BlobButton from "@/components/ui/BlobButton";
+import Container from "../ui/Container";
 
 const YOUTUBE_VIDEO_ID = "5M9sopYgqR4";
 const YOUTUBE_EMBED_URL = `https://www.youtube.com/embed/${YOUTUBE_VIDEO_ID}?autoplay=1&rel=0`;
@@ -22,7 +23,7 @@ const FlagshipProductsGrid: React.FC = () => {
 
   return (
     <section id="brochures" className="bg-muted py-8 lg:py-10 text-left select-none">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+      <Container>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           
           {/* Download block */}
@@ -106,7 +107,7 @@ const FlagshipProductsGrid: React.FC = () => {
           </div>
 
         </div>
-      </div>
+      </Container>
 
       {/* Fullscreen Video Popup Modal */}
       <AnimatePresence>

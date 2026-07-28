@@ -39,6 +39,7 @@ import { toast } from "react-toastify";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import BlobButton from "@/components/ui/BlobButton";
+import Container from "@/components/ui/Container";
 import { PRODUCTS_DATA } from "../data";
 
 interface PageProps {
@@ -233,7 +234,7 @@ export default function ProductDetailPage({ params }: PageProps) {
           <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-primary to-transparent opacity-80" />
 
           {/* Main Hero Container */}
-          <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10 w-full grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          <Container className="relative z-10 w-full grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             
             {/* Left Column: Breadcrumb, Titles, CTAs */}
             <motion.div 
@@ -368,12 +369,12 @@ export default function ProductDetailPage({ params }: PageProps) {
               </div>
             </motion.div>
 
-          </div>
+          </Container>
         </section>
 
         {/* ── 2. QUICK INFO METRIC STRIP ── */}
         <section className="relative z-30 bg-[#0F1216] border-b border-border/10 py-8">
-          <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <Container>
             <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
               {quickMetrics.map((item, idx) => {
                 const IconComponent = item.icon;
@@ -398,12 +399,12 @@ export default function ProductDetailPage({ params }: PageProps) {
                 );
               })}
             </div>
-          </div>
+          </Container>
         </section>
 
         {/* ── 3. EQUIPMENT OVERVIEW & FEATURES SECTION ── */}
         <section className="py-20 lg:py-28 bg-background border-b border-border">
-          <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <Container>
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
               
               {/* Left Column: Comprehensive Overview */}
@@ -485,14 +486,13 @@ export default function ProductDetailPage({ params }: PageProps) {
                   </div>
                 </div>
               </motion.div>
-
             </div>
-          </div>
+          </Container>
         </section>
 
         {/* ── 4. INDUSTRIAL APPLICATIONS SHOWCASE ── */}
         <section className="py-20 lg:py-24 bg-muted/30 border-b border-border">
-          <div className="max-w-7xl mx-auto px-6 lg:px-8 space-y-12">
+          <Container className="space-y-12">
             
             <div className="max-w-2xl space-y-3 text-left">
               <span className="text-primary font-bold text-xs uppercase tracking-widest block">
@@ -554,14 +554,13 @@ export default function ProductDetailPage({ params }: PageProps) {
                 </BlobButton>
               </div>
             </div>
-
-          </div>
+          </Container>
         </section>
 
         {/* ── 5. DYNAMIC MEDIA SHOWCASE (GALLERY & VIDEO) ── */}
         {(allImages.length > 1 || product.video) && (
           <section className="py-20 lg:py-28 bg-background border-b border-border">
-            <div className="max-w-7xl mx-auto px-6 lg:px-8 space-y-12">
+            <Container className="space-y-12">
               
               <div className="max-w-3xl space-y-2 text-left">
                 <span className="text-primary font-bold text-xs uppercase tracking-widest block">
@@ -661,14 +660,14 @@ export default function ProductDetailPage({ params }: PageProps) {
                 )}
 
               </div>
-            </div>
+            </Container>
           </section>
         )}
 
         {/* ── 6. TECHNICAL SPECIFICATIONS TABLE ── */}
         {product.specsTable && (
           <section className="py-20 lg:py-28 bg-muted/20 border-b border-border">
-            <div className="max-w-7xl mx-auto px-6 lg:px-8 space-y-10">
+            <Container className="space-y-10">
               
               <div className="max-w-3xl space-y-2 text-left">
                 <span className="text-primary font-bold text-xs uppercase tracking-widest block">
@@ -747,13 +746,13 @@ export default function ProductDetailPage({ params }: PageProps) {
                 </div>
               )}
 
-            </div>
+            </Container>
           </section>
         )}
 
         {/* ── 7. DOCUMENTATION & DOWNLOADS ── */}
         <section className="py-16 lg:py-24 bg-background border-b border-border">
-          <div className="max-w-7xl mx-auto px-6 lg:px-8 space-y-10">
+          <Container className="space-y-10">
             
             <div className="max-w-2xl space-y-2 text-left">
               <span className="text-primary font-bold text-xs uppercase tracking-widest block">
@@ -836,13 +835,12 @@ export default function ProductDetailPage({ params }: PageProps) {
               </div>
 
             </div>
-
-          </div>
+          </Container>
         </section>
 
         {/* ── 8. REDESIGNED ENGINEERING INQUIRY FORM ── */}
         <section id="quote-section" className="py-20 lg:py-28 bg-muted/30 border-b border-border">
-          <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <Container>
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-stretch">
               
               {/* Info Column */}
@@ -1003,15 +1001,14 @@ export default function ProductDetailPage({ params }: PageProps) {
                   </form>
                 </div>
               </div>
-
             </div>
-          </div>
+          </Container>
         </section>
 
         {/* ── 9. RELATED PRODUCTS CAROUSEL / GRID ── */}
         {relatedProducts.length > 0 && (
           <section className="py-20 lg:py-28 bg-background border-b border-border">
-            <div className="max-w-7xl mx-auto px-6 lg:px-8 space-y-12">
+            <Container className="space-y-12">
               
               <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 text-left">
                 <div className="space-y-2">
@@ -1073,7 +1070,7 @@ export default function ProductDetailPage({ params }: PageProps) {
                 ))}
               </div>
 
-            </div>
+            </Container>
           </section>
         )}
 

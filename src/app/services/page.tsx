@@ -187,7 +187,7 @@ export default function ServicesPage() {
         {/* 2. SLA & Guarantees Trust Banner */}
         <section className="py-10 bg-card border-b border-border/80 relative overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-r from-primary/5 via-transparent to-primary/5 pointer-events-none" />
-          <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
+          <div className="max-w-[1720px] mx-auto px-6 lg:px-8 relative z-10">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
               {ASSURANCES.map((item, idx) => {
                 const IconComp = item.icon;
@@ -220,7 +220,7 @@ export default function ServicesPage() {
 
         {/* 3. Overview Section */}
         <section className="py-16 lg:py-20 bg-background border-b border-border/60">
-          <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <div className="max-w-[1720px] mx-auto px-6 lg:px-8">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
               
               {/* Left Column: Copy */}
@@ -272,7 +272,7 @@ export default function ServicesPage() {
 
         {/* 4. Complete 3-Stage Service Lifecycle */}
         <section className="py-16 lg:py-20 bg-muted/30 border-b border-border/60">
-          <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <div className="max-w-[1720px] mx-auto px-6 lg:px-8">
             <div className="max-w-3xl mb-14 text-left space-y-3">
               <span className="text-primary font-bold text-xs uppercase tracking-widest block font-sans">
                 End-To-End Engagement
@@ -335,7 +335,7 @@ export default function ServicesPage() {
 
         {/* 5. Capabilities Tabs with links to slug pages */}
         <section className="py-16 lg:py-24 bg-background border-b border-border/60">
-          <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <div className="max-w-[1720px] mx-auto px-6 lg:px-8">
             <div className="max-w-3xl mb-12 text-left space-y-3">
               <span className="text-primary font-bold text-xs uppercase tracking-widest block font-sans">
                 Core Capabilities
@@ -427,7 +427,7 @@ export default function ServicesPage() {
 
         {/* 6. Form Section */}
         <section className="py-16 lg:py-24 bg-muted/30 border-b border-border/60">
-          <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <div className="max-w-[1720px] mx-auto px-6 lg:px-8">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-stretch">
               
               {/* Info Box */}

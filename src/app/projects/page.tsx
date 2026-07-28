@@ -8,6 +8,7 @@ import PageHero from "@/components/layout/PageHero";
 import { motion } from "framer-motion";
 import { ArrowRight, Box, Compass, Layers } from "lucide-react";
 import BlobButton from "@/components/ui/BlobButton";
+import Container from "@/components/ui/Container";
 
 const PROJECT_CATEGORIES = [
   {
@@ -52,7 +53,7 @@ export default function ProjectsLandingPage() {
 
         {/* Categories Section */}
         <section className="py-16 lg:py-24 bg-background">
-          <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <Container>
             <div className="max-w-3xl mb-12 text-left">
               <span className="text-primary font-bold text-xs uppercase tracking-widest block">
                 Portfolio Classification
@@ -114,7 +115,7 @@ export default function ProjectsLandingPage() {
                 );
               })}
             </div>
-          </div>
+          </Container>
         </section>
       </main>
 

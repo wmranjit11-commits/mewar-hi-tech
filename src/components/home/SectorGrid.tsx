@@ -14,6 +14,7 @@ import {
   ChevronDown,
 } from "lucide-react";
 import BlobButton from "@/components/ui/BlobButton";
+import Container from "../ui/Container";
 
 const SectorGrid: React.FC = () => {
   const [application, setApplication] = useState("Quarry");
@@ -44,7 +45,7 @@ const SectorGrid: React.FC = () => {
 
   return (
     <section className="py-8 lg:py-10 bg-background text-foreground select-none text-left border-y border-border/10">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+      <Container>
         <div className="flex flex-col lg:flex-row overflow-hidden items-start gap-8">
           
           {/* Left Form Panel */}
@@ -259,7 +260,7 @@ const SectorGrid: React.FC = () => {
           </div>
 
         </div>
-      </div>
+      </Container>
     </section>
   );
 };

@@ -97,7 +97,7 @@ const Footer: React.FC = () => {
     <footer className="bg-secondary text-secondary-foreground select-none">
       
       {/* Upper Footer */}
-      <div className="max-w-7xl mx-auto px-6 lg:px-8 py-12 flex flex-col sm:flex-row sm:flex-wrap lg:flex-nowrap justify-between items-start gap-8 text-left">
+      <div className="max-w-[1720px] mx-auto px-6 lg:px-8 py-12 flex flex-col sm:flex-row sm:flex-wrap lg:flex-nowrap justify-between items-start gap-8 text-left">
         
         {/* Column 1: Logo, Brand & Contact Info */}
         <div className="w-full sm:w-[45%] lg:w-[220px] space-y-5 shrink-0">
@@ -193,7 +193,7 @@ const Footer: React.FC = () => {
 
       {/* Bottom Bar Divider */}
       <div className="border-t border-secondary-foreground/5">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8 py-5 flex flex-col md:flex-row items-center justify-between gap-4 text-[10px] text-secondary-foreground/50">
+        <div className="max-w-[1720px] mx-auto px-6 lg:px-8 py-5 flex flex-col md:flex-row items-center justify-between gap-4 text-[10px] text-secondary-foreground/50">
           
           {/* Copyright & Sub Links */}
           <div className="flex flex-wrap gap-3 md:gap-5 items-center justify-center md:justify-start">

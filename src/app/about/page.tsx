@@ -174,7 +174,7 @@ export default function About() {
 
         {/* ── 2. Interactive Multi-Card Image Showcase / Carousel ── */}
         <section className="py-14 bg-muted/40 border-b border-border">
-          <div className="max-w-7xl mx-auto px-6 lg:px-8 space-y-6">
+          <div className="max-w-[1720px] mx-auto px-6 lg:px-8 space-y-6">
             <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
               <div>
                 <span className="text-primary font-bold text-xs uppercase tracking-widest block mb-1">
@@ -195,7 +195,7 @@ export default function About() {
 
         {/* ── 3. 100% In-House Manufacturing Section ── */}
         <section className="py-16 lg:py-24 bg-background border-b border-border">
-          <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <div className="max-w-[1720px] mx-auto px-6 lg:px-8">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
               
               {/* Left Column: Text Content */}
@@ -286,7 +286,7 @@ export default function About() {
 
         {/* ── 4. Robust Design & Quality Policy Section ── */}
         <section className="py-16 lg:py-24 bg-muted border-b border-border">
-          <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <div className="max-w-[1720px] mx-auto px-6 lg:px-8">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
 
               {/* Left Box: Robust Design */}
@@ -382,7 +382,7 @@ export default function About() {
 
         {/* ── 5. 3D Model Viewer & Team Experts ── */}
         <section className="py-16 lg:py-24 bg-background border-b border-border">
-          <div className="max-w-7xl mx-auto px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          <div className="max-w-[1720px] mx-auto px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             
             {/* 3D Model Viewer Container */}
             <motion.div
@@ -453,7 +453,7 @@ export default function About() {
 
         {/* ── 6. Advanced In-House Machinery & Equipment Capabilities ── */}
         <section className="py-16 lg:py-24 bg-secondary text-secondary-foreground border-b border-border/20">
-          <div className="max-w-7xl mx-auto px-6 lg:px-8 space-y-12">
+          <div className="max-w-[1720px] mx-auto px-6 lg:px-8 space-y-12">
             
             <div className="text-center max-w-3xl mx-auto space-y-3">
               <span className="text-primary font-bold text-xs uppercase tracking-widest block">
@@ -506,7 +506,7 @@ export default function About() {
 
         {/* ── 7. Our Mission & Team Photo Celebration Section ── */}
         <section className="py-16 lg:py-24 bg-background border-b border-border">
-          <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <div className="max-w-[1720px] mx-auto px-6 lg:px-8">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
               
               {/* Left Column: Text */}

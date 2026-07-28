@@ -3,11 +3,12 @@
 import React from "react";
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
+import Container from "../ui/Container";
 
 const AboutTeaser: React.FC = () => {
   return (
     <section className="bg-card text-foreground py-8 lg:py-10 select-none text-left border-y border-border overflow-hidden">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+      <Container>
         <div className="flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-0">
           
           {/* 1. Trophy Graphic & Divider */}
@@ -100,7 +101,7 @@ const AboutTeaser: React.FC = () => {
           </div>
 
         </div>
-      </div>
+      </Container>
     </section>
   );
 };

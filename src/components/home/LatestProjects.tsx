@@ -15,6 +15,7 @@ import {
   Grid,
   Layers,
 } from "lucide-react";
+import Container from "../ui/Container";
 
 interface ProjectItem {
   id: number;
@@ -133,7 +134,7 @@ export default function LatestProjects() {
       {/* Background Decorative Glow */}
       <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-primary/5 rounded-full blur-3xl pointer-events-none" />
 
-      <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
+      <Container className="relative z-10">
         
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
@@ -299,7 +300,7 @@ export default function LatestProjects() {
           ))}
         </div>
 
-      </div>
+      </Container>
 
       {/* Lightbox Modal */}
       <AnimatePresence>

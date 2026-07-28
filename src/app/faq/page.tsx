@@ -7,6 +7,7 @@ import Footer from "@/components/layout/Footer";
 import PageHero from "@/components/layout/PageHero";
 import { ChevronDown, MessageSquare, Wrench, PackageSearch, Truck } from "lucide-react";
 import BlobButton from "@/components/ui/BlobButton";
+import Container from "@/components/ui/Container";
 import Link from "next/link";
 
 const FAQ_CATEGORIES = [
@@ -90,7 +91,7 @@ export default function FAQPage() {
         />
 
         <section className="py-16 bg-background relative overflow-hidden">
-          <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <Container>
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
               
               {/* Left Sidebar - Categories */}
@@ -109,81 +110,91 @@ export default function FAQPage() {
                         return (
                           <button
                             key={category.id}
-                            onClick={() => setActiveCategory(category.id)}
-                            className={`w-full flex items-center gap-3 p-4 rounded-2xl text-xs font-bold transition-all duration-300 ${
-                              isActive
-                                ? "bg-primary text-primary-foreground shadow-md"
-                                : "bg-background text-muted-foreground hover:bg-muted/30 hover:text-foreground border border-border/60"
+                            onClick={() => { setActiveCategory(category.id); setOpenFaqId(null); }}
+                            className={`w-full flex items-center justify-between px-4 py-3 rounded-2xl transition-all duration-300 ${
+                              isActive 
+                                ? "bg-primary text-white shadow-md shadow-primary/20" 
+                                : "hover:bg-muted text-foreground"
                             }`}
                           >
-                            <Icon size={18} className={isActive ? "text-primary-foreground" : "text-primary"} />
-                            <span>{category.title}</span>
+                            <div className="flex items-center gap-3">
+                              <div className={`p-2 rounded-xl ${isActive ? "bg-white/20" : "bg-muted-foreground/10"}`}>
+                                <Icon size={18} className={isActive ? "text-white" : "text-primary"} />
+                              </div>
+                              <span className="font-bold text-sm">{category.title}</span>
+                            </div>
+                            <ChevronDown 
+                              size={16} 
+                              className={`transition-transform duration-300 ${isActive ? "-rotate-90 text-white/80" : "-rotate-90 text-muted-foreground opacity-0 group-hover:opacity-100"}`} 
+                            />
                           </button>
                         );
                       })}
                     </div>
                   </div>
 
-                  {/* Quick Contact Section */}
-                  <div className="pt-2 space-y-4 text-left">
-                    <p className="text-xs text-muted-foreground font-semibold leading-relaxed px-2">
-                      If you couldn't find the answer you're looking for, feel free to contact our dedicated support team directly.
+                  {/* Still need help? Card */}
+                  <div className="bg-muted/40 rounded-2xl p-5 border border-border/50 text-center">
+                    <h4 className="font-bold text-foreground mb-2">Still have questions?</h4>
+                    <p className="text-xs font-semibold text-muted-foreground mb-4">
+                      Can't find the answer you're looking for? Please chat to our friendly team.
                     </p>
-                    <Link href="/contact" className="block pt-2">
-                      <BlobButton variant="secondary" className="!py-3 !px-5 text-xs w-full flex justify-center uppercase tracking-wider">
-                        <span>Contact Support</span>
+                    <Link href="/contact" className="block w-full">
+                      <BlobButton variant="primary" className="!w-full !py-3 !text-xs !font-black !uppercase !tracking-wider">
+                        Contact Us
                       </BlobButton>
                     </Link>
                   </div>
-
                 </div>
               </div>
 
-              {/* Right Content - Accordion */}
-              <div className="lg:col-span-8 space-y-4">
+              {/* Right Content - Questions */}
+              <div className="lg:col-span-8 min-h-[500px]">
                 <AnimatePresence mode="wait">
                   {FAQ_CATEGORIES.map((category) => (
-                    category.id === activeCategory && (
+                    activeCategory === category.id && (
                       <motion.div
                         key={category.id}
-                        initial={{ opacity: 0, y: 10 }}
+                        initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
-                        exit={{ opacity: 0, y: -10 }}
+                        exit={{ opacity: 0, y: -20 }}
                         transition={{ duration: 0.3 }}
                         className="space-y-4"
                       >
-                        <h2 className="common-heading text-2xl font-black text-foreground uppercase mb-6 pl-2">
-                          {category.title}
-                        </h2>
+                        <div className="mb-8">
+                          <h2 className="text-2xl sm:text-3xl font-black font-sans uppercase tracking-tight text-foreground flex items-center gap-3">
+                            <category.icon className="text-primary hidden sm:block" size={32} />
+                            {category.title}
+                          </h2>
+                          <div className="w-16 h-1 bg-primary mt-4 mb-2"></div>
+                        </div>
 
-                        {category.faqs.map((faq, idx) => {
-                          const faqId = `${category.id}-${idx}`;
+                        {category.faqs.map((faq, index) => {
+                          const faqId = `${category.id}-${index}`;
                           const isOpen = openFaqId === faqId;
-
                           return (
                             <div 
                               key={faqId} 
                               className={`rounded-2xl border transition-all duration-300 overflow-hidden ${
-                                isOpen ? "bg-card border-primary/40 shadow-sm" : "bg-background border-border/60 hover:border-primary/20"
+                                isOpen 
+                                  ? "bg-card border-primary/30 shadow-md shadow-primary/5" 
+                                  : "bg-card border-border/60 hover:border-primary/30 hover:bg-muted/30"
                               }`}
                             >
                               <button
                                 onClick={() => toggleFaq(faqId)}
-                                className="w-full flex items-center justify-between p-5 text-left"
+                                className="w-full flex items-center justify-between px-5 py-4 text-left gap-4"
                               >
-                                <span className="font-bold text-sm text-foreground pr-8">
+                                <span className="font-bold text-foreground pr-8 text-sm sm:text-base leading-tight">
                                   {faq.question}
                                 </span>
-                                <div className={`w-8 h-8 rounded-full flex items-center justify-center shrink-0 transition-colors ${
-                                  isOpen ? "bg-primary text-primary-foreground" : "bg-muted text-muted-foreground"
-                                }`}>
+                                <div className={`shrink-0 p-1 rounded-full transition-colors duration-300 ${isOpen ? "bg-primary text-white" : "bg-muted text-muted-foreground"}`}>
                                   <ChevronDown 
                                     size={16} 
-                                    className={`transition-transform duration-300 ${isOpen ? "rotate-180" : "rotate-0"}`} 
+                                    className={`transition-transform duration-300 ${isOpen ? "rotate-180" : ""}`} 
                                   />
                                 </div>
                               </button>
-                              
                               <AnimatePresence>
                                 {isOpen && (
                                   <motion.div
@@ -191,7 +202,6 @@ export default function FAQPage() {
                                     animate={{ height: "auto", opacity: 1 }}
                                     exit={{ height: 0, opacity: 0 }}
                                     transition={{ duration: 0.3, ease: "easeInOut" }}
-                                    className="overflow-hidden"
                                   >
                                     <div className="px-5 pb-5 pt-1 text-sm text-muted-foreground font-semibold leading-relaxed border-t border-border/30 mx-5">
                                       {faq.answer}
@@ -209,7 +219,7 @@ export default function FAQPage() {
               </div>
 
             </div>
-          </div>
+          </Container>
         </section>
       </main>
 

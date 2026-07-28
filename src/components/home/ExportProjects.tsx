@@ -13,6 +13,7 @@ import {
   CheckCircle2,
   Award,
 } from "lucide-react";
+import Container from "../ui/Container";
 
 interface ExportProjectItem {
   id: number;
@@ -130,7 +131,7 @@ export default function ExportProjects() {
       {/* Decorative Global Map Accent Background */}
       <div className="absolute top-1/3 right-10 w-96 h-96 bg-primary/5 rounded-full blur-3xl pointer-events-none" />
 
-      <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
+      <Container className="relative z-10">
         
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
@@ -296,7 +297,7 @@ export default function ExportProjects() {
           ))}
         </div>
 
-      </div>
+      </Container>
 
       {/* Lightbox Modal */}
       <AnimatePresence>

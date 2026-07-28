@@ -18,6 +18,7 @@ import {
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import PageHero from "@/components/layout/PageHero";
+import Container from "@/components/ui/Container";
 import BlobButton from "@/components/ui/BlobButton";
 import Link from "next/link";
 
@@ -184,7 +185,7 @@ export default function EventsPage() {
 
         {/* ── 2. Commitment & Value Pillars ── */}
         <section className="py-16 lg:py-20 bg-background border-b border-border">
-          <div className="max-w-7xl mx-auto px-6 lg:px-8 space-y-12">
+          <Container className="space-y-12">
             
             <div className="max-w-3xl space-y-3">
               <span className="text-primary font-bold text-xs uppercase tracking-widest block">
@@ -238,13 +239,12 @@ export default function EventsPage() {
               </div>
 
             </div>
-
-          </div>
+          </Container>
         </section>
 
         {/* ── 3. Exhibitions Gallery & Filter Tabs ── */}
         <section className="py-16 lg:py-24 bg-muted/40 border-b border-border">
-          <div className="max-w-7xl mx-auto px-6 lg:px-8 space-y-10">
+          <Container className="space-y-10">
             
             <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
               <div>
@@ -332,13 +332,12 @@ export default function EventsPage() {
                 </motion.div>
               ))}
             </div>
-
-          </div>
+          </Container>
         </section>
 
         {/* ── 4. Next Exhibition Meeting CTA Section ── */}
         <section className="py-16 lg:py-20 bg-background border-b border-border">
-          <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <Container>
             <div className="p-8 sm:p-12 rounded-3xl bg-secondary text-secondary-foreground shadow-2xl border border-border/30 relative overflow-hidden flex flex-col lg:flex-row lg:items-center justify-between gap-8">
               <div className="absolute top-0 right-0 w-64 h-64 bg-primary/10 rounded-full blur-3xl pointer-events-none" />
 
@@ -365,7 +364,7 @@ export default function EventsPage() {
                 </Link>
               </div>
             </div>
-          </div>
+          </Container>
         </section>
       </main>
 

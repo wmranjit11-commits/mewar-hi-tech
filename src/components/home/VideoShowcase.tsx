@@ -18,7 +18,7 @@ export default function VideoShowcase() {
 
   return (
     <section className="py-8 lg:py-12 bg-background border-b border-border/60">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+      <div className="max-w-[1720px] mx-auto px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
           
           {/* Left Text Block */}
@@ -55,29 +55,30 @@ export default function VideoShowcase() {
           <div className="lg:col-span-7">
             <div 
               onClick={() => setIsPlaying(true)}
-              className="relative rounded-3xl overflow-hidden border border-border bg-black aspect-[16/10] cursor-pointer group shadow-2xl flex items-center justify-center"
+              className="relative rounded-3xl overflow-hidden border border-border bg-black aspect-[16/10] cursor-pointer group shadow-2xl"
             >
-              {/* Silent looping preview video */}
+              {/* Silent looping preview video with fallback industrial poster */}
               <video
                 src="/videos/home-page.mp4"
+                poster="/images/hero-crusher.webp"
                 autoPlay
                 muted
                 loop
                 playsInline
                 preload="metadata"
-                className="w-full h-full object-cover opacity-75 group-hover:scale-105 transition-transform duration-500"
+                className="w-full h-full object-cover opacity-80 group-hover:scale-105 transition-transform duration-500"
               />
 
               {/* Darkening overlay */}
               <div className="absolute inset-0 bg-black/30 group-hover:bg-black/45 transition-colors duration-300" />
 
-              {/* Floating Play Button */}
-              <div className="relative z-10 w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-primary text-primary-foreground flex items-center justify-center shadow-2xl scale-95 group-hover:scale-100 transition-transform duration-300">
+              {/* Floating Play Button - Perfectly Centered */}
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-primary text-primary-foreground flex items-center justify-center shadow-2xl scale-95 group-hover:scale-110 transition-transform duration-300">
                 <Play size={26} className="fill-current ml-1" />
               </div>
 
               {/* Bottom label */}
-              <div className="absolute bottom-4 left-4 bg-black/60 backdrop-blur px-3.5 py-1.5 rounded-xl border border-white/10 text-[10px] font-black uppercase tracking-wider text-white">
+              <div className="absolute bottom-4 left-4 bg-black/60 backdrop-blur-md px-3.5 py-1.5 rounded-xl border border-white/10 text-[10px] font-black uppercase tracking-wider text-white z-10">
                 Click to Watch Tour
               </div>
             </div>

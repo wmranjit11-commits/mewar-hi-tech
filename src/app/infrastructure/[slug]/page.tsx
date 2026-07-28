@@ -7,6 +7,7 @@ import Footer from "@/components/layout/Footer";
 import PageHero from "@/components/layout/PageHero";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, ChevronLeft, ChevronRight, Eye, LayoutGrid, CheckCircle } from "lucide-react";
+import Container from "@/components/ui/Container";
 
 interface BulletGroup {
   sectionTitle: string;
@@ -169,7 +170,7 @@ export default function InfrastructureDetailPage({ params }: PageProps) {
 
         {/* Content Section */}
         <section className="py-16 lg:py-24 bg-background">
-          <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <Container>
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
               
               {/* Left Column: Description & Bullet details */}
@@ -254,7 +255,7 @@ export default function InfrastructureDetailPage({ params }: PageProps) {
               </div>
 
             </div>
-          </div>
+          </Container>
         </section>
       </main>
 

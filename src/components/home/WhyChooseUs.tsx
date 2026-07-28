@@ -3,6 +3,7 @@
 import React from "react";
 import { Shield, Cog, TrendingUp, Headset } from "lucide-react";
 import { motion } from "framer-motion";
+import Container from "../ui/Container";
 
 const features = [
   {
@@ -30,7 +31,7 @@ const features = [
 const WhyChooseUs: React.FC = () => {
   return (
     <section className="bg-card text-foreground py-8 lg:py-12 relative overflow-hidden select-none border-y border-border/80">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
+      <Container className="relative z-10">
         
         {/* Section Header */}
         <div className="max-w-3xl mb-14 text-left space-y-3">
@@ -73,7 +74,7 @@ const WhyChooseUs: React.FC = () => {
             );
           })}
         </div>
-      </div>
+      </Container>
     </section>
   );
 };

@@ -7,6 +7,7 @@ import Footer from "@/components/layout/Footer";
 import PageHero from "@/components/layout/PageHero";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, ChevronLeft, ChevronRight, Eye, LayoutGrid } from "lucide-react";
+import Container from "@/components/ui/Container";
 
 // Generate project images lists matching local assets
 const STATIONERY_IMAGES = Array.from(
@@ -104,7 +105,7 @@ export default function ProjectDetailPage({ params }: PageProps) {
 
         {/* Project Gallery Grid */}
         <section className="py-16 lg:py-24 bg-background">
-          <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <Container>
             {/* Header info */}
             <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
               <div className="space-y-2 text-left">
@@ -148,7 +149,7 @@ export default function ProjectDetailPage({ params }: PageProps) {
                 </motion.div>
               ))}
             </div>
-          </div>
+          </Container>
         </section>
       </main>
 

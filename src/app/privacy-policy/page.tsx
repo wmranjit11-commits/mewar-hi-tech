@@ -5,6 +5,7 @@ import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import PageHero from "@/components/layout/PageHero";
 import BlobButton from "@/components/ui/BlobButton";
+import Container from "@/components/ui/Container";
 import { CheckCircle2, ShieldCheck, Lock, FileText, Mail } from "lucide-react";
 
 export default function PrivacyPolicyPage() {
@@ -21,7 +22,8 @@ export default function PrivacyPolicyPage() {
         />
 
         <section className="py-16 bg-background">
-          <div className="max-w-4xl mx-auto px-6 lg:px-8 space-y-12">
+          <Container>
+            <div className="max-w-4xl mx-auto space-y-12">
             
             {/* Top summary card */}
             <div className="p-8 rounded-3xl bg-card border border-border/80 flex items-start gap-5 shadow-sm">
@@ -192,7 +194,8 @@ export default function PrivacyPolicyPage() {
               </div>
 
             </div>
-          </div>
+            </div>
+          </Container>
         </section>
 
       </main>

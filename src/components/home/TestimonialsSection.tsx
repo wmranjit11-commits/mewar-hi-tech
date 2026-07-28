@@ -2,6 +2,7 @@
 
 import React from "react";
 import { motion } from "framer-motion";
+import Container from "../ui/Container";
 import { Star, Quote, ShieldCheck, MapPin, Building2, ThumbsUp } from "lucide-react";
 
 interface Testimonial {
@@ -57,7 +58,7 @@ export default function TestimonialsSection() {
       {/* Decorative Glow */}
       <div className="absolute top-1/2 left-1/4 -translate-y-1/2 w-[600px] h-[300px] bg-primary/5 rounded-full blur-3xl pointer-events-none" />
 
-      <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
+      <Container className="relative z-10">
         
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-14 gap-6">
@@ -154,7 +155,7 @@ export default function TestimonialsSection() {
           ))}
         </div>
 
-      </div>
+      </Container>
     </section>
   );
 }

@@ -2,6 +2,7 @@
 
 import React, { useEffect, useRef, useState } from "react";
 import { motion, useInView, animate } from "framer-motion";
+import Container from "@/components/ui/Container";
 
 interface Stat {
   value: number;
@@ -47,7 +48,7 @@ const Counter: React.FC<{ stat: Stat }> = ({ stat }) => {
 const StatsCounter: React.FC = () => {
   return (
     <section className="py-16 lg:py-20 bg-secondary border-y border-border/10">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8 grid grid-cols-2 lg:grid-cols-4 gap-10">
+      <Container className="grid grid-cols-2 lg:grid-cols-4 gap-10">
         {STATS.map((stat, i) => (
           <motion.div
             key={stat.label}
@@ -59,7 +60,7 @@ const StatsCounter: React.FC = () => {
             <Counter stat={stat} />
           </motion.div>
         ))}
-      </div>
+      </Container>
     </section>
   );
 };

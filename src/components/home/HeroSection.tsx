@@ -58,7 +58,7 @@ const HeroSection: React.FC = () => {
       </div>
 
       {/* Hero Content Area */}
-      <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-20 w-full flex flex-col lg:flex-row justify-between items-center">
+      <div className="max-w-[1720px] mx-auto px-6 lg:px-8 relative z-20 w-full flex flex-col lg:flex-row justify-between items-center">
         
         {/* Left Content Column */}
         <div className="max-w-xl text-white text-left self-start lg:self-center">
@@ -130,7 +130,7 @@ const HeroSection: React.FC = () => {
       </div>
 
       {/* Floating Horizontal White Stats Card */}
-      <div className="relative w-full max-w-7xl px-6 lg:px-8 z-40 mx-auto mt-4 lg:mt-0 lg:absolute lg:bottom-0 lg:left-1/2 lg:-translate-x-1/2 lg:translate-y-1/2">
+      <div className="relative w-full max-w-[1720px] px-6 lg:px-8 z-40 mx-auto mt-4 lg:mt-0 lg:absolute lg:bottom-0 lg:left-1/2 lg:-translate-x-1/2 lg:translate-y-1/2">
         <div className="bg-card text-foreground shadow-xl rounded-xl border border-border/50 p-5 lg:p-8 grid grid-cols-2 lg:flex lg:flex-row lg:items-center lg:justify-between gap-4 lg:gap-6">
           {stats.map((stat, idx) => {
             const IconComponent = stat.iconComponent;
