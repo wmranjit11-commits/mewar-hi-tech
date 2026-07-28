@@ -36,8 +36,6 @@ export const MachineCard: React.FC<MachineCardProps> = ({
 
   return (
     <motion.div
-      layout
-      transition={cardTransition}
       onMouseEnter={onHoverStart}
       onMouseLeave={onHoverEnd}
       onFocus={onHoverStart}
@@ -46,7 +44,7 @@ export const MachineCard: React.FC<MachineCardProps> = ({
       tabIndex={0}
       role="button"
       aria-label={`Explore our ${category.title} solutions`}
-      className="relative h-[480px] rounded-2xl overflow-hidden cursor-pointer select-none border border-border/10 shadow-lg group outline-none focus-visible:ring-2 focus-visible:ring-primary flex flex-col"
+      className="relative h-[480px] rounded-2xl overflow-hidden cursor-pointer select-none border border-border/10 shadow-lg group outline-none focus-visible:ring-2 focus-visible:ring-primary flex flex-col transition-[flex] duration-300 ease-[cubic-bezier(0.4,0,0.2,1)]"
       style={{
         flex: `${isHovered ? 2.2 : isAnyHovered ? 0.8 : 1} 1 0%`,
       }}

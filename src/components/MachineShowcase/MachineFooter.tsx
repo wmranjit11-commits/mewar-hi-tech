@@ -19,8 +19,6 @@ export const MachineFooter: React.FC<MachineFooterProps> = ({
 }) => {
   return (
     <motion.div
-      layout
-      transition={cardTransition}
       className="absolute bottom-0 left-0 right-0 p-5 sm:p-6 z-20 backdrop-blur-md bg-black/35 border-t border-white/10 flex flex-col justify-end overflow-hidden"
     >
       {/* Title & Arrow Row */}
@@ -37,15 +35,17 @@ export const MachineFooter: React.FC<MachineFooterProps> = ({
         </motion.div>
       </div>
 
-      {/* Expanded Description and CTA Link */}
-      <AnimatePresence initial={false}>
-        {isHovered && (
-          <motion.div
-            initial="hidden"
-            animate="visible"
-            exit="hidden"
-            variants={footerContentVariants}
-            className="mt-3.5 space-y-4"
+      {/* Expanded Description and CTA Link (Native CSS Grid Accordion) */}
+      <div
+        className={`grid transition-[grid-template-rows] duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] ${
+          isHovered ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
+        }`}
+      >
+        <div className="overflow-hidden">
+          <div
+            className={`mt-3.5 space-y-4 transition-all duration-200 ease-out ${
+              isHovered ? "opacity-100 translate-y-0 delay-[50ms]" : "opacity-0 translate-y-4"
+            }`}
           >
             <p className="text-white/80 text-[11px] font-semibold leading-relaxed text-left max-w-sm select-none">
               {category.desc}
@@ -56,9 +56,9 @@ export const MachineFooter: React.FC<MachineFooterProps> = ({
                 <ArrowRight size={12} className="stroke-[3]" />
               </BlobButton>
             </Link>
-          </motion.div>
-        )}
-      </AnimatePresence>
+          </div>
+        </div>
+      </div>
     </motion.div>
   );
 };

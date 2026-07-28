@@ -2,7 +2,7 @@
 
 import React, { use, useState } from "react";
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import {
   ArrowLeft,
   CheckCircle2,
@@ -19,6 +19,21 @@ import {
   Download,
   Home,
   ArrowRight,
+  Maximize2,
+  X,
+  ChevronLeft,
+  Cpu,
+  Compass,
+  Pickaxe,
+  Building2,
+  Truck,
+  Factory,
+  Share2,
+  PhoneCall,
+  FileCheck,
+  Sparkles,
+  Layers,
+  Award,
 } from "lucide-react";
 import { toast } from "react-toastify";
 import Header from "@/components/layout/Header";
@@ -37,13 +52,21 @@ export default function ProductDetailPage({ params }: PageProps) {
   // Find product by slug
   const product = PRODUCTS_DATA.find((item) => item.slug === slug);
 
+  // Form State
   const [submitting, setSubmitting] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     phone: "",
-    message: `I am interested in the ${product?.name || "equipment"}. Please send me the specifications and a quote.`,
+    message: `I am interested in the ${product?.name || "equipment"}. Please send me the technical specifications and a quote.`,
   });
+
+  // Lightbox State
+  const [lightboxOpen, setLightboxOpen] = useState(false);
+  const [activeImageIndex, setActiveImageIndex] = useState(0);
+
+  // Active Main Image in Gallery Section
+  const [selectedGalleryIndex, setSelectedGalleryIndex] = useState(0);
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -56,28 +79,31 @@ export default function ProductDetailPage({ params }: PageProps) {
     setSubmitting(true);
     setTimeout(() => {
       setSubmitting(false);
-      toast.success("Quote request submitted successfully. Our team will contact you shortly.");
+      toast.success("Engineering enquiry submitted! Our technical team will reach out within 24 hours.");
       setFormData({
         name: "",
         email: "",
         phone: "",
-        message: `I am interested in the ${product?.name || "equipment"}. Please send me the specifications and a quote.`,
+        message: `I am interested in the ${product?.name || "equipment"}. Please send me the technical specifications and a quote.`,
       });
     }, 1200);
   };
 
-  // Fallback if product not found
+  // Fallback 404 UI
   if (!product) {
     return (
       <div className="bg-background min-h-screen text-foreground select-none flex flex-col justify-between">
         <Header />
         <main className="flex-grow pt-36 pb-24 flex items-center justify-center">
           <div className="text-center space-y-6 max-w-md px-6">
-            <h1 className="common-heading text-4xl text-primary">
-              Product Not Found
+            <div className="w-16 h-16 rounded-2xl bg-primary/10 border border-primary/20 text-primary flex items-center justify-center mx-auto">
+              <Info size={32} />
+            </div>
+            <h1 className="common-heading text-3xl sm:text-4xl text-foreground">
+              Equipment Not Found
             </h1>
-            <p className="text-sm text-muted-foreground leading-relaxed">
-              We couldn&apos;t find the product you were looking for. Please check our catalog for our full list of crushing and screening machinery.
+            <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed font-semibold">
+              The requested machinery model could not be found in our database. Please explore our complete heavy machinery catalog.
             </p>
             <div className="pt-2">
               <Link href="/products">
@@ -96,43 +122,20 @@ export default function ProductDetailPage({ params }: PageProps) {
     );
   }
 
-  const showMediaSection = (product.gallery && product.gallery.length > 0) || product.video;
-
-  // Dynamic title split for dual-line design: keeps "Jaw Crusher" or product types on the second line in primary color.
+  // Dynamic title split for dual-line typography
   let firstHalf = product.name;
   let secondHalf = "";
-
   const lowerName = product.name.toLowerCase();
-  if (lowerName.includes("jaw crusher")) {
-    const idx = lowerName.indexOf("jaw crusher");
-    firstHalf = product.name.slice(0, idx).trim();
-    secondHalf = product.name.slice(idx).trim();
-  } else if (lowerName.includes("crusher")) {
-    const idx = lowerName.indexOf("crusher");
-    firstHalf = product.name.slice(0, idx).trim();
-    secondHalf = product.name.slice(idx).trim();
-  } else if (lowerName.includes("impactor")) {
-    const idx = lowerName.indexOf("impactor");
-    firstHalf = product.name.slice(0, idx).trim();
-    secondHalf = product.name.slice(idx).trim();
-  } else if (lowerName.includes("screen")) {
-    const idx = lowerName.indexOf("screen");
-    firstHalf = product.name.slice(0, idx).trim();
-    secondHalf = product.name.slice(idx).trim();
-  } else if (lowerName.includes("washer")) {
-    const idx = lowerName.indexOf("washer");
-    firstHalf = product.name.slice(0, idx).trim();
-    secondHalf = product.name.slice(idx).trim();
-  } else if (lowerName.includes("feeder")) {
-    const idx = lowerName.indexOf("feeder");
-    firstHalf = product.name.slice(0, idx).trim();
-    secondHalf = product.name.slice(idx).trim();
-  } else if (lowerName.includes("conveyor")) {
-    const idx = lowerName.indexOf("conveyor");
-    firstHalf = product.name.slice(0, idx).trim();
-    secondHalf = product.name.slice(idx).trim();
-  } else if (lowerName.includes("machine")) {
-    const idx = lowerName.indexOf("machine");
+
+  const splitKeywords = [
+    "jaw crusher", "cone crusher", "roll crusher", "impactor",
+    "screen", "washer", "feeder", "conveyor", "machine", "crusher"
+  ];
+
+  let matchedKeyword = splitKeywords.find((kw) => lowerName.includes(kw));
+
+  if (matchedKeyword) {
+    const idx = lowerName.indexOf(matchedKeyword);
     firstHalf = product.name.slice(0, idx).trim();
     secondHalf = product.name.slice(idx).trim();
   } else {
@@ -142,155 +145,270 @@ export default function ProductDetailPage({ params }: PageProps) {
     secondHalf = nameWords.slice(halfLength).join(" ");
   }
 
+  // Related Products
+  const relatedProducts = PRODUCTS_DATA.filter(
+    (item) => item.slug !== product.slug && (item.category === product.category || item.subCategory === product.subCategory)
+  ).slice(0, 3);
+
+  // Gallery items including mainImage
+  const allImages = [product.mainImage, ...(product.gallery || [])];
+
+  // Quick info metrics extracted dynamically from specs or defaults
+  const quickMetrics = [
+    {
+      icon: Flame,
+      label: "Heavy Crushing",
+      value: "High Reduction",
+      sub: "Optimal Efficiency",
+    },
+    {
+      icon: ShieldCheck,
+      label: "Structural Body",
+      value: "Certified Steel",
+      sub: "Reinforced Chassis",
+    },
+    {
+      icon: Wrench,
+      label: "Maintenance",
+      value: "Enclosed System",
+      sub: "Minimal Wear",
+    },
+    {
+      icon: TrendingUp,
+      label: "Plant Tonnage",
+      value: "High Output",
+      sub: "Max TPH Capacity",
+    },
+  ];
+
+  // Applications list
+  const applications = [
+    {
+      icon: Pickaxe,
+      title: "Mining & Ore Extraction",
+      desc: "Primary & secondary reduction of hard iron ore, copper, bauxite, and gold deposits.",
+    },
+    {
+      icon: Compass,
+      title: "Hard Rock Quarrying",
+      desc: "High-tonnage crushing of granite, basalt, limestone, and river gravel.",
+    },
+    {
+      icon: Building2,
+      title: "Infrastructure & Roads",
+      desc: "Producing precise cubical aggregates for high-grade highway & asphalt mixtures.",
+    },
+    {
+      icon: Factory,
+      title: "Aggregate Processing",
+      desc: "Manufactured sand (M-Sand) and washed fines sizing for ready-mix concrete plants.",
+    },
+    {
+      icon: Truck,
+      title: "Recycling & Demolition",
+      desc: "Processing concrete debris, asphalt pavement, and industrial slag for reuse.",
+    },
+  ];
+
   return (
     <div className="bg-background min-h-screen text-foreground select-none flex flex-col justify-between">
       <Header />
 
       <main className="flex-grow">
-        {/* ── 1. Custom Angled Product Hero Section ── */}
-        <section className="relative z-30 flex flex-col bg-[#111315] select-none pt-28 pb-20 lg:pt-36 lg:pb-32 overflow-visible min-h-[580px] flex items-center border-b border-border/10">
+        
+        {/* ── 1. PREMIUM INDUSTRIAL HERO SECTION ── */}
+        <section className="relative z-20 bg-[#0B0D0F] text-white pt-32 pb-24 lg:pt-36 lg:pb-32 overflow-hidden border-b border-border/10">
           
-          {/* Background Image of the Hero */}
-          <div className="absolute hidden md:block lg:block inset-0 w-full h-full z-0 overflow-hidden">
-            <img
-              src={product.heroImage || "/images/double-toggle-oil-jaw-crusher-hero.png"}
-              alt={`${product.name} background`}
-              className="w-full h-full object-cover object-center scale-105"
-            />
-            {/* Dark gradient overlay for fallbacks */}
-            <div className="absolute inset-0 bg-black/60 z-10 pointer-events-none lg:hidden" />
-          </div>
-
-          {/* Left Angled Polygon Overlay */}
+          {/* Subtle Background Mesh & Light Lighting */}
+          <div className="absolute inset-0 z-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-primary/20 via-[#0D1015] to-[#07080A] pointer-events-none" />
           <div 
-            className="absolute inset-y-0 left-0 w-[62%] bg-gradient-to-r from-[#0F1216] via-[#0F1216]/98 to-[#0F1216]/90 z-10 pointer-events-none hidden lg:block"
-            style={{ clipPath: "polygon(0 0, 85% 0, 68% 100%, 0 100%)" }}
+            className="absolute inset-0 z-0 opacity-[0.03] pointer-events-none"
+            style={{
+              backgroundImage: "radial-gradient(#fff 1px, transparent 1px)",
+              backgroundSize: "24px 24px",
+            }}
           />
 
+          {/* Decorative Subtle Accent Line */}
+          <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-primary to-transparent opacity-80" />
+
           {/* Main Hero Container */}
-          <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-20 w-full grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+          <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10 w-full grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             
-            {/* Left Content Column */}
-            <div className="lg:col-span-9 text-white text-left space-y-6 z-20">
+            {/* Left Column: Breadcrumb, Titles, CTAs */}
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              className="lg:col-span-7 space-y-6 text-left"
+            >
               
-              {/* Breadcrumbs */}
-              <div className="flex items-center gap-2 text-[10px] sm:text-xs font-bold text-gray-400 uppercase tracking-wider">
+              {/* Breadcrumb Navigation */}
+              <div className="flex flex-wrap items-center gap-2 text-[11px] font-bold text-gray-400 uppercase tracking-wider">
                 <Link href="/" className="hover:text-primary transition-colors flex items-center gap-1">
                   <Home size={12} />
                   <span>Home</span>
                 </Link>
                 <ChevronRight size={10} className="text-primary" />
                 <Link href="/products" className="hover:text-primary transition-colors">
-                  Products
+                  Equipment
                 </Link>
                 <ChevronRight size={10} className="text-primary" />
-                <span className="text-primary">{product.name}</span>
+                <span className="text-primary font-black">{product.name}</span>
               </div>
 
-              {/* Category Badge */}
-              <div className="flex items-center gap-2">
-                <span className="text-primary font-black text-xs uppercase tracking-widest">
-                  /// {product.category.toUpperCase()} ///
-                </span>
+              {/* Sub-Category Badge */}
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/25 text-primary text-[10px] font-black uppercase tracking-widest">
+                <Sparkles size={12} />
+                <span>{product.category} &bull; {product.subCategory}</span>
               </div>
 
               {/* Dynamic Styled Product Title */}
-              <h1 className="common-heading text-4xl sm:text-5xl lg:text-[60px] leading-[0.95]">
-                <span className="text-white">{firstHalf}</span>
-                <br className="hidden sm:block" />
-                <span className="text-primary">{secondHalf}</span>
+              <h1 className="common-heading text-3xl sm:text-5xl lg:text-[56px] leading-[1.05] tracking-tight font-black">
+                <span className="text-white">{firstHalf} </span>
+                {secondHalf && (
+                  <span className="text-primary block mt-1">{secondHalf}</span>
+                )}
               </h1>
 
-              {/* Subheading */}
-              <div className="space-y-2">
-                <p className="text-xs sm:text-sm font-black uppercase tracking-widest text-primary">
-                  BUILT TO CRUSH. ENGINEERED TO LAST.
+              {/* Subheading Badge & Accent Divider */}
+              <div className="flex items-center gap-3 pt-1">
+                <div className="w-10 h-[3px] bg-primary rounded-full" />
+                <p className="text-xs font-black uppercase tracking-widest text-primary">
+                  Engineered for Maximum Tonnage &bull; Built to Last
                 </p>
-                <div className="w-16 h-1 bg-primary" style={{ clipPath: "polygon(0 0, 100% 0, 75% 100%, 0 100%)" }} />
               </div>
 
               {/* Intro Text Description */}
-              <p className="text-xs sm:text-sm text-gray-300 font-medium leading-relaxed max-w-xl">
-                Heavy duty primary crushers designed for high crushing ratio and superior performance in the <span className="text-primary font-bold">toughest mining conditions.</span>
+              <p className="text-xs sm:text-sm text-gray-300 font-semibold leading-relaxed max-w-xl">
+                Heavy-duty industrial crushing and material handling system designed for high reduction ratios, maximum continuous uptime, and reliable operating efficiency.
               </p>
 
-              {/* Action Buttons using default components */}
-              <div className="flex flex-wrap gap-4 pt-2">
+              {/* Quick Specifications Tags */}
+              <div className="flex flex-wrap gap-2 pt-1">
+                {product.subCategory && (
+                  <span className="text-[10px] font-bold bg-white/5 border border-white/10 text-gray-300 px-3 py-1 rounded-lg">
+                    Class: {product.subCategory}
+                  </span>
+                )}
+                <span className="text-[10px] font-bold bg-white/5 border border-white/10 text-gray-300 px-3 py-1 rounded-lg">
+                  Heavy Steel Body
+                </span>
+                <span className="text-[10px] font-bold bg-white/5 border border-white/10 text-gray-300 px-3 py-1 rounded-lg">
+                  Continuous Lubrication
+                </span>
+              </div>
+
+              {/* Action Buttons */}
+              <div className="flex flex-wrap gap-4 pt-4">
                 <BlobButton
                   onClick={() => document.getElementById("quote-section")?.scrollIntoView({ behavior: "smooth" })}
                   variant="primary"
-                  className="!w-full sm:!w-[210px] !h-[48px] !text-xs !font-black !uppercase !tracking-wider flex items-center justify-center gap-2 whitespace-nowrap"
+                  className="!w-full sm:!w-auto !px-8 !h-[50px] !text-xs !font-black !uppercase !tracking-wider flex items-center justify-center gap-2.5 whitespace-nowrap shadow-lg shadow-primary/20"
                 >
-                  <FileText size={15} />
-                  <span>Request Quote</span>
-                  <ArrowRight size={15} />
+                  <FileText size={16} />
+                  <span>Request Engineering Quote</span>
+                  <ArrowRight size={16} />
                 </BlobButton>
                 
                 <BlobButton
                   onClick={() => window.dispatchEvent(new Event("open-brochure-modal"))}
                   variant="secondary"
-                  className="!w-full sm:!w-[210px] !h-[48px] !text-xs !font-black !uppercase !tracking-wider flex items-center justify-center gap-2 whitespace-nowrap"
+                  className="!w-full sm:!w-auto !px-7 !h-[50px] !text-xs !font-black !uppercase !tracking-wider flex items-center justify-center gap-2.5 whitespace-nowrap"
                 >
-                  <Download size={15} />
-                  <span>Download Brochure</span>
+                  <Download size={16} />
+                  <span>Download Spec Sheet</span>
                 </BlobButton>
               </div>
-            </div>
+            </motion.div>
+
+            {/* Right Column: Hero Floating Image Showcase */}
+            <motion.div 
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.7, delay: 0.2 }}
+              className="lg:col-span-5 relative flex items-center justify-center"
+            >
+              {/* Soft Radial Ambient Lighting */}
+              <div className="absolute w-[320px] h-[320px] bg-primary/20 rounded-full blur-[100px] pointer-events-none" />
+
+              {/* Floating Glassmorphic Container for Hero Image */}
+              <div className="relative z-10 w-full rounded-3xl bg-gradient-to-b from-white/10 to-white/5 border border-white/15 p-6 sm:p-8 backdrop-blur-md shadow-2xl group flex flex-col items-center justify-center">
+                
+                {/* Product Class Badge */}
+                <div className="absolute top-4 left-4 z-20 px-3 py-1 rounded-full bg-black/60 backdrop-blur-md border border-white/10 text-[9px] font-black uppercase tracking-wider text-primary flex items-center gap-1.5">
+                  <Award size={12} />
+                  <span>HEAVY INDUSTRIAL SERIES</span>
+                </div>
+
+                {/* Main Hero Machine Image */}
+                <img
+                  src={product.mainImage}
+                  alt={product.name}
+                  className="max-h-[340px] sm:max-h-[380px] w-auto object-contain transition-transform duration-700 ease-out group-hover:scale-105 filter drop-shadow-[0_20px_30px_rgba(0,0,0,0.8)]"
+                />
+
+                {/* Bottom Floating Spec Chip inside Image card */}
+                <div className="mt-4 w-full pt-4 border-t border-white/10 flex items-center justify-between text-left">
+                  <div>
+                    <div className="text-[10px] uppercase font-bold text-gray-400 tracking-wider">Model Range</div>
+                    <div className="text-xs font-black text-white">{product.name}</div>
+                  </div>
+                  <button 
+                    onClick={() => {
+                      setSelectedGalleryIndex(0);
+                      setLightboxOpen(true);
+                    }}
+                    className="w-9 h-9 rounded-full bg-primary text-primary-foreground flex items-center justify-center hover:scale-110 transition-transform shadow-lg"
+                    title="View Full Resolution"
+                  >
+                    <Maximize2 size={14} />
+                  </button>
+                </div>
+              </div>
+            </motion.div>
+
           </div>
+        </section>
 
-          {/* Floating Horizontal Specs/Features Bar */}
-          <div className="relative w-full max-w-7xl px-6 lg:px-8 z-30 mx-auto mt-12 lg:mt-0 lg:absolute lg:bottom-0 lg:left-1/2 lg:-translate-x-1/2 lg:translate-y-1/2">
-            <div className="bg-[#12161F] text-white shadow-2xl rounded-2xl border border-white/10 p-5 lg:p-7 grid grid-cols-2 lg:flex lg:flex-row lg:items-center lg:justify-between gap-4 lg:gap-6">
-              
-              {/* Feature 1 */}
-              <div className="flex items-center gap-3 flex-1 justify-start lg:justify-center">
-                <Flame className="w-8 h-8 text-primary shrink-0" />
-                <div className="text-left">
-                  <div className="text-xs sm:text-sm font-black tracking-wide uppercase">High Crushing</div>
-                  <div className="text-[10px] text-gray-400 font-bold uppercase">Optimal Ratio</div>
-                </div>
-              </div>
-              <div className="hidden lg:block w-[1px] h-8 bg-white/10 shrink-0" />
-
-              {/* Feature 2 */}
-              <div className="flex items-center gap-3 flex-1 justify-start lg:justify-center">
-                <ShieldCheck className="w-8 h-8 text-primary shrink-0" />
-                <div className="text-left">
-                  <div className="text-xs sm:text-sm font-black tracking-wide uppercase">Robust Design</div>
-                  <div className="text-[10px] text-gray-400 font-bold uppercase">Heavy Steel body</div>
-                </div>
-              </div>
-              <div className="hidden lg:block w-[1px] h-8 bg-white/10 shrink-0" />
-
-              {/* Feature 3 */}
-              <div className="flex items-center gap-3 flex-1 justify-start lg:justify-center">
-                <Wrench className="w-8 h-8 text-primary shrink-0" />
-                <div className="text-left">
-                  <div className="text-xs sm:text-sm font-black tracking-wide uppercase">Low Maintenance</div>
-                  <div className="text-[10px] text-gray-400 font-bold uppercase">Enclosed System</div>
-                </div>
-              </div>
-              <div className="hidden lg:block w-[1px] h-8 bg-white/10 shrink-0" />
-
-              {/* Feature 4 */}
-              <div className="flex items-center gap-3 flex-1 justify-start lg:justify-center">
-                <TrendingUp className="w-8 h-8 text-primary shrink-0" />
-                <div className="text-left">
-                  <div className="text-xs sm:text-sm font-black tracking-wide uppercase">Reliable output</div>
-                  <div className="text-[10px] text-gray-400 font-bold uppercase">Maximum Tonnage</div>
-                </div>
-              </div>
+        {/* ── 2. QUICK INFO METRIC STRIP ── */}
+        <section className="relative z-30 bg-[#0F1216] border-b border-border/10 py-8">
+          <div className="max-w-7xl mx-auto px-6 lg:px-8">
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+              {quickMetrics.map((item, idx) => {
+                const IconComponent = item.icon;
+                return (
+                  <div
+                    key={idx}
+                    className="p-5 rounded-2xl bg-white/[0.03] border border-white/10 hover:border-primary/40 transition-all duration-300 text-left space-y-2 group"
+                  >
+                    <div className="flex items-center justify-between">
+                      <span className="text-[10px] font-bold text-gray-400 uppercase tracking-widest">
+                        {item.label}
+                      </span>
+                      <IconComponent size={18} className="text-primary group-hover:scale-110 transition-transform" />
+                    </div>
+                    <div className="text-sm sm:text-base font-black text-white tracking-wide">
+                      {item.value}
+                    </div>
+                    <div className="text-[10px] font-semibold text-primary/90">
+                      &bull; {item.sub}
+                    </div>
+                  </div>
+                );
+              })}
             </div>
           </div>
         </section>
 
-        {/* ── 2. Detailed Description & Features Section ── */}
-        <section className="py-16 lg:py-24 bg-background border-b border-border">
+        {/* ── 3. EQUIPMENT OVERVIEW & FEATURES SECTION ── */}
+        <section className="py-20 lg:py-28 bg-background border-b border-border">
           <div className="max-w-7xl mx-auto px-6 lg:px-8">
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-              {/* Left Side: Text and Features list */}
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+              
+              {/* Left Column: Comprehensive Overview */}
               <motion.div
-                initial={{ opacity: 0, x: -30 }}
+                initial={{ opacity: 0, x: -20 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6 }}
@@ -298,22 +416,23 @@ export default function ProductDetailPage({ params }: PageProps) {
               >
                 <div>
                   <span className="text-primary font-bold text-xs uppercase tracking-widest block mb-2">
-                    Equipment Overview
+                    Equipment Narrative &bull; Overview
                   </span>
                   <h2 className="common-heading text-3xl sm:text-4xl text-foreground leading-tight">
-                    Reliable &amp; Engineered Performance
+                    Engineered for Precision, Continuous Tonnage &amp; Heavy Duty Life
                   </h2>
                 </div>
 
-                <p className="text-muted-foreground text-sm leading-relaxed font-medium">
+                <p className="text-muted-foreground text-xs sm:text-sm leading-relaxed font-semibold">
                   {product.introText}
                 </p>
 
+                {/* Key Machine Features Bullet Points */}
                 <div className="space-y-4 pt-4">
-                  <h3 className="common-heading text-sm tracking-wider text-foreground">
-                    Key Machine Features:
+                  <h3 className="common-heading text-sm uppercase tracking-wider text-foreground">
+                    Core Design Highlights &amp; Mechanisms:
                   </h3>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
                     {product.features.map((feature, idx) => (
                       <div
                         key={idx}
@@ -329,91 +448,201 @@ export default function ProductDetailPage({ params }: PageProps) {
                 </div>
               </motion.div>
 
-              {/* Right Side: Product Main Image */}
+              {/* Right Column: High Resolution View Card */}
               <motion.div
-                initial={{ opacity: 0, x: 30 }}
+                initial={{ opacity: 0, x: 20 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6 }}
                 className="lg:col-span-5 flex justify-center"
               >
-                <div className="relative rounded-3xl overflow-hidden bg-card w-full flex items-center justify-center group">
+                <div className="relative rounded-3xl overflow-hidden bg-card border border-border/80 p-8 shadow-xl w-full flex flex-col items-center justify-center group">
+                  <div className="absolute top-4 right-4 px-3 py-1 rounded-full bg-muted text-foreground text-[10px] font-bold uppercase tracking-wider border border-border">
+                    {product.subCategory}
+                  </div>
+
                   <img
                     src={product.mainImage}
                     alt={product.name}
                     className="max-h-[380px] w-auto object-contain transition-transform duration-500 group-hover:scale-105"
                   />
-                  <div className="absolute bottom-4 left-4 px-3 py-1 rounded-full bg-black/60 backdrop-blur-md text-white border border-white/20 text-[10px] font-bold uppercase tracking-wider">
-                    {product.subCategory}
+
+                  <div className="w-full mt-6 pt-4 border-t border-border flex items-center justify-between text-left">
+                    <div>
+                      <h4 className="text-xs font-black text-foreground uppercase">{product.name}</h4>
+                      <p className="text-[10px] text-muted-foreground font-bold">Primary Industrial Material Handler</p>
+                    </div>
+                    <button
+                      onClick={() => {
+                        setSelectedGalleryIndex(0);
+                        setLightboxOpen(true);
+                      }}
+                      className="text-xs text-primary font-bold hover:underline flex items-center gap-1"
+                    >
+                      <span>Expand View</span>
+                      <Maximize2 size={12} />
+                    </button>
                   </div>
                 </div>
               </motion.div>
+
             </div>
           </div>
         </section>
 
-        {/* ── 3. Dynamic Media Showcase (Gallery & Video) ── */}
-        {showMediaSection && (
-          <section className="py-16 lg:py-24 bg-muted/40 border-b border-border">
-            <div className="max-w-7xl mx-auto px-6 lg:px-8 space-y-10">
-              <div className="max-w-3xl space-y-2">
+        {/* ── 4. INDUSTRIAL APPLICATIONS SHOWCASE ── */}
+        <section className="py-20 lg:py-24 bg-muted/30 border-b border-border">
+          <div className="max-w-7xl mx-auto px-6 lg:px-8 space-y-12">
+            
+            <div className="max-w-2xl space-y-3 text-left">
+              <span className="text-primary font-bold text-xs uppercase tracking-widest block">
+                Target Operations &bull; Applications
+              </span>
+              <h2 className="common-heading text-3xl sm:text-4xl text-foreground">
+                Versatile Industrial Operating Environments
+              </h2>
+              <p className="text-xs sm:text-sm text-muted-foreground font-semibold">
+                Designed to operate under extreme crushing forces across diverse mineral processing sectors.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 text-left">
+              {applications.map((app, idx) => {
+                const IconComponent = app.icon;
+                return (
+                  <div
+                    key={idx}
+                    className="p-6 rounded-3xl bg-card border border-border shadow-sm hover:border-primary/50 hover:shadow-md transition-all duration-300 space-y-4 group"
+                  >
+                    <div className="w-12 h-12 rounded-2xl bg-primary/10 border border-primary/20 flex items-center justify-center text-primary group-hover:scale-110 transition-transform">
+                      <IconComponent size={22} />
+                    </div>
+                    <div className="space-y-1.5">
+                      <h3 className="common-heading text-base text-foreground font-black">
+                        {app.title}
+                      </h3>
+                      <p className="text-xs text-muted-foreground font-semibold leading-relaxed">
+                        {app.desc}
+                      </p>
+                    </div>
+                  </div>
+                );
+              })}
+
+              {/* Extra Summary Card */}
+              <div className="p-6 rounded-3xl bg-primary text-primary-foreground shadow-lg flex flex-col justify-between space-y-4 text-left">
+                <div className="space-y-2">
+                  <div className="w-10 h-10 rounded-xl bg-white/20 flex items-center justify-center text-white">
+                    <Sparkles size={20} />
+                  </div>
+                  <h3 className="common-heading text-lg font-black uppercase text-white">
+                    Custom Plant Setup?
+                  </h3>
+                  <p className="text-xs font-semibold text-white/90 leading-relaxed">
+                    Our team provides custom engineering flowsheet designs for complete circuit integration.
+                  </p>
+                </div>
+                <BlobButton
+                  onClick={() => document.getElementById("quote-section")?.scrollIntoView({ behavior: "smooth" })}
+                  variant="primary"
+                  className="!w-full !py-3.5 !text-xs !font-black !uppercase !tracking-wider"
+                >
+                  <span className="flex items-center justify-center gap-2 whitespace-nowrap">
+                    <span>Consult An Engineer</span>
+                    <ArrowRight size={15} />
+                  </span>
+                </BlobButton>
+              </div>
+            </div>
+
+          </div>
+        </section>
+
+        {/* ── 5. DYNAMIC MEDIA SHOWCASE (GALLERY & VIDEO) ── */}
+        {(allImages.length > 1 || product.video) && (
+          <section className="py-20 lg:py-28 bg-background border-b border-border">
+            <div className="max-w-7xl mx-auto px-6 lg:px-8 space-y-12">
+              
+              <div className="max-w-3xl space-y-2 text-left">
                 <span className="text-primary font-bold text-xs uppercase tracking-widest block">
-                  Media &amp; Demonstrations
+                  Visual Media &bull; Technical Assets
                 </span>
-                <h2 className="common-heading text-3xl text-foreground">
-                  Visuals &amp; Technical Footage
+                <h2 className="common-heading text-3xl sm:text-4xl text-foreground">
+                  On-Site Inspection &amp; Working Video
                 </h2>
               </div>
 
-              {/* Grid adjusts layout dynamically based on presence of video and gallery images */}
-              <div
-                className={`grid grid-cols-1 ${
-                  product.gallery && product.gallery.length > 0 && product.video
-                    ? "lg:grid-cols-2"
-                    : "lg:grid-cols-1 max-w-4xl mx-auto"
-                } gap-8`}
-              >
-                {/* Left: Gallery Images */}
-                {product.gallery && product.gallery.length > 0 && (
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+                
+                {/* Left: Gallery & Lightbox Trigger */}
+                <div className="lg:col-span-6 space-y-6 text-left">
                   <div className="space-y-4">
-                    <div className="flex items-center gap-2 text-xs font-bold uppercase text-foreground">
-                      <FileText size={16} className="text-primary" />
-                      <span>On-Site / Assembly Gallery</span>
+                    <div className="flex items-center justify-between">
+                      <div className="flex items-center gap-2 text-xs font-bold uppercase text-foreground">
+                        <FileText size={16} className="text-primary" />
+                        <span>Machine Gallery &amp; Diagrams</span>
+                      </div>
+                      <span className="text-[11px] text-muted-foreground font-semibold">
+                        Click image to view full resolution
+                      </span>
                     </div>
-                    <div className={`grid gap-4 ${
-                      product.gallery.length === 1 ? "grid-cols-1" : "grid-cols-1 sm:grid-cols-2"
-                    }`}>
-                      {product.gallery.map((imgUrl, i) => {
-                        const isDiagram = imgUrl.toLowerCase().includes("horizontal-shaft-impactor");
-                        return (
-                          <div
-                            key={i}
-                            className="relative rounded-3xl overflow-hidden border border-border shadow-xl bg-card aspect-[16/10]"
-                          >
-                            <img
-                              src={imgUrl}
-                              alt={`${product.name} alternate view`}
-                              className={`w-full h-full ${
-                                isDiagram
-                                  ? "object-contain p-2 bg-white"
-                                  : "object-cover hover:scale-105 transition-transform duration-500"
-                              }`}
-                            />
-                          </div>
-                        );
-                      })}
+
+                    {/* Main Selected Image Preview */}
+                    <div 
+                      onClick={() => setLightboxOpen(true)}
+                      className="relative rounded-3xl overflow-hidden border border-border shadow-xl bg-card aspect-[16/10] cursor-pointer group flex items-center justify-center"
+                    >
+                      <img
+                        src={allImages[selectedGalleryIndex]}
+                        alt={`${product.name} view ${selectedGalleryIndex + 1}`}
+                        className={`w-full h-full transition-transform duration-500 group-hover:scale-105 ${
+                          allImages[selectedGalleryIndex].toLowerCase().includes(".png")
+                            ? "object-contain p-6"
+                            : "object-cover"
+                        }`}
+                      />
+                      <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                        <div className="px-4 py-2 rounded-full bg-black/70 backdrop-blur-md text-white text-xs font-bold flex items-center gap-2">
+                          <Maximize2 size={14} />
+                          <span>Open Lightbox</span>
+                        </div>
+                      </div>
                     </div>
                   </div>
-                )}
 
-                {/* Right: Video Demonstration */}
+                  {/* Thumbnail Selector Strip */}
+                  {allImages.length > 1 && (
+                    <div className="flex items-center gap-3 overflow-x-auto pb-1 pt-1">
+                      {allImages.map((imgUrl, i) => (
+                        <button
+                          key={i}
+                          onClick={() => setSelectedGalleryIndex(i)}
+                          className={`relative w-24 h-16 rounded-2xl overflow-hidden border-2 shrink-0 transition-all ${
+                            selectedGalleryIndex === i
+                              ? "border-primary shadow-lg ring-2 ring-primary/40 opacity-100"
+                              : "border-border/60 opacity-60 hover:opacity-100"
+                          }`}
+                        >
+                          <img
+                            src={imgUrl}
+                            alt={`Thumbnail ${i + 1}`}
+                            className="w-full h-full object-cover"
+                          />
+                        </button>
+                      ))}
+                    </div>
+                  )}
+                </div>
+
+                {/* Right: Working Video */}
                 {product.video && (
-                  <div className="space-y-4">
+                  <div className="lg:col-span-6 space-y-6 text-left">
                     <div className="flex items-center gap-2 text-xs font-bold uppercase text-foreground">
                       <Video size={16} className="text-primary" />
-                      <span>Working Mechanism Video</span>
+                      <span>Operational Video Footage</span>
                     </div>
-                    <div className="relative rounded-3xl overflow-hidden border border-border shadow-xl bg-black aspect-[16/10] flex items-center justify-center">
+
+                    <div className="relative rounded-3xl overflow-hidden border border-border shadow-2xl bg-black aspect-[16/10] flex items-center justify-center group">
                       <video
                         src={product.video}
                         autoPlay
@@ -423,34 +652,48 @@ export default function ProductDetailPage({ params }: PageProps) {
                         preload="metadata"
                         className="w-full h-full object-cover"
                       />
+                      <div className="absolute top-4 left-4 px-3 py-1 rounded-full bg-black/60 backdrop-blur-md border border-white/20 text-[10px] font-bold uppercase text-white flex items-center gap-1.5 z-10">
+                        <div className="w-2 h-2 rounded-full bg-emerald-500 animate-ping" />
+                        <span>LIVE FOOTAGE</span>
+                      </div>
                     </div>
                   </div>
                 )}
+
               </div>
             </div>
           </section>
         )}
 
-        {/* ── 4. Technical Specifications Table Section ── */}
+        {/* ── 6. TECHNICAL SPECIFICATIONS TABLE ── */}
         {product.specsTable && (
-          <section className="py-16 lg:py-24 bg-background border-b border-border">
-            <div className="max-w-7xl mx-auto px-6 lg:px-8 space-y-8">
-              <div className="max-w-3xl space-y-2">
+          <section className="py-20 lg:py-28 bg-muted/20 border-b border-border">
+            <div className="max-w-7xl mx-auto px-6 lg:px-8 space-y-10">
+              
+              <div className="max-w-3xl space-y-2 text-left">
                 <span className="text-primary font-bold text-xs uppercase tracking-widest block">
-                  Technical Data
+                  Engineering Matrix &bull; Technical Data
                 </span>
-                <h2 className="common-heading text-3xl text-foreground">
-                  Machine Specifications
+                <h2 className="common-heading text-3xl sm:text-4xl text-foreground">
+                  Machine Specifications &amp; Tonnage Chart
                 </h2>
+                <p className="text-xs sm:text-sm text-muted-foreground font-semibold">
+                  Detailed dimensional, power, and capacity metrics for model selection.
+                </p>
               </div>
 
               {/* Responsive Specs Table Wrapper */}
-              <div className="overflow-x-auto rounded-3xl border border-border shadow-xl bg-card">
+              <div className="overflow-x-auto rounded-3xl border border-border shadow-xl bg-card max-h-[600px] overflow-y-auto">
                 <table className="w-full text-left border-collapse text-xs">
-                  <thead>
-                    <tr className="bg-muted border-b border-border text-foreground font-bold uppercase tracking-wider">
+                  <thead className="sticky top-0 z-20 bg-muted/90 backdrop-blur-md border-b border-border text-foreground font-black uppercase tracking-wider">
+                    <tr>
                       {product.specsTable.headers.map((header, idx) => (
-                        <th key={idx} className="p-4 sm:p-5 text-center whitespace-nowrap">
+                        <th 
+                          key={idx} 
+                          className={`p-4 sm:p-5 text-center whitespace-nowrap ${
+                            idx === 0 ? "sticky left-0 bg-muted z-30 shadow-md text-left" : ""
+                          }`}
+                        >
                           {header}
                         </th>
                       ))}
@@ -460,33 +703,33 @@ export default function ProductDetailPage({ params }: PageProps) {
                     {product.specsTable.sections.map((section, sIdx) => (
                       <React.Fragment key={sIdx}>
                         {/* Section Header Row */}
-                        <tr className="bg-primary/5 text-primary font-bold uppercase tracking-wider">
+                        <tr className="bg-primary/10 text-primary font-black uppercase tracking-wider">
                           <td
                             colSpan={product.specsTable.headers.length}
-                            className="p-3.5 pl-6 text-left whitespace-nowrap"
+                            className="p-4 pl-6 text-left whitespace-nowrap"
                           >
-                            {section.title}
+                            &bull; {section.title}
                           </td>
                         </tr>
                         {/* Rows */}
                         {section.rows.map((row, rIdx) => (
                           <tr
                             key={rIdx}
-                            className="hover:bg-muted/40 transition-colors font-medium text-muted-foreground"
+                            className="hover:bg-muted/50 transition-colors font-medium text-muted-foreground odd:bg-card even:bg-muted/20"
                           >
                             {row.map((val, cellIdx) => (
-                               <td
-                                 key={cellIdx}
-                                 className={`p-4 text-center whitespace-nowrap ${
-                                   cellIdx === 0
-                                     ? "font-bold text-foreground"
-                                     : cellIdx === 1 || cellIdx === 2
-                                     ? "text-foreground font-semibold"
-                                     : ""
-                                 }`}
-                               >
-                                 {val}
-                               </td>
+                              <td
+                                key={cellIdx}
+                                className={`p-4 text-center whitespace-nowrap ${
+                                  cellIdx === 0
+                                    ? "font-bold text-foreground text-left sticky left-0 bg-card z-10 border-r border-border/40"
+                                    : cellIdx === 1 || cellIdx === 2
+                                    ? "text-foreground font-bold"
+                                    : ""
+                                }`}
+                              >
+                                {val}
+                              </td>
                             ))}
                           </tr>
                         ))}
@@ -496,63 +739,171 @@ export default function ProductDetailPage({ params }: PageProps) {
                 </table>
               </div>
 
-              {/* Specs Note */}
+              {/* Specs Note Callout Box */}
               {product.specsNote && (
-                <div className="p-4 rounded-2xl bg-muted/30 border border-border/80 flex items-start gap-3 text-[11px] text-muted-foreground max-w-4xl leading-relaxed">
-                  <Info size={16} className="text-primary shrink-0 mt-0.5" />
-                  <p>{product.specsNote}</p>
+                <div className="p-5 rounded-2xl bg-card border border-border/80 flex items-start gap-3.5 text-xs text-muted-foreground leading-relaxed text-left max-w-4xl shadow-sm">
+                  <Info size={18} className="text-primary shrink-0 mt-0.5" />
+                  <p className="font-semibold">{product.specsNote}</p>
                 </div>
               )}
+
             </div>
           </section>
         )}
 
-        {/* ── 5. Quick Enquiry Request Form Section ── */}
-        <section id="quote-section" className="py-16 lg:py-24 bg-muted/30 border-b border-border">
+        {/* ── 7. DOCUMENTATION & DOWNLOADS ── */}
+        <section className="py-16 lg:py-24 bg-background border-b border-border">
+          <div className="max-w-7xl mx-auto px-6 lg:px-8 space-y-10">
+            
+            <div className="max-w-2xl space-y-2 text-left">
+              <span className="text-primary font-bold text-xs uppercase tracking-widest block">
+                Technical Documentation
+              </span>
+              <h2 className="common-heading text-3xl text-foreground">
+                Download Product Brochures &amp; Layouts
+              </h2>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 text-left">
+              
+              {/* Card 1: Main Product Brochure */}
+              <div className="p-6 rounded-3xl bg-card border border-border shadow-sm hover:border-primary/50 transition-all space-y-4 flex flex-col justify-between">
+                <div className="space-y-3">
+                  <div className="w-12 h-12 rounded-2xl bg-primary/10 text-primary border border-primary/20 flex items-center justify-center">
+                    <FileText size={22} />
+                  </div>
+                  <h3 className="common-heading text-base text-foreground font-black">
+                    Official Product Catalog
+                  </h3>
+                  <p className="text-xs text-muted-foreground font-semibold leading-relaxed">
+                    Complete brochure with dimension diagrams, capacity formulas, and CSS settings.
+                  </p>
+                </div>
+                <BlobButton
+                  onClick={() => window.dispatchEvent(new Event("open-brochure-modal"))}
+                  variant="secondary"
+                  className="!w-full !py-3 !text-xs !font-black !uppercase !tracking-wider flex items-center justify-center gap-2"
+                >
+                  <Download size={14} />
+                  <span>Download Catalog (PDF)</span>
+                </BlobButton>
+              </div>
+
+              {/* Card 2: Technical Data Sheet */}
+              <div className="p-6 rounded-3xl bg-card border border-border shadow-sm hover:border-primary/50 transition-all space-y-4 flex flex-col justify-between">
+                <div className="space-y-3">
+                  <div className="w-12 h-12 rounded-2xl bg-primary/10 text-primary border border-primary/20 flex items-center justify-center">
+                    <Cpu size={22} />
+                  </div>
+                  <h3 className="common-heading text-base text-foreground font-black">
+                    Technical Data Sheet
+                  </h3>
+                  <p className="text-xs text-muted-foreground font-semibold leading-relaxed">
+                    Engineering tolerances, lubrication schedules, and power requirement matrix.
+                  </p>
+                </div>
+                <BlobButton
+                  onClick={() => window.dispatchEvent(new Event("open-brochure-modal"))}
+                  variant="secondary"
+                  className="!w-full !py-3 !text-xs !font-black !uppercase !tracking-wider flex items-center justify-center gap-2"
+                >
+                  <Download size={14} />
+                  <span>Request Spec Sheet</span>
+                </BlobButton>
+              </div>
+
+              {/* Card 3: Foundation Layout Guide */}
+              <div className="p-6 rounded-3xl bg-card border border-border shadow-sm hover:border-primary/50 transition-all space-y-4 flex flex-col justify-between">
+                <div className="space-y-3">
+                  <div className="w-12 h-12 rounded-2xl bg-primary/10 text-primary border border-primary/20 flex items-center justify-center">
+                    <Building2 size={22} />
+                  </div>
+                  <h3 className="common-heading text-base text-foreground font-black">
+                    Foundation &amp; Plant Layout
+                  </h3>
+                  <p className="text-xs text-muted-foreground font-semibold leading-relaxed">
+                    General arrangement drawings and foundation structural load guidelines.
+                  </p>
+                </div>
+                <BlobButton
+                  onClick={() => document.getElementById("quote-section")?.scrollIntoView({ behavior: "smooth" })}
+                  variant="secondary"
+                  className="!w-full !py-3 !text-xs !font-black !uppercase !tracking-wider flex items-center justify-center gap-2"
+                >
+                  <FileCheck size={14} />
+                  <span>Request CAD Layout</span>
+                </BlobButton>
+              </div>
+
+            </div>
+
+          </div>
+        </section>
+
+        {/* ── 8. REDESIGNED ENGINEERING INQUIRY FORM ── */}
+        <section id="quote-section" className="py-20 lg:py-28 bg-muted/30 border-b border-border">
           <div className="max-w-7xl mx-auto px-6 lg:px-8">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-stretch">
+              
               {/* Info Column */}
-              <div className="lg:col-span-5 flex flex-col justify-between space-y-6 text-left">
+              <div className="lg:col-span-5 flex flex-col justify-between space-y-8 text-left">
                 <div className="space-y-4">
                   <span className="text-primary font-bold text-xs uppercase tracking-widest block">
-                    Direct Quote Request
+                    Direct Factory Quote Request
                   </span>
-                  <h2 className="common-heading text-3xl text-foreground leading-tight">
-                    Request Pricing &amp; Engineering Specs
+                  <h2 className="common-heading text-3xl sm:text-4xl text-foreground leading-tight">
+                    Request Pricing &amp; Custom Flowsheet Design
                   </h2>
-                  <p className="text-muted-foreground text-sm leading-relaxed font-medium">
-                    Interested in adding the **{product.name}** to your mineral processing plant or aggregate quarry? Fill in the details, and our heavy engineering specialists will send you a tailored spec sheet and direct quote.
+                  <p className="text-muted-foreground text-xs sm:text-sm leading-relaxed font-semibold">
+                    Interested in integrating the <strong className="text-foreground">{product.name}</strong> into your crushing plant? Submit your application requirements below.
                   </p>
                 </div>
 
-                <div className="p-6 rounded-3xl bg-card border border-border shadow-lg space-y-4">
-                  <div className="flex items-center gap-3">
+                <div className="space-y-4">
+                  {/* Trust Badge 1 */}
+                  <div className="p-5 rounded-3xl bg-card border border-border shadow-sm flex items-start gap-4">
                     <div className="w-10 h-10 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center text-primary shrink-0">
                       <Zap size={20} />
                     </div>
                     <div>
-                      <h4 className="common-heading text-sm text-foreground">
-                        Instant Engineering Response
+                      <h4 className="common-heading text-sm text-foreground font-black">
+                        Instant Technical Consultation
                       </h4>
-                      <p className="text-[11px] text-muted-foreground font-semibold">
-                        Technical consultation on capacities and Closed Side Settings (CSS)
+                      <p className="text-xs text-muted-foreground font-semibold">
+                        Direct support on Closed Side Settings (CSS) and capacity selection.
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Trust Badge 2 */}
+                  <div className="p-5 rounded-3xl bg-card border border-border shadow-sm flex items-start gap-4">
+                    <div className="w-10 h-10 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center text-primary shrink-0">
+                      <PhoneCall size={20} />
+                    </div>
+                    <div>
+                      <h4 className="common-heading text-sm text-foreground font-black">
+                        Direct Factory Support
+                      </h4>
+                      <p className="text-xs text-muted-foreground font-semibold">
+                        Call us directly at +91 9001113333 or email sales@kingsoncrusher.com
                       </p>
                     </div>
                   </div>
                 </div>
+
               </div>
 
               {/* Form Column */}
               <div className="lg:col-span-7">
-                <div className="p-8 sm:p-10 rounded-3xl bg-card border border-border shadow-xl space-y-6 relative overflow-hidden flex flex-col justify-between h-full">
-                  <div className="absolute top-0 right-0 w-32 h-32 bg-primary/10 rounded-full blur-3xl pointer-events-none" />
+                <div className="p-8 sm:p-10 rounded-3xl bg-card border border-border shadow-xl space-y-6 relative overflow-hidden flex flex-col justify-between h-full text-left">
+                  <div className="absolute top-0 right-0 w-48 h-48 bg-primary/10 rounded-full blur-3xl pointer-events-none" />
 
                   <div>
                     <span className="text-primary font-bold text-xs uppercase tracking-widest block mb-1">
-                      Quick Inquiry
+                      Technical Enquiry
                     </span>
-                    <h3 className="common-heading text-2xl text-foreground">
-                      Equipment Enquiry Form
+                    <h3 className="common-heading text-2xl text-foreground font-black">
+                      Equipment Spec &amp; Price Request
                     </h3>
                   </div>
 
@@ -571,7 +922,7 @@ export default function ProductDetailPage({ params }: PageProps) {
                           placeholder="Enter your name"
                           value={formData.name}
                           onChange={handleChange}
-                          className="w-full rounded-xl border border-border px-4 py-2.5 text-xs bg-muted/40 focus:bg-background focus:outline-none focus:border-primary transition-all font-semibold"
+                          className="w-full rounded-xl border border-border px-4 py-3 text-xs bg-muted/40 focus:bg-background focus:outline-none focus:border-primary transition-all font-semibold text-foreground"
                         />
                       </div>
 
@@ -588,7 +939,7 @@ export default function ProductDetailPage({ params }: PageProps) {
                           placeholder="Enter your email"
                           value={formData.email}
                           onChange={handleChange}
-                          className="w-full rounded-xl border border-border px-4 py-2.5 text-xs bg-muted/40 focus:bg-background focus:outline-none focus:border-primary transition-all font-semibold"
+                          className="w-full rounded-xl border border-border px-4 py-3 text-xs bg-muted/40 focus:bg-background focus:outline-none focus:border-primary transition-all font-semibold text-foreground"
                         />
                       </div>
                     </div>
@@ -596,7 +947,7 @@ export default function ProductDetailPage({ params }: PageProps) {
                     {/* Phone */}
                     <div>
                       <label htmlFor="phone" className="block text-[11px] font-bold uppercase tracking-wider text-muted-foreground mb-1.5">
-                        Phone No *
+                        Phone No. *
                       </label>
                       <input
                         id="phone"
@@ -606,32 +957,32 @@ export default function ProductDetailPage({ params }: PageProps) {
                         placeholder="Enter your mobile number"
                         value={formData.phone}
                         onChange={handleChange}
-                        className="w-full rounded-xl border border-border px-4 py-2.5 text-xs bg-muted/40 focus:bg-background focus:outline-none focus:border-primary transition-all font-semibold"
+                        className="w-full rounded-xl border border-border px-4 py-3 text-xs bg-muted/40 focus:bg-background focus:outline-none focus:border-primary transition-all font-semibold text-foreground"
                       />
                     </div>
 
                     {/* Message */}
                     <div>
                       <label htmlFor="message" className="block text-[11px] font-bold uppercase tracking-wider text-muted-foreground mb-1.5">
-                        Requirement Details / Message *
+                        Requirement Details &bull; Target Material / TPH *
                       </label>
                       <textarea
                         id="message"
                         name="message"
                         rows={4}
                         required
-                        placeholder="Enter your requirement details or message..."
+                        placeholder="Enter your requirement details..."
                         value={formData.message}
                         onChange={handleChange}
-                        className="w-full rounded-xl border border-border px-4 py-2.5 text-xs bg-muted/40 focus:bg-background focus:outline-none focus:border-primary transition-all font-semibold resize-none text-foreground"
+                        className="w-full rounded-xl border border-border px-4 py-3 text-xs bg-muted/40 focus:bg-background focus:outline-none focus:border-primary transition-all font-semibold resize-none text-foreground"
                       />
                     </div>
 
                     {/* Disclaimer Note */}
-                    <div className="p-3 rounded-xl bg-muted/50 border border-border/80 flex items-start gap-2.5 text-[11px] text-muted-foreground">
+                    <div className="p-3.5 rounded-xl bg-muted/50 border border-border/80 flex items-start gap-2.5 text-[11px] text-muted-foreground">
                       <ShieldCheck size={16} className="text-primary shrink-0 mt-0.5" />
-                      <p>
-                        <strong>Disclaimer:</strong> Information collected will be used strictly for responding to your inquiry and will not be shared with any third party.
+                      <p className="font-semibold">
+                        <strong>Privacy Notice:</strong> Your information is handled securely according to our privacy policy and will be used exclusively for your equipment quotation.
                       </p>
                     </div>
 
@@ -641,21 +992,147 @@ export default function ProductDetailPage({ params }: PageProps) {
                         type="submit"
                         disabled={submitting}
                         variant="primary"
-                        className="!w-full !py-3.5 !text-xs !font-black !uppercase !tracking-wider"
+                        className="!w-full !py-4 !text-xs !font-black !uppercase !tracking-wider"
                       >
                         <span className="inline-flex items-center justify-center gap-2 whitespace-nowrap">
                           <Send size={15} />
-                          <span>{submitting ? "Submitting Request..." : "Request Call &amp; Specs"}</span>
+                          <span>{submitting ? "Submitting Inquiry..." : "Submit Quote & Spec Request"}</span>
                         </span>
                       </BlobButton>
                     </div>
                   </form>
                 </div>
               </div>
+
             </div>
           </div>
         </section>
+
+        {/* ── 9. RELATED PRODUCTS CAROUSEL / GRID ── */}
+        {relatedProducts.length > 0 && (
+          <section className="py-20 lg:py-28 bg-background border-b border-border">
+            <div className="max-w-7xl mx-auto px-6 lg:px-8 space-y-12">
+              
+              <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 text-left">
+                <div className="space-y-2">
+                  <span className="text-primary font-bold text-xs uppercase tracking-widest block">
+                    Product Portfolio
+                  </span>
+                  <h2 className="common-heading text-3xl sm:text-4xl text-foreground">
+                    Related Heavy Equipment
+                  </h2>
+                </div>
+
+                <Link 
+                  href="/products"
+                  className="inline-flex items-center gap-2 text-xs font-black text-primary uppercase tracking-wider hover:underline"
+                >
+                  <span>Explore Full Catalog</span>
+                  <ArrowRight size={14} />
+                </Link>
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 text-left">
+                {relatedProducts.map((relItem) => (
+                  <Link
+                    key={relItem.slug}
+                    href={`/products/${relItem.slug}`}
+                    className="group rounded-3xl bg-card border border-border overflow-hidden shadow-sm hover:shadow-xl hover:border-primary/50 transition-all duration-300 flex flex-col justify-between"
+                  >
+                    <div className="p-6 bg-muted/30 border-b border-border flex items-center justify-center h-[220px] relative overflow-hidden">
+                      <img
+                        src={relItem.mainImage}
+                        alt={relItem.name}
+                        className="max-h-[180px] w-auto object-contain group-hover:scale-105 transition-transform duration-500"
+                      />
+                      <span className="absolute top-3 left-3 px-3 py-1 rounded-full bg-black/60 backdrop-blur-md border border-white/10 text-[9px] font-black uppercase text-white">
+                        {relItem.category}
+                      </span>
+                    </div>
+
+                    <div className="p-6 space-y-4 flex-grow flex flex-col justify-between">
+                      <div className="space-y-2">
+                        <h3 className="common-heading text-lg text-foreground font-black group-hover:text-primary transition-colors">
+                          {relItem.name}
+                        </h3>
+                        <p className="text-xs text-muted-foreground font-semibold line-clamp-2 leading-relaxed">
+                          {relItem.introText}
+                        </p>
+                      </div>
+
+                      <div className="pt-2 flex items-center justify-between border-t border-border/60">
+                        <span className="text-[10px] font-bold text-primary uppercase tracking-wider">
+                          View Specifications
+                        </span>
+                        <div className="w-8 h-8 rounded-full bg-primary/10 text-primary flex items-center justify-center group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
+                          <ArrowRight size={14} />
+                        </div>
+                      </div>
+                    </div>
+                  </Link>
+                ))}
+              </div>
+
+            </div>
+          </section>
+        )}
+
       </main>
+
+      {/* ── LIGHTBOX MODAL ── */}
+      <AnimatePresence>
+        {lightboxOpen && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-50 bg-black/90 backdrop-blur-xl flex items-center justify-center p-4 sm:p-8"
+          >
+            {/* Close Button */}
+            <button
+              onClick={() => setLightboxOpen(false)}
+              className="absolute top-6 right-6 z-50 w-12 h-12 rounded-full bg-white/10 text-white flex items-center justify-center hover:bg-primary transition-colors"
+            >
+              <X size={20} />
+            </button>
+
+            {/* Navigation Arrows */}
+            {allImages.length > 1 && (
+              <>
+                <button
+                  onClick={() =>
+                    setSelectedGalleryIndex((prev) =>
+                      prev === 0 ? allImages.length - 1 : prev - 1
+                    )
+                  }
+                  className="absolute left-6 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-white/10 text-white flex items-center justify-center hover:bg-primary transition-colors z-50"
+                >
+                  <ChevronLeft size={24} />
+                </button>
+                <button
+                  onClick={() =>
+                    setSelectedGalleryIndex((prev) =>
+                      prev === allImages.length - 1 ? 0 : prev + 1
+                    )
+                  }
+                  className="absolute right-6 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-white/10 text-white flex items-center justify-center hover:bg-primary transition-colors z-50"
+                >
+                  <ChevronRight size={24} />
+                </button>
+              </>
+            )}
+
+            {/* Main Lightbox Image */}
+            <div className="max-w-5xl max-h-[85vh] w-full h-full flex items-center justify-center p-4">
+              <img
+                src={allImages[selectedGalleryIndex]}
+                alt={`${product.name} enlarged view`}
+                className="max-w-full max-h-full object-contain rounded-2xl shadow-2xl"
+              />
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       <Footer />
     </div>
