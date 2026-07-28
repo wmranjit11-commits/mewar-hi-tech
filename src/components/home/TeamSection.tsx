@@ -7,27 +7,21 @@ import Container from "../ui/Container";
 
 const TEAM_MEMBERS = [
   {
-    name: "Ranjit Singh Rathore",
-    role: "Managing Director",
-    phone: "+91-9001113333",
-    email: "ranjit@kingsoncrusher.com",
-    initials: "RR",
+    name: "Chatar Singh Rathore",
+    role: "Chairman & Managing Director (CMD)",
+    initials: "CR",
     gradient: "from-amber-500 to-yellow-600",
   },
   {
-    name: "Manilala Rathore",
-    role: "Technical Director",
-    phone: "+91-9001113334",
-    email: "mangi@kingsoncrusher.com",
-    initials: "MR",
+    name: "Vaibhav Singh Rathore",
+    role: "Managing Director (MD)",
+    initials: "VR",
     gradient: "from-blue-600 to-indigo-700",
   },
   {
-    name: "Sanjay Rathore",
-    role: "Operations Director",
-    phone: "+91-9001113335",
-    email: "sanjay@kingsoncrusher.com",
-    initials: "SR",
+    name: "Sonu Singh Chundawat",
+    role: "Production Head",
+    initials: "SC",
     gradient: "from-emerald-500 to-teal-700",
   },
 ];
