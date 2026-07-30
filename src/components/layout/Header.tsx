@@ -30,6 +30,7 @@ const navItems: NavItem[] = [
     children: [
       { label: "About Mewar Hitech", to: "/about" },
       { label: "Events", to: "/events" },
+      { label: "Career", to: "/careers" },
     ],
   },
   {
@@ -92,24 +93,8 @@ const navItems: NavItem[] = [
       { label: "Erection & Commissioning", to: "/services/erection-commissioning" },
     ],
   },
-  {
-    label: "Investors",
-    children: [
-      { label: "Corporate Governance", to: "/investors/corporate-governance" },
-      { label: "Shareholding Pattern", to: "/investors/shareholding-pattern" },
-      { label: "Shareholders Meetings", to: "/investors/shareholders-meetings" },
-      { label: "Board Meeting", to: "/investors/board-meeting" },
-      { label: "Financial Results", to: "/investors/financial-results" },
-      { label: "Annual Reports", to: "/investors/annual-reports" },
-      { label: "Annual Returns", to: "/investors/annual-returns" },
-      { label: "Shareholder Information", to: "/investors/shareholder-information" },
-      { label: "Investor Contacts", to: "/investors/investor-contacts" },
-      { label: "Disclosure Under Regulation 46 of LODR", to: "/investors/disclosure-regulation-46" },
-    ],
-  },
-  { label: "Career", to: "/careers" },
+  { label: "Investors", to: "/investors" },
   { label: "Contact", to: "/contact" },
-  { label: "Brochure", to: "/#brochures" },
 ];
 
 const Header: React.FC = () => {
@@ -401,16 +386,15 @@ const Header: React.FC = () => {
             ))}
           </div>
 
-          {/* Contact CTA */}
+          {/* Brochure CTA */}
           <div className="hidden lg:block">
-            <Link href="/contact">
-              <BlobButton
-                variant="primary"
-                className="!py-2.5 !px-5 ml-1 !text-[11px] !font-black"
-              >
-                Contact Us
-              </BlobButton>
-            </Link>
+            <BlobButton
+              variant="primary"
+              onClick={() => setIsBrochureOpen(true)}
+              className="!py-2.5 !px-5 ml-1 !text-[11px] !font-black"
+            >
+              Brochure
+            </BlobButton>
           </div>
 
           {/* Mobile menu trigger */}
@@ -608,18 +592,16 @@ const Header: React.FC = () => {
             <div className={`p-4 border-t ${
               theme === "light" ? "border-gray-150" : "border-border/20"
             }`}>
-              <Link
-                href="/contact"
-                onClick={() => setOpen(false)}
-                className="block"
+              <BlobButton
+                variant="primary"
+                onClick={() => {
+                  setOpen(false);
+                  setIsBrochureOpen(true);
+                }}
+                className="!w-full !py-3 !text-xs !font-black"
               >
-                <BlobButton
-                  variant="primary"
-                  className="!w-full !py-3 !text-xs !font-black"
-                >
-                  Contact Us
-                </BlobButton>
-              </Link>
+                Brochure
+              </BlobButton>
             </div>
           </motion.div>
         </motion.div>

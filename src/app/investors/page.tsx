@@ -1,8 +1,7 @@
 "use client";
 
-import React, { use, useState } from "react";
-import Link from "next/link";
-import { motion } from "framer-motion";
+import React, { useState, useEffect, Suspense } from "react";
+import { useSearchParams } from "next/navigation";
 import {
   FileText,
   Download,
@@ -13,14 +12,10 @@ import {
   Briefcase,
   ChevronRight,
   TrendingUp,
-  Mail,
   Phone,
-  MapPin,
   ExternalLink,
   Search,
   CheckCircle2,
-  AlertCircle,
-  HelpCircle,
   Clock,
   Award,
 } from "lucide-react";
@@ -43,8 +38,6 @@ const INVESTOR_MENU = [
   { label: "Investor Contacts", slug: "investor-contacts", icon: Phone },
   { label: "Disclosure (Reg 46 of LODR)", slug: "disclosure-regulation-46", icon: FileText },
 ];
-
-// ─── Slugs Data List matching user screenshots exactly ───
 
 const CORPORATE_GOVERNANCE_DATA = [
   { title: "Composition of Board of Directors and Committees", hasLink: true },
@@ -174,18 +167,23 @@ const REGULATION_46_DATA = [
   { id: 26, text: "Annual Return as provided under Section 92 of the Companies Act, 2013", status: "Available" },
 ];
 
-interface PageProps {
-  params: Promise<{ slug: string }>;
-}
+function InvestorTabsContent() {
+  const searchParams = useSearchParams();
+  const initialTabFromQuery = searchParams.get("tab") || "corporate-governance";
 
-export default function InvestorPage({ params }: PageProps) {
-  const resolvedParams = use(params);
-  const [activeSlug, setActiveSlug] = useState(resolvedParams.slug || "corporate-governance");
+  const [activeTab, setActiveTab] = useState(initialTabFromQuery);
   const [searchTerm, setSearchTerm] = useState("");
 
-  const pageTitle = INVESTOR_MENU.find((item) => item.slug === activeSlug)?.label || "Corporate Governance";
+  useEffect(() => {
+    const tabParam = searchParams.get("tab");
+    if (tabParam && INVESTOR_MENU.some((item) => item.slug === tabParam)) {
+      setActiveTab(tabParam);
+    }
+  }, [searchParams]);
 
-  // Filter lists based on search input
+  const activeItem = INVESTOR_MENU.find((item) => item.slug === activeTab) || INVESTOR_MENU[0];
+  const pageTitle = activeItem.label;
+
   const filterList = <T extends { title?: string; text?: string; quarter?: string }>(list: T[]) => {
     return list.filter((item) => {
       const matchText = (item.title || item.text || item.quarter || "").toLowerCase();
@@ -194,7 +192,7 @@ export default function InvestorPage({ params }: PageProps) {
   };
 
   const handleTabChange = (slug: string) => {
-    setActiveSlug(slug);
+    setActiveTab(slug);
     setSearchTerm("");
     if (typeof window !== "undefined") {
       const newUrl = `/investors?tab=${slug}`;
@@ -249,7 +247,7 @@ export default function InvestorPage({ params }: PageProps) {
           <Container>
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
               
-              {/* Left Sidebar (Cols 1-4) */}
+              {/* Left Sidebar (Cols 1-4) - Instant Client-Side Tab Switching without Reload */}
               <div className="lg:col-span-4 bg-card border border-border/85 rounded-3xl p-5 space-y-2 shadow-xs">
                 <span className="text-[10px] font-black text-primary uppercase tracking-widest block pl-3 mb-2 font-sans">
                   Investor Categories
@@ -257,7 +255,7 @@ export default function InvestorPage({ params }: PageProps) {
                 <nav className="space-y-1">
                   {INVESTOR_MENU.map((menuItem) => {
                     const Icon = menuItem.icon;
-                    const isActive = menuItem.slug === activeSlug;
+                    const isActive = menuItem.slug === activeTab;
                     return (
                       <button
                         type="button"
@@ -284,7 +282,7 @@ export default function InvestorPage({ params }: PageProps) {
               <div className="lg:col-span-8 space-y-6 text-left">
                 
                 {/* Search Bar */}
-                {activeSlug !== "corporate-governance" && activeSlug !== "investor-contacts" && activeSlug !== "shareholder-information" && (
+                {activeTab !== "corporate-governance" && activeTab !== "investor-contacts" && activeTab !== "shareholder-information" && (
                   <div className="relative">
                     <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-muted-foreground" size={16} />
                     <input
@@ -298,7 +296,7 @@ export default function InvestorPage({ params }: PageProps) {
                 )}
 
                 {/* CORPORATE GOVERNANCE PANEL */}
-                {activeSlug === "corporate-governance" && (
+                {activeTab === "corporate-governance" && (
                   <div className="bg-card border border-border/80 p-8 rounded-3xl space-y-6 shadow-sm">
                     <h3 className="common-heading text-xl sm:text-2xl font-black text-foreground uppercase tracking-tight">
                       Corporate Governance Policies
@@ -332,7 +330,7 @@ export default function InvestorPage({ params }: PageProps) {
                 )}
 
                 {/* SHAREHOLDING PATTERN PANEL */}
-                {activeSlug === "shareholding-pattern" && (
+                {activeTab === "shareholding-pattern" && (
                   <div className="bg-card border border-border/80 p-8 rounded-3xl space-y-6 shadow-sm">
                     <h3 className="common-heading text-xl sm:text-2xl font-black text-foreground uppercase tracking-tight">
                       Shareholding Patterns
@@ -360,7 +358,7 @@ export default function InvestorPage({ params }: PageProps) {
                 )}
 
                 {/* SHAREHOLDERS MEETINGS PANEL */}
-                {activeSlug === "shareholders-meetings" && (
+                {activeTab === "shareholders-meetings" && (
                   <div className="bg-card border border-border/80 p-8 rounded-3xl space-y-6 shadow-sm">
                     <h3 className="common-heading text-xl sm:text-2xl font-black text-foreground uppercase tracking-tight">
                       Shareholders Meetings &amp; Resolutions
@@ -388,7 +386,7 @@ export default function InvestorPage({ params }: PageProps) {
                 )}
 
                 {/* BOARD MEETINGS PANEL */}
-                {activeSlug === "board-meeting" && (
+                {activeTab === "board-meeting" && (
                   <div className="bg-card border border-border/80 p-8 rounded-3xl space-y-6 shadow-sm">
                     <h3 className="common-heading text-xl sm:text-2xl font-black text-foreground uppercase tracking-tight">
                       Board Meetings Notices &amp; Outcomes
@@ -416,7 +414,7 @@ export default function InvestorPage({ params }: PageProps) {
                 )}
 
                 {/* FINANCIAL RESULTS PANEL */}
-                {activeSlug === "financial-results" && (
+                {activeTab === "financial-results" && (
                   <div className="bg-card border border-border/80 p-8 rounded-3xl space-y-6 shadow-sm">
                     <h3 className="common-heading text-xl sm:text-2xl font-black text-foreground uppercase tracking-tight">
                       Financial Performance Results
@@ -444,7 +442,7 @@ export default function InvestorPage({ params }: PageProps) {
                 )}
 
                 {/* ANNUAL REPORTS PANEL */}
-                {activeSlug === "annual-reports" && (
+                {activeTab === "annual-reports" && (
                   <div className="bg-card border border-border/80 p-8 rounded-3xl space-y-6 shadow-sm">
                     <h3 className="common-heading text-xl sm:text-2xl font-black text-foreground uppercase tracking-tight">
                       Annual Reports Directory
@@ -477,7 +475,7 @@ export default function InvestorPage({ params }: PageProps) {
                 )}
 
                 {/* ANNUAL RETURNS PANEL */}
-                {activeSlug === "annual-returns" && (
+                {activeTab === "annual-returns" && (
                   <div className="bg-card border border-border/80 p-8 rounded-3xl space-y-6 shadow-sm">
                     <h3 className="common-heading text-xl sm:text-2xl font-black text-foreground uppercase tracking-tight">
                       Annual Returns (MGT-7) Filings
@@ -510,7 +508,7 @@ export default function InvestorPage({ params }: PageProps) {
                 )}
 
                 {/* SHAREHOLDER INFORMATION PANEL */}
-                {activeSlug === "shareholder-information" && (
+                {activeTab === "shareholder-information" && (
                   <div className="bg-card border border-border/80 p-8 rounded-3xl space-y-6 shadow-sm">
                     <h3 className="common-heading text-xl sm:text-2xl font-black text-foreground uppercase tracking-tight">
                       Shareholder Information &amp; Scrutinizer Reports
@@ -586,7 +584,7 @@ export default function InvestorPage({ params }: PageProps) {
                 )}
 
                 {/* INVESTOR CONTACTS PANEL */}
-                {activeSlug === "investor-contacts" && (
+                {activeTab === "investor-contacts" && (
                   <div className="bg-card border border-border/80 p-8 rounded-3xl space-y-6 shadow-sm">
                     <h3 className="common-heading text-xl sm:text-2xl font-black text-foreground uppercase tracking-tight">
                       Investor Contacts &amp; Redressal
@@ -612,7 +610,7 @@ export default function InvestorPage({ params }: PageProps) {
                 )}
 
                 {/* DISCLOSURE REGULATION 46 PANEL */}
-                {activeSlug === "disclosure-regulation-46" && (
+                {activeTab === "disclosure-regulation-46" && (
                   <div className="bg-card border border-border/80 p-8 rounded-3xl space-y-6 shadow-sm">
                     <h3 className="common-heading text-xl sm:text-2xl font-black text-foreground uppercase tracking-tight">
                       SEBI LODR Regulation 46 Disclosures
@@ -667,5 +665,13 @@ export default function InvestorPage({ params }: PageProps) {
 
       <Footer />
     </div>
+  );
+}
+
+export default function InvestorsPage() {
+  return (
+    <Suspense fallback={<div className="min-h-screen bg-background" />}>
+      <InvestorTabsContent />
+    </Suspense>
   );
 }

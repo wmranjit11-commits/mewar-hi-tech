@@ -449,7 +449,7 @@ export default function ProductDetailPage({ params }: PageProps) {
                 </div>
               </motion.div>
 
-              {/* Right Column: High Resolution View Card */}
+              {/* Right Column: Interactive 3D Model / High Resolution View Card */}
               <motion.div
                 initial={{ opacity: 0, x: 20 }}
                 whileInView={{ opacity: 1, x: 0 }}
@@ -457,21 +457,47 @@ export default function ProductDetailPage({ params }: PageProps) {
                 transition={{ duration: 0.6 }}
                 className="lg:col-span-5 flex justify-center"
               >
-                <div className="relative rounded-3xl overflow-hidden bg-card border border-border/80 p-8 shadow-xl w-full flex flex-col items-center justify-center group">
-                  <div className="absolute top-4 right-4 px-3 py-1 rounded-full bg-muted text-foreground text-[10px] font-bold uppercase tracking-wider border border-border">
-                    {product.subCategory}
+                <div className="relative rounded-3xl overflow-hidden bg-card border border-border/80 p-6 sm:p-8 shadow-xl w-full flex flex-col items-center justify-center group">
+                  <div className="absolute top-4 right-4 z-20 flex items-center gap-2">
+                    {product.model3d && (
+                      <span className="px-3 py-1 rounded-full bg-primary/10 text-primary text-[10px] font-black uppercase tracking-wider border border-primary/20 flex items-center gap-1.5 shadow-sm">
+                        <Sparkles size={11} className="animate-pulse" />
+                        <span>3D Interactive</span>
+                      </span>
+                    )}
+                    <span className="px-3 py-1 rounded-full bg-muted text-foreground text-[10px] font-bold uppercase tracking-wider border border-border">
+                      {product.subCategory}
+                    </span>
                   </div>
 
-                  <img
-                    src={product.mainImage}
-                    alt={product.name}
-                    className="max-h-[380px] w-auto object-contain transition-transform duration-500 group-hover:scale-105"
-                  />
+                  {product.model3d ? (
+                    <div className="w-full h-[360px] sm:h-[420px] flex items-center justify-center relative mt-4">
+                      <model-viewer
+                        src={product.model3d}
+                        alt={product.name}
+                        auto-rotate
+                        camera-controls
+                        ar
+                        shadow-intensity="1.5"
+                        auto-rotate-delay="1000"
+                        camera-orbit="45deg 75deg 105%"
+                        style={{ width: "100%", height: "100%" }}
+                      />
+                    </div>
+                  ) : (
+                    <img
+                      src={product.mainImage}
+                      alt={product.name}
+                      className="max-h-[380px] w-auto object-contain transition-transform duration-500 group-hover:scale-105"
+                    />
+                  )}
 
-                  <div className="w-full mt-6 pt-4 border-t border-border flex items-center justify-between text-left">
+                  <div className="w-full mt-4 pt-4 border-t border-border flex items-center justify-between text-left">
                     <div>
                       <h4 className="text-xs font-black text-foreground uppercase">{product.name}</h4>
-                      <p className="text-[10px] text-muted-foreground font-bold">Primary Industrial Material Handler</p>
+                      <p className="text-[10px] text-muted-foreground font-bold">
+                        {product.model3d ? "Rotate 360° • Zoom • Inspect" : "Primary Industrial Material Handler"}
+                      </p>
                     </div>
                     <button
                       onClick={() => {
