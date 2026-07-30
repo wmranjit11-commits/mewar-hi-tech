@@ -171,13 +171,11 @@ const Header: React.FC = () => {
         {/* Main nav bar */}
         <div
         className={`w-full px-6 lg:px-8 py-3 flex items-center justify-between transition-all duration-300 ${
-          theme === "light"
-            ? scrolled
+          !scrolled
+            ? "bg-transparent"
+            : theme === "light"
               ? "bg-white/95 backdrop-blur-md border-b border-gray-200/50 shadow-sm"
-              : "bg-white/80 backdrop-blur-sm border-b border-gray-100"
-            : scrolled
-              ? "bg-secondary/95 backdrop-blur-md shadow-lg"
-              : "bg-secondary/80 backdrop-blur-sm"
+              : "bg-secondary/95 backdrop-blur-md shadow-lg"
         }`}
       >
         {/* Left: Logo */}
@@ -188,7 +186,7 @@ const Header: React.FC = () => {
         >
           <div className="w-[100px] rounded flex items-center justify-center shrink-0 overflow-hidden">
             <img
-              src={theme === "dark" ? "/logos/logo-dark.png" : "/logos/logo.png"}
+              src={(!scrolled || theme === "dark") ? "/logos/logo-dark.png" : "/logos/logo.png"}
               alt="Mewar Hi-Tech Logo"
               className="w-full h-full object-contain"
             />
@@ -205,18 +203,22 @@ const Header: React.FC = () => {
               <div key={item.label} className="relative group py-2">
                 <button
                   type="button"
-                  className={`text-[13px] font-semibold tracking-wide flex items-center gap-1 px-3 py-1.5 transition-colors duration-200 hover:text-primary ${
-                    theme === "light" ? "text-gray-800" : "text-secondary-foreground/80"
+                  className={`relative text-[13px] font-semibold tracking-wide flex items-center gap-1 px-3 py-1.5 transition-colors duration-200 hover:text-primary after:content-[''] after:absolute after:-bottom-1 after:left-0 after:w-full after:h-[2px] after:bg-primary after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-300 after:origin-left ${
+                    !scrolled
+                      ? "text-white"
+                      : theme === "light" 
+                        ? "text-gray-800" 
+                        : "text-secondary-foreground/80"
                   }`}
                 >
                   <span>{item.label}</span>
-                  {/* <ChevronDown size={13} className="opacity-60 transition-transform duration-200 group-hover:rotate-180" /> */}
+                  <ChevronDown size={13} className="opacity-60 transition-transform duration-300 group-hover:rotate-180" />
                 </button>
 
                 {item.label === "Products" ? (
                   /* Horizontal Mega Menu Dropdown for Products */
                   <div
-                    className={`absolute top-full left-[-100px] mt-1 border shadow-2xl rounded-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50 p-7 w-[750px] max-w-[calc(100vw-48px)] ${
+                    className={`absolute top-full left-[-100px] mt-1 border shadow-2xl rounded-xl opacity-0 invisible translate-y-3 scale-95 origin-top group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 group-hover:scale-100 transition-all duration-300 ease-out z-50 p-7 w-[750px] max-w-[calc(100vw-48px)] ${
                       theme === "light"
                         ? "bg-white border-gray-200/80 text-gray-900"
                         : "bg-secondary border-border/30 text-white"
@@ -236,7 +238,7 @@ const Header: React.FC = () => {
                               <Link
                                 key={sub.label}
                                 href={sub.to ?? "/products"}
-                                className={`block px-3 py-1.5 rounded-lg text-[13px] font-medium transition-colors ${
+                                className={`relative block px-3 py-1.5 rounded-lg text-[13px] font-medium transition-all duration-200 hover:translate-x-1.5 after:content-[''] after:absolute after:-bottom-0.5 after:left-3 after:right-3 after:h-[2px] after:bg-primary after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-300 after:origin-left ${
                                   theme === "light"
                                     ? "text-gray-700 hover:bg-gray-100/80 hover:text-primary"
                                     : "text-secondary-foreground/80 hover:bg-white/5 hover:text-primary"
@@ -263,7 +265,7 @@ const Header: React.FC = () => {
                                 <Link
                                   key={sub.label}
                                   href={sub.to ?? "/products"}
-                                  className={`block px-3 py-1.5 rounded-lg text-[13px] font-medium transition-colors ${
+                                  className={`relative block px-3 py-1.5 rounded-lg text-[13px] font-medium transition-all duration-200 hover:translate-x-1.5 after:content-[''] after:absolute after:-bottom-0.5 after:left-3 after:right-3 after:h-[2px] after:bg-primary after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-300 after:origin-left ${
                                     theme === "light"
                                       ? "text-gray-700 hover:bg-gray-100/80 hover:text-primary"
                                       : "text-secondary-foreground/80 hover:bg-white/5 hover:text-primary"
@@ -290,7 +292,7 @@ const Header: React.FC = () => {
                               <Link
                                 key={sub.label}
                                 href={sub.to ?? "/products"}
-                                className={`block px-3 py-1.5 rounded-lg text-[13px] font-medium transition-colors ${
+                                className={`relative block px-3 py-1.5 rounded-lg text-[13px] font-medium transition-all duration-200 hover:translate-x-1.5 after:content-[''] after:absolute after:-bottom-0.5 after:left-3 after:right-3 after:h-[2px] after:bg-primary after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-300 after:origin-left ${
                                   theme === "light"
                                     ? "text-gray-700 hover:bg-gray-100/80 hover:text-primary"
                                     : "text-secondary-foreground/80 hover:bg-white/5 hover:text-primary"
@@ -305,12 +307,12 @@ const Header: React.FC = () => {
                     </div>
                   </div>
                 ) : (
-                  /* Standard Vertical Single-Column Dropdown */
+                  /* Standard Vertical Dropdown for others */
                   <div
-                    className={`absolute top-full left-0 mt-1 border shadow-xl rounded-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50 py-2 px-1 min-w-[220px] max-w-[280px] ${
+                    className={`absolute top-full left-0 mt-1 border shadow-xl rounded-xl opacity-0 invisible translate-y-3 scale-95 origin-top-left group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 group-hover:scale-100 transition-all duration-300 ease-out z-50 p-2 min-w-[220px] ${
                       theme === "light"
-                        ? "bg-white border-gray-200/80"
-                        : "bg-secondary border-border/30"
+                        ? "bg-white border-gray-200/80 text-gray-900"
+                        : "bg-secondary border-border/30 text-white"
                     }`}
                   >
                     <div className="flex flex-col gap-0.5">
@@ -328,7 +330,7 @@ const Header: React.FC = () => {
                           <Link
                             key={child.label}
                             href={child.to ?? "/"}
-                            className={`block px-3.5 py-2 rounded-lg text-[13px] font-medium transition-colors ${
+                            className={`relative block px-3.5 py-2 rounded-lg text-[13px] font-medium transition-all duration-200 hover:translate-x-1.5 after:content-[''] after:absolute after:-bottom-0.5 after:left-3.5 after:right-3.5 after:h-[2px] after:bg-primary after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-300 after:origin-left ${
                               theme === "light"
                                 ? "text-gray-700 hover:bg-gray-100/80 hover:text-primary"
                                 : "text-secondary-foreground/80 hover:bg-white/5 hover:text-primary"
@@ -347,7 +349,7 @@ const Header: React.FC = () => {
                 key={item.label}
                 type="button"
                 onClick={() => setIsBrochureOpen(true)}
-                className={`text-[13px] font-semibold tracking-wide px-3 py-1.5 transition-colors duration-200 hover:text-primary ${
+                className={`relative text-[13px] font-semibold tracking-wide px-3 py-1.5 transition-colors duration-200 hover:text-primary after:content-[''] after:absolute after:-bottom-1 after:left-0 after:w-full after:h-[2px] after:bg-primary after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-300 after:origin-left ${
                   theme === "light" ? "text-gray-800" : "text-secondary-foreground/80"
                 }`}
               >
@@ -357,8 +359,12 @@ const Header: React.FC = () => {
               <Link
                 key={item.label}
                 href={item.to ?? "/"}
-                className={`text-[13px] font-semibold tracking-wide px-3 py-1.5 transition-colors duration-200 hover:text-primary ${
-                  theme === "light" ? "text-gray-800" : "text-secondary-foreground/80"
+                className={`relative text-[13px] font-semibold tracking-wide flex items-center px-3 py-1.5 transition-colors duration-200 hover:text-primary after:content-[''] after:absolute after:-bottom-1 after:left-0 after:w-full after:h-[2px] after:bg-primary after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-300 after:origin-left ${
+                  !scrolled
+                    ? "text-white"
+                    : theme === "light" 
+                      ? "text-gray-800" 
+                      : "text-secondary-foreground/80"
                 }`}
               >
                 {item.label}
@@ -399,8 +405,12 @@ const Header: React.FC = () => {
 
           {/* Mobile menu trigger */}
           <button
-            className={`xl:hidden p-2 rounded-lg hover:bg-black/5 transition-colors ${
-              theme === "light" ? "text-gray-800" : "text-secondary-foreground"
+            className={`xl:hidden p-2 rounded-lg transition-colors ${
+              !scrolled
+                ? "text-white hover:bg-white/10"
+                : theme === "light" 
+                  ? "text-gray-800 hover:bg-black/5" 
+                  : "text-secondary-foreground hover:bg-white/5"
             }`}
             onClick={() => setOpen(true)}
             aria-label="Open menu"

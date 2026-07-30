@@ -191,9 +191,9 @@ const SectorGrid: React.FC = () => {
                 </div>
 
                 {/* 3D Viewer model-viewer (3/5 Width) */}
-                <div className="md:col-span-3 flex flex-col items-center relative w-full">
+                <div className="md:col-span-3 flex flex-col items-center relative w-full overflow-hidden max-w-full">
                   
-                  <div className="relative w-full aspect-[4/3] rounded-3xl overflow-hidden border border-border bg-card/30 flex items-center justify-center p-2">
+                  <div className="relative w-full aspect-square sm:aspect-[4/3] rounded-3xl overflow-hidden border border-border bg-card/30 flex items-center justify-center p-2">
                     <model-viewer
                       ref={viewerRef}
                       src="/3dmodel/Meshy_AI_Kingson_Cone_Crusher_0704110926_texture.glb"
@@ -206,7 +206,7 @@ const SectorGrid: React.FC = () => {
                       interaction-prompt="none"
                       auto-rotate-delay="0"
                       className="w-full h-full rounded-2xl"
-                      style={{ width: "100%", height: "300px" }}
+                      style={{ width: "100%", height: "100%", minHeight: "250px" }}
                     >
                       {/* Hotspots */}
                       <button

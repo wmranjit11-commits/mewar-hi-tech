@@ -43,25 +43,13 @@ const CATEGORIES: MachineCategory[] = [
 
 export const MachineShowcase: React.FC = () => {
   const [hoveredIdx, setHoveredIdx] = useState<number | null>(null);
-  const scrollRef = useRef<HTMLDivElement>(null);
-  const [scrollProgress, setScrollProgress] = useState(0);
-
-  const handleScroll = () => {
-    if (scrollRef.current) {
-      const { scrollLeft, scrollWidth, clientWidth } = scrollRef.current;
-      const totalScroll = scrollWidth - clientWidth;
-      if (totalScroll > 0) {
-        setScrollProgress((scrollLeft / totalScroll) * 100);
-      }
-    }
-  };
+  const [mobileIdx, setMobileIdx] = useState(0);
 
   useEffect(() => {
-    const el = scrollRef.current;
-    if (el) {
-      el.addEventListener("scroll", handleScroll, { passive: true });
-      return () => el.removeEventListener("scroll", handleScroll);
-    }
+    const interval = setInterval(() => {
+      setMobileIdx((prev) => (prev + 1) % CATEGORIES.length);
+    }, 1500);
+    return () => clearInterval(interval);
   }, []);
 
   return (
@@ -82,7 +70,7 @@ export const MachineShowcase: React.FC = () => {
         ))}
       </div>
 
-      {/* 2. Tablet Layout (md to lg) - 2 columns grid, static states */}
+      {/* 2. Tablet Layout (md to lg) - Grid Layout */}
       <div className="hidden md:grid lg:hidden grid-cols-2 gap-5 w-full">
         {CATEGORIES.map((cat, idx) => (
           <div key={cat.title} className="h-[420px] w-full">
@@ -98,14 +86,14 @@ export const MachineShowcase: React.FC = () => {
         ))}
       </div>
 
-      {/* 3. Mobile Layout (below md) - Horizontal Swipeable Slider */}
-      <div className="block md:hidden w-full">
-        <div
-          ref={scrollRef}
-          className="flex flex-row gap-4 overflow-x-auto snap-x snap-mandatory no-scrollbar pb-4 w-full"
+      {/* 3. Mobile Layout (below md) - Auto-sliding Carousel */}
+      <div className="block md:hidden w-full overflow-hidden relative rounded-2xl">
+        <div 
+          className="flex transition-transform duration-500 ease-in-out w-full"
+          style={{ transform: `translateX(-${mobileIdx * 100}%)` }}
         >
           {CATEGORIES.map((cat, idx) => (
-            <div key={cat.title} className="w-[82vw] shrink-0 snap-center h-[440px]">
+            <div key={cat.title} className="w-full shrink-0 h-[400px]">
               <MachineCard
                 category={cat}
                 index={idx}
@@ -117,27 +105,29 @@ export const MachineShowcase: React.FC = () => {
             </div>
           ))}
         </div>
-
-        {/* Swipe indicator track & View all machines row on Mobile */}
-        <div className="flex items-center justify-between mt-4 px-2">
-          {/* Scroll Progress Indicator Bar */}
-          <div className="w-1/2 h-[2.5px] bg-border/30 rounded-full overflow-hidden relative">
+        
+        {/* Pagination Dots */}
+        <div className="absolute bottom-4 left-0 w-full flex justify-center gap-2 z-10">
+          {CATEGORIES.map((_, idx) => (
             <div
-              className="absolute left-0 top-0 h-full bg-primary rounded-full transition-all duration-100 ease-out"
-              style={{ width: `${scrollProgress}%` }}
+              key={idx}
+              className={`h-1.5 rounded-full transition-all duration-300 ${
+                idx === mobileIdx ? "w-6 bg-primary" : "w-1.5 bg-white/50"
+              }`}
             />
-          </div>
-
-          <Link
-            href="/products"
-            className="text-foreground font-bold hover:text-primary transition-colors flex items-center gap-1 text-xs"
-          >
-            <span>See all</span>
-            <ArrowRight size={13} className="text-primary stroke-[2.5]" />
-          </Link>
+          ))}
         </div>
       </div>
 
+      <div className="flex justify-center md:hidden mt-2">
+        <Link
+          href="/products"
+          className="text-foreground font-bold hover:text-primary transition-colors flex items-center gap-1 text-sm border-b-2 border-primary pb-0.5"
+        >
+          <span>Explore All Machines</span>
+          <ArrowRight size={16} className="text-primary stroke-[2.5]" />
+        </Link>
+      </div>
     </div>
   );
 };

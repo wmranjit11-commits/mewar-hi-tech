@@ -42,14 +42,7 @@ const ClientLogosMarquee: React.FC = () => {
           <span className="text-primary font-bold text-xs uppercase tracking-widest">
             Trusted by Industry Leaders
           </span>
-          <div className="flex items-center gap-2">
-            <button className="w-8 h-8 rounded-full border border-border flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary transition-colors">
-              <ChevronLeft size={16} />
-            </button>
-            <button className="w-8 h-8 rounded-full border border-border flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary transition-colors">
-              <ChevronRight size={16} />
-            </button>
-          </div>
+
         </div>
       </Container>
 
