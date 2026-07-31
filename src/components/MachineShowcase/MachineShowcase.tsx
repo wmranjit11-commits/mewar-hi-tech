@@ -87,7 +87,7 @@ export const MachineShowcase: React.FC = () => {
       </div>
 
       {/* 3. Mobile Layout (below md) - Auto-sliding Carousel */}
-      <div className="block md:hidden w-full overflow-hidden relative rounded-2xl">
+      <div className="block md:hidden w-full overflow-hidden relative rounded-xl">
         <div 
           className="flex transition-transform duration-500 ease-in-out w-full"
           style={{ transform: `translateX(-${mobileIdx * 100}%)` }}

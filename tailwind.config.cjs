@@ -15,7 +15,8 @@ module.exports = {
     },
     extend: {
       fontFamily: {
-        sans: ['var(--font-rubik)', 'sans-serif'],
+        sans: ['var(--font-inter)', 'sans-serif'],
+        heading: ['var(--font-oswald)', 'sans-serif'],
       },
       colors: {
         border: 'hsl(var(--border))',

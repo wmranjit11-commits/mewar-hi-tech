@@ -101,28 +101,22 @@ export default function TeamSection() {
 
       <Container className="relative z-10">
         {/* Header Section */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="max-w-3xl mx-auto text-center mb-14 space-y-3"
-        >
+        <div className="flex flex-col items-center justify-center text-center space-y-5 mb-14 lg:mb-20 px-4 mt-8">
           <div className="inline-flex items-center gap-2">
             <span className="text-primary font-bold text-xs uppercase tracking-widest">
               OUR TEAM. YOUR SUPPORT.
             </span>
-            <div className="w-8 h-[2px] bg-primary rounded-full" />
+            <div className="w-8 h-[2px] bg-primary rounded-none" />
           </div>
 
-          <h2 className="common-heading text-3xl sm:text-4xl lg:text-5xl font-black text-foreground uppercase tracking-tight">
+          <h2 className="common-heading text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground uppercase tracking-tight">
             EXECUTIVE LEADERSHIP DIRECTORY
           </h2>
 
           <p className="text-muted-foreground text-sm sm:text-base font-medium max-w-2xl mx-auto">
             Connect with the right leadership for your specific needs. Our executive leaders are ready to guide your crushing and screening solutions.
           </p>
-        </motion.div>
+        </div>
 
         {/* 3 Leadership Cards Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
@@ -132,55 +126,43 @@ export default function TeamSection() {
             const isAnyHovered = hoveredIdx !== null;
 
             return (
-              <motion.div
+              <div
                 key={item.id}
-                initial={{ opacity: 0, y: 30, scale: 0.95 }}
-                whileInView={{ opacity: 1, y: 0, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: idx * 0.12, ease: "easeOut" }}
                 onMouseEnter={() => setHoveredIdx(idx)}
                 onMouseLeave={() => setHoveredIdx(null)}
-                className={`group relative bg-card rounded-2xl p-7 border transition-all duration-500 flex flex-col justify-between overflow-hidden cursor-pointer ${
+                className={`group relative bg-card rounded-none p-7 border-2 transition-all duration-300 flex flex-col justify-between overflow-hidden cursor-pointer ${
                   isHovered
-                    ? "border-primary/50 shadow-2xl shadow-primary/10 -translate-y-2 z-20"
+                    ? "border-primary shadow-lg z-20"
                     : isAnyHovered
-                    ? "border-border/60 shadow-sm opacity-75 scale-[0.99] z-10"
-                    : "border-border/80 shadow-md hover:shadow-xl z-10"
+                    ? "border-border shadow-sm opacity-75 scale-[0.99] z-10"
+                    : "border-border shadow-md hover:shadow-xl z-10"
                 }`}
               >
-                {/* Top Glowing Edge Bar on Hover */}
-                <div className="absolute top-0 left-6 right-6 h-[2px] bg-gradient-to-r from-transparent via-primary/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-
-                {/* Subtle Card Background Glow */}
-                <div className="absolute inset-0 bg-gradient-to-b from-primary/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
-
                 <div className="relative z-10">
                   {/* Top Bar: Icon + Department Name + Accent Line */}
                   <div className="flex items-center justify-between mb-7">
                     <div className="flex items-center gap-3.5">
-                      <div className="w-12 h-12 rounded-full bg-primary/10 border border-primary/20 flex items-center justify-center text-primary shrink-0 group-hover:scale-110 transition-transform duration-300">
+                      <div className="w-12 h-12 rounded-none bg-primary flex items-center justify-center text-primary-foreground shrink-0 group-hover:scale-110 transition-transform duration-300">
                         <Icon size={22} className="stroke-[2.2]" />
                       </div>
                       <div>
-                        <h3 className="font-heading text-xs font-black text-foreground tracking-wider uppercase">
+                        <h3 className="font-heading text-xs font-bold text-foreground tracking-wider uppercase">
                           {item.department}
                         </h3>
-                        <div className="w-8 h-[2.5px] bg-primary rounded-full mt-1 group-hover:w-14 transition-all duration-300" />
+                        <div className="w-8 h-[2.5px] bg-primary rounded-none mt-1 group-hover:w-14 transition-all duration-300" />
                       </div>
                     </div>
 
-                    <div className="w-7 h-7 rounded-full bg-muted/60 flex items-center justify-center text-muted-foreground group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-300">
+                    <div className="w-7 h-7 rounded-none bg-muted flex items-center justify-center text-muted-foreground group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-300">
                       <ArrowUpRight size={14} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-300" />
                     </div>
                   </div>
 
                   {/* Main Card Content: Avatar + Leadership Info */}
                   <div className="flex items-center gap-5">
-                    {/* Circular Photo Avatar */}
+                    {/* Square Photo Avatar */}
                     <div className="relative">
-                      <div className="absolute -inset-1 rounded-full bg-gradient-to-tr from-primary/30 via-primary/10 to-primary/40 opacity-0 group-hover:opacity-100 blur-sm transition-opacity duration-500" />
-                      
-                      <div className="w-20 h-20 sm:w-22 sm:h-22 rounded-full border-2 border-border/80 group-hover:border-primary/40 shadow-md flex items-center justify-center shrink-0 relative overflow-hidden transition-all duration-500 group-hover:scale-[1.03] bg-muted/50">
+                      <div className="w-20 h-20 sm:w-22 sm:h-22 rounded-none border-2 border-border/80 group-hover:border-primary shadow-md flex items-center justify-center shrink-0 relative overflow-hidden transition-all duration-300 group-hover:scale-105 bg-muted">
                         {item.image ? (
                           <img
                             src={item.image}
@@ -188,7 +170,7 @@ export default function TeamSection() {
                             className="w-full h-full object-cover object-top"
                           />
                         ) : (
-                          <span className="font-heading text-xl font-black text-foreground tracking-widest">
+                          <span className="font-heading text-xl font-bold text-foreground tracking-widest">
                             {item.initials}
                           </span>
                         )}
@@ -206,7 +188,7 @@ export default function TeamSection() {
 
                       {/* Focus Tag Pill */}
                       <div className="pt-2">
-                        <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-primary/10 text-primary border border-primary/20">
+                        <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-none text-[10px] font-bold uppercase tracking-wider bg-transparent text-foreground border border-border whitespace-nowrap">
                           <Award size={10} className="shrink-0" />
                           <span>{item.focusTag}</span>
                         </span>
@@ -214,7 +196,7 @@ export default function TeamSection() {
                     </div>
                   </div>
                 </div>
-              </motion.div>
+              </div>
             );
           })}
         </div>

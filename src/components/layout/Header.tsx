@@ -320,7 +320,7 @@ const Header: React.FC = () => {
                         child.heading ? (
                           <h4
                             key={child.label}
-                            className={`px-3.5 py-1.5 text-[11px] font-black uppercase tracking-wider mt-2 border-t border-border/10 pt-2 first:mt-0 first:border-0 first:pt-0 ${
+                            className={`px-3.5 py-1.5 text-[11px] font-bold uppercase tracking-wider mt-2 border-t border-border/10 pt-2 first:mt-0 first:border-0 first:pt-0 ${
                               theme === "light" ? "text-gray-900 font-bold" : "text-gray-100 font-bold"
                             }`}
                           >
@@ -397,7 +397,7 @@ const Header: React.FC = () => {
             <BlobButton
               variant="primary"
               onClick={() => setIsBrochureOpen(true)}
-              className="!py-2.5 !px-5 ml-1 !text-[11px] !font-black"
+              className="!py-2.5 !px-5 ml-1 !text-[11px] !font-bold"
             >
               Brochure
             </BlobButton>
@@ -608,7 +608,7 @@ const Header: React.FC = () => {
                   setOpen(false);
                   setIsBrochureOpen(true);
                 }}
-                className="!w-full !py-3 !text-xs !font-black"
+                className="!w-full !py-3 !text-xs !font-bold"
               >
                 Brochure
               </BlobButton>

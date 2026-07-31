@@ -98,7 +98,7 @@ export default function Contact() {
                 <div className="flex flex-col justify-between flex-1 gap-4">
                   
                   {/* Sales & Marketing Card */}
-                  <div className="p-5 rounded-2xl bg-card border border-border shadow-md space-y-2.5 hover:border-primary/50 transition-colors flex-1 flex flex-col justify-center">
+                  <div className="p-5 rounded-xl bg-card border border-border shadow-md space-y-2.5 hover:border-primary/50 transition-colors flex-1 flex flex-col justify-center">
                     <div className="flex items-center gap-3">
                       <div className="w-10 h-10 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center text-primary shrink-0">
                         <User size={20} />
@@ -125,7 +125,7 @@ export default function Contact() {
                   </div>
 
                   {/* Spare Parts Division Card */}
-                  <div className="p-5 rounded-2xl bg-card border border-border shadow-md space-y-2.5 hover:border-primary/50 transition-colors flex-1 flex flex-col justify-center">
+                  <div className="p-5 rounded-xl bg-card border border-border shadow-md space-y-2.5 hover:border-primary/50 transition-colors flex-1 flex flex-col justify-center">
                     <div className="flex items-center gap-3">
                       <div className="w-10 h-10 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center text-primary shrink-0">
                         <Building2 size={20} />
@@ -156,7 +156,7 @@ export default function Contact() {
                   </div>
 
                   {/* After Sales Service Card */}
-                  <div className="p-5 rounded-2xl bg-card border border-border shadow-md space-y-2.5 hover:border-primary/50 transition-colors flex-1 flex flex-col justify-center">
+                  <div className="p-5 rounded-xl bg-card border border-border shadow-md space-y-2.5 hover:border-primary/50 transition-colors flex-1 flex flex-col justify-center">
                     <div className="flex items-center gap-3">
                       <div className="w-10 h-10 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center text-primary shrink-0">
                         <Phone size={20} />
@@ -187,7 +187,7 @@ export default function Contact() {
                   </div>
 
                   {/* Registered Factory Address Card */}
-                  <div className="p-5 rounded-2xl bg-card border border-border shadow-md space-y-2.5 hover:border-primary/50 transition-colors flex-1 flex flex-col justify-center">
+                  <div className="p-5 rounded-xl bg-card border border-border shadow-md space-y-2.5 hover:border-primary/50 transition-colors flex-1 flex flex-col justify-center">
                     <div className="flex items-start gap-3">
                       <div className="w-10 h-10 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center text-primary shrink-0 mt-0.5">
                         <MapPin size={20} />
@@ -214,7 +214,7 @@ export default function Contact() {
                 transition={{ duration: 0.6 }}
                 className="lg:col-span-7 flex flex-col h-full"
               >
-                <div className="p-8 lg:p-10 rounded-3xl bg-card border border-border shadow-2xl space-y-6 relative overflow-hidden flex flex-col justify-between h-full">
+                <div className="p-8 lg:p-10 rounded-xl bg-card border border-border shadow-2xl space-y-6 relative overflow-hidden flex flex-col justify-between h-full">
                   <div className="absolute top-0 right-0 w-32 h-32 bg-primary/10 rounded-full blur-3xl pointer-events-none" />
 
                   <div>
@@ -348,7 +348,7 @@ export default function Contact() {
                         type="submit"
                         disabled={submitting}
                         variant="primary"
-                        className="!w-full !py-3.5 !text-xs !font-black !uppercase !tracking-wider"
+                        className="!w-full !py-3.5 !text-xs !font-bold !uppercase !tracking-wider"
                       >
                         <span className="inline-flex items-center justify-center gap-2 whitespace-nowrap">
                           <Send size={15} />
@@ -389,7 +389,7 @@ export default function Contact() {
             </div>
 
             {/* Google Map Embed Card */}
-            <div className="relative rounded-3xl overflow-hidden shadow-2xl border border-border bg-card">
+            <div className="relative rounded-xl overflow-hidden shadow-2xl border border-border bg-card">
               <iframe
                 title="Mewar Hi-Tech Engineering Ltd Location Map"
                 src="https://maps.google.com/maps?q=Mewar+Hi+Tech+Engineering+Ltd+Hawa+Magri+Industrial+Area+Sukher+Udaipur+Rajasthan&t=&z=15&ie=UTF8&iwloc=&output=embed"
@@ -403,7 +403,7 @@ export default function Contact() {
               ></iframe>
 
               {/* Overlay Location Badge */}
-              <div className="absolute bottom-6 left-6 right-6 sm:right-auto max-w-md p-4 rounded-2xl bg-black/80 backdrop-blur-md border border-white/10 text-white space-y-1">
+              <div className="absolute bottom-6 left-6 right-6 sm:right-auto max-w-md p-4 rounded-xl bg-black/80 backdrop-blur-md border border-white/10 text-white space-y-1">
                 <div className="flex items-center gap-2 text-primary font-bold text-xs uppercase tracking-wider">
                   <MapPin size={15} />
                   <span>Factory Location</span>

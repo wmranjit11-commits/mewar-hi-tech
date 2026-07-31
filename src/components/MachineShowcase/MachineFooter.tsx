@@ -23,7 +23,7 @@ export const MachineFooter: React.FC<MachineFooterProps> = ({
     >
       {/* Title & Arrow Row */}
       <div className="flex items-center justify-between">
-        <h3 className="text-white text-base sm:text-[17px] font-black uppercase tracking-wider select-none font-heading">
+        <h3 className="text-white text-base sm:text-[17px] font-bold uppercase tracking-wider select-none font-heading">
           {category.title}
         </h3>
         <motion.div
@@ -51,7 +51,7 @@ export const MachineFooter: React.FC<MachineFooterProps> = ({
               {category.desc}
             </p>
             <Link href={category.to} className="cursor-pointer inline-block">
-              <BlobButton variant="primary" className="!py-2.5 !px-6 text-[10px] font-black">
+              <BlobButton variant="primary" className="!py-2.5 !px-6 text-[10px] font-bold">
                 <span>Read More</span>
                 <ArrowRight size={12} className="stroke-[3]" />
               </BlobButton>

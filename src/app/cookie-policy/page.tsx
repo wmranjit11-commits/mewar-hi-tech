@@ -26,12 +26,12 @@ export default function CookiePolicyPage() {
             <div className="max-w-4xl mx-auto space-y-12">
             
             {/* Top summary card */}
-            <div className="p-8 rounded-3xl bg-card border border-border/80 flex items-start gap-5 shadow-sm">
-              <div className="w-12 h-12 rounded-2xl bg-primary/10 border border-primary/20 flex items-center justify-center shrink-0">
+            <div className="p-8 rounded-xl bg-card border border-border/80 flex items-start gap-5 shadow-sm">
+              <div className="w-12 h-12 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center shrink-0">
                 <Cookie size={24} className="text-primary stroke-[2.2]" />
               </div>
               <div className="space-y-2">
-                <h2 className="common-heading text-2xl font-black text-foreground">Our Use of Cookies</h2>
+                <h2 className="common-heading text-2xl font-bold text-foreground">Our Use of Cookies</h2>
                 <p className="text-sm text-muted-foreground leading-relaxed font-semibold">
                   Mewar Hitech Engineering Ltd. uses cookies and similar technologies to enhance your experience, analyze site usage, and assist in our marketing efforts. This policy explains what cookies are, how we use them, and your choices regarding their use.
                 </p>
@@ -42,7 +42,7 @@ export default function CookiePolicyPage() {
             <div className="space-y-10">
               
               <div className="space-y-3">
-                <h3 className="font-extrabold text-lg uppercase tracking-tight text-foreground font-heading border-b border-border/60 pb-2">
+                <h3 className="font-bold text-lg uppercase tracking-tight text-foreground font-heading border-b border-border/60 pb-2">
                   What Are Cookies?
                 </h3>
                 <p className="text-sm text-muted-foreground leading-relaxed font-semibold">
@@ -51,7 +51,7 @@ export default function CookiePolicyPage() {
               </div>
 
               <div className="space-y-3">
-                <h3 className="font-extrabold text-lg uppercase tracking-tight text-foreground font-heading border-b border-border/60 pb-2">
+                <h3 className="font-bold text-lg uppercase tracking-tight text-foreground font-heading border-b border-border/60 pb-2">
                   How We Use Cookies
                 </h3>
                 <p className="text-sm text-muted-foreground leading-relaxed font-semibold">
@@ -65,7 +65,7 @@ export default function CookiePolicyPage() {
               </div>
 
               <div className="space-y-3">
-                <h3 className="font-extrabold text-lg uppercase tracking-tight text-foreground font-heading border-b border-border/60 pb-2">
+                <h3 className="font-bold text-lg uppercase tracking-tight text-foreground font-heading border-b border-border/60 pb-2">
                   Managing Your Cookie Preferences
                 </h3>
                 <p className="text-sm text-muted-foreground leading-relaxed font-semibold">
@@ -74,7 +74,7 @@ export default function CookiePolicyPage() {
               </div>
 
               <div className="space-y-3">
-                <h3 className="font-extrabold text-lg uppercase tracking-tight text-foreground font-heading border-b border-border/60 pb-2">
+                <h3 className="font-bold text-lg uppercase tracking-tight text-foreground font-heading border-b border-border/60 pb-2">
                   Third-Party Cookies
                 </h3>
                 <p className="text-sm text-muted-foreground leading-relaxed font-semibold">
@@ -82,9 +82,9 @@ export default function CookiePolicyPage() {
                 </p>
               </div>
 
-              <div className="p-8 rounded-3xl bg-card border border-border/80 flex flex-col md:flex-row md:items-center justify-between gap-6 shadow-sm">
+              <div className="p-8 rounded-xl bg-card border border-border/80 flex flex-col md:flex-row md:items-center justify-between gap-6 shadow-sm">
                 <div className="space-y-2">
-                  <h3 className="common-heading text-xl font-black text-foreground tracking-tight">Questions About Cookies?</h3>
+                  <h3 className="common-heading text-xl font-bold text-foreground tracking-tight">Questions About Cookies?</h3>
                   <p className="text-xs text-muted-foreground font-semibold">
                     If you have any questions or concerns about our use of cookies, please contact us.
                   </p>

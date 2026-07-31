@@ -26,12 +26,12 @@ export default function TermsOfUsePage() {
             <div className="max-w-4xl mx-auto space-y-12">
             
             {/* Top summary card */}
-            <div className="p-8 rounded-3xl bg-card border border-border/80 flex items-start gap-5 shadow-sm">
-              <div className="w-12 h-12 rounded-2xl bg-primary/10 border border-primary/20 flex items-center justify-center shrink-0">
+            <div className="p-8 rounded-xl bg-card border border-border/80 flex items-start gap-5 shadow-sm">
+              <div className="w-12 h-12 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center shrink-0">
                 <Scale size={24} className="text-primary stroke-[2.2]" />
               </div>
               <div className="space-y-2">
-                <h2 className="common-heading text-2xl font-black text-foreground">Terms and Conditions</h2>
+                <h2 className="common-heading text-2xl font-bold text-foreground">Terms and Conditions</h2>
                 <p className="text-sm text-muted-foreground leading-relaxed font-semibold">
                   By accessing and using this website, you accept and agree to be bound by the terms and provision of this agreement. Any participation in this service will constitute acceptance of this agreement. If you do not agree to abide by the above, please do not use this service.
                 </p>
@@ -42,7 +42,7 @@ export default function TermsOfUsePage() {
             <div className="space-y-10">
               
               <div className="space-y-3">
-                <h3 className="font-extrabold text-lg uppercase tracking-tight text-foreground font-heading border-b border-border/60 pb-2">
+                <h3 className="font-bold text-lg uppercase tracking-tight text-foreground font-heading border-b border-border/60 pb-2">
                   1. Intellectual Property
                 </h3>
                 <p className="text-sm text-muted-foreground leading-relaxed font-semibold">
@@ -51,7 +51,7 @@ export default function TermsOfUsePage() {
               </div>
 
               <div className="space-y-3">
-                <h3 className="font-extrabold text-lg uppercase tracking-tight text-foreground font-heading border-b border-border/60 pb-2">
+                <h3 className="font-bold text-lg uppercase tracking-tight text-foreground font-heading border-b border-border/60 pb-2">
                   2. Use of Content
                 </h3>
                 <p className="text-sm text-muted-foreground leading-relaxed font-semibold">
@@ -60,7 +60,7 @@ export default function TermsOfUsePage() {
               </div>
 
               <div className="space-y-3">
-                <h3 className="font-extrabold text-lg uppercase tracking-tight text-foreground font-heading border-b border-border/60 pb-2">
+                <h3 className="font-bold text-lg uppercase tracking-tight text-foreground font-heading border-b border-border/60 pb-2">
                   3. User Warranties
                 </h3>
                 <p className="text-sm text-muted-foreground leading-relaxed font-semibold">
@@ -69,7 +69,7 @@ export default function TermsOfUsePage() {
               </div>
 
               <div className="space-y-3">
-                <h3 className="font-extrabold text-lg uppercase tracking-tight text-foreground font-heading border-b border-border/60 pb-2">
+                <h3 className="font-bold text-lg uppercase tracking-tight text-foreground font-heading border-b border-border/60 pb-2">
                   4. Limitation of Liability
                 </h3>
                 <p className="text-sm text-muted-foreground leading-relaxed font-semibold">
@@ -78,7 +78,7 @@ export default function TermsOfUsePage() {
               </div>
 
               <div className="space-y-3">
-                <h3 className="font-extrabold text-lg uppercase tracking-tight text-foreground font-heading border-b border-border/60 pb-2">
+                <h3 className="font-bold text-lg uppercase tracking-tight text-foreground font-heading border-b border-border/60 pb-2">
                   5. Governing Law
                 </h3>
                 <p className="text-sm text-muted-foreground leading-relaxed font-semibold">
@@ -86,9 +86,9 @@ export default function TermsOfUsePage() {
                 </p>
               </div>
 
-              <div className="p-8 rounded-3xl bg-card border border-border/80 flex flex-col md:flex-row md:items-center justify-between gap-6 shadow-sm">
+              <div className="p-8 rounded-xl bg-card border border-border/80 flex flex-col md:flex-row md:items-center justify-between gap-6 shadow-sm">
                 <div className="space-y-2">
-                  <h3 className="common-heading text-xl font-black text-foreground tracking-tight">Legal Queries</h3>
+                  <h3 className="common-heading text-xl font-bold text-foreground tracking-tight">Legal Queries</h3>
                   <p className="text-xs text-muted-foreground font-semibold">
                     If you have any questions regarding these terms, please contact our legal department.
                   </p>

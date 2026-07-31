@@ -26,7 +26,7 @@ const ContactSignupBox: React.FC = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="lg:col-span-7 bg-card border border-border/50 p-8 lg:p-10 rounded-2xl flex flex-col justify-between"
+          className="lg:col-span-7 bg-card border border-border/50 p-8 lg:p-10 rounded-xl flex flex-col justify-between"
         >
           <div>
             <h3 className="common-heading text-2xl text-foreground tracking-wide mb-3">
@@ -57,7 +57,7 @@ const ContactSignupBox: React.FC = () => {
               />
             </div>
             <div>
-              <BlobButton type="submit" variant="primary" className="!py-3 !px-6 text-xs font-black">
+              <BlobButton type="submit" variant="primary" className="!py-3 !px-6 text-xs font-bold">
                 Sign Up
               </BlobButton>
             </div>
@@ -70,7 +70,7 @@ const ContactSignupBox: React.FC = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.15 }}
-          className="lg:col-span-5 relative rounded-2xl overflow-hidden min-h-[280px] flex flex-col justify-end p-8 lg:p-10 text-white"
+          className="lg:col-span-5 relative rounded-xl overflow-hidden min-h-[280px] flex flex-col justify-end p-8 lg:p-10 text-white"
         >
           {/* Background Image */}
           <div className="absolute inset-0 w-full h-full z-0">
@@ -91,7 +91,7 @@ const ContactSignupBox: React.FC = () => {
               Contact us!
             </h3>
             <Link href="/contact">
-              <BlobButton variant="primary" className="!py-3 !px-6 text-xs font-black">
+              <BlobButton variant="primary" className="!py-3 !px-6 text-xs font-bold">
                 Contact us
               </BlobButton>
             </Link>

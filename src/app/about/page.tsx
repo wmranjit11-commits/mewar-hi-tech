@@ -199,11 +199,7 @@ export default function About() {
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
               
               {/* Left Column: Text Content */}
-              <motion.div
-                initial={{ opacity: 0, x: -30 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6 }}
+              <div
                 className="lg:col-span-7 space-y-6"
               >
                 <div>
@@ -233,21 +229,21 @@ export default function About() {
 
                 {/* Highlight badges */}
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-4">
-                  <div className="p-4 rounded-xl bg-card border border-border flex items-center gap-3">
+                  <div className="p-4 rounded-none bg-card border-2 border-border flex items-center gap-3">
                     <TrendingUp size={24} className="text-primary shrink-0" />
                     <div>
                       <h4 className="common-heading text-lg text-foreground">20%+</h4>
                       <p className="text-[11px] text-muted-foreground font-semibold uppercase">Higher Output</p>
                     </div>
                   </div>
-                  <div className="p-4 rounded-xl bg-card border border-border flex items-center gap-3">
+                  <div className="p-4 rounded-none bg-card border-2 border-border flex items-center gap-3">
                     <Factory size={24} className="text-primary shrink-0" />
                     <div>
                       <h4 className="common-heading text-lg text-foreground">100%</h4>
                       <p className="text-[11px] text-muted-foreground font-semibold uppercase">In-House Castings</p>
                     </div>
                   </div>
-                  <div className="p-4 rounded-xl bg-card border border-border flex items-center gap-3">
+                  <div className="p-4 rounded-none bg-card border-2 border-border flex items-center gap-3">
                     <ShieldCheck size={24} className="text-primary shrink-0" />
                     <div>
                       <h4 className="common-heading text-lg text-foreground">Strict QA</h4>
@@ -255,17 +251,13 @@ export default function About() {
                     </div>
                   </div>
                 </div>
-              </motion.div>
+              </div>
 
               {/* Right Column: Image with Industrial Frame */}
-              <motion.div
-                initial={{ opacity: 0, x: 30 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6 }}
+              <div
                 className="lg:col-span-5 relative"
               >
-                <div className="relative rounded-3xl overflow-hidden shadow-2xl border border-border group">
+                <div className="relative rounded-none overflow-hidden shadow-2xl border-2 border-border group">
                   <img
                     src="/images/about-mewar-hi-tech-1.jpg"
                     alt="Mewar Hi-Tech Manufacturing Plant Exterior"
@@ -273,12 +265,12 @@ export default function About() {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
                   
-                  <div className="absolute bottom-6 left-6 right-6 p-4 rounded-2xl bg-black/70 backdrop-blur-md border border-white/10 text-white">
+                  <div className="absolute bottom-6 left-6 right-6 p-4 rounded-none bg-black border-2 border-primary text-white">
                     <p className="text-xs font-bold text-primary uppercase tracking-widest">Manufacturing Excellence</p>
                     <p className="text-sm font-semibold mt-1">Industrial Plant &amp; Foundry Campus in Udaipur, Rajasthan</p>
                   </div>
                 </div>
-              </motion.div>
+              </div>
 
             </div>
           </div>
@@ -290,12 +282,8 @@ export default function About() {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
 
               {/* Left Box: Robust Design */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5 }}
-                className="p-8 lg:p-10 rounded-3xl bg-card border border-border shadow-xl space-y-6 flex flex-col justify-between"
+              <div
+                className="p-8 lg:p-10 rounded-none bg-card border-2 border-border shadow-xl space-y-6 flex flex-col justify-between"
               >
                 <div className="space-y-4">
                   <span className="text-primary font-bold text-xs uppercase tracking-widest block">
@@ -313,7 +301,7 @@ export default function About() {
                 </div>
 
                 {/* Image & Caption */}
-                <div className="relative rounded-2xl overflow-hidden border border-border">
+                <div className="relative rounded-none overflow-hidden border-2 border-border">
                   <img
                     src="/images/robust_crusher_design.png"
                     alt="Heavy-Duty Mining & Rock Reduction Crusher"
@@ -336,15 +324,11 @@ export default function About() {
                     <span>Heavy Duty Mining Grade</span>
                   </div>
                 </div>
-              </motion.div>
+              </div>
 
               {/* Right Box: Quality Policy with Image */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.1 }}
-                className="p-8 lg:p-10 rounded-3xl bg-card border border-border shadow-xl space-y-6 flex flex-col justify-between"
+              <div
+                className="p-8 lg:p-10 rounded-none bg-card border-2 border-border shadow-xl space-y-6 flex flex-col justify-between"
               >
                 <div className="space-y-4">
                   <span className="text-primary font-bold text-xs uppercase tracking-widest block">
@@ -362,7 +346,7 @@ export default function About() {
                 </div>
 
                 {/* Image & Caption */}
-                <div className="relative rounded-2xl overflow-hidden border border-border">
+                <div className="relative rounded-none overflow-hidden border-2 border-border">
                   <img
                     src="/images/about-mewar-hi-tech-2.jpg"
                     alt="CNC Plasma Cutting Machinery in Action"
@@ -374,7 +358,7 @@ export default function About() {
                     </p>
                   </div>
                 </div>
-              </motion.div>
+              </div>
 
             </div>
           </div>
@@ -385,15 +369,11 @@ export default function About() {
           <div className="max-w-[1720px] mx-auto px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             
             {/* 3D Model Viewer Container */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
+            <div
               className="lg:col-span-6 w-full"
             >
-              <div className="relative rounded-3xl overflow-hidden shadow-2xl border border-border bg-card p-4">
-                <div className="absolute top-6 left-6 z-10 bg-black/60 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-white/20">
+              <div className="relative rounded-none overflow-hidden shadow-2xl border-2 border-border bg-card p-4">
+                <div className="absolute top-6 left-6 z-10 bg-black px-3.5 py-1.5 rounded-none border-2 border-primary">
                   <span className="text-[11px] font-bold text-primary uppercase tracking-widest">
                     Interactive 3D Equipment Model
                   </span>
@@ -408,18 +388,14 @@ export default function About() {
                   shadow-intensity="1"
                   interaction-prompt="none"
                   auto-rotate-delay="0"
-                  className="w-full h-[380px] sm:h-[450px] rounded-2xl bg-muted/40"
+                  className="w-full h-[380px] sm:h-[450px] rounded-none bg-muted"
                   style={{ width: "100%", height: "420px" }}
                 ></model-viewer>
               </div>
-            </motion.div>
+            </div>
 
             {/* Team Dedicated of Experts Content */}
-            <motion.div
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
+            <div
               className="lg:col-span-6 space-y-6"
             >
               <div>
@@ -441,12 +417,12 @@ export default function About() {
 
               <div className="pt-2">
                 <Link href="/contact">
-                  <BlobButton variant="primary" className="!py-3 !px-7 !text-xs !font-black">
+                  <BlobButton variant="primary" className="!py-3 !px-7 !text-xs !font-bold">
                     Talk to Our Engineers
                   </BlobButton>
                 </Link>
               </div>
-            </motion.div>
+            </div>
 
           </div>
         </section>
@@ -478,7 +454,7 @@ export default function About() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.4, delay: idx * 0.05 }}
-                    className="p-6 rounded-2xl bg-white/5 border border-white/10 hover:border-primary/50 transition-all duration-300 space-y-4 flex flex-col justify-between"
+                    className="p-6 rounded-xl bg-white/5 border border-white/10 hover:border-primary/50 transition-all duration-300 space-y-4 flex flex-col justify-between"
                   >
                     <div className="space-y-3">
                       <div className="w-10 h-10 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center text-primary">
@@ -535,7 +511,7 @@ export default function About() {
                   </p>
                 </div>
 
-                <div className="p-5 rounded-2xl bg-card border border-border space-y-2">
+                <div className="p-5 rounded-xl bg-card border border-border space-y-2">
                   <div className="flex items-center gap-2 text-primary font-bold text-sm uppercase">
                     <Target size={18} />
                     <span>Uncompromising Quality Commitment</span>
@@ -554,7 +530,7 @@ export default function About() {
                 transition={{ duration: 0.6 }}
                 className="lg:col-span-6"
               >
-                <div className="relative rounded-3xl overflow-hidden shadow-2xl border border-border group">
+                <div className="relative rounded-xl overflow-hidden shadow-2xl border border-border group">
                   <img
                     src="/images/about-mewar-hi-tech-3.jpg"
                     alt="Mewar Hi-Tech Team Celebration & Award Presentation"
@@ -562,7 +538,7 @@ export default function About() {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
                   
-                  <div className="absolute bottom-6 left-6 right-6 p-4 rounded-2xl bg-black/70 backdrop-blur-md border border-white/10 text-white">
+                  <div className="absolute bottom-6 left-6 right-6 p-4 rounded-xl bg-black/70 backdrop-blur-md border border-white/10 text-white">
                     <p className="text-xs font-bold text-primary uppercase tracking-widest">Corporate Excellence</p>
                     <p className="text-sm font-semibold mt-1">Recognizing Outstanding Team Milestones &amp; Client Success</p>
                   </div>

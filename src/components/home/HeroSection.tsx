@@ -46,8 +46,7 @@ const HeroSection: React.FC = () => {
         >
           <source src="/videos/home-page.mp4" type="video/mp4" />
         </video>
-        {/* Dark overlay for contrast */}
-        <div className="absolute inset-0 bg-black/60 z-10 pointer-events-none" />
+        {/* Dark overlay for contrast removed per user request */}
       </div>
 
 

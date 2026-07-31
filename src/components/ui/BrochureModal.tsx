@@ -68,7 +68,7 @@ export default function BrochureModal({ isOpen, onClose }: BrochureModalProps) {
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.95, y: 15 }}
             transition={{ type: "spring", damping: 25, stiffness: 300 }}
-            className={`relative w-full max-w-md sm:max-w-lg rounded-3xl p-5 sm:p-6 shadow-2xl border z-10 overflow-y-auto max-h-[88vh] space-y-4 ${
+            className={`relative w-full max-w-md sm:max-w-lg rounded-xl p-5 sm:p-6 shadow-2xl border z-10 overflow-y-auto max-h-[88vh] space-y-4 ${
               theme === "light"
                 ? "bg-white border-gray-200/80 text-gray-900"
                 : "bg-secondary border-border/30 text-white"
@@ -214,7 +214,7 @@ export default function BrochureModal({ isOpen, onClose }: BrochureModalProps) {
                   type="submit"
                   disabled={submitting}
                   variant="primary"
-                  className="!w-full !py-2.5 !text-xs !font-black !uppercase !tracking-wider"
+                  className="!w-full !py-2.5 !text-xs !font-bold !uppercase !tracking-wider"
                 >
                   <span className="inline-flex items-center justify-center gap-2 whitespace-nowrap">
                     <Send size={14} />

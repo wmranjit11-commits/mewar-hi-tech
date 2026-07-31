@@ -28,7 +28,7 @@ const AboutTeaser: React.FC = () => {
             <p className="text-primary font-bold text-xs uppercase tracking-wider block">
               Award Winning
             </p>
-            <h2 className="font-sans text-xl sm:text-2xl lg:text-3xl font-black leading-tight tracking-wide text-foreground uppercase">
+            <h2 className="font-sans text-xl sm:text-2xl lg:text-3xl font-bold leading-tight tracking-wide text-foreground uppercase">
               RECOGNIZED EXCELLENCE.
               <br />
               TRUSTED WORLDWIDE.

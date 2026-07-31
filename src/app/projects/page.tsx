@@ -58,7 +58,7 @@ export default function ProjectsLandingPage() {
               <span className="text-primary font-bold text-xs uppercase tracking-widest block">
                 Portfolio Classification
               </span>
-              <h2 className="common-heading text-3xl font-black text-foreground mt-2">
+              <h2 className="common-heading text-3xl font-bold text-foreground mt-2">
                 Project Installations
               </h2>
             </div>
@@ -73,7 +73,7 @@ export default function ProjectsLandingPage() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.5, delay: idx * 0.1 }}
-                    className="flex flex-col rounded-3xl overflow-hidden border border-border bg-card shadow-sm hover:shadow-xl hover:border-border/80 transition-all duration-300 group"
+                    className="flex flex-col rounded-xl overflow-hidden border border-border bg-card shadow-sm hover:shadow-xl hover:border-border/80 transition-all duration-300 group"
                   >
                     {/* Image Header wrapper */}
                     <div className="relative aspect-[16/10] w-full overflow-hidden bg-muted">
@@ -82,7 +82,7 @@ export default function ProjectsLandingPage() {
                         alt={category.title}
                         className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                       />
-                      <div className="absolute top-4 right-4 bg-background/90 backdrop-blur border border-border text-[11px] font-black uppercase tracking-wider text-foreground px-3 py-1 rounded-full">
+                      <div className="absolute top-4 right-4 bg-background/90 backdrop-blur border border-border text-[11px] font-bold uppercase tracking-wider text-foreground px-3 py-1 rounded-full">
                         {category.count} Images
                       </div>
                     </div>
@@ -92,11 +92,11 @@ export default function ProjectsLandingPage() {
                       <div className="space-y-3">
                         <div className="flex items-center gap-2 text-primary">
                           <Icon size={16} />
-                          <span className="text-[10px] font-black uppercase tracking-wider">
+                          <span className="text-[10px] font-bold uppercase tracking-wider">
                             Mewar Portfolio
                           </span>
                         </div>
-                        <h3 className="common-heading text-xl font-black text-foreground">
+                        <h3 className="common-heading text-xl font-bold text-foreground">
                           {category.title}
                         </h3>
                         <p className="text-muted-foreground text-xs leading-relaxed font-semibold">
@@ -105,7 +105,7 @@ export default function ProjectsLandingPage() {
                       </div>
 
                       <Link href={`/projects/${category.slug}`} className="block">
-                        <BlobButton variant="primary" className="!w-full !h-11 !text-[11px] !font-black !uppercase !tracking-wider flex items-center justify-center gap-2">
+                        <BlobButton variant="primary" className="!w-full !h-11 !text-[11px] !font-bold !uppercase !tracking-wider flex items-center justify-center gap-2">
                           <span>Browse Gallery</span>
                           <ArrowRight size={14} />
                         </BlobButton>

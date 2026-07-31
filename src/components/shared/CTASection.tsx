@@ -16,28 +16,27 @@ const CTASection: React.FC = () => {
           className="w-full h-full object-cover"
         />
       </div>
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.6 }}
-        className="relative max-w-4xl mx-auto px-6 text-center space-y-6"
+      <div
+        className="relative max-w-7xl mx-auto px-6 flex flex-col lg:flex-row items-center justify-between gap-10"
       >
-        <h2 className="common-heading text-3xl sm:text-4xl lg:text-5xl text-secondary-foreground">
-          Need Industrial Solutions?
-        </h2>
-        <p className="text-secondary-foreground/75 text-base sm:text-lg max-w-2xl mx-auto">
-          Partner with Keestrack for reliable, high-performance machinery engineered to
-          maximize your operational output.
-        </p>
-        <div className="pt-4">
-          <Link href="/contact">
-            <BlobButton variant="primary" className="!py-3.5 !px-8 text-xs font-black">
-              Request Quote <ArrowRight size={14} className="inline ml-1" />
+        <div className="text-left space-y-4 max-w-2xl">
+          <h2 className="common-heading text-3xl sm:text-4xl lg:text-5xl text-secondary-foreground uppercase tracking-tight font-bold">
+            Need Industrial Solutions?
+          </h2>
+          <div className="w-16 h-1.5 bg-primary rounded-none" />
+          <p className="text-secondary-foreground/75 text-base sm:text-lg font-medium leading-relaxed">
+            Partner with Mewar Hi-Tech for reliable, high-performance machinery engineered to
+            maximize your operational output.
+          </p>
+        </div>
+        <div className="shrink-0 w-full lg:w-auto">
+          <Link href="/contact" className="block w-full">
+            <BlobButton variant="primary" className="w-full lg:w-auto !py-4 !px-10 text-sm font-bold shadow-xl">
+              Request Quote <ArrowRight size={16} className="inline ml-2" />
             </BlobButton>
           </Link>
         </div>
-      </motion.div>
+      </div>
     </section>
   );
 };

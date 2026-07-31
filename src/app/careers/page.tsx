@@ -252,7 +252,7 @@ export default function CareersPage() {
               </p>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
-                <div className="p-4 rounded-2xl bg-card border border-border space-y-2">
+                <div className="p-4 rounded-xl bg-card border border-border space-y-2">
                   <div className="flex items-center gap-2 text-primary font-bold text-sm uppercase">
                     <Sparkles size={18} />
                     <span>Cutting-Edge Tech</span>
@@ -262,7 +262,7 @@ export default function CareersPage() {
                   </p>
                 </div>
 
-                <div className="p-4 rounded-2xl bg-card border border-border space-y-2">
+                <div className="p-4 rounded-xl bg-card border border-border space-y-2">
                   <div className="flex items-center gap-2 text-primary font-bold text-sm uppercase">
                     <Users size={18} />
                     <span>Collaborative Staff</span>
@@ -272,7 +272,7 @@ export default function CareersPage() {
                   </p>
                 </div>
 
-                <div className="p-4 rounded-2xl bg-card border border-border space-y-2">
+                <div className="p-4 rounded-xl bg-card border border-border space-y-2">
                   <div className="flex items-center gap-2 text-primary font-bold text-sm uppercase">
                     <Award size={18} />
                     <span>Recognized Excellence</span>
@@ -282,7 +282,7 @@ export default function CareersPage() {
                   </p>
                 </div>
 
-                <div className="p-4 rounded-2xl bg-card border border-border space-y-2">
+                <div className="p-4 rounded-xl bg-card border border-border space-y-2">
                   <div className="flex items-center gap-2 text-primary font-bold text-sm uppercase">
                     <CheckCircle2 size={18} />
                     <span>Career Advancement</span>
@@ -339,7 +339,7 @@ export default function CareersPage() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.4, delay: idx * 0.08 }}
-                  className="p-6 lg:p-8 rounded-3xl bg-card border border-border shadow-md hover:border-primary/50 transition-all duration-300 space-y-5 flex flex-col justify-between"
+                  className="p-6 lg:p-8 rounded-xl bg-card border border-border shadow-md hover:border-primary/50 transition-all duration-300 space-y-5 flex flex-col justify-between"
                 >
                   <div className="space-y-4">
                     <div className="flex items-start justify-between gap-4">
@@ -378,7 +378,7 @@ export default function CareersPage() {
                         setSelectedJob(job.title);
                         document.getElementById("career-apply")?.scrollIntoView({ behavior: "smooth" });
                       }}
-                      className="w-full py-3 px-4 rounded-xl bg-muted/70 hover:bg-primary hover:text-white text-foreground transition-colors duration-200 text-xs font-black uppercase tracking-wider flex items-center justify-center gap-2 border border-border"
+                      className="w-full py-3 px-4 rounded-xl bg-muted/70 hover:bg-primary hover:text-white text-foreground transition-colors duration-200 text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-2 border border-border"
                     >
                       <Briefcase size={14} />
                       <span>Apply For Position</span>
@@ -416,7 +416,7 @@ export default function CareersPage() {
                   </p>
                 </div>
 
-                <div className="p-6 lg:p-8 rounded-3xl bg-card border border-border shadow-lg space-y-6 flex-1 flex flex-col justify-center">
+                <div className="p-6 lg:p-8 rounded-xl bg-card border border-border shadow-lg space-y-6 flex-1 flex flex-col justify-center">
                   <div className="space-y-4">
                     <div className="flex items-center gap-3">
                       <div className="w-10 h-10 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center text-primary shrink-0">
@@ -475,7 +475,7 @@ export default function CareersPage() {
                 transition={{ duration: 0.6 }}
                 className="lg:col-span-7 flex flex-col h-full"
               >
-                <div className="p-8 lg:p-10 rounded-3xl bg-card border border-border shadow-2xl space-y-6 relative overflow-hidden flex flex-col justify-between h-full">
+                <div className="p-8 lg:p-10 rounded-xl bg-card border border-border shadow-2xl space-y-6 relative overflow-hidden flex flex-col justify-between h-full">
                   <div className="absolute top-0 right-0 w-32 h-32 bg-primary/10 rounded-full blur-3xl pointer-events-none" />
 
                   <div>
@@ -607,7 +607,7 @@ export default function CareersPage() {
                         type="submit"
                         disabled={submitting}
                         variant="primary"
-                        className="!w-full !py-3.5 !text-xs !font-black !uppercase !tracking-wider"
+                        className="!w-full !py-3.5 !text-xs !font-bold !uppercase !tracking-wider"
                       >
                         <span className="inline-flex items-center justify-center gap-2 whitespace-nowrap">
                           <Send size={15} />

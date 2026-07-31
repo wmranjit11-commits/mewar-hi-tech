@@ -20,7 +20,7 @@ const ExploreMachinesSection: React.FC = () => {
         {/* Centered Explore All Machines Button at the bottom */}
         <div className="w-full flex justify-center mt-12">
           <Link href="/products" className="cursor-pointer">
-            <BlobButton variant="secondary" className="!py-3.5 !px-8 text-xs font-black">
+            <BlobButton variant="secondary" className="!py-3.5 !px-8 text-xs font-bold">
               <span>Explore All Machines</span>
               <ArrowRight size={14} className="stroke-[3]" />
             </BlobButton>

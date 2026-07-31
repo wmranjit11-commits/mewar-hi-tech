@@ -32,7 +32,7 @@ const FlagshipProductsGrid: React.FC = () => {
               <p className="text-primary font-bold text-xs uppercase tracking-wider mb-2">
                 Download Resources
               </p>
-              <h3 className="font-sans text-lg sm:text-xl lg:text-2xl font-black text-foreground mb-3 leading-tight uppercase tracking-tight">
+              <h3 className="font-sans text-lg sm:text-xl lg:text-2xl font-bold text-foreground mb-3 leading-tight uppercase tracking-tight">
                 BROCHURES &amp; TECHNICAL DOCUMENTS
               </h3>
               <p className="text-xs text-muted-foreground mb-6 font-medium max-w-sm leading-relaxed">
@@ -65,7 +65,7 @@ const FlagshipProductsGrid: React.FC = () => {
               <p className="text-primary font-bold text-xs uppercase tracking-wider mb-2">
                 See It In Action
               </p>
-              <h3 className="font-sans text-lg sm:text-xl lg:text-2xl font-black text-foreground mb-3 leading-tight uppercase tracking-tight">
+              <h3 className="font-sans text-lg sm:text-xl lg:text-2xl font-bold text-foreground mb-3 leading-tight uppercase tracking-tight">
                 MACHINES THAT WORK FOR YOU
               </h3>
               <p className="text-xs text-muted-foreground mb-6 font-medium max-w-sm leading-relaxed">
@@ -136,7 +136,7 @@ const FlagshipProductsGrid: React.FC = () => {
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.95, opacity: 0 }}
               transition={{ duration: 0.2 }}
-              className="relative w-full max-w-5xl aspect-video rounded-2xl overflow-hidden shadow-2xl border border-white/10 bg-black"
+              className="relative w-full max-w-5xl aspect-video rounded-xl overflow-hidden shadow-2xl border border-white/10 bg-black"
               onClick={(e) => e.stopPropagation()}
             >
               <iframe

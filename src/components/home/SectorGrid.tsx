@@ -53,7 +53,7 @@ const SectorGrid: React.FC = () => {
             <p className="text-primary font-bold text-xs uppercase tracking-widest mb-2.5">
               Find Your Perfect Machine
             </p>
-            <h2 className="font-sans text-3xl font-black text-foreground leading-none mb-4 uppercase tracking-tight">
+            <h2 className="font-sans text-3xl font-bold text-foreground leading-none mb-4 uppercase tracking-tight">
               SMART TOOLS.
               <br />
               SMARTER CHOICE.
@@ -69,7 +69,7 @@ const SectorGrid: React.FC = () => {
                     <select
                       value={application}
                       onChange={(e) => setApplication(e.target.value)}
-                      className="w-full appearance-none border border-border rounded text-xs bg-card text-foreground py-2.5 pl-3 pr-8 focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary font-semibold shadow-sm"
+                      className="w-full appearance-none border-2 border-border rounded-none text-xs bg-card text-foreground py-2.5 pl-3 pr-8 focus:outline-none focus:ring-0 focus:border-primary font-semibold transition-colors"
                     >
                       <option>Quarry</option>
                       <option>Mining</option>
@@ -84,7 +84,7 @@ const SectorGrid: React.FC = () => {
                     <select
                       value={material}
                       onChange={(e) => setMaterial(e.target.value)}
-                      className="w-full appearance-none border border-border rounded text-xs bg-card text-foreground py-2.5 pl-3 pr-8 focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary font-semibold shadow-sm"
+                      className="w-full appearance-none border-2 border-border rounded-none text-xs bg-card text-foreground py-2.5 pl-3 pr-8 focus:outline-none focus:ring-0 focus:border-primary font-semibold transition-colors"
                     >
                       <option>Hard Rock</option>
                       <option>Gravel</option>
@@ -101,7 +101,7 @@ const SectorGrid: React.FC = () => {
                     <select
                       value={capacity}
                       onChange={(e) => setCapacity(e.target.value)}
-                      className="w-full appearance-none border border-border rounded text-xs bg-card text-foreground py-2.5 pl-3 pr-8 focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary font-semibold shadow-sm"
+                      className="w-full appearance-none border-2 border-border rounded-none text-xs bg-card text-foreground py-2.5 pl-3 pr-8 focus:outline-none focus:ring-0 focus:border-primary font-semibold transition-colors"
                     >
                       <option>150 - 300 TPH</option>
                       <option>300 - 500 TPH</option>
@@ -116,7 +116,7 @@ const SectorGrid: React.FC = () => {
                     <select
                       value={power}
                       onChange={(e) => setPower(e.target.value)}
-                      className="w-full appearance-none border border-border rounded text-xs bg-card text-foreground py-2.5 pl-3 pr-8 focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary font-semibold shadow-sm"
+                      className="w-full appearance-none border-2 border-border rounded-none text-xs bg-card text-foreground py-2.5 pl-3 pr-8 focus:outline-none focus:ring-0 focus:border-primary font-semibold transition-colors"
                     >
                       <option>Electric</option>
                       <option>Diesel</option>
@@ -131,7 +131,7 @@ const SectorGrid: React.FC = () => {
                 <BlobButton
                   variant="primary"
                   type="button"
-                  className="!w-auto !py-3 !text-xs !font-black px-6 rounded"
+                  className="!w-auto !py-3 !text-xs !font-bold px-6 rounded"
                 >
                   <div className="flex items-center gap-2 whitespace-nowrap">
                     <span>Find My Machine</span>
@@ -193,7 +193,7 @@ const SectorGrid: React.FC = () => {
                 {/* 3D Viewer model-viewer (3/5 Width) */}
                 <div className="md:col-span-3 flex flex-col items-center relative w-full overflow-hidden max-w-full">
                   
-                  <div className="relative w-full aspect-square sm:aspect-[4/3] rounded-3xl overflow-hidden border border-border bg-card/30 flex items-center justify-center p-2">
+                  <div className="relative w-full aspect-square sm:aspect-[4/3] flex items-center justify-center p-2">
                     <model-viewer
                       ref={viewerRef}
                       src="/3dmodel/Meshy_AI_Kingson_Cone_Crusher_0704110926_texture.glb"
@@ -205,21 +205,21 @@ const SectorGrid: React.FC = () => {
                       shadow-intensity="1"
                       interaction-prompt="none"
                       auto-rotate-delay="0"
-                      className="w-full h-full rounded-2xl"
+                      className="w-full h-full rounded-xl"
                       style={{ width: "100%", height: "100%", minHeight: "250px" }}
                     >
                       {/* Hotspots */}
                       <button
                         slot="hotspot-1"
                         data-position="-0.2m 0.5m 0.3m"
-                        className="w-6 h-6 bg-card rounded-full flex items-center justify-center shadow-md cursor-pointer hover:scale-110 transition-transform border border-primary/40 text-primary font-black text-xs"
+                        className="w-6 h-6 bg-primary rounded-none flex items-center justify-center shadow-md cursor-pointer hover:scale-110 transition-transform text-primary-foreground font-bold text-xs"
                       >
                         +
                       </button>
                       <button
                         slot="hotspot-2"
                         data-position="0.2m 0.6m -0.1m"
-                        className="w-6 h-6 bg-card rounded-full flex items-center justify-center shadow-md cursor-pointer hover:scale-110 transition-transform border border-primary/40 text-primary font-black text-xs"
+                        className="w-6 h-6 bg-primary rounded-none flex items-center justify-center shadow-md cursor-pointer hover:scale-110 transition-transform text-primary-foreground font-bold text-xs"
                       >
                         +
                       </button>
@@ -231,7 +231,7 @@ const SectorGrid: React.FC = () => {
                     <button 
                       onClick={handleReset}
                       type="button"
-                      className="text-muted-foreground hover:text-primary transition-colors flex items-center gap-1 text-[10px] font-black uppercase tracking-wider"
+                      className="text-muted-foreground hover:text-primary transition-colors flex items-center gap-1 text-[10px] font-bold uppercase tracking-wider"
                     >
                       <span>360°</span>
                       <RotateCcw size={12} strokeWidth={2.5} />

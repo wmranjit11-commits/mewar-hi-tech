@@ -222,21 +222,21 @@ export default function InvestorPage({ params }: PageProps) {
               <div className="flex items-center gap-3 px-4 pt-4 md:pt-0 first:pt-0">
                 <ShieldCheck size={20} className="text-primary shrink-0 stroke-[2.2]" />
                 <div className="text-left font-sans">
-                  <span className="block text-xs font-black uppercase text-foreground">Verified Governance</span>
+                  <span className="block text-xs font-bold uppercase text-foreground">Verified Governance</span>
                   <span className="text-[10px] font-bold text-muted-foreground uppercase tracking-wider">SEBI LODR Compliance</span>
                 </div>
               </div>
               <div className="flex items-center gap-3 px-4 pt-4 md:pt-0">
                 <Clock size={20} className="text-primary shrink-0 stroke-[2.2]" />
                 <div className="text-left font-sans">
-                  <span className="block text-xs font-black uppercase text-foreground">Continuous Filing</span>
+                  <span className="block text-xs font-bold uppercase text-foreground">Continuous Filing</span>
                   <span className="text-[10px] font-bold text-muted-foreground uppercase tracking-wider">Quarterly &amp; Annual Filings</span>
                 </div>
               </div>
               <div className="flex items-center gap-3 px-4 pt-4 md:pt-0">
                 <Award size={20} className="text-primary shrink-0 stroke-[2.2]" />
                 <div className="text-left font-sans">
-                  <span className="block text-xs font-black uppercase text-foreground">ISO Certified</span>
+                  <span className="block text-xs font-bold uppercase text-foreground">ISO Certified</span>
                   <span className="text-[10px] font-bold text-muted-foreground uppercase tracking-wider">ISO 9001:2008 Standard</span>
                 </div>
               </div>
@@ -250,8 +250,8 @@ export default function InvestorPage({ params }: PageProps) {
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
               
               {/* Left Sidebar (Cols 1-4) */}
-              <div className="lg:col-span-4 bg-card border border-border/85 rounded-3xl p-5 space-y-2 shadow-xs">
-                <span className="text-[10px] font-black text-primary uppercase tracking-widest block pl-3 mb-2 font-sans">
+              <div className="lg:col-span-4 bg-card border border-border/85 rounded-xl p-5 space-y-2 shadow-xs">
+                <span className="text-[10px] font-bold text-primary uppercase tracking-widest block pl-3 mb-2 font-sans">
                   Investor Categories
                 </span>
                 <nav className="space-y-1">
@@ -299,8 +299,8 @@ export default function InvestorPage({ params }: PageProps) {
 
                 {/* CORPORATE GOVERNANCE PANEL */}
                 {activeSlug === "corporate-governance" && (
-                  <div className="bg-card border border-border/80 p-8 rounded-3xl space-y-6 shadow-sm">
-                    <h3 className="common-heading text-xl sm:text-2xl font-black text-foreground uppercase tracking-tight">
+                  <div className="bg-card border border-border/80 p-8 rounded-xl space-y-6 shadow-sm">
+                    <h3 className="common-heading text-xl sm:text-2xl font-bold text-foreground uppercase tracking-tight">
                       Corporate Governance Policies
                     </h3>
                     <p className="text-xs text-muted-foreground leading-relaxed font-semibold">
@@ -310,7 +310,7 @@ export default function InvestorPage({ params }: PageProps) {
                       {CORPORATE_GOVERNANCE_DATA.map((item, idx) => (
                         <div
                           key={idx}
-                          className="flex items-center justify-between p-4 bg-background border border-border/60 rounded-2xl hover:border-primary/45 transition-colors"
+                          className="flex items-center justify-between p-4 bg-background border border-border/60 rounded-xl hover:border-primary/45 transition-colors"
                         >
                           <div className="flex items-center gap-3">
                             <CheckCircle2 size={16} className="text-primary shrink-0 stroke-[2.5]" />
@@ -318,7 +318,7 @@ export default function InvestorPage({ params }: PageProps) {
                           </div>
                           <BlobButton
                             variant="secondary"
-                            className="!py-2 !px-4 text-[10px] font-black uppercase tracking-wider shrink-0"
+                            className="!py-2 !px-4 text-[10px] font-bold uppercase tracking-wider shrink-0"
                           >
                             <span className="flex items-center gap-1.5">
                               <span>Click Here</span>
@@ -333,20 +333,20 @@ export default function InvestorPage({ params }: PageProps) {
 
                 {/* SHAREHOLDING PATTERN PANEL */}
                 {activeSlug === "shareholding-pattern" && (
-                  <div className="bg-card border border-border/80 p-8 rounded-3xl space-y-6 shadow-sm">
-                    <h3 className="common-heading text-xl sm:text-2xl font-black text-foreground uppercase tracking-tight">
+                  <div className="bg-card border border-border/80 p-8 rounded-xl space-y-6 shadow-sm">
+                    <h3 className="common-heading text-xl sm:text-2xl font-bold text-foreground uppercase tracking-tight">
                       Shareholding Patterns
                     </h3>
                     <div className="space-y-3">
                       {filterList(SHAREHOLDING_DATA).map((item, idx) => (
                         <div
                           key={idx}
-                          className="flex items-center justify-between p-4 bg-background border border-border/60 rounded-2xl"
+                          className="flex items-center justify-between p-4 bg-background border border-border/60 rounded-xl"
                         >
                           <span className="text-xs font-bold text-foreground">{item.quarter}</span>
                           <BlobButton
                             variant="secondary"
-                            className="!py-2 !px-4 text-[10px] font-black uppercase tracking-wider"
+                            className="!py-2 !px-4 text-[10px] font-bold uppercase tracking-wider"
                           >
                             <span className="flex items-center gap-1.5">
                               <span>Click Here</span>
@@ -361,20 +361,20 @@ export default function InvestorPage({ params }: PageProps) {
 
                 {/* SHAREHOLDERS MEETINGS PANEL */}
                 {activeSlug === "shareholders-meetings" && (
-                  <div className="bg-card border border-border/80 p-8 rounded-3xl space-y-6 shadow-sm">
-                    <h3 className="common-heading text-xl sm:text-2xl font-black text-foreground uppercase tracking-tight">
+                  <div className="bg-card border border-border/80 p-8 rounded-xl space-y-6 shadow-sm">
+                    <h3 className="common-heading text-xl sm:text-2xl font-bold text-foreground uppercase tracking-tight">
                       Shareholders Meetings &amp; Resolutions
                     </h3>
                     <div className="max-h-[500px] overflow-y-auto space-y-3 pr-2 scrollbar-thin">
                       {filterList(SHAREHOLDERS_MEETINGS_DATA).map((item, idx) => (
                         <div
                           key={idx}
-                          className="flex items-center justify-between p-4 bg-background border border-border/60 rounded-2xl"
+                          className="flex items-center justify-between p-4 bg-background border border-border/60 rounded-xl"
                         >
                           <span className="text-xs font-bold text-foreground leading-snug">{item.title}</span>
                           <BlobButton
                             variant="secondary"
-                            className="!py-2 !px-4 text-[10px] font-black uppercase tracking-wider"
+                            className="!py-2 !px-4 text-[10px] font-bold uppercase tracking-wider"
                           >
                             <span className="flex items-center gap-1.5">
                               <span>Click Here</span>
@@ -389,20 +389,20 @@ export default function InvestorPage({ params }: PageProps) {
 
                 {/* BOARD MEETINGS PANEL */}
                 {activeSlug === "board-meeting" && (
-                  <div className="bg-card border border-border/80 p-8 rounded-3xl space-y-6 shadow-sm">
-                    <h3 className="common-heading text-xl sm:text-2xl font-black text-foreground uppercase tracking-tight">
+                  <div className="bg-card border border-border/80 p-8 rounded-xl space-y-6 shadow-sm">
+                    <h3 className="common-heading text-xl sm:text-2xl font-bold text-foreground uppercase tracking-tight">
                       Board Meetings Notices &amp; Outcomes
                     </h3>
                     <div className="max-h-[500px] overflow-y-auto space-y-3 pr-2 scrollbar-thin">
                       {filterList(BOARD_MEETINGS_DATA).map((item, idx) => (
                         <div
                           key={idx}
-                          className="flex items-center justify-between p-4 bg-background border border-border/60 rounded-2xl"
+                          className="flex items-center justify-between p-4 bg-background border border-border/60 rounded-xl"
                         >
                           <span className="text-xs font-bold text-foreground leading-snug">{item.title}</span>
                           <BlobButton
                             variant="secondary"
-                            className="!py-2 !px-4 text-[10px] font-black uppercase tracking-wider"
+                            className="!py-2 !px-4 text-[10px] font-bold uppercase tracking-wider"
                           >
                             <span className="flex items-center gap-1.5">
                               <span>Click Here</span>
@@ -417,20 +417,20 @@ export default function InvestorPage({ params }: PageProps) {
 
                 {/* FINANCIAL RESULTS PANEL */}
                 {activeSlug === "financial-results" && (
-                  <div className="bg-card border border-border/80 p-8 rounded-3xl space-y-6 shadow-sm">
-                    <h3 className="common-heading text-xl sm:text-2xl font-black text-foreground uppercase tracking-tight">
+                  <div className="bg-card border border-border/80 p-8 rounded-xl space-y-6 shadow-sm">
+                    <h3 className="common-heading text-xl sm:text-2xl font-bold text-foreground uppercase tracking-tight">
                       Financial Performance Results
                     </h3>
                     <div className="max-h-[500px] overflow-y-auto space-y-3 pr-2 scrollbar-thin">
                       {filterList(FINANCIAL_RESULTS_DATA).map((item, idx) => (
                         <div
                           key={idx}
-                          className="flex items-center justify-between p-4 bg-background border border-border/60 rounded-2xl"
+                          className="flex items-center justify-between p-4 bg-background border border-border/60 rounded-xl"
                         >
                           <span className="text-xs font-bold text-foreground leading-relaxed">{item.title}</span>
                           <BlobButton
                             variant="secondary"
-                            className="!py-2 !px-4 text-[10px] font-black uppercase tracking-wider"
+                            className="!py-2 !px-4 text-[10px] font-bold uppercase tracking-wider"
                           >
                             <span className="flex items-center gap-1.5">
                               <span>Click Here</span>
@@ -445,15 +445,15 @@ export default function InvestorPage({ params }: PageProps) {
 
                 {/* ANNUAL REPORTS PANEL */}
                 {activeSlug === "annual-reports" && (
-                  <div className="bg-card border border-border/80 p-8 rounded-3xl space-y-6 shadow-sm">
-                    <h3 className="common-heading text-xl sm:text-2xl font-black text-foreground uppercase tracking-tight">
+                  <div className="bg-card border border-border/80 p-8 rounded-xl space-y-6 shadow-sm">
+                    <h3 className="common-heading text-xl sm:text-2xl font-bold text-foreground uppercase tracking-tight">
                       Annual Reports Directory
                     </h3>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                       {filterList(ANNUAL_REPORTS_DATA).map((item, idx) => (
                         <div
                           key={idx}
-                          className="p-5 rounded-2xl bg-background border border-border/60 hover:border-primary/45 transition-colors flex items-center justify-between group"
+                          className="p-5 rounded-xl bg-background border border-border/60 hover:border-primary/45 transition-colors flex items-center justify-between group"
                         >
                           <div className="flex items-center gap-3">
                             <div className="w-10 h-10 rounded-xl bg-primary/10 border border-primary/20 text-primary flex items-center justify-center group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-300">
@@ -461,12 +461,12 @@ export default function InvestorPage({ params }: PageProps) {
                             </div>
                             <div className="text-left font-sans">
                               <span className="block text-xs font-bold text-foreground leading-tight">{item.title}</span>
-                              <span className="text-[9px] font-extrabold text-muted-foreground uppercase mt-0.5 block">{item.year} Report</span>
+                              <span className="text-[9px] font-bold text-muted-foreground uppercase mt-0.5 block">{item.year} Report</span>
                             </div>
                           </div>
                           <BlobButton
                             variant="secondary"
-                            className="!py-1.5 !px-3 text-[9px] font-black uppercase tracking-wider shrink-0"
+                            className="!py-1.5 !px-3 text-[9px] font-bold uppercase tracking-wider shrink-0"
                           >
                             <span>View</span>
                           </BlobButton>
@@ -478,15 +478,15 @@ export default function InvestorPage({ params }: PageProps) {
 
                 {/* ANNUAL RETURNS PANEL */}
                 {activeSlug === "annual-returns" && (
-                  <div className="bg-card border border-border/80 p-8 rounded-3xl space-y-6 shadow-sm">
-                    <h3 className="common-heading text-xl sm:text-2xl font-black text-foreground uppercase tracking-tight">
+                  <div className="bg-card border border-border/80 p-8 rounded-xl space-y-6 shadow-sm">
+                    <h3 className="common-heading text-xl sm:text-2xl font-bold text-foreground uppercase tracking-tight">
                       Annual Returns (MGT-7) Filings
                     </h3>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                       {filterList(ANNUAL_RETURNS_DATA).map((item, idx) => (
                         <div
                           key={idx}
-                          className="p-5 rounded-2xl bg-background border border-border/60 hover:border-primary/45 transition-colors flex items-center justify-between group"
+                          className="p-5 rounded-xl bg-background border border-border/60 hover:border-primary/45 transition-colors flex items-center justify-between group"
                         >
                           <div className="flex items-center gap-3">
                             <div className="w-10 h-10 rounded-xl bg-primary/10 border border-primary/20 text-primary flex items-center justify-center group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-300">
@@ -494,12 +494,12 @@ export default function InvestorPage({ params }: PageProps) {
                             </div>
                             <div className="text-left font-sans">
                               <span className="block text-xs font-bold text-foreground leading-tight">{item.title}</span>
-                              <span className="text-[9px] font-extrabold text-muted-foreground uppercase mt-0.5 block">Year: {item.year}</span>
+                              <span className="text-[9px] font-bold text-muted-foreground uppercase mt-0.5 block">Year: {item.year}</span>
                             </div>
                           </div>
                           <BlobButton
                             variant="secondary"
-                            className="!py-1.5 !px-3 text-[9px] font-black uppercase tracking-wider shrink-0"
+                            className="!py-1.5 !px-3 text-[9px] font-bold uppercase tracking-wider shrink-0"
                           >
                             <span>View</span>
                           </BlobButton>
@@ -511,21 +511,21 @@ export default function InvestorPage({ params }: PageProps) {
 
                 {/* SHAREHOLDER INFORMATION PANEL */}
                 {activeSlug === "shareholder-information" && (
-                  <div className="bg-card border border-border/80 p-8 rounded-3xl space-y-6 shadow-sm">
-                    <h3 className="common-heading text-xl sm:text-2xl font-black text-foreground uppercase tracking-tight">
+                  <div className="bg-card border border-border/80 p-8 rounded-xl space-y-6 shadow-sm">
+                    <h3 className="common-heading text-xl sm:text-2xl font-bold text-foreground uppercase tracking-tight">
                       Shareholder Information &amp; Scrutinizer Reports
                     </h3>
                     
                     <div className="space-y-6">
                       {/* Section 1: Disclosure and Information */}
-                      <div className="p-6 rounded-2xl bg-background border border-border/60 space-y-4">
-                        <h4 className="text-sm font-extrabold text-primary uppercase font-heading">
+                      <div className="p-6 rounded-xl bg-background border border-border/60 space-y-4">
+                        <h4 className="text-sm font-bold text-primary uppercase font-heading">
                           1. Disclosure and Information
                         </h4>
                         
                         {/* 2024-25 */}
                         <div className="space-y-2">
-                          <span className="text-[10px] font-black text-muted-foreground uppercase tracking-wider block">
+                          <span className="text-[10px] font-bold text-muted-foreground uppercase tracking-wider block">
                             Financial Year 2024-25
                           </span>
                           <div className="space-y-2 pl-2 border-l-2 border-primary/20">
@@ -536,7 +536,7 @@ export default function InvestorPage({ params }: PageProps) {
                             ].map((doc, idx) => (
                               <div key={idx} className="flex items-center justify-between text-xs font-bold py-1">
                                 <span className="text-foreground leading-snug">{doc}</span>
-                                <BlobButton variant="secondary" className="!py-1 !px-2.5 text-[9px] font-black uppercase tracking-wider shrink-0">
+                                <BlobButton variant="secondary" className="!py-1 !px-2.5 text-[9px] font-bold uppercase tracking-wider shrink-0">
                                   <span>Open File</span>
                                 </BlobButton>
                               </div>
@@ -546,7 +546,7 @@ export default function InvestorPage({ params }: PageProps) {
 
                         {/* 2023-24 */}
                         <div className="space-y-2 pt-3 border-t border-border/60">
-                          <span className="text-[10px] font-black text-muted-foreground uppercase tracking-wider block">
+                          <span className="text-[10px] font-bold text-muted-foreground uppercase tracking-wider block">
                             Financial Year 2023-24
                           </span>
                           <div className="space-y-2 pl-2 border-l-2 border-primary/20">
@@ -557,7 +557,7 @@ export default function InvestorPage({ params }: PageProps) {
                             ].map((doc, idx) => (
                               <div key={idx} className="flex items-center justify-between text-xs font-bold py-1">
                                 <span className="text-foreground leading-snug">{doc}</span>
-                                <BlobButton variant="secondary" className="!py-1 !px-2.5 text-[9px] font-black uppercase tracking-wider shrink-0">
+                                <BlobButton variant="secondary" className="!py-1 !px-2.5 text-[9px] font-bold uppercase tracking-wider shrink-0">
                                   <span>Open File</span>
                                 </BlobButton>
                               </div>
@@ -567,17 +567,17 @@ export default function InvestorPage({ params }: PageProps) {
                       </div>
 
                       {/* Section 2: Investor Forms */}
-                      <div className="p-6 rounded-2xl bg-background border border-border/60 flex items-center justify-between hover:border-primary/45 transition-colors">
+                      <div className="p-6 rounded-xl bg-background border border-border/60 flex items-center justify-between hover:border-primary/45 transition-colors">
                         <div className="flex items-center gap-3">
                           <div className="w-10 h-10 rounded-xl bg-primary/10 border border-primary/20 text-primary flex items-center justify-center shrink-0">
                             <FileText size={18} />
                           </div>
                           <div className="text-left font-sans">
                             <span className="block text-xs font-bold text-foreground">2. Investors Forms</span>
-                            <span className="text-[9px] font-extrabold text-muted-foreground uppercase mt-0.5 block">Statutory Downloads</span>
+                            <span className="text-[9px] font-bold text-muted-foreground uppercase mt-0.5 block">Statutory Downloads</span>
                           </div>
                         </div>
-                        <BlobButton variant="secondary" className="!py-1.5 !px-3 text-[9px] font-black uppercase tracking-wider">
+                        <BlobButton variant="secondary" className="!py-1.5 !px-3 text-[9px] font-bold uppercase tracking-wider">
                           <span>View Files</span>
                         </BlobButton>
                       </div>
@@ -587,19 +587,19 @@ export default function InvestorPage({ params }: PageProps) {
 
                 {/* INVESTOR CONTACTS PANEL */}
                 {activeSlug === "investor-contacts" && (
-                  <div className="bg-card border border-border/80 p-8 rounded-3xl space-y-6 shadow-sm">
-                    <h3 className="common-heading text-xl sm:text-2xl font-black text-foreground uppercase tracking-tight">
+                  <div className="bg-card border border-border/80 p-8 rounded-xl space-y-6 shadow-sm">
+                    <h3 className="common-heading text-xl sm:text-2xl font-bold text-foreground uppercase tracking-tight">
                       Investor Contacts &amp; Redressal
                     </h3>
                     <div className="space-y-4">
-                      <div className="flex items-center justify-between p-4 bg-background border border-border/60 rounded-2xl hover:border-primary/45 transition-colors">
+                      <div className="flex items-center justify-between p-4 bg-background border border-border/60 rounded-xl hover:border-primary/45 transition-colors">
                         <div className="flex items-center gap-3">
                           <CheckCircle2 size={16} className="text-primary shrink-0 stroke-[2.5]" />
                           <span className="text-xs font-bold text-foreground leading-tight">Investor Contact &amp; Compliance Cell</span>
                         </div>
                         <BlobButton
                           variant="secondary"
-                          className="!py-2 !px-4 text-[10px] font-black uppercase tracking-wider"
+                          className="!py-2 !px-4 text-[10px] font-bold uppercase tracking-wider"
                         >
                           <span className="flex items-center gap-1.5">
                             <span>Click Here</span>
@@ -613,18 +613,18 @@ export default function InvestorPage({ params }: PageProps) {
 
                 {/* DISCLOSURE REGULATION 46 PANEL */}
                 {activeSlug === "disclosure-regulation-46" && (
-                  <div className="bg-card border border-border/80 p-8 rounded-3xl space-y-6 shadow-sm">
-                    <h3 className="common-heading text-xl sm:text-2xl font-black text-foreground uppercase tracking-tight">
+                  <div className="bg-card border border-border/80 p-8 rounded-xl space-y-6 shadow-sm">
+                    <h3 className="common-heading text-xl sm:text-2xl font-bold text-foreground uppercase tracking-tight">
                       SEBI LODR Regulation 46 Disclosures
                     </h3>
                     <p className="text-xs text-muted-foreground leading-relaxed font-semibold">
                       Complete compliance filings of SEBI (Listing Obligations and Disclosure Requirements) Regulations, 2015.
                     </p>
                     
-                    <div className="max-h-[500px] overflow-y-auto border border-border/80 rounded-2xl overflow-hidden scrollbar-thin">
+                    <div className="max-h-[500px] overflow-y-auto border border-border/80 rounded-xl overflow-hidden scrollbar-thin">
                       <table className="w-full text-left border-collapse text-xs">
                         <thead>
-                          <tr className="bg-muted border-b border-border/80 text-[10px] uppercase tracking-wider font-black text-muted-foreground">
+                          <tr className="bg-muted border-b border-border/80 text-[10px] uppercase tracking-wider font-bold text-muted-foreground">
                             <th className="p-4 w-12 text-center">No.</th>
                             <th className="p-4">Disclosure Item</th>
                             <th className="p-4 w-28 text-center">Status</th>
@@ -639,12 +639,12 @@ export default function InvestorPage({ params }: PageProps) {
                                 {item.status === "Available" ? (
                                   <BlobButton
                                     variant="secondary"
-                                    className="!py-1 !px-2.5 !text-[9px] font-black uppercase tracking-wider"
+                                    className="!py-1 !px-2.5 !text-[9px] font-bold uppercase tracking-wider"
                                   >
                                     <span>Click Here</span>
                                   </BlobButton>
                                 ) : (
-                                  <span className="inline-block px-2.5 py-1 rounded-full bg-muted border border-border text-[9px] font-black uppercase text-muted-foreground">
+                                  <span className="inline-block px-2.5 py-1 rounded-full bg-muted border border-border text-[9px] font-bold uppercase text-muted-foreground">
                                     N/A
                                   </span>
                                 )}

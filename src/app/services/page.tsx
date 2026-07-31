@@ -198,13 +198,13 @@ export default function ServicesPage() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.4, delay: idx * 0.08 }}
-                    className="p-6 rounded-2xl bg-background border border-border/70 hover:border-primary/40 shadow-xs hover:shadow-md transition-all duration-300 flex items-start gap-4 group"
+                    className="p-6 rounded-xl bg-background border border-border/70 hover:border-primary/40 shadow-xs hover:shadow-md transition-all duration-300 flex items-start gap-4 group"
                   >
                     <div className="w-12 h-12 rounded-xl bg-primary/10 border border-primary/20 text-primary flex items-center justify-center shrink-0 group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-300">
                       <IconComp size={22} className="stroke-[2.2]" />
                     </div>
                     <div className="space-y-1 text-left">
-                      <h3 className="text-sm font-extrabold text-foreground uppercase tracking-tight font-heading leading-tight group-hover:text-primary transition-colors">
+                      <h3 className="text-sm font-bold text-foreground uppercase tracking-tight font-heading leading-tight group-hover:text-primary transition-colors">
                         {item.title}
                       </h3>
                       <p className="text-xs text-muted-foreground font-semibold leading-relaxed">
@@ -229,7 +229,7 @@ export default function ServicesPage() {
                   <span className="text-primary font-bold text-xs uppercase tracking-widest block font-sans">
                     Our Operational Assurance
                   </span>
-                  <h2 className="common-heading text-3xl sm:text-4xl lg:text-5xl text-foreground font-black leading-tight tracking-tight">
+                  <h2 className="common-heading text-3xl sm:text-4xl lg:text-5xl text-foreground font-bold leading-tight tracking-tight">
                     Reliable Service Built Around Your Uptime
                   </h2>
                 </div>
@@ -239,14 +239,14 @@ export default function ServicesPage() {
                     We provide specialized technical services to assist our clients in selecting the most appropriate crushing gear and executing every project with optimal machine design. Our equipment and support services ensure your infrastructure operates efficiently with maximum throughput.
                   </p>
                   <p>
-                    We stand firmly by our <strong className="text-foreground font-extrabold">Guarantee to Repair, Replace, and Return</strong>. With three core assurances—Assurance of Product Quality, Credible Contracts, and Excellent Service—we provide prompt resolution to any technical issue on-site.
+                    We stand firmly by our <strong className="text-foreground font-bold">Guarantee to Repair, Replace, and Return</strong>. With three core assurances—Assurance of Product Quality, Credible Contracts, and Excellent Service—we provide prompt resolution to any technical issue on-site.
                   </p>
                 </div>
               </div>
 
               {/* Right Column: Featured Image Card */}
               <div className="lg:col-span-5 relative">
-                <div className="relative rounded-3xl overflow-hidden border border-border bg-card shadow-2xl group">
+                <div className="relative rounded-xl overflow-hidden border border-border bg-card shadow-2xl group">
                   <img
                     src="/images/after-sales-1.jpg"
                     alt="Kingson After Sales Support"
@@ -255,11 +255,11 @@ export default function ServicesPage() {
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
                   
                   {/* Floating Badge */}
-                  <div className="absolute bottom-6 left-6 right-6 p-5 rounded-2xl bg-black/70 backdrop-blur-md border border-white/10 text-white text-left space-y-1">
-                    <span className="text-primary text-[10px] font-black uppercase tracking-widest block">
+                  <div className="absolute bottom-6 left-6 right-6 p-5 rounded-xl bg-black/70 backdrop-blur-md border border-white/10 text-white text-left space-y-1">
+                    <span className="text-primary text-[10px] font-bold uppercase tracking-widest block">
                       Active Field Support
                     </span>
-                    <h4 className="font-extrabold text-sm uppercase tracking-wider font-heading">
+                    <h4 className="font-bold text-sm uppercase tracking-wider font-heading">
                       On-Site Plant Fine-Tuning
                     </h4>
                   </div>
@@ -277,7 +277,7 @@ export default function ServicesPage() {
               <span className="text-primary font-bold text-xs uppercase tracking-widest block font-sans">
                 End-To-End Engagement
               </span>
-              <h2 className="common-heading text-3xl sm:text-4xl lg:text-5xl text-foreground font-black tracking-tight">
+              <h2 className="common-heading text-3xl sm:text-4xl lg:text-5xl text-foreground font-bold tracking-tight">
                 Our 3-Stage Service Lifecycle
               </h2>
             </div>
@@ -292,23 +292,23 @@ export default function ServicesPage() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.5, delay: idx * 0.12 }}
-                    className="p-8 rounded-3xl bg-card border border-border/80 hover:border-primary/40 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between text-left space-y-6 group"
+                    className="p-8 rounded-xl bg-card border border-border/80 hover:border-primary/40 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between text-left space-y-6 group"
                   >
                     <div className="flex items-center justify-between">
-                      <div className="w-12 h-12 rounded-2xl bg-primary/10 border border-primary/20 text-primary flex items-center justify-center group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-300">
+                      <div className="w-12 h-12 rounded-xl bg-primary/10 border border-primary/20 text-primary flex items-center justify-center group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-300">
                         <IconComp size={24} className="stroke-[2.2]" />
                       </div>
-                      <span className="text-3xl font-black text-primary/30 font-heading">
+                      <span className="text-3xl font-bold text-primary/30 font-heading">
                         {stage.step}
                       </span>
                     </div>
 
                     <div className="space-y-4">
                       <div>
-                        <h3 className="common-heading text-xl font-black text-foreground group-hover:text-primary transition-colors">
+                        <h3 className="common-heading text-xl font-bold text-foreground group-hover:text-primary transition-colors">
                           {stage.title}
                         </h3>
-                        <p className="text-[11px] font-extrabold text-primary uppercase tracking-wider mt-1">
+                        <p className="text-[11px] font-bold text-primary uppercase tracking-wider mt-1">
                           {stage.subtitle}
                         </p>
                       </div>
@@ -340,7 +340,7 @@ export default function ServicesPage() {
               <span className="text-primary font-bold text-xs uppercase tracking-widest block font-sans">
                 Core Capabilities
               </span>
-              <h2 className="common-heading text-3xl sm:text-4xl lg:text-5xl text-foreground font-black tracking-tight">
+              <h2 className="common-heading text-3xl sm:text-4xl lg:text-5xl text-foreground font-bold tracking-tight">
                 Specialized Service Offerings
               </h2>
             </div>
@@ -352,7 +352,7 @@ export default function ServicesPage() {
                   <button
                     key={tab.id}
                     onClick={() => setActiveTab(tab.id)}
-                    className={`px-6 py-3.5 rounded-2xl font-black text-xs uppercase tracking-wider transition-all duration-300 cursor-pointer flex items-center gap-2 ${
+                    className={`px-6 py-3.5 rounded-xl font-bold text-xs uppercase tracking-wider transition-all duration-300 cursor-pointer flex items-center gap-2 ${
                       isActive
                         ? "bg-primary text-primary-foreground shadow-md scale-[1.02]"
                         : "bg-card border border-border/80 text-muted-foreground hover:text-foreground hover:border-primary/40"
@@ -371,18 +371,18 @@ export default function ServicesPage() {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -15 }}
                 transition={{ duration: 0.3 }}
-                className="bg-card rounded-3xl p-8 lg:p-12 border border-border/80 shadow-md text-left"
+                className="bg-card rounded-xl p-8 lg:p-12 border border-border/80 shadow-md text-left"
               >
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
                   <div className="lg:col-span-7 space-y-6">
                     <div className="space-y-2">
-                      <span className="px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary text-[10px] font-black uppercase tracking-wider inline-block">
+                      <span className="px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary text-[10px] font-bold uppercase tracking-wider inline-block">
                         {currentTab.badge}
                       </span>
-                      <h3 className="common-heading text-2xl sm:text-3xl font-black text-foreground">
+                      <h3 className="common-heading text-2xl sm:text-3xl font-bold text-foreground">
                         {currentTab.title}
                       </h3>
-                      <p className="text-xs font-extrabold text-primary uppercase tracking-widest">
+                      <p className="text-xs font-bold text-primary uppercase tracking-widest">
                         {currentTab.tagline}
                       </p>
                     </div>
@@ -393,7 +393,7 @@ export default function ServicesPage() {
 
                     <div className="flex flex-wrap gap-4 pt-2">
                       <Link href={`/services/${currentTab.id}`}>
-                        <BlobButton variant="primary" className="!py-3 !px-6 text-xs font-black uppercase tracking-wider">
+                        <BlobButton variant="primary" className="!py-3 !px-6 text-xs font-bold uppercase tracking-wider">
                           <span className="flex items-center gap-2">
                             <span>View Dedicated Page</span>
                             <ArrowRight size={14} />
@@ -406,7 +406,7 @@ export default function ServicesPage() {
                   <div className="lg:col-span-5">
                     <div
                       onClick={() => setLightboxImage(currentTab.image)}
-                      className="relative rounded-2xl overflow-hidden border border-border bg-black aspect-[4/3] cursor-pointer group shadow-lg"
+                      className="relative rounded-xl overflow-hidden border border-border bg-black aspect-[4/3] cursor-pointer group shadow-lg"
                     >
                       <img
                         src={currentTab.image}
@@ -431,40 +431,40 @@ export default function ServicesPage() {
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-stretch">
               
               {/* Info Box */}
-              <div className="lg:col-span-5 bg-card border border-border/80 p-8 lg:p-10 rounded-3xl flex flex-col justify-between text-left space-y-8 shadow-sm">
+              <div className="lg:col-span-5 bg-card border border-border/80 p-8 lg:p-10 rounded-xl flex flex-col justify-between text-left space-y-8 shadow-sm">
                 <div className="space-y-4">
                   <span className="text-primary font-bold text-xs uppercase tracking-widest block font-sans">
                     Immediate Assistance
                   </span>
-                  <h3 className="common-heading text-2xl sm:text-3xl text-foreground font-black">
+                  <h3 className="common-heading text-2xl sm:text-3xl text-foreground font-bold">
                     Reach Our After-Sales Technical Desk
                   </h3>
                 </div>
 
                 <div className="space-y-5">
-                  <div className="flex items-center gap-4 p-4 rounded-2xl bg-muted/40 border border-border/60">
+                  <div className="flex items-center gap-4 p-4 rounded-xl bg-muted/40 border border-border/60">
                     <div className="w-12 h-12 rounded-xl bg-primary/10 border border-primary/20 text-primary flex items-center justify-center shrink-0">
                       <Phone size={20} className="stroke-[2.2]" />
                     </div>
                     <div className="space-y-0.5">
-                      <span className="text-[10px] font-extrabold text-muted-foreground uppercase tracking-wider block">
+                      <span className="text-[10px] font-bold text-muted-foreground uppercase tracking-wider block">
                         Mobile Service Hotline
                       </span>
-                      <a href="tel:+919928019652" className="text-sm font-black text-foreground hover:text-primary transition-colors block">
+                      <a href="tel:+919928019652" className="text-sm font-bold text-foreground hover:text-primary transition-colors block">
                         +91-9928019652
                       </a>
                     </div>
                   </div>
 
-                  <div className="flex items-center gap-4 p-4 rounded-2xl bg-muted/40 border border-border/60">
+                  <div className="flex items-center gap-4 p-4 rounded-xl bg-muted/40 border border-border/60">
                     <div className="w-12 h-12 rounded-xl bg-primary/10 border border-primary/20 text-primary flex items-center justify-center shrink-0">
                       <Mail size={20} className="stroke-[2.2]" />
                     </div>
                     <div className="space-y-0.5">
-                      <span className="text-[10px] font-extrabold text-muted-foreground uppercase tracking-wider block">
+                      <span className="text-[10px] font-bold text-muted-foreground uppercase tracking-wider block">
                         Service Desk Email
                       </span>
-                      <a href="mailto:aftersales@kingsoncrusher.com" className="text-xs font-black text-foreground hover:text-primary transition-colors block">
+                      <a href="mailto:aftersales@kingsoncrusher.com" className="text-xs font-bold text-foreground hover:text-primary transition-colors block">
                         aftersales@kingsoncrusher.com
                       </a>
                     </div>
@@ -473,13 +473,13 @@ export default function ServicesPage() {
               </div>
 
               {/* Form */}
-              <div className="lg:col-span-7 bg-card border border-border/80 p-8 lg:p-10 rounded-3xl text-left shadow-sm flex flex-col justify-between">
+              <div className="lg:col-span-7 bg-card border border-border/80 p-8 lg:p-10 rounded-xl text-left shadow-sm flex flex-col justify-between">
                 <div>
                   <div className="space-y-2 mb-8">
                     <span className="text-primary font-bold text-xs uppercase tracking-widest block font-sans">
                       Request Technical Visit
                     </span>
-                    <h3 className="common-heading text-2xl sm:text-3xl text-foreground font-black">
+                    <h3 className="common-heading text-2xl sm:text-3xl text-foreground font-bold">
                       Log a Service Ticket
                     </h3>
                   </div>
@@ -488,10 +488,10 @@ export default function ServicesPage() {
                     <motion.div
                       initial={{ opacity: 0, scale: 0.95 }}
                       animate={{ opacity: 1, scale: 1 }}
-                      className="p-8 rounded-2xl bg-primary/10 border-2 border-primary text-center space-y-3"
+                      className="p-8 rounded-xl bg-primary/10 border-2 border-primary text-center space-y-3"
                     >
                       <CheckCircle2 size={44} className="text-primary mx-auto stroke-[2.2]" />
-                      <h4 className="common-heading text-xl font-black text-foreground">
+                      <h4 className="common-heading text-xl font-bold text-foreground">
                         Service Ticket Created!
                       </h4>
                     </motion.div>
@@ -499,7 +499,7 @@ export default function ServicesPage() {
                     <form onSubmit={handleFormSubmit} className="space-y-4 font-semibold">
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                         <div>
-                          <label className="block text-[10px] font-black uppercase text-muted-foreground mb-1 tracking-wider">
+                          <label className="block text-[10px] font-bold uppercase text-muted-foreground mb-1 tracking-wider">
                             Full Name *
                           </label>
                           <input
@@ -513,7 +513,7 @@ export default function ServicesPage() {
                         </div>
 
                         <div>
-                          <label className="block text-[10px] font-black uppercase text-muted-foreground mb-1 tracking-wider">
+                          <label className="block text-[10px] font-bold uppercase text-muted-foreground mb-1 tracking-wider">
                             Phone / WhatsApp *
                           </label>
                           <input
@@ -528,7 +528,7 @@ export default function ServicesPage() {
                       </div>
 
                       <div>
-                        <label className="block text-[10px] font-black uppercase text-muted-foreground mb-1 tracking-wider">
+                        <label className="block text-[10px] font-bold uppercase text-muted-foreground mb-1 tracking-wider">
                           Email Address *
                         </label>
                         <input
@@ -542,7 +542,7 @@ export default function ServicesPage() {
                       </div>
 
                       <div>
-                        <label className="block text-[10px] font-black uppercase text-muted-foreground mb-1 tracking-wider">
+                        <label className="block text-[10px] font-bold uppercase text-muted-foreground mb-1 tracking-wider">
                           Requirement *
                         </label>
                         <textarea
@@ -559,7 +559,7 @@ export default function ServicesPage() {
                         <BlobButton
                           type="submit"
                           variant="primary"
-                          className="!py-3.5 !px-8 text-xs font-black uppercase tracking-wider flex items-center justify-center gap-2"
+                          className="!py-3.5 !px-8 text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-2"
                         >
                           <span>Submit Ticket</span>
                           <ArrowRight size={16} />
@@ -599,7 +599,7 @@ export default function ServicesPage() {
               initial={{ scale: 0.95, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.95, opacity: 0 }}
-              className="relative max-w-5xl w-full max-h-[85vh] rounded-2xl overflow-hidden shadow-2xl border border-white/10 bg-black flex items-center justify-center"
+              className="relative max-w-5xl w-full max-h-[85vh] rounded-xl overflow-hidden shadow-2xl border border-white/10 bg-black flex items-center justify-center"
               onClick={(e) => e.stopPropagation()}
             >
               <img

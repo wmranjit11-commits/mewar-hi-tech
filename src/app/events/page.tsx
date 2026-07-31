@@ -202,8 +202,8 @@ export default function EventsPage() {
             {/* Quality Commitment Cards */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               
-              <div className="p-6 rounded-3xl bg-card border border-border shadow-sm space-y-3 hover:border-primary/50 transition-colors">
-                <div className="w-12 h-12 rounded-2xl bg-primary/10 border border-primary/20 flex items-center justify-center text-primary">
+              <div className="p-6 rounded-xl bg-card border border-border shadow-sm space-y-3 hover:border-primary/50 transition-colors">
+                <div className="w-12 h-12 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center text-primary">
                   <ShieldCheck size={24} />
                 </div>
                 <h3 className="common-heading text-lg text-foreground tracking-wide">
@@ -214,8 +214,8 @@ export default function EventsPage() {
                 </p>
               </div>
 
-              <div className="p-6 rounded-3xl bg-card border border-border shadow-sm space-y-3 hover:border-primary/50 transition-colors">
-                <div className="w-12 h-12 rounded-2xl bg-primary/10 border border-primary/20 flex items-center justify-center text-primary">
+              <div className="p-6 rounded-xl bg-card border border-border shadow-sm space-y-3 hover:border-primary/50 transition-colors">
+                <div className="w-12 h-12 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center text-primary">
                   <Globe2 size={24} />
                 </div>
                 <h3 className="common-heading text-lg text-foreground tracking-wide">
@@ -226,8 +226,8 @@ export default function EventsPage() {
                 </p>
               </div>
 
-              <div className="p-6 rounded-3xl bg-card border border-border shadow-sm space-y-3 hover:border-primary/50 transition-colors">
-                <div className="w-12 h-12 rounded-2xl bg-primary/10 border border-primary/20 flex items-center justify-center text-primary">
+              <div className="p-6 rounded-xl bg-card border border-border shadow-sm space-y-3 hover:border-primary/50 transition-colors">
+                <div className="w-12 h-12 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center text-primary">
                   <CheckCircle2 size={24} />
                 </div>
                 <h3 className="common-heading text-lg text-foreground tracking-wide">
@@ -284,7 +284,7 @@ export default function EventsPage() {
                   viewport={{ once: true }}
                   transition={{ duration: 0.4, delay: index * 0.05 }}
                   onClick={() => openLightbox(index)}
-                  className="group bg-card border border-border rounded-3xl overflow-hidden shadow-md hover:shadow-2xl hover:border-primary/50 transition-all duration-300 cursor-pointer flex flex-col justify-between"
+                  className="group bg-card border border-border rounded-xl overflow-hidden shadow-md hover:shadow-2xl hover:border-primary/50 transition-all duration-300 cursor-pointer flex flex-col justify-between"
                 >
                   {/* Image Container with Hover Zoom */}
                   <div className="relative h-56 sm:h-60 w-full overflow-hidden bg-black/10">
@@ -338,7 +338,7 @@ export default function EventsPage() {
         {/* ── 4. Next Exhibition Meeting CTA Section ── */}
         <section className="py-16 lg:py-20 bg-background border-b border-border">
           <Container>
-            <div className="p-8 sm:p-12 rounded-3xl bg-secondary text-secondary-foreground shadow-2xl border border-border/30 relative overflow-hidden flex flex-col lg:flex-row lg:items-center justify-between gap-8">
+            <div className="p-8 sm:p-12 rounded-xl bg-secondary text-secondary-foreground shadow-2xl border border-border/30 relative overflow-hidden flex flex-col lg:flex-row lg:items-center justify-between gap-8">
               <div className="absolute top-0 right-0 w-64 h-64 bg-primary/10 rounded-full blur-3xl pointer-events-none" />
 
               <div className="space-y-3 max-w-2xl">
@@ -357,7 +357,7 @@ export default function EventsPage() {
                 <Link href="/contact">
                   <BlobButton
                     variant="primary"
-                    className="!py-3.5 !px-8 !text-xs !font-black !uppercase !tracking-wider"
+                    className="!py-3.5 !px-8 !text-xs !font-bold !uppercase !tracking-wider"
                   >
                     Schedule Exhibition Meeting
                   </BlobButton>
@@ -385,7 +385,7 @@ export default function EventsPage() {
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.9, y: 20 }}
               transition={{ type: "spring", damping: 25, stiffness: 300 }}
-              className="relative w-full max-w-4xl bg-card border border-border rounded-3xl overflow-hidden shadow-2xl z-10 flex flex-col"
+              className="relative w-full max-w-4xl bg-card border border-border rounded-xl overflow-hidden shadow-2xl z-10 flex flex-col"
             >
               {/* Close Button */}
               <button

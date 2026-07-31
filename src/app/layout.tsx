@@ -5,15 +5,21 @@ import { ToastContainer } from 'react-toastify';
 import Script from 'next/script';
 import { ThemeProvider } from '@/components/ui/ThemeContext';
 
-import { Rubik } from 'next/font/google';
+import { Inter, Oswald } from 'next/font/google';
 
 import '@radix-ui/themes/styles.css';
 import 'react-toastify/dist/ReactToastify.css';
 import './globals.css';
 
-const rubik = Rubik({ 
+const inter = Inter({ 
   subsets: ['latin'],
-  variable: '--font-rubik',
+  variable: '--font-inter',
+  display: 'swap',
+});
+
+const oswald = Oswald({ 
+  subsets: ['latin'],
+  variable: '--font-oswald',
   display: 'swap',
 });
 
@@ -31,8 +37,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" data-scroll-behavior="smooth" className={rubik.variable}>
-      <body className="min-h-screen font-sans">
+    <html lang="en" data-scroll-behavior="smooth" className={`${inter.variable} ${oswald.variable}`} suppressHydrationWarning>
+      <body className="min-h-screen font-sans" suppressHydrationWarning>
         <Script 
           src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.0.0/model-viewer.min.js" 
           type="module" 

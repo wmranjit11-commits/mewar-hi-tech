@@ -38,7 +38,7 @@ const WhyChooseUs: React.FC = () => {
           <span className="text-primary font-bold text-xs uppercase tracking-widest block font-sans">
             The Kingson Advantage
           </span>
-          <h2 className="common-heading text-3xl sm:text-4xl lg:text-5xl text-foreground font-black tracking-tight">
+          <h2 className="common-heading text-3xl sm:text-4xl lg:text-5xl text-foreground font-bold tracking-tight">
             Why Choose Us
           </h2>
           <p className="text-sm text-muted-foreground font-medium leading-relaxed max-w-xl">
@@ -57,9 +57,9 @@ const WhyChooseUs: React.FC = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: idx * 0.1 }}
-                className="p-8 lg:px-10 lg:py-6 flex flex-col items-start text-left space-y-4 group hover:bg-muted/20 transition-colors rounded-2xl"
+                className="p-8 lg:px-10 lg:py-6 flex flex-col items-start text-left space-y-4 group hover:bg-muted/20 transition-colors rounded-xl"
               >
-                <div className="w-12 h-12 rounded-2xl bg-primary/10 border border-primary/20 text-primary flex items-center justify-center shrink-0 group-hover:bg-primary group-hover:text-primary-foreground group-hover:scale-105 transition-all duration-300">
+                <div className="w-12 h-12 rounded-xl bg-primary/10 border border-primary/20 text-primary flex items-center justify-center shrink-0 group-hover:bg-primary group-hover:text-primary-foreground group-hover:scale-105 transition-all duration-300">
                   <IconComponent size={22} className="stroke-[2.2]" />
                 </div>
                 <div className="space-y-2">

@@ -97,7 +97,7 @@ export default function ProductDetailPage({ params }: PageProps) {
         <Header />
         <main className="flex-grow pt-36 pb-24 flex items-center justify-center">
           <div className="text-center space-y-6 max-w-md px-6">
-            <div className="w-16 h-16 rounded-2xl bg-primary/10 border border-primary/20 text-primary flex items-center justify-center mx-auto">
+            <div className="w-16 h-16 rounded-xl bg-primary/10 border border-primary/20 text-primary flex items-center justify-center mx-auto">
               <Info size={32} />
             </div>
             <h1 className="common-heading text-3xl sm:text-4xl text-foreground">
@@ -255,17 +255,17 @@ export default function ProductDetailPage({ params }: PageProps) {
                   Equipment
                 </Link>
                 <ChevronRight size={10} className="text-primary" />
-                <span className="text-primary font-black">{product.name}</span>
+                <span className="text-primary font-bold">{product.name}</span>
               </div>
 
               {/* Sub-Category Badge */}
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/25 text-primary text-[10px] font-black uppercase tracking-widest">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/25 text-primary text-[10px] font-bold uppercase tracking-widest">
                 <Sparkles size={12} />
                 <span>{product.category} &bull; {product.subCategory}</span>
               </div>
 
               {/* Dynamic Styled Product Title */}
-              <h1 className="common-heading text-3xl sm:text-5xl lg:text-[56px] leading-[1.05] tracking-tight font-black">
+              <h1 className="common-heading text-3xl sm:text-5xl lg:text-[56px] leading-[1.05] tracking-tight font-bold">
                 <span className="text-white">{firstHalf} </span>
                 {secondHalf && (
                   <span className="text-primary block mt-1">{secondHalf}</span>
@@ -275,7 +275,7 @@ export default function ProductDetailPage({ params }: PageProps) {
               {/* Subheading Badge & Accent Divider */}
               <div className="flex items-center gap-3 pt-1">
                 <div className="w-10 h-[3px] bg-primary rounded-full" />
-                <p className="text-xs font-black uppercase tracking-widest text-primary">
+                <p className="text-xs font-bold uppercase tracking-widest text-primary">
                   Engineered for Maximum Tonnage &bull; Built to Last
                 </p>
               </div>
@@ -300,12 +300,11 @@ export default function ProductDetailPage({ params }: PageProps) {
                 </span>
               </div>
 
-              {/* Action Buttons */}
               <div className="flex flex-wrap gap-4 pt-4">
                 <BlobButton
                   onClick={() => document.getElementById("quote-section")?.scrollIntoView({ behavior: "smooth" })}
                   variant="primary"
-                  className="!w-full sm:!w-auto !px-8 !h-[50px] !text-xs !font-black !uppercase !tracking-wider flex items-center justify-center gap-2.5 whitespace-nowrap shadow-lg shadow-primary/20"
+                  className="!w-full sm:!w-auto !px-8 !h-[50px] !text-xs !font-bold !uppercase !tracking-wider flex items-center justify-center gap-2.5 whitespace-nowrap shadow-lg !text-primary-foreground"
                 >
                   <FileText size={16} />
                   <span>Request Engineering Quote</span>
@@ -315,7 +314,7 @@ export default function ProductDetailPage({ params }: PageProps) {
                 <BlobButton
                   onClick={() => window.dispatchEvent(new Event("open-brochure-modal"))}
                   variant="secondary"
-                  className="!w-full sm:!w-auto !px-7 !h-[50px] !text-xs !font-black !uppercase !tracking-wider flex items-center justify-center gap-2.5 whitespace-nowrap"
+                  className="!w-full sm:!w-auto !px-7 !h-[50px] !text-xs !font-bold !uppercase !tracking-wider flex items-center justify-center gap-2.5 whitespace-nowrap !border-white/30 !text-white hover:!bg-white hover:!text-black"
                 >
                   <Download size={16} />
                   <span>Download Spec Sheet</span>
@@ -334,10 +333,10 @@ export default function ProductDetailPage({ params }: PageProps) {
               <div className="absolute w-[320px] h-[320px] bg-primary/20 rounded-full blur-[100px] pointer-events-none" />
 
               {/* Floating Glassmorphic Container for Hero Image */}
-              <div className="relative z-10 w-full rounded-3xl bg-gradient-to-b from-white/10 to-white/5 border border-white/15 p-6 sm:p-8 backdrop-blur-md shadow-2xl group flex flex-col items-center justify-center">
+              <div className="relative z-10 w-full rounded-xl bg-gradient-to-b from-white/10 to-white/5 border border-white/15 p-6 sm:p-8 backdrop-blur-md shadow-2xl group flex flex-col items-center justify-center">
                 
                 {/* Product Class Badge */}
-                <div className="absolute top-4 left-4 z-20 px-3 py-1 rounded-full bg-black/60 backdrop-blur-md border border-white/10 text-[9px] font-black uppercase tracking-wider text-primary flex items-center gap-1.5">
+                <div className="absolute top-4 left-4 z-20 px-3 py-1 rounded-full bg-black/60 backdrop-blur-md border border-white/10 text-[9px] font-bold uppercase tracking-wider text-primary flex items-center gap-1.5">
                   <Award size={12} />
                   <span>HEAVY INDUSTRIAL SERIES</span>
                 </div>
@@ -353,7 +352,7 @@ export default function ProductDetailPage({ params }: PageProps) {
                 <div className="mt-4 w-full pt-4 border-t border-white/10 flex items-center justify-between text-left">
                   <div>
                     <div className="text-[10px] uppercase font-bold text-gray-400 tracking-wider">Model Range</div>
-                    <div className="text-xs font-black text-white">{product.name}</div>
+                    <div className="text-xs font-bold text-white">{product.name}</div>
                   </div>
                   <button 
                     onClick={() => {
@@ -381,7 +380,7 @@ export default function ProductDetailPage({ params }: PageProps) {
                 return (
                   <div
                     key={idx}
-                    className="p-5 rounded-2xl bg-white/[0.03] border border-white/10 hover:border-primary/40 transition-all duration-300 text-left space-y-2 group"
+                    className="p-5 rounded-xl bg-white/[0.03] border border-white/10 hover:border-primary/40 transition-all duration-300 text-left space-y-2 group"
                   >
                     <div className="flex items-center justify-between">
                       <span className="text-[10px] font-bold text-gray-400 uppercase tracking-widest">
@@ -389,7 +388,7 @@ export default function ProductDetailPage({ params }: PageProps) {
                       </span>
                       <IconComponent size={18} className="text-primary group-hover:scale-110 transition-transform" />
                     </div>
-                    <div className="text-sm sm:text-base font-black text-white tracking-wide">
+                    <div className="text-sm sm:text-base font-bold text-white tracking-wide">
                       {item.value}
                     </div>
                     <div className="text-[10px] font-semibold text-primary/90">
@@ -457,10 +456,10 @@ export default function ProductDetailPage({ params }: PageProps) {
                 transition={{ duration: 0.6 }}
                 className="lg:col-span-5 flex justify-center"
               >
-                <div className="relative rounded-3xl overflow-hidden bg-card border border-border/80 p-6 sm:p-8 shadow-xl w-full flex flex-col items-center justify-center group">
+                <div className="relative rounded-xl overflow-hidden bg-card border border-border/80 p-6 sm:p-8 shadow-xl w-full flex flex-col items-center justify-center group">
                   <div className="absolute top-4 right-4 z-20 flex items-center gap-2">
                     {product.model3d && (
-                      <span className="px-3 py-1 rounded-full bg-primary/10 text-primary text-[10px] font-black uppercase tracking-wider border border-primary/20 flex items-center gap-1.5 shadow-sm">
+                      <span className="px-3 py-1 rounded-full bg-primary/10 text-primary text-[10px] font-bold uppercase tracking-wider border border-primary/20 flex items-center gap-1.5 shadow-sm">
                         <Sparkles size={11} className="animate-pulse" />
                         <span>3D Interactive</span>
                       </span>
@@ -494,7 +493,7 @@ export default function ProductDetailPage({ params }: PageProps) {
 
                   <div className="w-full mt-4 pt-4 border-t border-border flex items-center justify-between text-left">
                     <div>
-                      <h4 className="text-xs font-black text-foreground uppercase">{product.name}</h4>
+                      <h4 className="text-xs font-bold text-foreground uppercase">{product.name}</h4>
                       <p className="text-[10px] text-muted-foreground font-bold">
                         {product.model3d ? "Rotate 360° • Zoom • Inspect" : "Primary Industrial Material Handler"}
                       </p>
@@ -538,13 +537,13 @@ export default function ProductDetailPage({ params }: PageProps) {
                 return (
                   <div
                     key={idx}
-                    className="p-6 rounded-3xl bg-card border border-border shadow-sm hover:border-primary/50 hover:shadow-md transition-all duration-300 space-y-4 group"
+                    className="p-6 rounded-xl bg-card border border-border shadow-sm hover:border-primary/50 hover:shadow-md transition-all duration-300 space-y-4 group"
                   >
-                    <div className="w-12 h-12 rounded-2xl bg-primary/10 border border-primary/20 flex items-center justify-center text-primary group-hover:scale-110 transition-transform">
+                    <div className="w-12 h-12 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center text-primary group-hover:scale-110 transition-transform">
                       <IconComponent size={22} />
                     </div>
                     <div className="space-y-1.5">
-                      <h3 className="common-heading text-base text-foreground font-black">
+                      <h3 className="common-heading text-base text-foreground font-bold">
                         {app.title}
                       </h3>
                       <p className="text-xs text-muted-foreground font-semibold leading-relaxed">
@@ -556,12 +555,12 @@ export default function ProductDetailPage({ params }: PageProps) {
               })}
 
               {/* Extra Summary Card */}
-              <div className="p-6 rounded-3xl bg-primary text-primary-foreground shadow-lg flex flex-col justify-between space-y-4 text-left">
+              <div className="p-6 rounded-xl bg-primary text-primary-foreground shadow-lg flex flex-col justify-between space-y-4 text-left">
                 <div className="space-y-2">
                   <div className="w-10 h-10 rounded-xl bg-white/20 flex items-center justify-center text-white">
                     <Sparkles size={20} />
                   </div>
-                  <h3 className="common-heading text-lg font-black uppercase text-white">
+                  <h3 className="common-heading text-lg font-bold uppercase text-white">
                     Custom Plant Setup?
                   </h3>
                   <p className="text-xs font-semibold text-white/90 leading-relaxed">
@@ -571,7 +570,7 @@ export default function ProductDetailPage({ params }: PageProps) {
                 <BlobButton
                   onClick={() => document.getElementById("quote-section")?.scrollIntoView({ behavior: "smooth" })}
                   variant="primary"
-                  className="!w-full !py-3.5 !text-xs !font-black !uppercase !tracking-wider"
+                  className="!w-full !py-3.5 !text-xs !font-bold !uppercase !tracking-wider"
                 >
                   <span className="flex items-center justify-center gap-2 whitespace-nowrap">
                     <span>Consult An Engineer</span>
@@ -615,7 +614,7 @@ export default function ProductDetailPage({ params }: PageProps) {
                     {/* Main Selected Image Preview */}
                     <div 
                       onClick={() => setLightboxOpen(true)}
-                      className="relative rounded-3xl overflow-hidden border border-border shadow-xl bg-card aspect-[16/10] cursor-pointer group flex items-center justify-center"
+                      className="relative rounded-xl overflow-hidden border border-border shadow-xl bg-card aspect-[16/10] cursor-pointer group flex items-center justify-center"
                     >
                       <img
                         src={allImages[selectedGalleryIndex]}
@@ -642,7 +641,7 @@ export default function ProductDetailPage({ params }: PageProps) {
                         <button
                           key={i}
                           onClick={() => setSelectedGalleryIndex(i)}
-                          className={`relative w-24 h-16 rounded-2xl overflow-hidden border-2 shrink-0 transition-all ${
+                          className={`relative w-24 h-16 rounded-xl overflow-hidden border-2 shrink-0 transition-all ${
                             selectedGalleryIndex === i
                               ? "border-primary shadow-lg ring-2 ring-primary/40 opacity-100"
                               : "border-border/60 opacity-60 hover:opacity-100"
@@ -667,7 +666,7 @@ export default function ProductDetailPage({ params }: PageProps) {
                       <span>Operational Video Footage</span>
                     </div>
 
-                    <div className="relative rounded-3xl overflow-hidden border border-border shadow-2xl bg-black aspect-[16/10] flex items-center justify-center group">
+                    <div className="relative rounded-xl overflow-hidden border border-border shadow-2xl bg-black aspect-[16/10] flex items-center justify-center group">
                       <video
                         src={product.video}
                         autoPlay
@@ -708,9 +707,9 @@ export default function ProductDetailPage({ params }: PageProps) {
               </div>
 
               {/* Responsive Specs Table Wrapper */}
-              <div className="overflow-x-auto rounded-3xl border border-border shadow-xl bg-card max-h-[600px] overflow-y-auto">
+              <div className="overflow-x-auto rounded-xl border border-border shadow-xl bg-card max-h-[600px] overflow-y-auto">
                 <table className="w-full text-left border-collapse text-xs">
-                  <thead className="sticky top-0 z-20 bg-muted/90 backdrop-blur-md border-b border-border text-foreground font-black uppercase tracking-wider">
+                  <thead className="sticky top-0 z-20 bg-muted/90 backdrop-blur-md border-b border-border text-foreground font-bold uppercase tracking-wider">
                     <tr>
                       {product.specsTable.headers.map((header, idx) => (
                         <th 
@@ -728,7 +727,7 @@ export default function ProductDetailPage({ params }: PageProps) {
                     {product.specsTable.sections.map((section, sIdx) => (
                       <React.Fragment key={sIdx}>
                         {/* Section Header Row */}
-                        <tr className="bg-primary/10 text-primary font-black uppercase tracking-wider">
+                        <tr className="bg-primary/10 text-primary font-bold uppercase tracking-wider">
                           <td
                             colSpan={product.specsTable.headers.length}
                             className="p-4 pl-6 text-left whitespace-nowrap"
@@ -766,7 +765,7 @@ export default function ProductDetailPage({ params }: PageProps) {
 
               {/* Specs Note Callout Box */}
               {product.specsNote && (
-                <div className="p-5 rounded-2xl bg-card border border-border/80 flex items-start gap-3.5 text-xs text-muted-foreground leading-relaxed text-left max-w-4xl shadow-sm">
+                <div className="p-5 rounded-xl bg-card border border-border/80 flex items-start gap-3.5 text-xs text-muted-foreground leading-relaxed text-left max-w-4xl shadow-sm">
                   <Info size={18} className="text-primary shrink-0 mt-0.5" />
                   <p className="font-semibold">{product.specsNote}</p>
                 </div>
@@ -792,12 +791,12 @@ export default function ProductDetailPage({ params }: PageProps) {
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 text-left">
               
               {/* Card 1: Main Product Brochure */}
-              <div className="p-6 rounded-3xl bg-card border border-border shadow-sm hover:border-primary/50 transition-all space-y-4 flex flex-col justify-between">
+              <div className="p-6 rounded-xl bg-card border border-border shadow-sm hover:border-primary/50 transition-all space-y-4 flex flex-col justify-between">
                 <div className="space-y-3">
-                  <div className="w-12 h-12 rounded-2xl bg-primary/10 text-primary border border-primary/20 flex items-center justify-center">
+                  <div className="w-12 h-12 rounded-xl bg-primary/10 text-primary border border-primary/20 flex items-center justify-center">
                     <FileText size={22} />
                   </div>
-                  <h3 className="common-heading text-base text-foreground font-black">
+                  <h3 className="common-heading text-base text-foreground font-bold">
                     Official Product Catalog
                   </h3>
                   <p className="text-xs text-muted-foreground font-semibold leading-relaxed">
@@ -807,7 +806,7 @@ export default function ProductDetailPage({ params }: PageProps) {
                 <BlobButton
                   onClick={() => window.dispatchEvent(new Event("open-brochure-modal"))}
                   variant="secondary"
-                  className="!w-full !py-3 !text-xs !font-black !uppercase !tracking-wider flex items-center justify-center gap-2"
+                  className="!w-full !py-3 !text-xs !font-bold !uppercase !tracking-wider flex items-center justify-center gap-2"
                 >
                   <Download size={14} />
                   <span>Download Catalog (PDF)</span>
@@ -815,12 +814,12 @@ export default function ProductDetailPage({ params }: PageProps) {
               </div>
 
               {/* Card 2: Technical Data Sheet */}
-              <div className="p-6 rounded-3xl bg-card border border-border shadow-sm hover:border-primary/50 transition-all space-y-4 flex flex-col justify-between">
+              <div className="p-6 rounded-xl bg-card border border-border shadow-sm hover:border-primary/50 transition-all space-y-4 flex flex-col justify-between">
                 <div className="space-y-3">
-                  <div className="w-12 h-12 rounded-2xl bg-primary/10 text-primary border border-primary/20 flex items-center justify-center">
+                  <div className="w-12 h-12 rounded-xl bg-primary/10 text-primary border border-primary/20 flex items-center justify-center">
                     <Cpu size={22} />
                   </div>
-                  <h3 className="common-heading text-base text-foreground font-black">
+                  <h3 className="common-heading text-base text-foreground font-bold">
                     Technical Data Sheet
                   </h3>
                   <p className="text-xs text-muted-foreground font-semibold leading-relaxed">
@@ -830,7 +829,7 @@ export default function ProductDetailPage({ params }: PageProps) {
                 <BlobButton
                   onClick={() => window.dispatchEvent(new Event("open-brochure-modal"))}
                   variant="secondary"
-                  className="!w-full !py-3 !text-xs !font-black !uppercase !tracking-wider flex items-center justify-center gap-2"
+                  className="!w-full !py-3 !text-xs !font-bold !uppercase !tracking-wider flex items-center justify-center gap-2"
                 >
                   <Download size={14} />
                   <span>Request Spec Sheet</span>
@@ -838,12 +837,12 @@ export default function ProductDetailPage({ params }: PageProps) {
               </div>
 
               {/* Card 3: Foundation Layout Guide */}
-              <div className="p-6 rounded-3xl bg-card border border-border shadow-sm hover:border-primary/50 transition-all space-y-4 flex flex-col justify-between">
+              <div className="p-6 rounded-xl bg-card border border-border shadow-sm hover:border-primary/50 transition-all space-y-4 flex flex-col justify-between">
                 <div className="space-y-3">
-                  <div className="w-12 h-12 rounded-2xl bg-primary/10 text-primary border border-primary/20 flex items-center justify-center">
+                  <div className="w-12 h-12 rounded-xl bg-primary/10 text-primary border border-primary/20 flex items-center justify-center">
                     <Building2 size={22} />
                   </div>
-                  <h3 className="common-heading text-base text-foreground font-black">
+                  <h3 className="common-heading text-base text-foreground font-bold">
                     Foundation &amp; Plant Layout
                   </h3>
                   <p className="text-xs text-muted-foreground font-semibold leading-relaxed">
@@ -853,7 +852,7 @@ export default function ProductDetailPage({ params }: PageProps) {
                 <BlobButton
                   onClick={() => document.getElementById("quote-section")?.scrollIntoView({ behavior: "smooth" })}
                   variant="secondary"
-                  className="!w-full !py-3 !text-xs !font-black !uppercase !tracking-wider flex items-center justify-center gap-2"
+                  className="!w-full !py-3 !text-xs !font-bold !uppercase !tracking-wider flex items-center justify-center gap-2"
                 >
                   <FileCheck size={14} />
                   <span>Request CAD Layout</span>
@@ -885,12 +884,12 @@ export default function ProductDetailPage({ params }: PageProps) {
 
                 <div className="space-y-4">
                   {/* Trust Badge 1 */}
-                  <div className="p-5 rounded-3xl bg-card border border-border shadow-sm flex items-start gap-4">
+                  <div className="p-5 rounded-xl bg-card border border-border shadow-sm flex items-start gap-4">
                     <div className="w-10 h-10 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center text-primary shrink-0">
                       <Zap size={20} />
                     </div>
                     <div>
-                      <h4 className="common-heading text-sm text-foreground font-black">
+                      <h4 className="common-heading text-sm text-foreground font-bold">
                         Instant Technical Consultation
                       </h4>
                       <p className="text-xs text-muted-foreground font-semibold">
@@ -900,12 +899,12 @@ export default function ProductDetailPage({ params }: PageProps) {
                   </div>
 
                   {/* Trust Badge 2 */}
-                  <div className="p-5 rounded-3xl bg-card border border-border shadow-sm flex items-start gap-4">
+                  <div className="p-5 rounded-xl bg-card border border-border shadow-sm flex items-start gap-4">
                     <div className="w-10 h-10 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center text-primary shrink-0">
                       <PhoneCall size={20} />
                     </div>
                     <div>
-                      <h4 className="common-heading text-sm text-foreground font-black">
+                      <h4 className="common-heading text-sm text-foreground font-bold">
                         Direct Factory Support
                       </h4>
                       <p className="text-xs text-muted-foreground font-semibold">
@@ -919,14 +918,14 @@ export default function ProductDetailPage({ params }: PageProps) {
 
               {/* Form Column */}
               <div className="lg:col-span-7">
-                <div className="p-8 sm:p-10 rounded-3xl bg-card border border-border shadow-xl space-y-6 relative overflow-hidden flex flex-col justify-between h-full text-left">
+                <div className="p-8 sm:p-10 rounded-xl bg-card border border-border shadow-xl space-y-6 relative overflow-hidden flex flex-col justify-between h-full text-left">
                   <div className="absolute top-0 right-0 w-48 h-48 bg-primary/10 rounded-full blur-3xl pointer-events-none" />
 
                   <div>
                     <span className="text-primary font-bold text-xs uppercase tracking-widest block mb-1">
                       Technical Enquiry
                     </span>
-                    <h3 className="common-heading text-2xl text-foreground font-black">
+                    <h3 className="common-heading text-2xl text-foreground font-bold">
                       Equipment Spec &amp; Price Request
                     </h3>
                   </div>
@@ -1016,7 +1015,7 @@ export default function ProductDetailPage({ params }: PageProps) {
                         type="submit"
                         disabled={submitting}
                         variant="primary"
-                        className="!w-full !py-4 !text-xs !font-black !uppercase !tracking-wider"
+                        className="!w-full !py-4 !text-xs !font-bold !uppercase !tracking-wider"
                       >
                         <span className="inline-flex items-center justify-center gap-2 whitespace-nowrap">
                           <Send size={15} />
@@ -1048,7 +1047,7 @@ export default function ProductDetailPage({ params }: PageProps) {
 
                 <Link 
                   href="/products"
-                  className="inline-flex items-center gap-2 text-xs font-black text-primary uppercase tracking-wider hover:underline"
+                  className="inline-flex items-center gap-2 text-xs font-bold text-primary uppercase tracking-wider hover:underline"
                 >
                   <span>Explore Full Catalog</span>
                   <ArrowRight size={14} />
@@ -1060,7 +1059,7 @@ export default function ProductDetailPage({ params }: PageProps) {
                   <Link
                     key={relItem.slug}
                     href={`/products/${relItem.slug}`}
-                    className="group rounded-3xl bg-card border border-border overflow-hidden shadow-sm hover:shadow-xl hover:border-primary/50 transition-all duration-300 flex flex-col justify-between"
+                    className="group rounded-xl bg-card border border-border overflow-hidden shadow-sm hover:shadow-xl hover:border-primary/50 transition-all duration-300 flex flex-col justify-between"
                   >
                     <div className="p-6 bg-muted/30 border-b border-border flex items-center justify-center h-[220px] relative overflow-hidden">
                       <img
@@ -1068,14 +1067,14 @@ export default function ProductDetailPage({ params }: PageProps) {
                         alt={relItem.name}
                         className="max-h-[180px] w-auto object-contain group-hover:scale-105 transition-transform duration-500"
                       />
-                      <span className="absolute top-3 left-3 px-3 py-1 rounded-full bg-black/60 backdrop-blur-md border border-white/10 text-[9px] font-black uppercase text-white">
+                      <span className="absolute top-3 left-3 px-3 py-1 rounded-full bg-black/60 backdrop-blur-md border border-white/10 text-[9px] font-bold uppercase text-white">
                         {relItem.category}
                       </span>
                     </div>
 
                     <div className="p-6 space-y-4 flex-grow flex flex-col justify-between">
                       <div className="space-y-2">
-                        <h3 className="common-heading text-lg text-foreground font-black group-hover:text-primary transition-colors">
+                        <h3 className="common-heading text-lg text-foreground font-bold group-hover:text-primary transition-colors">
                           {relItem.name}
                         </h3>
                         <p className="text-xs text-muted-foreground font-semibold line-clamp-2 leading-relaxed">
@@ -1150,7 +1149,7 @@ export default function ProductDetailPage({ params }: PageProps) {
               <img
                 src={allImages[selectedGalleryIndex]}
                 alt={`${product.name} enlarged view`}
-                className="max-w-full max-h-full object-contain rounded-2xl shadow-2xl"
+                className="max-w-full max-h-full object-contain rounded-xl shadow-2xl"
               />
             </div>
           </motion.div>

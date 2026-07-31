@@ -96,11 +96,11 @@ export default function FAQPage() {
               
               {/* Left Sidebar - Categories */}
               <div className="lg:col-span-4">
-                <div className="bg-card border border-border/80 rounded-3xl p-6 shadow-sm sticky top-24 space-y-8">
+                <div className="bg-card border border-border/80 rounded-xl p-6 shadow-sm sticky top-24 space-y-8">
                   
                   {/* Categories List */}
                   <div>
-                    <h3 className="font-sans font-black text-xs uppercase tracking-widest text-primary mb-4 pl-2">
+                    <h3 className="font-sans font-bold text-xs uppercase tracking-widest text-primary mb-4 pl-2">
                       FAQ Categories
                     </h3>
                     <div className="space-y-2">
@@ -111,7 +111,7 @@ export default function FAQPage() {
                           <button
                             key={category.id}
                             onClick={() => { setActiveCategory(category.id); setOpenFaqId(null); }}
-                            className={`w-full flex items-center justify-between px-4 py-3 rounded-2xl transition-all duration-300 ${
+                            className={`w-full flex items-center justify-between px-4 py-3 rounded-xl transition-all duration-300 ${
                               isActive 
                                 ? "bg-primary text-white shadow-md shadow-primary/20" 
                                 : "hover:bg-muted text-foreground"
@@ -134,13 +134,13 @@ export default function FAQPage() {
                   </div>
 
                   {/* Still need help? Card */}
-                  <div className="bg-muted/40 rounded-2xl p-5 border border-border/50 text-center">
+                  <div className="bg-muted/40 rounded-xl p-5 border border-border/50 text-center">
                     <h4 className="font-bold text-foreground mb-2">Still have questions?</h4>
                     <p className="text-xs font-semibold text-muted-foreground mb-4">
                       Can't find the answer you're looking for? Please chat to our friendly team.
                     </p>
                     <Link href="/contact" className="block w-full">
-                      <BlobButton variant="primary" className="!w-full !py-3 !text-xs !font-black !uppercase !tracking-wider">
+                      <BlobButton variant="primary" className="!w-full !py-3 !text-xs !font-bold !uppercase !tracking-wider">
                         Contact Us
                       </BlobButton>
                     </Link>
@@ -162,7 +162,7 @@ export default function FAQPage() {
                         className="space-y-4"
                       >
                         <div className="mb-8">
-                          <h2 className="text-2xl sm:text-3xl font-black font-sans uppercase tracking-tight text-foreground flex items-center gap-3">
+                          <h2 className="text-2xl sm:text-3xl font-bold font-sans uppercase tracking-tight text-foreground flex items-center gap-3">
                             <category.icon className="text-primary hidden sm:block" size={32} />
                             {category.title}
                           </h2>
@@ -175,7 +175,7 @@ export default function FAQPage() {
                           return (
                             <div 
                               key={faqId} 
-                              className={`rounded-2xl border transition-all duration-300 overflow-hidden ${
+                              className={`rounded-xl border transition-all duration-300 overflow-hidden ${
                                 isOpen 
                                   ? "bg-card border-primary/30 shadow-md shadow-primary/5" 
                                   : "bg-card border-border/60 hover:border-primary/30 hover:bg-muted/30"

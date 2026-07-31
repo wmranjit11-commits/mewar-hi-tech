@@ -40,7 +40,7 @@ export default function WhyKingsonSection() {
           <span className="text-primary font-bold text-xs uppercase tracking-widest block font-sans">
             Why Partner With Us
           </span>
-          <h2 className="common-heading text-3xl sm:text-4xl lg:text-5xl text-foreground font-black tracking-tight">
+          <h2 className="common-heading text-3xl sm:text-4xl lg:text-5xl text-foreground font-bold tracking-tight">
             Suppliers of Heavy Duty Crushing Plants
           </h2>
           <p className="text-sm text-muted-foreground font-medium leading-relaxed max-w-xl">
@@ -59,20 +59,20 @@ export default function WhyKingsonSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: idx * 0.12 }}
-                className="p-8 lg:p-9 rounded-3xl bg-card border border-border/80 shadow-sm hover:shadow-xl hover:border-primary/40 transition-all duration-300 flex flex-col justify-between items-start text-left space-y-6 group relative"
+                className="p-8 lg:p-9 rounded-xl bg-card border border-border/80 shadow-sm hover:shadow-xl hover:border-primary/40 transition-all duration-300 flex flex-col justify-between items-start text-left space-y-6 group relative"
               >
                 <div className="space-y-5">
                   {/* Icon wrapper */}
-                  <div className="w-14 h-14 rounded-2xl bg-primary/10 border border-primary/20 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-primary-foreground group-hover:scale-105 transition-all duration-300 shadow-xs">
+                  <div className="w-14 h-14 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-primary-foreground group-hover:scale-105 transition-all duration-300 shadow-xs">
                     <Icon size={26} className="stroke-[2.2]" />
                   </div>
 
                   {/* Text Content */}
                   <div className="space-y-2">
-                    <span className="text-[10px] font-extrabold text-primary uppercase tracking-widest block">
+                    <span className="text-[10px] font-bold text-primary uppercase tracking-widest block">
                       {card.subtitle}
                     </span>
-                    <h3 className="common-heading text-xl font-black text-foreground group-hover:text-primary transition-colors">
+                    <h3 className="common-heading text-xl font-bold text-foreground group-hover:text-primary transition-colors">
                       {card.title}
                     </h3>
                     <p className="text-muted-foreground text-xs leading-relaxed font-semibold">
@@ -84,7 +84,7 @@ export default function WhyKingsonSection() {
                 {/* Explore Link */}
                 <Link
                   href={card.link}
-                  className="inline-flex items-center gap-2 text-xs font-extrabold text-foreground group-hover:text-primary transition-colors pt-2 uppercase tracking-wider"
+                  className="inline-flex items-center gap-2 text-xs font-bold text-foreground group-hover:text-primary transition-colors pt-2 uppercase tracking-wider"
                 >
                   <span>Explore Specs</span>
                   <ArrowRight size={14} className="text-primary group-hover:translate-x-1 transition-transform stroke-[2.5]" />

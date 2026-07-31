@@ -27,7 +27,7 @@ export default function VideoShowcase() {
               <span className="text-primary font-bold text-xs uppercase tracking-widest block">
                 Industrial Footprints
               </span>
-              <h2 className="common-heading text-3xl sm:text-4xl text-foreground font-black leading-tight">
+              <h2 className="common-heading text-3xl sm:text-4xl text-foreground font-bold leading-tight">
                 Heavy Engineering Operations
               </h2>
             </div>
@@ -36,12 +36,12 @@ export default function VideoShowcase() {
             </p>
             
             {/* Visual badge info */}
-            <div className="p-5 rounded-2xl bg-muted/40 border border-border/80 flex items-start gap-4">
+            <div className="p-5 rounded-xl bg-muted/40 border border-border/80 flex items-start gap-4">
               <div className="w-10 h-10 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center text-primary shrink-0">
                 <Video size={18} />
               </div>
               <div className="space-y-1">
-                <h4 className="font-heading text-xs font-black uppercase text-foreground">
+                <h4 className="font-heading text-xs font-bold uppercase text-foreground">
                   Shop Floor &amp; Field Footage
                 </h4>
                 <p className="text-[10px] text-muted-foreground font-bold leading-normal">
@@ -55,7 +55,7 @@ export default function VideoShowcase() {
           <div className="lg:col-span-7">
             <div 
               onClick={() => setIsPlaying(true)}
-              className="relative rounded-3xl overflow-hidden border border-border bg-black aspect-[16/10] cursor-pointer group shadow-2xl"
+              className="relative rounded-xl overflow-hidden border border-border bg-black aspect-[16/10] cursor-pointer group shadow-2xl"
             >
               {/* Silent looping preview video with fallback industrial poster */}
               <video
@@ -78,7 +78,7 @@ export default function VideoShowcase() {
               </div>
 
               {/* Bottom label */}
-              <div className="absolute bottom-4 left-4 bg-black/60 backdrop-blur-md px-3.5 py-1.5 rounded-xl border border-white/10 text-[10px] font-black uppercase tracking-wider text-white z-10">
+              <div className="absolute bottom-4 left-4 bg-black/60 backdrop-blur-md px-3.5 py-1.5 rounded-xl border border-white/10 text-[10px] font-bold uppercase tracking-wider text-white z-10">
                 Click to Watch Tour
               </div>
             </div>
@@ -113,7 +113,7 @@ export default function VideoShowcase() {
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.95, opacity: 0 }}
               transition={{ duration: 0.2 }}
-              className="relative w-full max-w-5xl aspect-video rounded-2xl overflow-hidden shadow-2xl border border-white/5 bg-black"
+              className="relative w-full max-w-5xl aspect-video rounded-xl overflow-hidden shadow-2xl border border-white/5 bg-black"
               onClick={(e) => e.stopPropagation()}
             >
               <video

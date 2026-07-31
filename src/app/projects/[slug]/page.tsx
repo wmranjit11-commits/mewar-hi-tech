@@ -112,7 +112,7 @@ export default function ProjectDetailPage({ params }: PageProps) {
                 <span className="text-primary font-bold text-xs uppercase tracking-widest block">
                   Installation Portfolio
                 </span>
-                <h2 className="common-heading text-3xl font-black text-foreground">
+                <h2 className="common-heading text-3xl font-bold text-foreground">
                   {project.title} Gallery
                 </h2>
               </div>
@@ -132,7 +132,7 @@ export default function ProjectDetailPage({ params }: PageProps) {
                   viewport={{ once: true }}
                   transition={{ duration: 0.4, delay: Math.min(idx * 0.05, 0.3) }}
                   onClick={() => setLightboxIndex(idx)}
-                  className="relative rounded-2xl overflow-hidden border border-border bg-card aspect-[4/3] cursor-pointer group shadow-xs hover:shadow-xl transition-all duration-300"
+                  className="relative rounded-xl overflow-hidden border border-border bg-card aspect-[4/3] cursor-pointer group shadow-xs hover:shadow-xl transition-all duration-300"
                 >
                   <img
                     src={src}
@@ -165,7 +165,7 @@ export default function ProjectDetailPage({ params }: PageProps) {
           >
             {/* Top Bar with counter and close btn */}
             <div className="absolute top-4 left-4 right-4 flex justify-between items-center text-white z-10">
-              <span className="text-xs font-black uppercase tracking-wider text-gray-400">
+              <span className="text-xs font-bold uppercase tracking-wider text-gray-400">
                 Image {lightboxIndex + 1} of {project.images.length}
               </span>
               <button

@@ -40,7 +40,7 @@ const YellowDealerBanner: React.FC = () => {
           transition={{ duration: 0.5 }}
         >
           <Link href="/contact">
-            <BlobButton variant="secondary" className="!py-3 !px-6 text-xs font-black">
+            <BlobButton variant="secondary" className="!py-3 !px-6 text-xs font-bold">
               Dealer Locator
             </BlobButton>
           </Link>

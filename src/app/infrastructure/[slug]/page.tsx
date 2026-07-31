@@ -179,7 +179,7 @@ export default function InfrastructureDetailPage({ params }: PageProps) {
                   <span className="text-primary font-bold text-xs uppercase tracking-widest block">
                     Technical Specifications
                   </span>
-                  <h2 className="common-heading text-3xl font-black text-foreground">
+                  <h2 className="common-heading text-3xl font-bold text-foreground">
                     About Our {config.title}
                   </h2>
                 </div>
@@ -196,9 +196,9 @@ export default function InfrastructureDetailPage({ params }: PageProps) {
                     {config.bullets.map((bulletGroup) => (
                       <div
                         key={bulletGroup.sectionTitle}
-                        className="p-6 rounded-2xl bg-muted/40 border border-border/80 space-y-3.5"
+                        className="p-6 rounded-xl bg-muted/40 border border-border/80 space-y-3.5"
                       >
-                        <h4 className="font-heading text-xs font-black uppercase text-foreground tracking-wider border-b border-border/60 pb-2">
+                        <h4 className="font-heading text-xs font-bold uppercase text-foreground tracking-wider border-b border-border/60 pb-2">
                           {bulletGroup.sectionTitle}
                         </h4>
                         <ul className="space-y-2">
@@ -218,7 +218,7 @@ export default function InfrastructureDetailPage({ params }: PageProps) {
               {/* Right Column: Mini Interactive Gallery Grid */}
               <div className="lg:col-span-5 space-y-8">
                 <div className="flex items-center justify-between">
-                  <h3 className="common-heading text-xl font-black text-foreground">
+                  <h3 className="common-heading text-xl font-bold text-foreground">
                     Asset Gallery
                   </h3>
                   <div className="flex items-center gap-1.5 text-xs font-bold text-muted-foreground bg-muted/40 border border-border/80 px-3 py-1.5 rounded-lg">
@@ -236,7 +236,7 @@ export default function InfrastructureDetailPage({ params }: PageProps) {
                       viewport={{ once: true }}
                       transition={{ duration: 0.4, delay: Math.min(idx * 0.05, 0.25) }}
                       onClick={() => setLightboxIndex(idx)}
-                      className="relative rounded-2xl overflow-hidden border border-border bg-card aspect-[4/3] cursor-pointer group shadow-xs hover:shadow-md transition-all duration-300"
+                      className="relative rounded-xl overflow-hidden border border-border bg-card aspect-[4/3] cursor-pointer group shadow-xs hover:shadow-md transition-all duration-300"
                     >
                       <img
                         src={src}
@@ -271,7 +271,7 @@ export default function InfrastructureDetailPage({ params }: PageProps) {
           >
             {/* Top Bar with close and counter */}
             <div className="absolute top-4 left-4 right-4 flex justify-between items-center text-white z-10">
-              <span className="text-xs font-black uppercase tracking-wider text-gray-400">
+              <span className="text-xs font-bold uppercase tracking-wider text-gray-400">
                 Image {lightboxIndex + 1} of {config.images.length}
               </span>
               <button

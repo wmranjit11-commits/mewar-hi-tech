@@ -172,21 +172,21 @@ export default function ServiceSlugPage({ params }: PageProps) {
               <div className="flex items-center gap-3 px-4 pt-4 md:pt-0 first:pt-0">
                 <ShieldCheck size={20} className="text-primary shrink-0 stroke-[2.2]" />
                 <div className="text-left">
-                  <span className="block text-xs font-black uppercase text-foreground">Guaranteed Quality</span>
+                  <span className="block text-xs font-bold uppercase text-foreground">Guaranteed Quality</span>
                   <span className="text-[10px] font-bold text-muted-foreground uppercase tracking-wider">Repair, Replace &amp; Return</span>
                 </div>
               </div>
               <div className="flex items-center gap-3 px-4 pt-4 md:pt-0">
                 <Clock size={20} className="text-primary shrink-0 stroke-[2.2]" />
                 <div className="text-left">
-                  <span className="block text-xs font-black uppercase text-foreground">48-Hr SLA response</span>
+                  <span className="block text-xs font-bold uppercase text-foreground">48-Hr SLA response</span>
                   <span className="text-[10px] font-bold text-muted-foreground uppercase tracking-wider">Anywhere in India</span>
                 </div>
               </div>
               <div className="flex items-center gap-3 px-4 pt-4 md:pt-0">
                 <Award size={20} className="text-primary shrink-0 stroke-[2.2]" />
                 <div className="text-left">
-                  <span className="block text-xs font-black uppercase text-foreground">ISO Certified</span>
+                  <span className="block text-xs font-bold uppercase text-foreground">ISO Certified</span>
                   <span className="text-[10px] font-bold text-muted-foreground uppercase tracking-wider">ISO 9001:2008 Standard</span>
                 </div>
               </div>
@@ -201,7 +201,7 @@ export default function ServiceSlugPage({ params }: PageProps) {
               
               {/* Left Column: Description & Contacts */}
               <div className="lg:col-span-7 space-y-6 text-left">
-                <h2 className="common-heading text-2xl sm:text-3xl font-black text-foreground uppercase tracking-tight font-heading">
+                <h2 className="common-heading text-2xl sm:text-3xl font-bold text-foreground uppercase tracking-tight font-heading">
                   Overview &amp; Commitment
                 </h2>
                 <p className="text-muted-foreground text-sm leading-relaxed font-semibold">
@@ -216,8 +216,8 @@ export default function ServiceSlugPage({ params }: PageProps) {
                 )}
 
                 {/* Direct Contacts Info Box */}
-                <div className="p-6 rounded-2xl bg-card border border-border/80 space-y-4">
-                  <h3 className="font-extrabold text-sm uppercase text-foreground font-heading">
+                <div className="p-6 rounded-xl bg-card border border-border/80 space-y-4">
+                  <h3 className="font-bold text-sm uppercase text-foreground font-heading">
                     Direct Contact Details
                   </h3>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -259,7 +259,7 @@ export default function ServiceSlugPage({ params }: PageProps) {
 
               {/* Right Column: Hero Image Preview */}
               <div className="lg:col-span-5 relative">
-                <div className="relative rounded-2xl overflow-hidden border border-border bg-card shadow-lg">
+                <div className="relative rounded-xl overflow-hidden border border-border bg-card shadow-lg">
                   <img
                     src={pageData.heroImage}
                     alt={pageData.title}
@@ -280,10 +280,10 @@ export default function ServiceSlugPage({ params }: PageProps) {
                 {pageData.sections.map((sect, sidx) => (
                   <div
                     key={sidx}
-                    className="p-6 rounded-2xl bg-card border border-border/80 flex flex-col justify-between text-left space-y-4 shadow-xs"
+                    className="p-6 rounded-xl bg-card border border-border/80 flex flex-col justify-between text-left space-y-4 shadow-xs"
                   >
                     <div className="space-y-3">
-                      <h3 className="font-extrabold text-base text-foreground font-heading">
+                      <h3 className="font-bold text-base text-foreground font-heading">
                         {sect.title}
                       </h3>
                       <p className="text-xs text-muted-foreground font-semibold leading-relaxed">
@@ -318,7 +318,7 @@ export default function ServiceSlugPage({ params }: PageProps) {
                 <span className="text-primary font-bold text-xs uppercase tracking-widest block font-sans">
                   Visual Directory
                 </span>
-                <h2 className="common-heading text-2xl sm:text-3xl font-black text-foreground uppercase tracking-tight">
+                <h2 className="common-heading text-2xl sm:text-3xl font-bold text-foreground uppercase tracking-tight">
                   {pageData.galleryTitle}
                 </h2>
               </div>
@@ -351,9 +351,9 @@ export default function ServiceSlugPage({ params }: PageProps) {
         {/* 6. Form Section */}
         <section className="py-12 bg-background border-b border-border/60">
           <Container className="text-left">
-            <div className="p-8 lg:p-12 rounded-3xl bg-card border border-border/80 flex flex-col md:flex-row md:items-center justify-between gap-8 shadow-sm">
+            <div className="p-8 lg:p-12 rounded-xl bg-card border border-border/80 flex flex-col md:flex-row md:items-center justify-between gap-8 shadow-sm">
               <div className="space-y-3">
-                <h3 className="common-heading text-2xl font-black text-foreground">
+                <h3 className="common-heading text-2xl font-bold text-foreground">
                   Need Help or Urgent Callback?
                 </h3>
                 <p className="text-xs text-muted-foreground font-semibold max-w-xl">
@@ -361,7 +361,7 @@ export default function ServiceSlugPage({ params }: PageProps) {
                 </p>
               </div>
               <Link href="/contact">
-                <BlobButton variant="primary" className="!py-3.5 !px-8 text-xs font-black uppercase tracking-wider shrink-0 flex items-center gap-2">
+                <BlobButton variant="primary" className="!py-3.5 !px-8 text-xs font-bold uppercase tracking-wider shrink-0 flex items-center gap-2">
                   <span>Contact Service Manager</span>
                   <ArrowRight size={15} />
                 </BlobButton>
@@ -396,7 +396,7 @@ export default function ServiceSlugPage({ params }: PageProps) {
               initial={{ scale: 0.95, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.95, opacity: 0 }}
-              className="relative max-w-5xl w-full max-h-[85vh] rounded-2xl overflow-hidden shadow-2xl border border-white/10 bg-black flex items-center justify-center"
+              className="relative max-w-5xl w-full max-h-[85vh] rounded-xl overflow-hidden shadow-2xl border border-white/10 bg-black flex items-center justify-center"
               onClick={(e) => e.stopPropagation()}
             >
               <img

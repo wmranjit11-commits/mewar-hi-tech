@@ -7,6 +7,12 @@
 @tailwind utilities;
 
 @layer base {
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading font-bold uppercase tracking-tight;
+  }
+}
+
+@layer base {
   :root {
     --background: 0 0% 100%;
     --foreground: 224 71.4% 10.8%; /* #111827 */
@@ -104,134 +110,77 @@
   }
 }
 
-/* Gooey Blob Button styling */
+/* Heavy Industrial Button styling (Formerly Blob Button) */
 .blob-btn {
-  z-index: 1;
   position: relative;
-  padding: 14px 36px;
-  text-align: center;
-  text-transform: uppercase;
-  font-size: 14px;
-  font-weight: 800;
-  letter-spacing: 0.05em;
-  background-color: transparent;
-  outline: none;
-  border: none;
-  transition: color 0.5s;
-  cursor: pointer;
-  border-radius: 6px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  padding: 14px 36px;
+  font-size: 14px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border-radius: 4px; /* Sharp industrial corners */
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+  overflow: hidden;
   user-select: none;
-  
-  --btn-color: hsl(var(--primary));
-  --btn-hover-color: hsl(var(--background));
-  --btn-bg: hsl(var(--background));
-  
-  color: var(--btn-color);
-}
-
-.blob-btn:before {
-  content: "";
   z-index: 1;
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  border: 2px solid var(--btn-color);
-  border-radius: 6px;
+
+  --btn-color: hsl(var(--primary));
+  --btn-text: hsl(var(--primary-foreground));
+  
+  background-color: var(--btn-color);
+  color: var(--btn-text);
+  border: 1px solid transparent;
 }
 
-.blob-btn:after {
+/* Inner highlight/shadow for depth */
+.blob-btn::before {
   content: "";
-  z-index: -2;
   position: absolute;
-  left: 3px;
-  top: 3px;
-  width: 100%;
-  height: 100%;
-  transition: all 0.3s 0.2s;
-  border-radius: 6px;
+  inset: 0;
+  border-bottom: 3px solid rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+  transition: all 0.2s;
+  z-index: -1;
 }
 
 .blob-btn:hover {
-  color: var(--btn-hover-color);
+  transform: translateY(1px);
 }
 
-.blob-btn:hover:after {
-  transition: all 0.3s;
-  left: 0;
-  top: 0;
+.blob-btn:hover::before {
+  border-bottom-width: 0px;
 }
 
-.blob-btn__inner {
-  z-index: -1;
-  overflow: hidden;
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  border-radius: 6px;
-  background: var(--btn-bg);
-}
-
-.blob-btn__blobs {
-  position: relative;
-  display: block;
-  height: 100%;
-  filter: url('#goo');
-}
-
-.blob-btn__blob {
-  position: absolute;
-  top: 2px;
-  width: 25%;
-  height: 100%;
-  background: var(--btn-color);
-  border-radius: 100%;
-  transform: translate3d(0, 150%, 0) scale(1.7);
-  transition: transform 0.45s;
-}
-
-@supports(border-radius: 50%) {
-  .blob-btn__blob {
-    border-radius: 50%;
-  }
-}
-
-.blob-btn__blob:nth-child(1) { left: 0%; transition-delay: 0s; }
-.blob-btn__blob:nth-child(2) { left: 30%; transition-delay: 0.08s; }
-.blob-btn__blob:nth-child(3) { left: 60%; transition-delay: 0.16s; }
-.blob-btn__blob:nth-child(4) { left: 90%; transition-delay: 0.24s; }
-
-.blob-btn:hover .blob-btn__blob {
-  transform: translateZ(0) scale(1.7);
-}
-
-@supports(filter: url('#goo')) {
-  .blob-btn:hover .blob-btn__blob {
-    transform: translateZ(0) scale(1.4);
-  }
-}
-
-/* Secondary Button Colors mapping */
+/* Secondary Button Mode */
 .blob-btn.blob-btn--secondary {
-  --btn-color: hsl(var(--foreground));
-  --btn-hover-color: hsl(var(--background));
-  --btn-bg: hsl(var(--background));
+  --btn-color: transparent;
+  --btn-text: hsl(var(--foreground));
+  border: 2px solid hsl(var(--border));
+  background-color: transparent;
 }
 
-.theme-dark .blob-btn {
-  --btn-hover-color: #0d0e12;
+.blob-btn.blob-btn--secondary::before {
+  display: none;
+}
+
+.blob-btn.blob-btn--secondary:hover {
+  border-color: hsl(var(--foreground));
+  background-color: hsl(var(--foreground));
+  color: hsl(var(--background));
 }
 
 .theme-dark .blob-btn.blob-btn--secondary {
-  --btn-color: #ffffff;
-  --btn-hover-color: #0d0e12;
-  --btn-bg: #0d0e12;
+  --btn-text: #ffffff;
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.theme-dark .blob-btn.blob-btn--secondary:hover {
+  background-color: #ffffff;
+  color: #000000;
 }
 
 /* Custom transitions and marquee */
@@ -254,7 +203,7 @@
   animation-play-state: paused;
 }
 
-/* Common heading helper to replace font-black/font-extrabold utility configurations */
+/* Common heading helper to replace font-bold/font-bold utility configurations */
 .common-heading {
   @apply font-heading font-bold uppercase tracking-tight;
 }

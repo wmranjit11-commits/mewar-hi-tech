@@ -139,11 +139,11 @@ export default function LatestProjects() {
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
           <div className="space-y-3 text-left">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary text-[11px] font-extrabold uppercase tracking-widest">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary text-[11px] font-bold uppercase tracking-widest">
               <Sparkles size={13} />
               <span>Proven Field Excellence</span>
             </div>
-            <h2 className="common-heading text-3xl sm:text-4xl lg:text-5xl text-foreground font-black tracking-tight">
+            <h2 className="common-heading text-3xl sm:text-4xl lg:text-5xl text-foreground font-bold tracking-tight">
               Latest Projects & Installations
             </h2>
             <p className="text-sm text-muted-foreground font-medium max-w-xl leading-relaxed">
@@ -152,15 +152,15 @@ export default function LatestProjects() {
           </div>
 
           {/* Active Installations Counter Badge */}
-          <div className="flex items-center gap-3 bg-card border border-border/80 p-2.5 px-4 rounded-2xl shadow-sm shrink-0 self-start md:self-end">
-            <div className="w-9 h-9 rounded-xl bg-primary/15 text-primary flex items-center justify-center font-black">
+          <div className="flex items-center gap-3 bg-card border border-border/80 p-2.5 px-4 rounded-xl shadow-sm shrink-0 self-start md:self-end">
+            <div className="w-9 h-9 rounded-xl bg-primary/15 text-primary flex items-center justify-center font-bold">
               <CheckCircle2 size={18} />
             </div>
             <div className="text-left">
               <span className="block text-[10px] text-muted-foreground uppercase font-bold tracking-wider">
                 Live Sites
               </span>
-              <span className="text-sm font-extrabold text-foreground">
+              <span className="text-sm font-bold text-foreground">
                 8 Active Installations
               </span>
             </div>
@@ -177,7 +177,7 @@ export default function LatestProjects() {
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
             onClick={() => setLightboxIndex(0)}
-            className="lg:col-span-7 relative min-h-[420px] lg:min-h-[520px] rounded-3xl overflow-hidden border border-border bg-card group shadow-lg hover:shadow-2xl transition-all duration-500 cursor-pointer flex flex-col justify-end"
+            className="lg:col-span-7 relative min-h-[420px] lg:min-h-[520px] rounded-xl overflow-hidden border border-border bg-card group shadow-lg hover:shadow-2xl transition-all duration-500 cursor-pointer flex flex-col justify-end"
           >
             <img
               src={featuredProject.src}
@@ -190,7 +190,7 @@ export default function LatestProjects() {
 
             {/* Top Badge */}
             <div className="absolute top-6 left-6 z-20 flex items-center gap-2">
-              <span className="px-3.5 py-1.5 rounded-full bg-primary text-primary-foreground text-xs font-black uppercase tracking-wider shadow-md">
+              <span className="px-3.5 py-1.5 rounded-full bg-primary text-primary-foreground text-xs font-bold uppercase tracking-wider shadow-md">
                 Featured Site
               </span>
               <span className="px-3.5 py-1.5 rounded-full bg-black/50 backdrop-blur-md border border-white/20 text-white text-xs font-bold">
@@ -209,7 +209,7 @@ export default function LatestProjects() {
                 <MapPin size={14} />
                 <span>{featuredProject.location}</span>
               </div>
-              <h3 className="text-xl sm:text-2xl lg:text-3xl font-black text-white uppercase tracking-wide font-heading">
+              <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold text-white uppercase tracking-wide font-heading">
                 {featuredProject.title}
               </h3>
               <div className="flex items-center gap-2 text-white/80 text-xs font-semibold pt-2">
@@ -229,7 +229,7 @@ export default function LatestProjects() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: (idx + 1) * 0.1 }}
                 onClick={() => setLightboxIndex(idx + 1)}
-                className="relative h-[155px] lg:h-[160px] rounded-2xl overflow-hidden border border-border bg-card group shadow-xs hover:shadow-xl transition-all duration-300 cursor-pointer flex items-end p-4"
+                className="relative h-[155px] lg:h-[160px] rounded-xl overflow-hidden border border-border bg-card group shadow-xs hover:shadow-xl transition-all duration-300 cursor-pointer flex items-end p-4"
               >
                 <img
                   src={item.src}
@@ -240,7 +240,7 @@ export default function LatestProjects() {
 
                 <div className="relative z-20 flex items-center justify-between w-full text-left">
                   <div>
-                    <span className="text-[10px] font-extrabold text-primary uppercase tracking-wider block">
+                    <span className="text-[10px] font-bold text-primary uppercase tracking-wider block">
                       {item.tag} • {item.location}
                     </span>
                     <h4 className="text-sm font-bold text-white uppercase tracking-tight line-clamp-1">
@@ -267,7 +267,7 @@ export default function LatestProjects() {
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: idx * 0.08 }}
               onClick={() => setLightboxIndex(idx + 4)}
-              className="relative h-[220px] rounded-2xl overflow-hidden border border-border bg-card group shadow-sm hover:shadow-xl transition-all duration-300 cursor-pointer flex flex-col justify-between p-5"
+              className="relative h-[220px] rounded-xl overflow-hidden border border-border bg-card group shadow-sm hover:shadow-xl transition-all duration-300 cursor-pointer flex flex-col justify-between p-5"
             >
               <img
                 src={item.src}
@@ -315,7 +315,7 @@ export default function LatestProjects() {
             {/* Header controls */}
             <div className="absolute top-6 left-6 right-6 flex justify-between items-center text-white z-20">
               <div className="flex items-center gap-3">
-                <span className="px-3.5 py-1.5 rounded-full bg-primary text-primary-foreground text-xs font-black uppercase">
+                <span className="px-3.5 py-1.5 rounded-full bg-primary text-primary-foreground text-xs font-bold uppercase">
                   {LATEST_PROJECTS_DATA[lightboxIndex].tag}
                 </span>
                 <span className="text-sm font-semibold text-white/80">
@@ -333,7 +333,7 @@ export default function LatestProjects() {
             {/* Lightbox Image Preview */}
             <div
               onClick={(e) => e.stopPropagation()}
-              className="relative max-w-5xl w-full max-h-[80vh] aspect-[16/10] rounded-2xl overflow-hidden shadow-2xl border border-white/10"
+              className="relative max-w-5xl w-full max-h-[80vh] aspect-[16/10] rounded-xl overflow-hidden shadow-2xl border border-white/10"
             >
               <img
                 src={LATEST_PROJECTS_DATA[lightboxIndex].src}

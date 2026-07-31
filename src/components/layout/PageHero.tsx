@@ -16,35 +16,33 @@ const PageHero: React.FC<PageHeroProps> = ({
   image = "/images/hero_crusher.png",
 }) => {
   return (
-    <section className="relative pt-36 pb-20 lg:pt-44 lg:pb-28 bg-secondary overflow-hidden select-none">
+    <section className="relative pt-36 pb-20 lg:pt-48 lg:pb-28 bg-secondary overflow-hidden select-none border-b-4 border-border">
       {/* Background image */}
       <div className="absolute inset-0">
         <img
           src={image}
           alt=""
-          className="w-full h-full object-cover opacity-30"
+          className="w-full h-full object-cover opacity-20"
         />
-        {/* Gradient overlay */}
-        <div className="absolute inset-0 bg-gradient-to-t from-secondary via-secondary/70 to-secondary/40" />
+        {/* Solid sharp overlay instead of soft gradient */}
+        <div className="absolute inset-0 bg-secondary/90" />
       </div>
 
       {/* Content */}
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-        className="relative max-w-4xl mx-auto px-6 text-center space-y-4"
+      <div
+        className="relative max-w-7xl mx-auto px-6 text-left space-y-5"
       >
-        <span className="text-primary font-bold text-xs uppercase tracking-[0.2em] block">
+        <span className="inline-block px-3 py-1 bg-primary text-primary-foreground font-bold text-[10px] uppercase tracking-widest border border-primary">
           {label}
         </span>
-        <h1 className="common-heading text-4xl sm:text-5xl lg:text-6xl text-secondary-foreground leading-tight">
+        <h1 className="common-heading text-4xl sm:text-5xl lg:text-7xl text-secondary-foreground leading-[1.1] font-bold uppercase max-w-4xl tracking-tight">
           {title}
         </h1>
-        <p className="text-secondary-foreground/60 text-base sm:text-lg max-w-2xl mx-auto font-medium">
+        <div className="w-16 h-1.5 bg-primary rounded-none mt-6 mb-6" />
+        <p className="text-secondary-foreground/70 text-base sm:text-xl max-w-2xl font-medium leading-relaxed">
           {description}
         </p>
-      </motion.div>
+      </div>
     </section>
   );
 };

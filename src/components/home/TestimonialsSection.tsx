@@ -54,20 +54,18 @@ const TESTIMONIALS_DATA: Testimonial[] = [
 
 export default function TestimonialsSection() {
   return (
-    <section className="py-8 lg:py-12 bg-gradient-to-b from-background via-muted/30 to-background border-b border-border/60 relative overflow-hidden select-none">
-      {/* Decorative Glow */}
-      <div className="absolute top-1/2 left-1/4 -translate-y-1/2 w-[600px] h-[300px] bg-primary/5 rounded-full blur-3xl pointer-events-none" />
+    <section className="py-12 lg:py-16 bg-background border-b border-border relative overflow-hidden select-none">
 
       <Container className="relative z-10">
         
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-14 gap-6">
           <div className="space-y-3 text-left">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary text-[11px] font-extrabold uppercase tracking-widest">
-              <ShieldCheck size={13} />
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-none border-2 border-border text-foreground text-[11px] font-bold uppercase tracking-widest">
+              <ShieldCheck size={13} className="text-primary" />
               <span>Verified Client Reviews</span>
             </div>
-            <h2 className="common-heading text-3xl sm:text-4xl lg:text-5xl text-foreground font-black tracking-tight">
+            <h2 className="common-heading text-3xl sm:text-4xl lg:text-5xl text-foreground font-bold tracking-tight">
               Trusted By Industry Leaders
             </h2>
             <p className="text-sm text-muted-foreground font-medium max-w-xl leading-relaxed">
@@ -76,14 +74,14 @@ export default function TestimonialsSection() {
           </div>
 
           {/* Rating Summary Pill */}
-          <div className="flex items-center gap-3 bg-card border border-border/80 p-3 px-5 rounded-2xl shadow-sm shrink-0 self-start md:self-end">
+          <div className="flex items-center gap-3 bg-card border-2 border-border p-3 px-5 rounded-none shadow-sm shrink-0 self-start md:self-end">
             <div className="flex gap-1 text-primary">
               {Array.from({ length: 5 }).map((_, i) => (
                 <Star key={i} size={16} className="fill-primary" />
               ))}
             </div>
             <div className="text-left border-l border-border/60 pl-3">
-              <span className="block text-sm font-extrabold text-foreground leading-none">
+              <span className="block text-sm font-bold text-foreground leading-none">
                 4.9 / 5.0 Rating
               </span>
               <span className="text-[10px] font-bold text-muted-foreground uppercase tracking-wider">
@@ -96,13 +94,9 @@ export default function TestimonialsSection() {
         {/* Testimonials Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {TESTIMONIALS_DATA.map((t, idx) => (
-            <motion.div
+            <div
               key={t.name}
-              initial={{ opacity: 0, y: 25 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: idx * 0.12 }}
-              className="bg-card rounded-3xl p-8 border border-border/80 hover:border-primary/50 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between relative group text-left"
+              className="bg-card rounded-none p-8 border-2 border-border hover:border-primary shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between relative group text-left"
             >
               {/* Top Quote Icon Accent */}
               <div className="absolute top-6 right-6 text-muted/40 group-hover:text-primary/20 transition-colors">
@@ -112,7 +106,7 @@ export default function TestimonialsSection() {
               <div>
                 {/* Project Tag Badge & Star Rating */}
                 <div className="flex items-center justify-between mb-6">
-                  <span className="px-3 py-1 rounded-full bg-primary/10 text-primary border border-primary/20 text-[10px] font-black uppercase tracking-wider">
+                  <span className="px-3 py-1 rounded-none bg-primary text-primary-foreground border-none text-[10px] font-bold uppercase tracking-wider">
                     {t.projectTag}
                   </span>
                   <div className="flex gap-1">
@@ -128,16 +122,15 @@ export default function TestimonialsSection() {
                 </p>
               </div>
 
-              {/* Author Info */}
               <div className="flex items-center gap-4 pt-5 border-t border-border/60">
                 <img
                   src={t.image}
                   alt={t.name}
-                  className="w-12 h-12 rounded-full object-cover border-2 border-primary/30 shadow-xs shrink-0"
+                  className="w-12 h-12 rounded-none object-cover border-2 border-border shadow-xs shrink-0"
                 />
                 <div className="overflow-hidden">
                   <div className="flex items-center gap-1.5">
-                    <h3 className="font-extrabold text-foreground text-sm uppercase font-heading leading-tight truncate">
+                    <h3 className="font-bold text-foreground text-sm uppercase font-heading leading-tight truncate">
                       {t.name}
                     </h3>
                     <ShieldCheck size={14} className="text-primary shrink-0" />
@@ -151,7 +144,7 @@ export default function TestimonialsSection() {
                   </div>
                 </div>
               </div>
-            </motion.div>
+            </div>
           ))}
         </div>
 

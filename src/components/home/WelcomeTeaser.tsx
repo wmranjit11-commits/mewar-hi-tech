@@ -17,7 +17,7 @@ export default function WelcomeTeaser() {
               <span className="text-primary font-bold text-xs uppercase tracking-widest block">
                 Welcome to Mewar
               </span>
-              <h2 className="common-heading text-3xl sm:text-4xl text-foreground font-black leading-tight">
+              <h2 className="common-heading text-3xl sm:text-4xl text-foreground font-bold leading-tight">
                 Mewar Hitech Engineering Limited
               </h2>
             </div>
@@ -31,7 +31,7 @@ export default function WelcomeTeaser() {
             </div>
             <div className="pt-2">
               <Link href="/about">
-                <BlobButton variant="primary" className="!px-6 !py-3 !text-xs !font-black !uppercase !tracking-wider flex items-center gap-2">
+                <BlobButton variant="primary" className="!px-6 !py-3 !text-xs !font-bold !uppercase !tracking-wider flex items-center gap-2">
                   <span>Learn More About Us</span>
                   <ArrowRight size={14} />
                 </BlobButton>
@@ -42,7 +42,7 @@ export default function WelcomeTeaser() {
           {/* Right Image Collage Column */}
           <div className="lg:col-span-6 py-10 flex justify-center relative min-h-[380px] sm:min-h-[440px] w-full">
             {/* Image 1 (Background left) */}
-            <div className="absolute left-4 top-8 w-[60%] aspect-square rounded-2xl overflow-hidden border border-border shadow-lg rotate-[-3deg] hover:rotate-0 hover:z-20 transition-all duration-300">
+            <div className="absolute left-4 top-8 w-[60%] aspect-square rounded-xl overflow-hidden border border-border shadow-lg rotate-[-3deg] hover:rotate-0 hover:z-20 transition-all duration-300">
               <img
                 src="/images/index-1.jpg"
                 alt="Plant installation assembly"
@@ -50,7 +50,7 @@ export default function WelcomeTeaser() {
               />
             </div>
             {/* Image 2 (Background right) */}
-            <div className="absolute right-4 top-16 w-[55%] aspect-square rounded-2xl overflow-hidden border border-border shadow-lg rotate-[4deg] hover:rotate-0 hover:z-20 transition-all duration-300">
+            <div className="absolute right-4 top-16 w-[55%] aspect-square rounded-xl overflow-hidden border border-border shadow-lg rotate-[4deg] hover:rotate-0 hover:z-20 transition-all duration-300">
               <img
                 src="/images/index-2.jpg"
                 alt="Crusher component parts"
@@ -58,7 +58,7 @@ export default function WelcomeTeaser() {
               />
             </div>
             {/* Image 3 (Foreground center) */}
-            <div className="absolute left-[20%] top-[40%] w-[60%] aspect-[4/3] rounded-3xl overflow-hidden border border-primary/20 shadow-2xl rotate-[-1deg] hover:rotate-0 z-10 hover:z-20 hover:border-primary/40 transition-all duration-300 bg-card">
+            <div className="absolute left-[20%] top-[40%] w-[60%] aspect-[4/3] rounded-xl overflow-hidden border border-primary/20 shadow-2xl rotate-[-1deg] hover:rotate-0 z-10 hover:z-20 hover:border-primary/40 transition-all duration-300 bg-card">
               <img
                 src="/images/index-3.jpg"
                 alt="Welcome project deployment"

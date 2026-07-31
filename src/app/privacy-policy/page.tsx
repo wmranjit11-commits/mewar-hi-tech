@@ -26,12 +26,12 @@ export default function PrivacyPolicyPage() {
             <div className="max-w-4xl mx-auto space-y-12">
             
             {/* Top summary card */}
-            <div className="p-8 rounded-3xl bg-card border border-border/80 flex items-start gap-5 shadow-sm">
-              <div className="w-12 h-12 rounded-2xl bg-primary/10 border border-primary/20 flex items-center justify-center shrink-0">
+            <div className="p-8 rounded-xl bg-card border border-border/80 flex items-start gap-5 shadow-sm">
+              <div className="w-12 h-12 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center shrink-0">
                 <ShieldCheck size={24} className="text-primary stroke-[2.2]" />
               </div>
               <div className="space-y-2">
-                <h2 className="common-heading text-2xl font-black text-foreground">Our Privacy Policy</h2>
+                <h2 className="common-heading text-2xl font-bold text-foreground">Our Privacy Policy</h2>
                 <p className="text-sm text-muted-foreground leading-relaxed font-semibold">
                   Mewar Hitech Engineering Ltd. values your privacy and takes it very seriously. This privacy policy describes the privacy practices of Mewar Hitech Engineering Ltd. by explaining how we collect, use, and protect your personal information. Please read this Privacy Policy carefully before using our website.
                 </p>
@@ -43,7 +43,7 @@ export default function PrivacyPolicyPage() {
               
               {/* Section Block */}
               <div className="space-y-3">
-                <h3 className="font-extrabold text-lg uppercase tracking-tight text-foreground font-heading border-b border-border/60 pb-2">
+                <h3 className="font-bold text-lg uppercase tracking-tight text-foreground font-heading border-b border-border/60 pb-2">
                   When The Policy Applies
                 </h3>
                 <p className="text-sm text-muted-foreground leading-relaxed font-semibold">
@@ -52,7 +52,7 @@ export default function PrivacyPolicyPage() {
               </div>
 
               <div className="space-y-3">
-                <h3 className="font-extrabold text-lg uppercase tracking-tight text-foreground font-heading border-b border-border/60 pb-2">
+                <h3 className="font-bold text-lg uppercase tracking-tight text-foreground font-heading border-b border-border/60 pb-2">
                   Information We Collect and Track
                 </h3>
                 <p className="text-sm text-muted-foreground leading-relaxed font-semibold">
@@ -61,7 +61,7 @@ export default function PrivacyPolicyPage() {
               </div>
 
               <div className="space-y-3">
-                <h3 className="font-extrabold text-lg uppercase tracking-tight text-foreground font-heading border-b border-border/60 pb-2">
+                <h3 className="font-bold text-lg uppercase tracking-tight text-foreground font-heading border-b border-border/60 pb-2">
                   Information That You Submit
                 </h3>
                 <p className="text-sm text-muted-foreground leading-relaxed font-semibold">
@@ -70,7 +70,7 @@ export default function PrivacyPolicyPage() {
               </div>
 
               <div className="space-y-3">
-                <h3 className="font-extrabold text-lg uppercase tracking-tight text-foreground font-heading border-b border-border/60 pb-2">
+                <h3 className="font-bold text-lg uppercase tracking-tight text-foreground font-heading border-b border-border/60 pb-2">
                   Information That We Collect
                 </h3>
                 <p className="text-sm text-muted-foreground leading-relaxed font-semibold">
@@ -79,8 +79,8 @@ export default function PrivacyPolicyPage() {
               </div>
 
               {/* Special Section with List */}
-              <div className="space-y-4 p-8 rounded-3xl bg-muted/20 border border-border/60">
-                <h3 className="font-extrabold text-lg uppercase tracking-tight text-foreground font-heading">
+              <div className="space-y-4 p-8 rounded-xl bg-muted/20 border border-border/60">
+                <h3 className="font-bold text-lg uppercase tracking-tight text-foreground font-heading">
                   How We Use Your Information
                 </h3>
                 <p className="text-sm text-muted-foreground leading-relaxed font-semibold">
@@ -102,7 +102,7 @@ export default function PrivacyPolicyPage() {
               </div>
 
               <div className="space-y-3">
-                <h3 className="font-extrabold text-lg uppercase tracking-tight text-foreground font-heading border-b border-border/60 pb-2">
+                <h3 className="font-bold text-lg uppercase tracking-tight text-foreground font-heading border-b border-border/60 pb-2">
                   How Long Your Information Is Stored
                 </h3>
                 <p className="text-sm text-muted-foreground leading-relaxed font-semibold">
@@ -111,7 +111,7 @@ export default function PrivacyPolicyPage() {
               </div>
 
               <div className="space-y-3">
-                <h3 className="font-extrabold text-lg uppercase tracking-tight text-foreground font-heading border-b border-border/60 pb-2">
+                <h3 className="font-bold text-lg uppercase tracking-tight text-foreground font-heading border-b border-border/60 pb-2">
                   How Your Information Is Protected
                 </h3>
                 <div className="flex items-start gap-4">
@@ -125,7 +125,7 @@ export default function PrivacyPolicyPage() {
               </div>
 
               <div className="space-y-3">
-                <h3 className="font-extrabold text-lg uppercase tracking-tight text-foreground font-heading border-b border-border/60 pb-2">
+                <h3 className="font-bold text-lg uppercase tracking-tight text-foreground font-heading border-b border-border/60 pb-2">
                   Other Communications
                 </h3>
                 <p className="text-sm text-muted-foreground leading-relaxed font-semibold">
@@ -134,7 +134,7 @@ export default function PrivacyPolicyPage() {
               </div>
 
               <div className="space-y-3">
-                <h3 className="font-extrabold text-lg uppercase tracking-tight text-foreground font-heading border-b border-border/60 pb-2">
+                <h3 className="font-bold text-lg uppercase tracking-tight text-foreground font-heading border-b border-border/60 pb-2">
                   Links to Third-Party Websites
                 </h3>
                 <p className="text-sm text-muted-foreground leading-relaxed font-semibold">
@@ -143,7 +143,7 @@ export default function PrivacyPolicyPage() {
               </div>
 
               <div className="space-y-3">
-                <h3 className="font-extrabold text-lg uppercase tracking-tight text-foreground font-heading border-b border-border/60 pb-2">
+                <h3 className="font-bold text-lg uppercase tracking-tight text-foreground font-heading border-b border-border/60 pb-2">
                   Cookies
                 </h3>
                 <p className="text-sm text-muted-foreground leading-relaxed font-semibold">
@@ -152,7 +152,7 @@ export default function PrivacyPolicyPage() {
               </div>
 
               <div className="space-y-3">
-                <h3 className="font-extrabold text-lg uppercase tracking-tight text-foreground font-heading border-b border-border/60 pb-2">
+                <h3 className="font-bold text-lg uppercase tracking-tight text-foreground font-heading border-b border-border/60 pb-2">
                   Compliance with Laws
                 </h3>
                 <p className="text-sm text-muted-foreground leading-relaxed font-semibold">
@@ -161,7 +161,7 @@ export default function PrivacyPolicyPage() {
               </div>
 
               <div className="space-y-3">
-                <h3 className="font-extrabold text-lg uppercase tracking-tight text-foreground font-heading border-b border-border/60 pb-2">
+                <h3 className="font-bold text-lg uppercase tracking-tight text-foreground font-heading border-b border-border/60 pb-2">
                   Applicable Laws
                 </h3>
                 <p className="text-sm text-muted-foreground leading-relaxed font-semibold">
@@ -170,7 +170,7 @@ export default function PrivacyPolicyPage() {
               </div>
 
               <div className="space-y-3">
-                <h3 className="font-extrabold text-lg uppercase tracking-tight text-foreground font-heading border-b border-border/60 pb-2">
+                <h3 className="font-bold text-lg uppercase tracking-tight text-foreground font-heading border-b border-border/60 pb-2">
                   Changes in the Policy
                 </h3>
                 <p className="text-sm text-muted-foreground leading-relaxed font-semibold">
@@ -178,9 +178,9 @@ export default function PrivacyPolicyPage() {
                 </p>
               </div>
 
-              <div className="p-8 rounded-3xl bg-card border border-border/80 flex flex-col md:flex-row md:items-center justify-between gap-6 shadow-sm">
+              <div className="p-8 rounded-xl bg-card border border-border/80 flex flex-col md:flex-row md:items-center justify-between gap-6 shadow-sm">
                 <div className="space-y-2">
-                  <h3 className="common-heading text-xl font-black text-foreground tracking-tight">Your Rights Under the Policy</h3>
+                  <h3 className="common-heading text-xl font-bold text-foreground tracking-tight">Your Rights Under the Policy</h3>
                   <p className="text-xs text-muted-foreground font-semibold">
                     If you have any questions regarding this policy or wish to exercise your rights concerning your personal data, please contact us.
                   </p>

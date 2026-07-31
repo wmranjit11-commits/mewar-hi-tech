@@ -70,7 +70,7 @@ const InsightsPublicationsSection: React.FC = () => {
               </h2>
             </div>
             <Link href="/blogs">
-              <BlobButton variant="secondary" className="!py-2.5 !px-5 !text-xs font-extrabold">
+              <BlobButton variant="secondary" className="!py-2.5 !px-5 !text-xs font-bold">
                 See all
               </BlobButton>
             </Link>
@@ -84,7 +84,7 @@ const InsightsPublicationsSection: React.FC = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="border border-border bg-card rounded-2xl overflow-hidden flex flex-col group hover:shadow-lg transition-all duration-300"
+                className="border border-border bg-card rounded-xl overflow-hidden flex flex-col group hover:shadow-lg transition-all duration-300"
               >
                 <div className="h-48 overflow-hidden bg-muted">
                   <img
@@ -127,7 +127,7 @@ const InsightsPublicationsSection: React.FC = () => {
                 Our Publications
               </h2>
               <Link href="/about">
-                <BlobButton variant="secondary" className="!py-2 !px-4 !text-[10px] font-extrabold">
+                <BlobButton variant="secondary" className="!py-2 !px-4 !text-[10px] font-bold">
                   See all
                 </BlobButton>
               </Link>
@@ -141,7 +141,7 @@ const InsightsPublicationsSection: React.FC = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: index * 0.08 }}
-                  className="border border-border p-5 rounded-2xl bg-card flex flex-col justify-between min-h-[160px] hover:shadow-md transition-shadow group cursor-pointer"
+                  className="border border-border p-5 rounded-xl bg-card flex flex-col justify-between min-h-[160px] hover:shadow-md transition-shadow group cursor-pointer"
                 >
                   <div>
                     <div className="w-8 h-8 flex items-center justify-center border border-red-200 text-red-500 bg-red-50 rounded-lg mb-4">
@@ -173,7 +173,7 @@ const InsightsPublicationsSection: React.FC = () => {
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className="border border-border p-5 rounded-2xl bg-card flex items-center justify-between hover:shadow-md transition-all group"
+                  className="border border-border p-5 rounded-xl bg-card flex items-center justify-between hover:shadow-md transition-all group"
                 >
                   <div className="space-y-2">
                     <h4 className="common-heading text-sm text-foreground tracking-wider group-hover:text-primary transition-colors">

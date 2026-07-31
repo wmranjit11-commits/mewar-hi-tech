@@ -44,7 +44,7 @@ export const MachineCard: React.FC<MachineCardProps> = ({
       tabIndex={0}
       role="button"
       aria-label={`Explore our ${category.title} solutions`}
-      className="relative h-[480px] rounded-2xl overflow-hidden cursor-pointer select-none border border-border/10 shadow-lg group outline-none focus-visible:ring-2 focus-visible:ring-primary flex flex-col transition-[flex] duration-300 ease-[cubic-bezier(0.4,0,0.2,1)]"
+      className="relative h-[480px] rounded-xl overflow-hidden cursor-pointer select-none border-2 border-border shadow-md group outline-none focus-visible:ring-2 focus-visible:ring-primary flex flex-col transition-[flex] duration-300 ease-[cubic-bezier(0.4,0,0.2,1)]"
       style={{
         flex: `${isHovered ? 2.2 : isAnyHovered ? 0.8 : 1} 1 0%`,
       }}
@@ -76,8 +76,8 @@ export const MachineCard: React.FC<MachineCardProps> = ({
         className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-black/10 z-10 pointer-events-none"
       />
 
-      {/* Category Icon Badge in Top-Left Corner (Floating) */}
-      <div className="absolute top-5 left-5 z-20 bg-primary/95 text-primary-foreground p-3 rounded-full shadow-md group-hover:scale-110 transition-transform duration-300">
+      {/* Category Icon Badge in Top-Left Corner (Solid, architectural) */}
+      <div className="absolute top-5 left-5 z-20 bg-primary text-primary-foreground p-2.5 rounded shadow-sm group-hover:scale-105 transition-transform duration-300">
         {React.createElement(category.icon, { size: 18, strokeWidth: 2.5 })}
       </div>
 

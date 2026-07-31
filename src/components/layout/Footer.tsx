@@ -144,7 +144,7 @@ const Footer: React.FC = () => {
         {/* Columns 2 to 5: Link Columns */}
         {footerColumns.map((col) => (
           <div key={col.title} className="w-auto space-y-3 shrink-0">
-            <h4 className="font-sans font-extrabold text-[10px] uppercase tracking-wider text-secondary-foreground">
+            <h4 className="font-sans font-bold text-[10px] uppercase tracking-wider text-secondary-foreground">
               {col.title}
             </h4>
             <ul className="space-y-2">
@@ -164,7 +164,7 @@ const Footer: React.FC = () => {
 
         {/* Column 6: Newsletter Subscribe */}
         <div className="w-full sm:w-[45%] lg:w-auto lg:max-w-[260px] space-y-3 shrink-0">
-          <h4 className="font-sans font-extrabold text-[10px] uppercase tracking-wider text-secondary-foreground">
+          <h4 className="font-sans font-bold text-[10px] uppercase tracking-wider text-secondary-foreground">
             NEWSLETTER
           </h4>
           <p className="text-secondary-foreground/60 text-xs leading-relaxed">
