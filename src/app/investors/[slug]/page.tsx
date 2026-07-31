@@ -46,13 +46,13 @@ const INVESTOR_MENU = [
 
 // ─── Slugs Data List matching user screenshots exactly ───
 
-const CORPORATE_GOVERNANCE_DATA = [
+const CORPORATE_GOVERNANCE_DATA: any[] = [
   { title: "Composition of Board of Directors and Committees", hasLink: true },
   { title: "Memorandum and Articles of Association", hasLink: true },
   { title: "Policies and Codes", hasLink: true },
 ];
 
-const SHAREHOLDING_DATA = [
+const SHAREHOLDING_DATA: any[] = [
   { quarter: "Shareholding Pattern 30.09.2024" },
   { quarter: "Shareholding Pattern 31.03.2024" },
   { quarter: "Shareholding Pattern 30.09.2023" },
@@ -61,7 +61,7 @@ const SHAREHOLDING_DATA = [
   { quarter: "Shareholding Pattern 31.03.2022" },
 ];
 
-const SHAREHOLDERS_MEETINGS_DATA = [
+const SHAREHOLDERS_MEETINGS_DATA: any[] = [
   { title: "Notice of 19th Annual General Meeting 2024-25" },
   { title: "Notice of 18th AGM for the year 2023-24" },
   { title: "Outcome of 18th AGM for the year 2023-24" },
@@ -83,7 +83,7 @@ const SHAREHOLDERS_MEETINGS_DATA = [
   { title: "Outcome of 11th AGM for the year 2016-17" },
 ];
 
-const BOARD_MEETINGS_DATA = [
+const BOARD_MEETINGS_DATA: any[] = [
   { title: "Outcome of Board Meeting held on 14.11.2024" },
   { title: "Intimation of Board Meeting to be held on 14.11.2024" },
   { title: "Outcome of Board Meeting held on 23.10.2024" },
@@ -95,7 +95,7 @@ const BOARD_MEETINGS_DATA = [
   { title: "Intimation of Board Meeting to be held on 13.02.2024" },
 ];
 
-const FINANCIAL_RESULTS_DATA = [
+const FINANCIAL_RESULTS_DATA: any[] = [
   { title: "Unaudited Financial Results as on 30.09.2024" },
   { title: "Audited Financial Results for 31.03.2024" },
   { title: "Audited Financial Results for 31.03.2023" },
@@ -118,7 +118,7 @@ const FINANCIAL_RESULTS_DATA = [
   { title: "Unaudited Financial Results as on 30.09.2016" },
 ];
 
-const ANNUAL_REPORTS_DATA = [
+const ANNUAL_REPORTS_DATA: any[] = [
   { title: "Annual Report (2024-2025)", year: "2024-2025" },
   { title: "Annual Report (2023-2024)", year: "2023-2024" },
   { title: "Annual Report (2022-2023)", year: "2022-2023" },
@@ -131,7 +131,7 @@ const ANNUAL_REPORTS_DATA = [
   { title: "MHT Annual Report (2017-18)", year: "2017-2018" },
 ];
 
-const ANNUAL_RETURNS_DATA = [
+const ANNUAL_RETURNS_DATA: any[] = [
   { title: "Annual Return (2022-2023)", year: "2022-2023" },
   { title: "Annual Return (2021-2022)", year: "2021-2022" },
   { title: "Annual Return (2020-2021)", year: "2020-2021" },
@@ -141,8 +141,8 @@ const ANNUAL_RETURNS_DATA = [
   { title: "Annual Return (2016-2017)", year: "2016-2017" },
 ];
 
-const REGULATION_46_DATA = [
-  { id: 1, text: "Details of business", status: "Available" },
+const REGULATION_46_DATA: any[] = [
+  { id: 1, text: "Details of business", status: "Available", link: "/about" },
   { id: 2, text: "Terms and conditions of appointment of independent directors", status: "Available" },
   { id: 3, text: "Composition of various committees of board of directors", status: "Available" },
   { id: 4, text: "Code of conduct of board of directors and senior management personnel", status: "Available" },
@@ -316,7 +316,7 @@ export default function InvestorPage({ params }: PageProps) {
                             <CheckCircle2 size={16} className="text-primary shrink-0 stroke-[2.5]" />
                             <span className="text-xs font-bold text-foreground leading-tight">{item.title}</span>
                           </div>
-                          <BlobButton
+                          <BlobButton href={item.link}
                             variant="secondary"
                             className="!py-2 !px-4 text-[10px] font-bold uppercase tracking-wider shrink-0"
                           >
@@ -344,7 +344,7 @@ export default function InvestorPage({ params }: PageProps) {
                           className="flex items-center justify-between p-4 bg-background border border-border/60 rounded-xl"
                         >
                           <span className="text-xs font-bold text-foreground">{item.quarter}</span>
-                          <BlobButton
+                          <BlobButton href={item.link}
                             variant="secondary"
                             className="!py-2 !px-4 text-[10px] font-bold uppercase tracking-wider"
                           >
@@ -372,7 +372,7 @@ export default function InvestorPage({ params }: PageProps) {
                           className="flex items-center justify-between p-4 bg-background border border-border/60 rounded-xl"
                         >
                           <span className="text-xs font-bold text-foreground leading-snug">{item.title}</span>
-                          <BlobButton
+                          <BlobButton href={item.link}
                             variant="secondary"
                             className="!py-2 !px-4 text-[10px] font-bold uppercase tracking-wider"
                           >
@@ -400,7 +400,7 @@ export default function InvestorPage({ params }: PageProps) {
                           className="flex items-center justify-between p-4 bg-background border border-border/60 rounded-xl"
                         >
                           <span className="text-xs font-bold text-foreground leading-snug">{item.title}</span>
-                          <BlobButton
+                          <BlobButton href={item.link}
                             variant="secondary"
                             className="!py-2 !px-4 text-[10px] font-bold uppercase tracking-wider"
                           >
@@ -428,7 +428,7 @@ export default function InvestorPage({ params }: PageProps) {
                           className="flex items-center justify-between p-4 bg-background border border-border/60 rounded-xl"
                         >
                           <span className="text-xs font-bold text-foreground leading-relaxed">{item.title}</span>
-                          <BlobButton
+                          <BlobButton href={item.link}
                             variant="secondary"
                             className="!py-2 !px-4 text-[10px] font-bold uppercase tracking-wider"
                           >
@@ -464,7 +464,7 @@ export default function InvestorPage({ params }: PageProps) {
                               <span className="text-[9px] font-bold text-muted-foreground uppercase mt-0.5 block">{item.year} Report</span>
                             </div>
                           </div>
-                          <BlobButton
+                          <BlobButton href={item.link}
                             variant="secondary"
                             className="!py-1.5 !px-3 text-[9px] font-bold uppercase tracking-wider shrink-0"
                           >
@@ -497,7 +497,7 @@ export default function InvestorPage({ params }: PageProps) {
                               <span className="text-[9px] font-bold text-muted-foreground uppercase mt-0.5 block">Year: {item.year}</span>
                             </div>
                           </div>
-                          <BlobButton
+                          <BlobButton href={item.link}
                             variant="secondary"
                             className="!py-1.5 !px-3 text-[9px] font-bold uppercase tracking-wider shrink-0"
                           >
@@ -530,13 +530,13 @@ export default function InvestorPage({ params }: PageProps) {
                           </span>
                           <div className="space-y-2 pl-2 border-l-2 border-primary/20">
                             {[
-                              "Mewar Hi-Tech_Intimation under reg 30 about the resignation of ID",
-                              "Mewar_Disclosure Under reg 30_Appointment of CS",
-                              "Mewar_Disclosure Under reg 30_Appointment of Internal Auditor",
+                              { title: "Mewar Hi-Tech_Intimation under reg 30 about the resignation of ID", link: "/investors-data/shareholders_information_files/2024-25/Mewar Hi-Tech_Intimation under reg 30 about the resignation of ID.pdf" },
+                              { title: "Mewar_Disclosure Under reg 30_Appointment of CS", link: "/investors-data/shareholders_information_files/2024-25/Mewar_Disclosure Under reg 30_Appointment of CS.pdf" },
+                              { title: "Mewar_Disclosure Under reg 30_Appointment of Internal Auditor", link: "/investors-data/shareholders_information_files/2024-25/Mewar_Disclosure Under reg 30_Appointment of Internal Auditor.pdf" },
                             ].map((doc, idx) => (
                               <div key={idx} className="flex items-center justify-between text-xs font-bold py-1">
-                                <span className="text-foreground leading-snug">{doc}</span>
-                                <BlobButton variant="secondary" className="!py-1 !px-2.5 text-[9px] font-bold uppercase tracking-wider shrink-0">
+                                <span className="text-foreground leading-snug">{doc.title}</span>
+                                <BlobButton href={doc.link} variant="secondary" className="!py-1 !px-2.5 text-[9px] font-bold uppercase tracking-wider shrink-0">
                                   <span>Open File</span>
                                 </BlobButton>
                               </div>
@@ -551,13 +551,13 @@ export default function InvestorPage({ params }: PageProps) {
                           </span>
                           <div className="space-y-2 pl-2 border-l-2 border-primary/20">
                             {[
-                              "Mewar Hi-Tech_Intimation for ROC Extension Order_10.10.2023",
-                              "Mewar_Consolidated Scrutinizer's Report along with Voting Results_17th AGM 2023",
-                              "Disclosure under reg 30 of SEBI(LODR) Reg 2015",
+                              { title: "Mewar Hi-Tech_Intimation for ROC Extension Order_10.10.2023", link: "/investors-data/shareholders_information_files/2023-24/Mewar Hi-Tech_Intimation for ROC Extension Order_10.10.2023.pdf" },
+                              { title: "Mewar_Consolidated Scrutinizer's Report along with Voting Results_17th AGM 2023", link: "/investors-data/shareholders_information_files/2023-24/Mewar_Consolidated Scrutinizer's Report along with Voting Results_17th AGM 2023.pdf" },
+                              { title: "Disclosure under reg 30 of SEBI(LODR) Reg 2015", link: "/investors-data/shareholders_information_files/2023-24/Disclosure under reg 30 of SEBI(LODR) Reg 2015.pdf" },
                             ].map((doc, idx) => (
                               <div key={idx} className="flex items-center justify-between text-xs font-bold py-1">
-                                <span className="text-foreground leading-snug">{doc}</span>
-                                <BlobButton variant="secondary" className="!py-1 !px-2.5 text-[9px] font-bold uppercase tracking-wider shrink-0">
+                                <span className="text-foreground leading-snug">{doc.title}</span>
+                                <BlobButton href={doc.link} variant="secondary" className="!py-1 !px-2.5 text-[9px] font-bold uppercase tracking-wider shrink-0">
                                   <span>Open File</span>
                                 </BlobButton>
                               </div>
@@ -598,6 +598,7 @@ export default function InvestorPage({ params }: PageProps) {
                           <span className="text-xs font-bold text-foreground leading-tight">Investor Contact &amp; Compliance Cell</span>
                         </div>
                         <BlobButton
+                          href="/investors-data/investor_contact/Investor Contact.pdf"
                           variant="secondary"
                           className="!py-2 !px-4 text-[10px] font-bold uppercase tracking-wider"
                         >
@@ -638,6 +639,7 @@ export default function InvestorPage({ params }: PageProps) {
                               <td className="p-4 text-center">
                                 {item.status === "Available" ? (
                                   <BlobButton
+                                    href={item.link}
                                     variant="secondary"
                                     className="!py-1 !px-2.5 !text-[9px] font-bold uppercase tracking-wider"
                                   >

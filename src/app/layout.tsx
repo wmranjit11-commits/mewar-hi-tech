@@ -11,6 +11,7 @@ import '@radix-ui/themes/styles.css';
 import 'react-toastify/dist/ReactToastify.css';
 import './globals.css';
 
+
 const inter = Inter({ 
   subsets: ['latin'],
   variable: '--font-inter',

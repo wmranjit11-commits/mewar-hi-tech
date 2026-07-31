@@ -39,131 +39,131 @@ const INVESTOR_MENU = [
   { label: "Disclosure (Reg 46 of LODR)", slug: "disclosure-regulation-46", icon: FileText },
 ];
 
-const CORPORATE_GOVERNANCE_DATA = [
-  { title: "Composition of Board of Directors and Committees", hasLink: true },
+const CORPORATE_GOVERNANCE_DATA: any[] = [
+  { title: "Composition of Board of Directors and Committees", hasLink: true , link: "/investors-data/Composition-of-Board-of-Directors-and-Committees.pdf" },
   { title: "Memorandum and Articles of Association", hasLink: true },
-  { title: "Policies and Codes", hasLink: true },
+  { title: "Policies and Codes", hasLink: true , link: "/investors-data/document/diclosure_under_regulation_files/Policy on Related Party Transactions.pdf" },
 ];
 
-const SHAREHOLDING_DATA = [
-  { quarter: "Shareholding Pattern 30.09.2024" },
-  { quarter: "Shareholding Pattern 31.03.2024" },
-  { quarter: "Shareholding Pattern 30.09.2023" },
-  { quarter: "Shareholding Pattern 31.03.2023" },
-  { quarter: "Shareholding Pattern 30.09.2022" },
-  { quarter: "Shareholding Pattern 31.03.2022" },
+const SHAREHOLDING_DATA: any[] = [
+  { quarter: "Shareholding Pattern 30.09.2024" , link: "/investors-data/shareholding_pattern_files/SHP_30.09.2024.html" },
+  { quarter: "Shareholding Pattern 31.03.2024" , link: "/investors-data/shareholding_pattern_files/SHP_31.03.2024.html" },
+  { quarter: "Shareholding Pattern 30.09.2023" , link: "/investors-data/shareholding_pattern_files/SHP_30.09.2023.html" },
+  { quarter: "Shareholding Pattern 31.03.2023" , link: "/investors-data/shareholding_pattern_files/SHP_31.03.2023.html" },
+  { quarter: "Shareholding Pattern 30.09.2022" , link: "/investors-data/shareholding_pattern_files/SHP_30.09.2022.html" },
+  { quarter: "Shareholding Pattern 31.03.2022" , link: "/investors-data/shareholding_pattern_files/SHP_31.03.2022.html" },
 ];
 
-const SHAREHOLDERS_MEETINGS_DATA = [
+const SHAREHOLDERS_MEETINGS_DATA: any[] = [
   { title: "Notice of 19th Annual General Meeting 2024-25" },
-  { title: "Notice of 18th AGM for the year 2023-24" },
-  { title: "Outcome of 18th AGM for the year 2023-24" },
-  { title: "Notice of 17th Annual General Meeting" },
-  { title: "Outcome of 17th AGM for the year 2022-23" },
-  { title: "Notice of 16th Annual General Meeting" },
-  { title: "Outcome of 16th AGM for the year 2021-22" },
-  { title: "Notice of 15th Annual General Meeting" },
-  { title: "Outcome of 15th AGM for the year 2020-21" },
-  { title: "Notice of 14th Annual General Meeting" },
-  { title: "Outcome of 14th AGM for the year 2019-20" },
-  { title: "Notice of 13th Annual General Meeting" },
-  { title: "Outcome of 13th AGM for the year 2018-19" },
-  { title: "Notice of 12th Annual General Meeting" },
-  { title: "Outcome of 12th AGM for the year 2017-18" },
-  { title: "Notice of Extra Ordinary General Meeting to be held on 20.08.2018" },
-  { title: "Outcome of Extra Ordinary General Meeting held on 20.08.2018" },
-  { title: "Notice of 11th Annual General Meeting" },
-  { title: "Outcome of 11th AGM for the year 2016-17" },
+  { title: "Notice of 18th AGM for the year 2023-24" , link: "/investors-data/document/shareholding_meeting_files/Outcome of 18th AGM 2023-24.pdf" },
+  { title: "Outcome of 18th AGM for the year 2023-24" , link: "/investors-data/document/shareholding_meeting_files/Outcome of 18th AGM 2023-24.pdf" },
+  { title: "Notice of 17th Annual General Meeting" , link: "/investors-data/document/shareholding_meeting_files/Notice_17th_AGM.pdf" },
+  { title: "Outcome of 17th AGM for the year 2022-23" , link: "/investors-data/document/shareholding_meeting_files/Outcome_17th_AGM_2022-23.pdf" },
+  { title: "Notice of 16th Annual General Meeting" , link: "/investors-data/document/shareholding_meeting_files/Notice_16th_AGM.pdf" },
+  { title: "Outcome of 16th AGM for the year 2021-22" , link: "/investors-data/document/shareholding_meeting_files/Outcome_16th_AGM_2021-22.pdf" },
+  { title: "Notice of 15th Annual General Meeting" , link: "/investors-data/document/shareholding_meeting_files/Notice_15th_AGM.pdf" },
+  { title: "Outcome of 15th AGM for the year 2020-21" , link: "/investors-data/document/shareholding_meeting_files/Outcome_15th_AGM_2020-21.pdf" },
+  { title: "Notice of 14th Annual General Meeting" , link: "/investors-data/document/shareholding_meeting_files/Notice_14th_AGM.pdf" },
+  { title: "Outcome of 14th AGM for the year 2019-20" , link: "/investors-data/document/shareholding_meeting_files/Outcome_14th_AGM_2019-20.pdf" },
+  { title: "Notice of 13th Annual General Meeting" , link: "/investors-data/document/shareholding_meeting_files/Notice_13th_AGM.pdf" },
+  { title: "Outcome of 13th AGM for the year 2018-19" , link: "/investors-data/document/shareholding_meeting_files/Outcome_13th_AGM_2018-19.pdf" },
+  { title: "Notice of 12th Annual General Meeting" , link: "/investors-data/document/shareholding_meeting_files/Notice_12th_AGM.pdf" },
+  { title: "Outcome of 12th AGM for the year 2017-18" , link: "/investors-data/document/shareholding_meeting_files/Outcome_12th_AGM_2017-18.pdf" },
+  { title: "Notice of Extra Ordinary General Meeting to be held on 20.08.2018" , link: "/investors-data/document/shareholding_meeting_files/Notice_EOGM_20.08.2018.pdf" },
+  { title: "Outcome of Extra Ordinary General Meeting held on 20.08.2018" , link: "/investors-data/document/shareholding_meeting_files/Outcome_EOGM_20.08.2018.pdf" },
+  { title: "Notice of 11th Annual General Meeting" , link: "/investors-data/document/shareholding_meeting_files/Notice_11th_AGM.pdf" },
+  { title: "Outcome of 11th AGM for the year 2016-17" , link: "/investors-data/document/shareholding_meeting_files/Outcome_11th_AGM_2016-17.pdf" },
 ];
 
-const BOARD_MEETINGS_DATA = [
-  { title: "Outcome of Board Meeting held on 14.11.2024" },
-  { title: "Intimation of Board Meeting to be held on 14.11.2024" },
-  { title: "Outcome of Board Meeting held on 23.10.2024" },
-  { title: "Intimation of Board Meeting to be held on 23.10.2024" },
-  { title: "Outcome of Board Meeting held on 13.08.2024" },
-  { title: "Intimation of Board Meeting to be held on 13.08.2024" },
-  { title: "Outcome of Board Meeting held on 28.05.2024" },
-  { title: "Outcome of Board Meeting held on 13.02.2024" },
-  { title: "Intimation of Board Meeting to be held on 13.02.2024" },
+const BOARD_MEETINGS_DATA: any[] = [
+  { title: "Outcome of Board Meeting held on 14.11.2024" , link: "/investors-data/document/board_meetings/2024-25/Mewar_Outcome of BM_held on 14.11.2024.pdf" },
+  { title: "Intimation of Board Meeting to be held on 14.11.2024" , link: "/investors-data/document/board_meetings/2024-25/Intimation for the Board Meeting to be held on 14.11.2024.pdf" },
+  { title: "Outcome of Board Meeting held on 23.10.2024" , link: "/investors-data/document/board_meetings/2024-25/Outcome Of Board Meeting Held On 30.05.2024.pdf" },
+  { title: "Intimation of Board Meeting to be held on 23.10.2024" , link: "/investors-data/document/board_meetings/2023-24/Intimation of Board Meeting to be held on 18.09.2023.pdf" },
+  { title: "Outcome of Board Meeting held on 13.08.2024" , link: "/investors-data/document/board_meetings/2024-25/Outcome Of Board Meeting Held On 30.05.2024.pdf" },
+  { title: "Intimation of Board Meeting to be held on 13.08.2024" , link: "/investors-data/document/board_meetings/2023-24/Intimation of Board Meeting to be held on 18.09.2023.pdf" },
+  { title: "Outcome of Board Meeting held on 28.05.2024" , link: "/investors-data/document/board_meetings/2024-25/Outcome Of Board Meeting Held On 30.05.2024.pdf" },
+  { title: "Outcome of Board Meeting held on 13.02.2024" , link: "/investors-data/document/board_meetings/2024-25/Outcome Of Board Meeting Held On 30.05.2024.pdf" },
+  { title: "Intimation of Board Meeting to be held on 13.02.2024" , link: "/investors-data/document/board_meetings/2023-24/Intimation of Board Meeting to be held on 18.09.2023.pdf" },
 ];
 
-const FINANCIAL_RESULTS_DATA = [
-  { title: "Unaudited Financial Results as on 30.09.2024" },
-  { title: "Audited Financial Results for 31.03.2024" },
-  { title: "Audited Financial Results for 31.03.2023" },
-  { title: "Revised Cash Flow Statement for 31.03.2023" },
-  { title: "Unaudited Financial Results as on 30.09.2023" },
-  { title: "Audited Financial Results for 31.03.2022" },
-  { title: "Unaudited Financial Results as on 30.09.2022" },
-  { title: "Audited Financial Results for 31.03.2021" },
-  { title: "Revised Cash Flow Statement along with Unaudited Financial Results for the half year ended on 30.09.2021" },
-  { title: "Unaudited Financial Results as on 30.09.2021" },
-  { title: "Audited Financial Results for 31.08.2020" },
-  { title: "Revised Cash Flow statement for the year ended on 31.03.2020" },
-  { title: "Unaudited Financial Results as on 30.09.2020" },
-  { title: "Audited Financial Results for 31.03.2019" },
-  { title: "Unaudited Financial Results as on 30.09.2019" },
-  { title: "Audited Financial Results for 31.03.2019" },
-  { title: "Unaudited Financial Results as on 30.09.2018" },
-  { title: "Unaudited Financial Results as on 30.09.2017" },
-  { title: "Audited Financial Results for 31.03.2017" },
-  { title: "Unaudited Financial Results as on 30.09.2016" },
+const FINANCIAL_RESULTS_DATA: any[] = [
+  { title: "Unaudited Financial Results as on 30.09.2024" , link: "/investors-data/Financial Results/2024-25/Unaudited Financial Results as on 30.09.2024.pdf" },
+  { title: "Audited Financial Results for 31.03.2024" , link: "/investors-data/Financial Results/2024-25/Audited Financial Results for 31.03.2024.pdf" },
+  { title: "Audited Financial Results for 31.03.2023" , link: "/investors-data/Financial Results/2023-24/Audited Financial Results for 31.03.2023.pdf" },
+  { title: "Revised Cash Flow Statement for 31.03.2023" , link: "/investors-data/Financial Results/2023-24/Revised Cash Flow Statement for 31.03.2023.pdf" },
+  { title: "Unaudited Financial Results as on 30.09.2023" , link: "/investors-data/Financial Results/2023-24/Unaudited Financial Results as on 30.09.2023.pdf" },
+  { title: "Audited Financial Results for 31.03.2022" , link: "/investors-data/Financial Results/2022-23/Audited Financial Results for 31.03.2022.pdf" },
+  { title: "Unaudited Financial Results as on 30.09.2022" , link: "/investors-data/Financial Results/2022-23/Unaudited Financial Results as on 30.09.2022.pdf" },
+  { title: "Audited Financial Results for 31.03.2021" , link: "/investors-data/Financial Results/2021-22/Audited Financial Results for 31.03.2021.pdf" },
+  { title: "Revised Cash Flow Statement along with Unaudited Financial Results for the half year ended on 30.09.2021" , link: "/investors-data/Financial Results/2021-22/Revised Cash Flow Statement along with Unaudited Financial Results for the half year ended on 30.09.2021.pdf" },
+  { title: "Unaudited Financial Results as on 30.09.2021" , link: "/investors-data/Financial Results/2021-22/Unaudited Financial Results as on 30.09.2021.pdf" },
+  { title: "Audited Financial Results for 31.08.2020" , link: "/investors-data/Financial Results/2020-21/Audited Financial Results for 31.03.2020.pdf" },
+  { title: "Revised Cash Flow statement for the year ended on 31.03.2020" , link: "/investors-data/Financial Results/2020-21/Revised Cash Flow statement for the year ended on 31.03.2020.pdf" },
+  { title: "Unaudited Financial Results as on 30.09.2020" , link: "/investors-data/Financial Results/2020-21/Unaudited Financial Results as on 30.09.2020.pdf" },
+  { title: "Audited Financial Results for 31.03.2019" , link: "/investors-data/Financial Results/2019-20/Audited Financial Results for 31.03.2019.pdf" },
+  { title: "Unaudited Financial Results as on 30.09.2019" , link: "/investors-data/Financial Results/2019-20/Unaudited Financial Results as on 30.09.2019.pdf" },
+  { title: "Audited Financial Results for 31.03.2019" , link: "/investors-data/Financial Results/2019-20/Audited Financial Results for 31.03.2019.pdf" },
+  { title: "Unaudited Financial Results as on 30.09.2018" , link: "/investors-data/Financial Results/2018-19/Unaudited Financial Results as on 30.09.2018.pdf" },
+  { title: "Unaudited Financial Results as on 30.09.2017" , link: "/investors-data/Financial Results/2017-18/Unaudited Financial Results as on 30.09.2017.pdf" },
+  { title: "Audited Financial Results for 31.03.2017" , link: "/investors-data/Financial Results/2017-18/Audited Financial results for 31.03.2017.pdf" },
+  { title: "Unaudited Financial Results as on 30.09.2016" , link: "/investors-data/Financial Results/2017-18/Unaudited Financial Results as on 30.09.2016.pdf" },
 ];
 
-const ANNUAL_REPORTS_DATA = [
-  { title: "Annual Report (2024-2025)", year: "2024-2025" },
-  { title: "Annual Report (2023-2024)", year: "2023-2024" },
-  { title: "Annual Report (2022-2023)", year: "2022-2023" },
-  { title: "Annual Report (2021-2022)", year: "2021-2022" },
-  { title: "Annual Report (2020-2021)", year: "2020-2021" },
-  { title: "Annual Report (2018-2019)", year: "2018-2019" },
-  { title: "Annual Report (2019-2020)", year: "2019-2020" },
-  { title: "EGM Notice", year: "Notice" },
-  { title: "MHT Annual Report (2016-17)", year: "2016-2017" },
-  { title: "MHT Annual Report (2017-18)", year: "2017-2018" },
+const ANNUAL_REPORTS_DATA: any[] = [
+  { title: "Annual Report (2024-2025)", year: "2024-2025" , link: "/investors-data/Annual Report_2024-2025.pdf" },
+  { title: "Annual Report (2023-2024)", year: "2023-2024" , link: "/investors-data/Annual Report_2023-24.pdf" },
+  { title: "Annual Report (2022-2023)", year: "2022-2023" , link: "/investors-data/Annual-(2022-2023).pdf" },
+  { title: "Annual Report (2021-2022)", year: "2021-2022" , link: "/investors-data/Annual-(2021-2022).pdf" },
+  { title: "Annual Report (2020-2021)", year: "2020-2021" , link: "/investors-data/Annual-(2020-2021).pdf" },
+  { title: "Annual Report (2018-2019)", year: "2018-2019" , link: "/investors-data/Annual-(2018-2019).pdf" },
+  { title: "Annual Report (2019-2020)", year: "2019-2020" , link: "/investors-data/Annual-(2019-2020).pdf" },
+  { title: "EGM Notice", year: "Notice" , link: "/investors-data/EGM_Notice.pdf" },
+  { title: "MHT Annual Report (2016-17)", year: "2016-2017" , link: "/investors-data/document/shareholding_meeting_files/Outcome_11th_AGM_2016-17.pdf" },
+  { title: "MHT Annual Report (2017-18)", year: "2017-2018" , link: "/investors-data/document/shareholding_meeting_files/Outcome_12th_AGM_2017-18.pdf" },
 ];
 
-const ANNUAL_RETURNS_DATA = [
-  { title: "Annual Return (2022-2023)", year: "2022-2023" },
-  { title: "Annual Return (2021-2022)", year: "2021-2022" },
-  { title: "Annual Return (2020-2021)", year: "2020-2021" },
-  { title: "Annual Return (2019-2020)", year: "2019-2020" },
-  { title: "Annual Return (2018-2019)", year: "2018-2019" },
-  { title: "Annual Return (2017-2018)", year: "2017-2018" },
-  { title: "Annual Return (2016-2017)", year: "2016-2017" },
+const ANNUAL_RETURNS_DATA: any[] = [
+  { title: "Annual Return (2022-2023)", year: "2022-2023" , link: "/investors-data/Annual-(2022-2023).pdf" },
+  { title: "Annual Return (2021-2022)", year: "2021-2022" , link: "/investors-data/Annual-(2021-2022).pdf" },
+  { title: "Annual Return (2020-2021)", year: "2020-2021" , link: "/investors-data/Annual-(2020-2021).pdf" },
+  { title: "Annual Return (2019-2020)", year: "2019-2020" , link: "/investors-data/Annual-(2019-2020).pdf" },
+  { title: "Annual Return (2018-2019)", year: "2018-2019" , link: "/investors-data/Annual-(2018-2019).pdf" },
+  { title: "Annual Return (2017-2018)", year: "2017-2018" , link: "/investors-data/document/annual_returns/Form_MGT-7-2017-2018.pdf" },
+  { title: "Annual Return (2016-2017)", year: "2016-2017" , link: "/investors-data/document/annual_returns/Form_MGT-7_2016-2017.pdf" },
 ];
 
-const REGULATION_46_DATA = [
-  { id: 1, text: "Details of business", status: "Available" },
-  { id: 2, text: "Terms and conditions of appointment of independent directors", status: "Available" },
-  { id: 3, text: "Composition of various committees of board of directors", status: "Available" },
-  { id: 4, text: "Code of conduct of board of directors and senior management personnel", status: "Available" },
-  { id: 5, text: "Details of establishment of vigil mechanism/ Whistle Blower policy", status: "Available" },
-  { id: 6, text: "Criteria of making payments to non-executive directors", status: "Not Applicable" },
-  { id: 7, text: "Policy on dealing with related party transactions", status: "Available" },
-  { id: 8, text: "Policy for determining 'material' subsidiaries", status: "Not Applicable" },
-  { id: 9, text: "Familiarization Programme for Independent Directors", status: "Available" },
+const REGULATION_46_DATA: any[] = [
+  { id: 1, text: "Details of business", status: "Available", link: "/about" },
+  { id: 2, text: "Terms and conditions of appointment of independent directors", status: "Available" , link: "/investors-data/document/diclosure_under_regulation_files/Terms and Conditions for the appointment of Independent Directors.pdf" },
+  { id: 3, text: "Composition of various committees of board of directors", status: "Available" , link: "/investors-data/Composition-of-Board-of-Directors-and-Committees.pdf" },
+  { id: 4, text: "Code of conduct of board of directors and senior management personnel", status: "Available" , link: "/investors-data/Composition-of-Board-of-Directors-and-Committees.pdf" },
+  { id: 5, text: "Details of establishment of vigil mechanism/ Whistle Blower policy", status: "Available" , link: "/investors-data/document/diclosure_under_regulation_files/Vigil Mechanism Policy.pdf" },
+  { id: 6, text: "Criteria of making payments to non-executive directors", status: "Not Applicable" , link: "/investors-data/document/diclosure_under_regulation_files/Terms and Conditions for the appointment of Independent Directors.pdf" },
+  { id: 7, text: "Policy on dealing with related party transactions", status: "Available" , link: "/investors-data/document/diclosure_under_regulation_files/Policy on Related Party Transactions.pdf" },
+  { id: 8, text: "Policy for determining 'material' subsidiaries", status: "Not Applicable" , link: "/investors-data/document/diclosure_under_regulation_files/Policy on Related Party Transactions.pdf" },
+  { id: 9, text: "Familiarization Programme for Independent Directors", status: "Available" , link: "/investors-data/document/diclosure_under_regulation_files/Familiarization Programs for ID.pdf" },
   { id: 10, text: "The email address for grievance redressal and other relevant details", status: "Available" },
-  { id: 11, text: "Contact information of the designated officials for assisting investors", status: "Available" },
+  { id: 11, text: "Contact information of the designated officials for assisting investors", status: "Available" , link: "/investors-data/document/diclosure_under_regulation_files/Contact Details of Authorized officials to determine materiality of an event.pdf" },
   {
     id: 12,
     text: "Financial information including Board Meeting notice, quarterly financial results, and annual reports",
     status: "Available",
-  },
+  link: "/investors-data/document/board_meetings/2023-24/Intimation Of Postponement Of Board Meeting To Be Held On 4Th September, 2023, Re-Scheduled To Be Held On 6Th September, 2023.pdf" },
   { id: 13, text: "Shareholding pattern", status: "Available" },
   { id: 14, text: "Details of agreements entered into with the media companies", status: "Not Applicable" },
   { id: 15, text: "Schedule of analyst or institutional investors meet", status: "Not Applicable" },
-  { id: 16, text: "New name and the old name of the listed entity", status: "Not Applicable" },
+  { id: 16, text: "New name and the old name of the listed entity", status: "Not Applicable" , link: "/investors-data/document/diclosure_under_regulation_files/Terms and Conditions for the appointment of Independent Directors.pdf" },
   { id: 17, text: "Items in Reg. 47(1) - Financial Results & Notices published in newspaper", status: "Available" },
-  { id: 18, text: "Credit ratings", status: "Not Applicable" },
-  { id: 19, text: "Audited Financial Statements of Subsidiary Companies", status: "Not Applicable" },
-  { id: 20, text: "Secretarial Compliance Report under reg 24A of SEBI (LODR)", status: "Not Applicable" },
-  { id: 21, text: "Policy for determining materiality of an event or information", status: "Available" },
-  { id: 22, text: "Disclosure of contact details of KMP authorized to determine materiality", status: "Available" },
-  { id: 23, text: "Disclosure under Reg. 30(8) of SEBI (LODR)", status: "Available" },
-  { id: 24, text: "Statement of deviations or variations", status: "Not Applicable" },
-  { id: 25, text: "Dividend Distribution Policy", status: "Not Applicable" },
+  { id: 18, text: "Credit ratings", status: "Not Applicable" , link: "/investors-data/document/diclosure_under_regulation_files/Policy on Related Party Transactions.pdf" },
+  { id: 19, text: "Audited Financial Statements of Subsidiary Companies", status: "Not Applicable" , link: "/investors-data/Financial Results/2017-18/Audited Financial results for 31.03.2017.pdf" },
+  { id: 20, text: "Secretarial Compliance Report under reg 24A of SEBI (LODR)", status: "Not Applicable" , link: "/investors-data/Annual Report_2023-24.pdf" },
+  { id: 21, text: "Policy for determining materiality of an event or information", status: "Available" , link: "/investors-data/document/diclosure_under_regulation_files/Contact Details of Authorized officials to determine materiality of an event.pdf" },
+  { id: 22, text: "Disclosure of contact details of KMP authorized to determine materiality", status: "Available" , link: "/investors-data/document/diclosure_under_regulation_files/Contact Details of Authorized officials to determine materiality of an event.pdf" },
+  { id: 23, text: "Disclosure under Reg. 30(8) of SEBI (LODR)", status: "Available" , link: "/investors-data/shareholders_information_files/2023-24/Disclosure under reg 30 of SEBI(LODR) Reg 2015.pdf" },
+  { id: 24, text: "Statement of deviations or variations", status: "Not Applicable" , link: "/investors-data/shareholders_information_files/2023-24/Mewar Hi-Tech_Intimation for ROC Extension Order_10.10.2023.pdf" },
+  { id: 25, text: "Dividend Distribution Policy", status: "Not Applicable" , link: "/investors-data/document/diclosure_under_regulation_files/Vigil Mechanism Policy.pdf" },
   { id: 26, text: "Annual Return as provided under Section 92 of the Companies Act, 2013", status: "Available" },
 ];
 
@@ -314,7 +314,7 @@ function InvestorTabsContent() {
                             <CheckCircle2 size={16} className="text-primary shrink-0 stroke-[2.5]" />
                             <span className="text-xs font-bold text-foreground leading-tight">{item.title}</span>
                           </div>
-                          <BlobButton
+                          <BlobButton href={item.link}
                             variant="secondary"
                             className="!py-2 !px-4 text-[10px] font-bold uppercase tracking-wider shrink-0"
                           >
@@ -342,7 +342,7 @@ function InvestorTabsContent() {
                           className="flex items-center justify-between p-4 bg-background border border-border/60 rounded-xl"
                         >
                           <span className="text-xs font-bold text-foreground">{item.quarter}</span>
-                          <BlobButton
+                          <BlobButton href={item.link}
                             variant="secondary"
                             className="!py-2 !px-4 text-[10px] font-bold uppercase tracking-wider"
                           >
@@ -370,7 +370,7 @@ function InvestorTabsContent() {
                           className="flex items-center justify-between p-4 bg-background border border-border/60 rounded-xl"
                         >
                           <span className="text-xs font-bold text-foreground leading-snug">{item.title}</span>
-                          <BlobButton
+                          <BlobButton href={item.link}
                             variant="secondary"
                             className="!py-2 !px-4 text-[10px] font-bold uppercase tracking-wider"
                           >
@@ -398,7 +398,7 @@ function InvestorTabsContent() {
                           className="flex items-center justify-between p-4 bg-background border border-border/60 rounded-xl"
                         >
                           <span className="text-xs font-bold text-foreground leading-snug">{item.title}</span>
-                          <BlobButton
+                          <BlobButton href={item.link}
                             variant="secondary"
                             className="!py-2 !px-4 text-[10px] font-bold uppercase tracking-wider"
                           >
@@ -426,7 +426,7 @@ function InvestorTabsContent() {
                           className="flex items-center justify-between p-4 bg-background border border-border/60 rounded-xl"
                         >
                           <span className="text-xs font-bold text-foreground leading-relaxed">{item.title}</span>
-                          <BlobButton
+                          <BlobButton href={item.link}
                             variant="secondary"
                             className="!py-2 !px-4 text-[10px] font-bold uppercase tracking-wider"
                           >
@@ -462,7 +462,7 @@ function InvestorTabsContent() {
                               <span className="text-[9px] font-bold text-muted-foreground uppercase mt-0.5 block">{item.year} Report</span>
                             </div>
                           </div>
-                          <BlobButton
+                          <BlobButton href={item.link}
                             variant="secondary"
                             className="!py-1.5 !px-3 text-[9px] font-bold uppercase tracking-wider shrink-0"
                           >
@@ -495,7 +495,7 @@ function InvestorTabsContent() {
                               <span className="text-[9px] font-bold text-muted-foreground uppercase mt-0.5 block">Year: {item.year}</span>
                             </div>
                           </div>
-                          <BlobButton
+                          <BlobButton href={item.link}
                             variant="secondary"
                             className="!py-1.5 !px-3 text-[9px] font-bold uppercase tracking-wider shrink-0"
                           >
@@ -528,13 +528,13 @@ function InvestorTabsContent() {
                           </span>
                           <div className="space-y-2 pl-2 border-l-2 border-primary/20">
                             {[
-                              "Mewar Hi-Tech_Intimation under reg 30 about the resignation of ID",
-                              "Mewar_Disclosure Under reg 30_Appointment of CS",
-                              "Mewar_Disclosure Under reg 30_Appointment of Internal Auditor",
+                              { title: "Mewar Hi-Tech_Intimation under reg 30 about the resignation of ID", link: "/investors-data/shareholders_information_files/2024-25/Mewar Hi-Tech_Intimation under reg 30 about the resignation of ID.pdf" },
+                              { title: "Mewar_Disclosure Under reg 30_Appointment of CS", link: "/investors-data/shareholders_information_files/2024-25/Mewar_Disclosure Under reg 30_Appointment of CS.pdf" },
+                              { title: "Mewar_Disclosure Under reg 30_Appointment of Internal Auditor", link: "/investors-data/shareholders_information_files/2024-25/Mewar_Disclosure Under reg 30_Appointment of Internal Auditor.pdf" },
                             ].map((doc, idx) => (
                               <div key={idx} className="flex items-center justify-between text-xs font-bold py-1">
-                                <span className="text-foreground leading-snug">{doc}</span>
-                                <BlobButton variant="secondary" className="!py-1 !px-2.5 text-[9px] font-bold uppercase tracking-wider shrink-0">
+                                <span className="text-foreground leading-snug">{doc.title}</span>
+                                <BlobButton href={doc.link} variant="secondary" className="!py-1 !px-2.5 text-[9px] font-bold uppercase tracking-wider shrink-0">
                                   <span>Open File</span>
                                 </BlobButton>
                               </div>
@@ -549,13 +549,13 @@ function InvestorTabsContent() {
                           </span>
                           <div className="space-y-2 pl-2 border-l-2 border-primary/20">
                             {[
-                              "Mewar Hi-Tech_Intimation for ROC Extension Order_10.10.2023",
-                              "Mewar_Consolidated Scrutinizer's Report along with Voting Results_17th AGM 2023",
-                              "Disclosure under reg 30 of SEBI(LODR) Reg 2015",
+                              { title: "Mewar Hi-Tech_Intimation for ROC Extension Order_10.10.2023", link: "/investors-data/shareholders_information_files/2023-24/Mewar Hi-Tech_Intimation for ROC Extension Order_10.10.2023.pdf" },
+                              { title: "Mewar_Consolidated Scrutinizer's Report along with Voting Results_17th AGM 2023", link: "/investors-data/shareholders_information_files/2023-24/Mewar_Consolidated Scrutinizer's Report along with Voting Results_17th AGM 2023.pdf" },
+                              { title: "Disclosure under reg 30 of SEBI(LODR) Reg 2015", link: "/investors-data/shareholders_information_files/2023-24/Disclosure under reg 30 of SEBI(LODR) Reg 2015.pdf" },
                             ].map((doc, idx) => (
                               <div key={idx} className="flex items-center justify-between text-xs font-bold py-1">
-                                <span className="text-foreground leading-snug">{doc}</span>
-                                <BlobButton variant="secondary" className="!py-1 !px-2.5 text-[9px] font-bold uppercase tracking-wider shrink-0">
+                                <span className="text-foreground leading-snug">{doc.title}</span>
+                                <BlobButton href={doc.link} variant="secondary" className="!py-1 !px-2.5 text-[9px] font-bold uppercase tracking-wider shrink-0">
                                   <span>Open File</span>
                                 </BlobButton>
                               </div>
@@ -596,6 +596,7 @@ function InvestorTabsContent() {
                           <span className="text-xs font-bold text-foreground leading-tight">Investor Contact &amp; Compliance Cell</span>
                         </div>
                         <BlobButton
+                          href="/investors-data/investor_contact/Investor Contact.pdf"
                           variant="secondary"
                           className="!py-2 !px-4 text-[10px] font-bold uppercase tracking-wider"
                         >
@@ -636,6 +637,7 @@ function InvestorTabsContent() {
                               <td className="p-4 text-center">
                                 {item.status === "Available" ? (
                                   <BlobButton
+                                    href={item.link}
                                     variant="secondary"
                                     className="!py-1 !px-2.5 !text-[9px] font-bold uppercase tracking-wider"
                                   >
