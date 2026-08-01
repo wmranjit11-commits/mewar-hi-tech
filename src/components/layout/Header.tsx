@@ -171,11 +171,9 @@ const Header: React.FC = () => {
         {/* Main nav bar */}
         <div
         className={`w-full px-6 lg:px-8 py-3 flex items-center justify-between transition-all duration-300 ${
-          !scrolled
-            ? "bg-transparent"
-            : theme === "light"
-              ? "bg-white/95 backdrop-blur-md border-b border-gray-200/50 shadow-sm"
-              : "bg-secondary/95 backdrop-blur-md shadow-lg"
+          theme === "light"
+            ? "bg-white/50 backdrop-blur-md border-b border-gray-200/50 shadow-sm"
+            : "bg-secondary/50 backdrop-blur-md shadow-lg"
         }`}
       >
         {/* Left: Logo */}
@@ -186,7 +184,7 @@ const Header: React.FC = () => {
         >
           <div className="w-[100px] rounded flex items-center justify-center shrink-0 overflow-hidden">
             <img
-              src={(!scrolled || theme === "dark") ? "/logos/logo-dark.png" : "/logos/logo.png"}
+              src={theme === "dark" ? "/logos/logo-dark.png" : "/logos/logo.png"}
               alt="Mewar Hi-Tech Logo"
               className="w-full h-full object-contain"
             />
@@ -204,11 +202,9 @@ const Header: React.FC = () => {
                 <button
                   type="button"
                   className={`relative text-[13px] font-semibold tracking-wide flex items-center gap-1 px-3 py-1.5 transition-colors duration-200 hover:text-primary after:content-[''] after:absolute after:-bottom-1 after:left-0 after:w-full after:h-[2px] after:bg-primary after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-300 after:origin-left ${
-                    !scrolled
-                      ? "text-white"
-                      : theme === "light" 
-                        ? "text-gray-800" 
-                        : "text-secondary-foreground/80"
+                    theme === "light" 
+                      ? "text-gray-800" 
+                      : "text-secondary-foreground/80"
                   }`}
                 >
                   <span>{item.label}</span>
@@ -360,11 +356,9 @@ const Header: React.FC = () => {
                 key={item.label}
                 href={item.to ?? "/"}
                 className={`relative text-[13px] font-semibold tracking-wide flex items-center px-3 py-1.5 transition-colors duration-200 hover:text-primary after:content-[''] after:absolute after:-bottom-1 after:left-0 after:w-full after:h-[2px] after:bg-primary after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-300 after:origin-left ${
-                  !scrolled
-                    ? "text-white"
-                    : theme === "light" 
-                      ? "text-gray-800" 
-                      : "text-secondary-foreground/80"
+                  theme === "light" 
+                    ? "text-gray-800" 
+                    : "text-secondary-foreground/80"
                 }`}
               >
                 {item.label}
@@ -406,11 +400,9 @@ const Header: React.FC = () => {
           {/* Mobile menu trigger */}
           <button
             className={`xl:hidden p-2 rounded-lg transition-colors ${
-              !scrolled
-                ? "text-white hover:bg-white/10"
-                : theme === "light" 
-                  ? "text-gray-800 hover:bg-black/5" 
-                  : "text-secondary-foreground hover:bg-white/5"
+              theme === "light" 
+                ? "text-gray-800 hover:bg-black/5" 
+                : "text-secondary-foreground hover:bg-white/5"
             }`}
             onClick={() => setOpen(true)}
             aria-label="Open menu"
