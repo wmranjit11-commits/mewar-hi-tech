@@ -30,7 +30,7 @@ const PageHero: React.FC<PageHeroProps> = ({
 
       {/* Content */}
       <div
-        className="relative max-w-7xl mx-auto px-6 text-left space-y-5"
+        className="relative max-w-7xl mx-auto px-6 flex flex-col items-center text-center space-y-5"
       >
         <span className="inline-block px-3 py-1 bg-primary text-primary-foreground font-bold text-[10px] uppercase tracking-widest border border-primary">
           {label}
