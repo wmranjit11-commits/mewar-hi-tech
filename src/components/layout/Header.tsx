@@ -201,7 +201,7 @@ const Header: React.FC = () => {
               <div key={item.label} className="relative group py-2">
                 <button
                   type="button"
-                  className={`relative text-[13px] font-semibold tracking-wide flex items-center gap-1 px-3 py-1.5 transition-colors duration-200 hover:text-primary after:content-[''] after:absolute after:-bottom-1 after:left-0 after:w-full after:h-[2px] after:bg-primary after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-300 after:origin-left ${
+                  className={`relative text-[13px] font-semibold tracking-wide flex items-center gap-1 px-3 py-1.5 transition-colors duration-200 group-hover:text-primary after:content-[''] after:absolute after:-bottom-1 after:left-0 after:w-full after:h-[2px] after:bg-primary after:scale-x-0 group-hover:after:scale-x-100 after:transition-transform after:duration-300 after:origin-left ${
                     theme === "light" 
                       ? "text-gray-800" 
                       : "text-secondary-foreground/80"
@@ -214,87 +214,22 @@ const Header: React.FC = () => {
                 {item.label === "Products" ? (
                   /* Horizontal Mega Menu Dropdown for Products */
                   <div
-                    className={`absolute top-full left-[-100px] mt-1 border shadow-2xl rounded-xl opacity-0 invisible translate-y-3 scale-95 origin-top group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 group-hover:scale-100 transition-all duration-300 ease-out z-50 p-7 w-[750px] max-w-[calc(100vw-48px)] ${
-                      theme === "light"
-                        ? "bg-white border-gray-200/80 text-gray-900"
-                        : "bg-secondary border-border/30 text-white"
-                    }`}
+                    className="absolute top-[calc(100%+14px)] left-[-200px] mt-0 before:absolute before:-top-4 before:left-0 before:w-full before:h-4 before:bg-transparent shadow-2xl rounded-none opacity-0 invisible -translate-y-2 origin-top group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 transition-all duration-300 ease-out z-50 p-8 w-[950px] max-w-[calc(100vw-48px)] bg-primary text-white"
                   >
-                    <div className="grid grid-cols-3 gap-8">
-                      {/* Column 1: Crusher */}
-                      {item.children.filter((c) => c.label.toLowerCase() === "crusher").map((group) => (
-                        <div key={group.label} className="flex flex-col gap-3">
-                          <h4 className={`text-[13px] font-bold uppercase tracking-wider px-3 ${
-                            theme === "light" ? "text-gray-900" : "text-gray-100"
-                          }`}>
+                    <div className="grid grid-cols-4 gap-0 divide-x divide-white/20">
+                      {item.children.map((group) => (
+                        <div key={group.label} className="flex flex-col gap-4 px-6 first:pl-0 last:pr-0">
+                          <h4 className="text-[14px] font-bold uppercase tracking-wider text-black/80">
                             {group.label}
                           </h4>
-                          <div className="flex flex-col gap-0.5">
+                          <div className="flex flex-col gap-2.5">
                             {group.children?.map((sub) => (
                               <Link
                                 key={sub.label}
                                 href={sub.to ?? "/products"}
-                                className={`relative block px-3 py-1.5 rounded-lg text-[13px] font-medium transition-all duration-200 hover:translate-x-1.5 after:content-[''] after:absolute after:-bottom-0.5 after:left-3 after:right-3 after:h-[2px] after:bg-primary after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-300 after:origin-left ${
-                                  theme === "light"
-                                    ? "text-gray-700 hover:bg-gray-100/80 hover:text-primary"
-                                    : "text-secondary-foreground/80 hover:bg-white/5 hover:text-primary"
-                                }`}
+                                className="block text-[13px] font-medium text-black/80 hover:text-black hover:translate-x-1.5 transition-all duration-400"
                               >
-                                {sub.label}
-                              </Link>
-                            ))}
-                          </div>
-                        </div>
-                      ))}
-
-                      {/* Column 2: Impactor + Feeder */}
-                      <div className="flex flex-col gap-6">
-                        {item.children.filter((c) => c.label.toLowerCase() === "impactor" || c.label.toLowerCase() === "feeder").map((group) => (
-                          <div key={group.label} className="flex flex-col gap-3">
-                            <h4 className={`text-[13px] font-bold uppercase tracking-wider px-3 ${
-                              theme === "light" ? "text-gray-900" : "text-gray-100"
-                            }`}>
-                              {group.label}
-                            </h4>
-                            <div className="flex flex-col gap-0.5">
-                              {group.children?.map((sub) => (
-                                <Link
-                                  key={sub.label}
-                                  href={sub.to ?? "/products"}
-                                  className={`relative block px-3 py-1.5 rounded-lg text-[13px] font-medium transition-all duration-200 hover:translate-x-1.5 after:content-[''] after:absolute after:-bottom-0.5 after:left-3 after:right-3 after:h-[2px] after:bg-primary after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-300 after:origin-left ${
-                                    theme === "light"
-                                      ? "text-gray-700 hover:bg-gray-100/80 hover:text-primary"
-                                      : "text-secondary-foreground/80 hover:bg-white/5 hover:text-primary"
-                                  }`}
-                                >
-                                  {sub.label}
-                                </Link>
-                              ))}
-                            </div>
-                          </div>
-                        ))}
-                      </div>
-
-                      {/* Column 3: Screen */}
-                      {item.children.filter((c) => c.label.toLowerCase() === "screen").map((group) => (
-                        <div key={group.label} className="flex flex-col gap-3">
-                          <h4 className={`text-[13px] font-bold uppercase tracking-wider px-3 ${
-                            theme === "light" ? "text-gray-900" : "text-gray-100"
-                          }`}>
-                            {group.label}
-                          </h4>
-                          <div className="flex flex-col gap-0.5">
-                            {group.children?.map((sub) => (
-                              <Link
-                                key={sub.label}
-                                href={sub.to ?? "/products"}
-                                className={`relative block px-3 py-1.5 rounded-lg text-[13px] font-medium transition-all duration-200 hover:translate-x-1.5 after:content-[''] after:absolute after:-bottom-0.5 after:left-3 after:right-3 after:h-[2px] after:bg-primary after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-300 after:origin-left ${
-                                  theme === "light"
-                                    ? "text-gray-700 hover:bg-gray-100/80 hover:text-primary"
-                                    : "text-secondary-foreground/80 hover:bg-white/5 hover:text-primary"
-                                }`}
-                              >
-                                {sub.label}
+                                - {sub.label}
                               </Link>
                             ))}
                           </div>
@@ -305,20 +240,14 @@ const Header: React.FC = () => {
                 ) : (
                   /* Standard Vertical Dropdown for others */
                   <div
-                    className={`absolute top-full left-0 mt-1 border shadow-xl rounded-xl opacity-0 invisible translate-y-3 scale-95 origin-top-left group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 group-hover:scale-100 transition-all duration-300 ease-out z-50 p-2 min-w-[220px] ${
-                      theme === "light"
-                        ? "bg-white border-gray-200/80 text-gray-900"
-                        : "bg-secondary border-border/30 text-white"
-                    }`}
+                    className="absolute top-[calc(100%+14px)] left-0 mt-0 before:absolute before:-top-4 before:left-0 before:w-full before:h-4 before:bg-transparent shadow-xl rounded-none opacity-0 invisible -translate-y-2 origin-top group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 transition-all duration-300 ease-out z-50 p-5 min-w-[240px] bg-primary text-white"
                   >
-                    <div className="flex flex-col gap-0.5">
+                    <div className="flex flex-col gap-3">
                       {item.children.map((child) => (
                         child.heading ? (
                           <h4
                             key={child.label}
-                            className={`px-3.5 py-1.5 text-[11px] font-bold uppercase tracking-wider mt-2 border-t border-border/10 pt-2 first:mt-0 first:border-0 first:pt-0 ${
-                              theme === "light" ? "text-gray-900 font-bold" : "text-gray-100 font-bold"
-                            }`}
+                            className="text-[12px] font-bold uppercase tracking-wider mt-3 mb-1 border-t border-black/10 pt-4 first:mt-0 first:border-0 first:pt-0 text-black/80"
                           >
                             {child.label}
                           </h4>
@@ -326,13 +255,9 @@ const Header: React.FC = () => {
                           <Link
                             key={child.label}
                             href={child.to ?? "/"}
-                            className={`relative block px-3.5 py-2 rounded-lg text-[13px] font-medium transition-all duration-200 hover:translate-x-1.5 after:content-[''] after:absolute after:-bottom-0.5 after:left-3.5 after:right-3.5 after:h-[2px] after:bg-primary after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-300 after:origin-left ${
-                              theme === "light"
-                                ? "text-gray-700 hover:bg-gray-100/80 hover:text-primary"
-                                : "text-secondary-foreground/80 hover:bg-white/5 hover:text-primary"
-                            }`}
+                            className="block text-[14px] font-medium text-black/80 hover:text-black hover:translate-x-1.5 transition-all duration-200"
                           >
-                            {child.label}
+                            - {child.label}
                           </Link>
                         )
                       ))}
