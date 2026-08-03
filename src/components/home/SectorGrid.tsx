@@ -44,7 +44,7 @@ const SectorGrid: React.FC = () => {
   };
 
   return (
-    <section className="py-8 lg:py-10 bg-background text-foreground select-none text-left border-y border-border/10">
+    <section className="py-6 lg:py-8 bg-background text-foreground select-none text-left border-y border-border/10">
       <Container>
         <div className="flex flex-col lg:flex-row overflow-hidden items-start gap-8">
           

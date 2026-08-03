@@ -35,7 +35,7 @@ const logoImages = [
 
 const ClientLogosMarquee: React.FC = () => {
   return (
-    <section className="py-12 lg:py-16 bg-background select-none border-y border-border/30 overflow-hidden">
+    <section className="py-8 lg:py-10 bg-background select-none border-y border-border/30 overflow-hidden">
       <Container>
         {/* Header with arrows */}
         <div className="flex items-center justify-between mb-8">

@@ -330,40 +330,28 @@ export default function ProductDetailPage({ params }: PageProps) {
               className="lg:col-span-5 relative flex items-center justify-center"
             >
               {/* Soft Radial Ambient Lighting */}
-              <div className="absolute w-[320px] h-[320px] bg-primary/20 rounded-full blur-[100px] pointer-events-none" />
+              <div className="absolute w-[320px] h-[320px] lg:w-[450px] lg:h-[450px] bg-primary/20 rounded-full blur-[100px] pointer-events-none" />
 
-              {/* Floating Glassmorphic Container for Hero Image */}
-              <div className="relative z-10 w-full rounded-xl bg-gradient-to-b from-white/10 to-white/5 border border-white/15 p-6 sm:p-8 backdrop-blur-md shadow-2xl group flex flex-col items-center justify-center">
-                
-                {/* Product Class Badge */}
-                <div className="absolute top-4 left-4 z-20 px-3 py-1 rounded-full bg-black/60 backdrop-blur-md border border-white/10 text-[9px] font-bold uppercase tracking-wider text-primary flex items-center gap-1.5">
-                  <Award size={12} />
-                  <span>HEAVY INDUSTRIAL SERIES</span>
-                </div>
-
-                {/* Main Hero Machine Image */}
+              {/* Main Hero Machine Image directly shown */}
+              <div 
+                className="relative z-10 w-full group flex items-center justify-center cursor-pointer" 
+                onClick={() => {
+                  setSelectedGalleryIndex(0);
+                  setLightboxOpen(true);
+                }}
+                title="View Full Resolution"
+              >
                 <img
                   src={product.mainImage}
                   alt={product.name}
-                  className="max-h-[340px] sm:max-h-[380px] w-auto object-contain transition-transform duration-700 ease-out group-hover:scale-105 filter drop-shadow-[0_20px_30px_rgba(0,0,0,0.8)]"
+                  className="max-h-[400px] sm:max-h-[500px] lg:max-h-[600px] w-auto object-contain transition-transform duration-700 ease-out group-hover:scale-105 filter drop-shadow-[0_30px_40px_rgba(0,0,0,0.6)]"
                 />
-
-                {/* Bottom Floating Spec Chip inside Image card */}
-                <div className="mt-4 w-full pt-4 border-t border-white/10 flex items-center justify-between text-left">
-                  <div>
-                    <div className="text-[10px] uppercase font-bold text-gray-400 tracking-wider">Model Range</div>
-                    <div className="text-xs font-bold text-white">{product.name}</div>
+                
+                {/* Hover Expand Icon */}
+                <div className="absolute bottom-0 right-0 sm:bottom-4 sm:right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <div className="w-12 h-12 rounded-full bg-primary text-primary-foreground flex items-center justify-center shadow-2xl hover:scale-110 transition-transform">
+                    <Maximize2 size={20} />
                   </div>
-                  <button 
-                    onClick={() => {
-                      setSelectedGalleryIndex(0);
-                      setLightboxOpen(true);
-                    }}
-                    className="w-9 h-9 rounded-full bg-primary text-primary-foreground flex items-center justify-center hover:scale-110 transition-transform shadow-lg"
-                    title="View Full Resolution"
-                  >
-                    <Maximize2 size={14} />
-                  </button>
                 </div>
               </div>
             </motion.div>

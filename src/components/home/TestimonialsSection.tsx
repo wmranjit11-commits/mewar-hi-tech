@@ -54,12 +54,12 @@ const TESTIMONIALS_DATA: Testimonial[] = [
 
 export default function TestimonialsSection() {
   return (
-    <section className="py-12 lg:py-16 bg-background border-b border-border relative overflow-hidden select-none">
+    <section className="py-8 lg:py-10 bg-background border-b border-border relative overflow-hidden select-none">
 
       <Container className="relative z-10">
         
         {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-14 gap-6">
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-6">
           <div className="space-y-3 text-left">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-none border-2 border-border text-foreground text-[11px] font-bold uppercase tracking-widest">
               <ShieldCheck size={13} className="text-primary" />

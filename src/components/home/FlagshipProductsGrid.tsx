@@ -22,7 +22,7 @@ const FlagshipProductsGrid: React.FC = () => {
   }, []);
 
   return (
-    <section id="brochures" className="bg-muted py-8 lg:py-10 text-left select-none">
+    <section id="brochures" className="bg-muted py-6 lg:py-8 text-left select-none">
       <Container>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           

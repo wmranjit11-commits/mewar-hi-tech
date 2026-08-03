@@ -9,8 +9,18 @@ import Container from "../ui/Container";
 
 const ExploreMachinesSection: React.FC = () => {
   return (
-    <section className="bg-muted py-8 lg:py-12 select-none text-left border-b border-border/10">
+    <section className="bg-muted py-6 lg:py-8 select-none text-left border-b border-border/10">
       <Container>
+        
+        {/* Section Header */}
+        <div className="max-w-3xl mb-12 text-center mx-auto space-y-3">
+          <span className="text-primary font-bold text-xs uppercase tracking-widest block font-sans">
+            Our Products
+          </span>
+          <h2 className="common-heading text-3xl sm:text-4xl lg:text-5xl text-foreground font-bold tracking-tight">
+            Explore Our Machines
+          </h2>
+        </div>
         
         {/* Main Cards Showcase (Full-Width) */}
         <div className="w-full">

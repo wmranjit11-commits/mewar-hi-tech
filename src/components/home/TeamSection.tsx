@@ -57,7 +57,7 @@ export default function TeamSection() {
   const [hoveredIdx, setHoveredIdx] = useState<number | null>(null);
 
   return (
-    <section className="py-16 lg:py-24 bg-[#FBFAF7] dark:bg-[#0B1020] relative overflow-hidden border-b border-border/60 transition-colors duration-500">
+    <section className="py-6 lg:py-10 bg-[#FBFAF7] dark:bg-[#0B1020] relative overflow-hidden border-b border-border/60 transition-colors duration-500">
       {/* ── Reusable Section Background (Grid + Blobs + Corners) ── */}
       <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden">
         {/* Masked 64px Grid Pattern */}
@@ -101,7 +101,7 @@ export default function TeamSection() {
 
       <Container className="relative z-10">
         {/* Header Section */}
-        <div className="flex flex-col items-center justify-center text-center space-y-5 mb-14 lg:mb-20 px-4 mt-8">
+        <div className="flex flex-col items-center justify-center text-center space-y-3 mb-8 lg:mb-10 px-4 mt-4">
           <div className="inline-flex items-center gap-2">
             <span className="text-primary font-bold text-xs uppercase tracking-widest">
               OUR TEAM. YOUR SUPPORT.
@@ -202,7 +202,7 @@ export default function TeamSection() {
         </div>
 
         {/* Bottom Response Assurance Bar */}
-        <div className="mt-12 pt-6 border-t border-border/60 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-semibold text-muted-foreground">
+        <div className="mt-8 pt-4 border-t border-border/60 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-semibold text-muted-foreground">
           <div className="flex items-center gap-2">
             <ShieldCheck size={18} className="text-primary shrink-0" />
             <span>We ensure your query reaches the right leadership team for a quick and effective response.</span>

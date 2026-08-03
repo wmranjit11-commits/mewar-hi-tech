@@ -7,7 +7,7 @@ import Container from "../ui/Container";
 
 const AboutTeaser: React.FC = () => {
   return (
-    <section className="bg-card text-foreground py-8 lg:py-10 select-none text-left border-y border-border overflow-hidden">
+    <section className="bg-card text-foreground py-6 lg:py-8 select-none text-left border-y border-border overflow-hidden">
       <Container>
         <div className="flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-0">
           

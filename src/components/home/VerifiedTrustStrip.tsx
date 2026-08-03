@@ -28,7 +28,7 @@ const TRUST_BADGES = [
 
 export default function VerifiedTrustStrip() {
   return (
-    <section className="py-12 bg-card border-b-4 border-border relative overflow-hidden select-none">
+    <section className="py-8 bg-card border-b-4 border-border relative overflow-hidden select-none">
       <Container className="relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 items-center divide-y md:divide-y-0 md:divide-x-2 divide-border">
           {TRUST_BADGES.map((badge, idx) => {

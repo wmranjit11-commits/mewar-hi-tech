@@ -32,24 +32,35 @@ const CARDS_DATA = [
 
 export default function WhyKingsonSection() {
   return (
-    <section className="py-8 lg:py-12 bg-gradient-to-b from-background via-muted/30 to-background border-b border-border/60 select-none">
-      <Container>
+    <section 
+      className="py-10 lg:py-16 text-white select-none relative"
+      style={{
+        backgroundImage: "url('/images/construction_bg.png')",
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat',
+      }}
+    >
+      {/* Dark overlay to ensure text remains readable */}
+      <div className="absolute inset-0 bg-black/70 z-0 pointer-events-none" />
+      
+      <Container className="relative z-10">
         
         {/* Section Header */}
-        <div className="max-w-3xl mb-14 text-left space-y-3">
+        <div className="max-w-4xl mb-10 text-left space-y-2">
           <span className="text-primary font-bold text-xs uppercase tracking-widest block font-sans">
             Why Partner With Us
           </span>
-          <h2 className="common-heading text-3xl sm:text-4xl lg:text-5xl text-foreground font-bold tracking-tight">
+          <h2 className="common-heading text-3xl sm:text-4xl lg:text-5xl text-white font-bold tracking-tight">
             Suppliers of Heavy Duty Crushing Plants
           </h2>
-          <p className="text-sm text-muted-foreground font-medium leading-relaxed max-w-xl">
+          <p className="text-sm md:text-base text-white/80 font-medium leading-relaxed max-w-2xl pt-2">
             Engineering superiority with robust casting foundries, heavy manufacturing facilities, and turnkey project capabilities across India &amp; global markets.
           </p>
         </div>
 
         {/* 3 Grid Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {CARDS_DATA.map((card, idx) => {
             const Icon = card.icon;
             return (
@@ -59,32 +70,28 @@ export default function WhyKingsonSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: idx * 0.12 }}
-                className="p-8 lg:p-9 rounded-xl bg-card border border-border/80 shadow-sm hover:shadow-xl hover:border-primary/40 transition-all duration-300 flex flex-col justify-between items-start text-left space-y-6 group relative"
+                className="bg-card text-foreground p-6 lg:p-8 flex flex-col items-center text-center shadow-lg hover:shadow-2xl transition-shadow duration-300 group"
               >
-                <div className="space-y-5">
-                  {/* Icon wrapper */}
-                  <div className="w-14 h-14 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-primary-foreground group-hover:scale-105 transition-all duration-300 shadow-xs">
-                    <Icon size={26} className="stroke-[2.2]" />
-                  </div>
-
-                  {/* Text Content */}
-                  <div className="space-y-2">
-                    <span className="text-[10px] font-bold text-primary uppercase tracking-widest block">
-                      {card.subtitle}
-                    </span>
-                    <h3 className="common-heading text-xl font-bold text-foreground group-hover:text-primary transition-colors">
-                      {card.title}
-                    </h3>
-                    <p className="text-muted-foreground text-xs leading-relaxed font-semibold">
-                      {card.description}
-                    </p>
-                  </div>
+                {/* Circular Icon */}
+                <div className="w-16 h-16 rounded-full bg-muted/40 flex items-center justify-center text-foreground mb-5 group-hover:scale-105 group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-300">
+                  <Icon size={28} className="stroke-[1.5]" />
                 </div>
+
+                {/* Text Content */}
+                <h3 className="common-heading text-lg lg:text-xl font-bold mb-1 group-hover:text-primary transition-colors">
+                  {card.title}
+                </h3>
+                <span className="text-[10px] font-bold text-primary uppercase tracking-widest block mb-3">
+                  {card.subtitle}
+                </span>
+                <p className="text-muted-foreground text-xs lg:text-sm leading-relaxed font-medium mb-5">
+                  {card.description}
+                </p>
 
                 {/* Explore Link */}
                 <Link
                   href={card.link}
-                  className="inline-flex items-center gap-2 text-xs font-bold text-foreground group-hover:text-primary transition-colors pt-2 uppercase tracking-wider"
+                  className="mt-auto inline-flex items-center gap-2 text-xs font-bold text-foreground group-hover:text-primary transition-colors uppercase tracking-wider"
                 >
                   <span>Explore Specs</span>
                   <ArrowRight size={14} className="text-primary group-hover:translate-x-1 transition-transform stroke-[2.5]" />

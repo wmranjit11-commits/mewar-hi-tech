@@ -12,6 +12,10 @@ import 'react-toastify/dist/ReactToastify.css';
 import './globals.css';
 
 
+import { ExperienceProvider } from '@/components/3d/ExperienceManager';
+import FloatingButton from '@/components/3d/FloatingButton';
+import ModelViewerScript from '@/components/ModelViewerScript';
+
 const inter = Inter({ 
   subsets: ['latin'],
   variable: '--font-inter',
@@ -40,12 +44,7 @@ export default function RootLayout({
   return (
     <html lang="en" data-scroll-behavior="smooth" className={`${inter.variable} ${oswald.variable}`} suppressHydrationWarning>
       <body className="min-h-screen font-sans" suppressHydrationWarning>
-        <Script 
-          src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.0.0/model-viewer.min.js" 
-          type="module" 
-          strategy="afterInteractive" 
-          crossOrigin="anonymous"
-        />
+
         <Script id="chunk-load-error-handler" strategy="beforeInteractive">
           {`
             window.addEventListener('error', function(e) {
@@ -56,21 +55,29 @@ export default function RootLayout({
             });
           `}
         </Script>
+        
+        {/* Google Model Viewer Script for 3D elements */}
+        <ModelViewerScript />
+        
         <ThemeProvider>
-          <Theme appearance="inherit" radius="large" scaling="100%">
-            <main className="min-h-screen font-sans">
-              {children}
-              <ToastContainer
-                position="top-right"
-                autoClose={3000}
-                newestOnTop
-                closeOnClick
-                pauseOnHover
-              />
-            </main>
-          </Theme>
+          <ExperienceProvider>
+            <Theme appearance="inherit" radius="large" scaling="100%">
+              <main className="min-h-screen font-sans">
+                {children}
+                {/* <FloatingButton /> */}
+                <ToastContainer
+                  position="top-right"
+                  autoClose={3000}
+                  newestOnTop
+                  closeOnClick
+                  pauseOnHover
+                />
+              </main>
+            </Theme>
+          </ExperienceProvider>
         </ThemeProvider>
       </body>
     </html>
   );
 }
+

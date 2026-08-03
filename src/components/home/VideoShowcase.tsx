@@ -17,7 +17,7 @@ export default function VideoShowcase() {
   }, []);
 
   return (
-    <section className="py-8 lg:py-12 bg-background border-b border-border/60">
+    <section className="py-6 lg:py-8 bg-background border-b border-border/60">
       <div className="max-w-[1720px] mx-auto px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
           

@@ -130,14 +130,14 @@ export default function LatestProjects() {
   const remainingProjects = LATEST_PROJECTS_DATA.slice(1);
 
   return (
-    <section className="py-8 lg:py-12 bg-background border-b border-border/60 relative overflow-hidden select-none">
+    <section className="py-6 lg:py-8 bg-background border-b border-border/60 relative overflow-hidden select-none">
       {/* Background Decorative Glow */}
       <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-primary/5 rounded-full blur-3xl pointer-events-none" />
 
       <Container className="relative z-10">
         
         {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-6">
           <div className="space-y-3 text-left">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary text-[11px] font-bold uppercase tracking-widest">
               <Sparkles size={13} />
