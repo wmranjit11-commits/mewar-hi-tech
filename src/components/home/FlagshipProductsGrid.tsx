@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from "react";
 import { Download, Play, X, BookOpen, FileText, Wrench } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import MobileCarousel from "@/components/ui/MobileCarousel";
 import BlobButton from "@/components/ui/BlobButton";
 import Container from "../ui/Container";
 
@@ -63,8 +64,59 @@ const FlagshipProductsGrid: React.FC = () => {
           </p>
         </div>
 
-        {/* 3 Brochure Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
+        {/* Mobile Auto Carousel Slider (1 Card at a time, 2 sec) */}
+        <div className="block md:hidden">
+          <MobileCarousel autoSlideInterval={2000}>
+            {BROCHURE_CARDS.map((card) => {
+              const Icon = card.icon;
+              return (
+                <div
+                  key={card.title}
+                  className="bg-card rounded-[20px] p-5 border border-border/80 shadow-sm flex items-center gap-4 group min-h-[230px] w-full"
+                >
+                  <div className="w-[45%] shrink-0 flex items-center justify-center relative overflow-hidden">
+                    <img
+                      src={card.image}
+                      alt={card.title}
+                      className="w-full h-auto max-h-[190px] object-contain drop-shadow-md"
+                    />
+                  </div>
+
+                  <div className="flex-1 min-w-0 flex flex-col justify-between h-full py-1">
+                    <div>
+                      <div className="w-8 h-8 rounded-lg bg-primary/10 border border-primary/20 flex items-center justify-center text-primary shrink-0 mb-2">
+                        <Icon size={16} className="stroke-[2.2]" />
+                      </div>
+
+                      <h3 className="font-sans text-xs font-bold uppercase tracking-wider text-[#0A1A3B] dark:text-white leading-snug line-clamp-2">
+                        {card.title}
+                      </h3>
+                      
+                      <div className="w-6 h-[2px] bg-primary rounded-full my-1.5" />
+
+                      <p className="text-[10px] text-muted-foreground font-medium leading-relaxed line-clamp-2">
+                        {card.desc}
+                      </p>
+                    </div>
+
+                    <div className="pt-2">
+                      <button
+                        onClick={handleDownloadClick}
+                        className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-primary text-primary hover:bg-primary hover:text-primary-foreground text-[10px] font-bold uppercase tracking-wider transition-colors duration-200 cursor-pointer shadow-xs whitespace-nowrap"
+                      >
+                        <span>DOWNLOAD PDF</span>
+                        <Download size={11} className="stroke-[2.5]" />
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              );
+            })}
+          </MobileCarousel>
+        </div>
+
+        {/* Desktop 3 Brochure Cards Grid */}
+        <div className="hidden md:grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
           {BROCHURE_CARDS.map((card, idx) => {
             const Icon = card.icon;
             return (

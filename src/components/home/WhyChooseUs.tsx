@@ -5,6 +5,8 @@ import { Cog, Truck, Headset, Award } from "lucide-react";
 import { motion } from "framer-motion";
 import Container from "../ui/Container";
 
+import MobileCarousel from "@/components/ui/MobileCarousel";
+
 const LEFT_ICONS = [
   {
     icon: Cog,
@@ -42,10 +44,12 @@ const BOTTOM_IMAGES = [
   { title: "ECO FRIENDLY", src: "/images/latest-projects-2.jpg" },
 ];
 
+const ALL_FEATURE_IMAGES = [...TOP_IMAGES, ...BOTTOM_IMAGES];
+
 export default function WhyChooseUs() {
   return (
     <section className="bg-background text-foreground py-12 lg:py-16 relative overflow-hidden select-none border-y border-border/80">
-      <Container className="relative z-10 space-y-3 sm:space-y-4">
+      <Container className="relative z-10 space-y-6 sm:space-y-4">
         
         {/* Top Section: Split Layout */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-6 items-start">
@@ -98,8 +102,8 @@ export default function WhyChooseUs() {
             </div>
           </div>
 
-          {/* Right Column: Top 4 Images */}
-          <div className="lg:col-span-7">
+          {/* Right Column (Desktop / Tablet): Top 4 Images */}
+          <div className="hidden sm:block lg:col-span-7">
             <div className="grid grid-cols-12 gap-3 sm:gap-4">
               {TOP_IMAGES.map((img, idx) => (
                 <motion.div
@@ -128,8 +132,31 @@ export default function WhyChooseUs() {
           </div>
         </div>
 
-        {/* Bottom Section: Full Width 4 Images */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
+        {/* Mobile Auto Carousel Slider (1 Card at a time, 2 sec) */}
+        <div className="block sm:hidden pt-2">
+          <MobileCarousel autoSlideInterval={2000}>
+            {ALL_FEATURE_IMAGES.map((img, idx) => (
+              <div
+                key={idx}
+                className="relative rounded-xl overflow-hidden shadow-sm bg-muted h-[220px] w-full"
+              >
+                <img 
+                  src={img.src} 
+                  alt={img.title}
+                  className="absolute inset-0 w-full h-full object-cover"
+                />
+                <div className="absolute bottom-0 left-0 right-0 bg-[#0A1A3B] border-t border-white/10 p-3">
+                  <h3 className="text-white text-xs font-bold uppercase tracking-widest text-center">
+                    {img.title}
+                  </h3>
+                </div>
+              </div>
+            ))}
+          </MobileCarousel>
+        </div>
+
+        {/* Bottom Section (Desktop / Tablet): Full Width 4 Images */}
+        <div className="hidden sm:grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
           {BOTTOM_IMAGES.map((img, idx) => (
             <motion.div
               key={idx}

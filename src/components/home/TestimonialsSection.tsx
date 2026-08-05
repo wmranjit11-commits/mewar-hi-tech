@@ -3,6 +3,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import Container from "../ui/Container";
+import MobileCarousel from "@/components/ui/MobileCarousel";
 import { Star, ShieldCheck, MapPin, User } from "lucide-react";
 
 interface Testimonial {
@@ -101,8 +102,67 @@ export default function TestimonialsSection() {
           </div>
         </div>
 
-        {/* Testimonials Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        {/* Mobile Auto Carousel Slider (1 Card at a time, 2 sec) */}
+        <div className="block md:hidden">
+          <MobileCarousel autoSlideInterval={2000}>
+            {TESTIMONIALS_DATA.map((t) => (
+              <div
+                key={t.name}
+                className="bg-card rounded-2xl p-6 border border-border/80 shadow-sm flex flex-col justify-between relative group text-left w-full"
+              >
+                <div className="flex items-center justify-between mb-4">
+                  <span className="px-2.5 py-1 rounded-md bg-primary/10 text-primary text-[10px] font-bold uppercase tracking-wider border border-primary/20">
+                    {t.projectTag}
+                  </span>
+                  <span className="text-primary font-serif text-3xl leading-none font-bold select-none">
+                    “
+                  </span>
+                </div>
+
+                <div className="flex-1 mb-6">
+                  <p className="text-foreground/90 text-xs leading-relaxed font-medium">
+                    &ldquo;{t.review}&rdquo;
+                  </p>
+                </div>
+
+                <div className="pt-4 border-t border-border/60 space-y-3">
+                  <div className="flex items-center gap-3">
+                    <div className="w-11 h-11 rounded-xl bg-slate-200 dark:bg-slate-800 border border-border/80 flex items-center justify-center text-slate-600 dark:text-slate-300 shrink-0 shadow-inner">
+                      <User size={22} className="stroke-[2]" />
+                    </div>
+
+                    <div className="min-w-0 flex-1">
+                      <h4 className="font-bold text-xs uppercase tracking-wide text-foreground truncate">
+                        {t.name}
+                      </h4>
+                      <p className="text-[11px] text-muted-foreground font-semibold truncate">
+                        {t.role}
+                      </p>
+                      <p className="text-[10px] text-muted-foreground/80 font-medium truncate">
+                        {t.experience}
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="flex items-center justify-between pt-1">
+                    <div className="flex gap-0.5 text-primary">
+                      {Array.from({ length: t.rating }).map((_, i) => (
+                        <Star key={i} size={12} className="fill-primary text-primary" />
+                      ))}
+                    </div>
+                    <div className="flex items-center gap-1 text-[10px] font-bold text-muted-foreground uppercase tracking-wider">
+                      <MapPin size={10} className="text-primary" />
+                      <span className="truncate">{t.location}</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </MobileCarousel>
+        </div>
+
+        {/* Desktop Testimonials Cards Grid */}
+        <div className="hidden md:grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {TESTIMONIALS_DATA.map((t, idx) => (
             <motion.div
               key={t.name}
@@ -112,7 +172,6 @@ export default function TestimonialsSection() {
               transition={{ duration: 0.4, delay: idx * 0.1 }}
               className="bg-card rounded-2xl p-6 sm:p-7 border border-border/80 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between relative group text-left"
             >
-              {/* Top Quote Icon Accent */}
               <div className="flex items-center justify-between mb-4">
                 <span className="px-2.5 py-1 rounded-md bg-primary/10 text-primary text-[10px] font-bold uppercase tracking-wider border border-primary/20">
                   {t.projectTag}
@@ -122,27 +181,24 @@ export default function TestimonialsSection() {
                 </span>
               </div>
 
-              {/* Review Quote Content */}
               <div className="flex-1 mb-6">
                 <p className="text-foreground/90 text-xs sm:text-sm leading-relaxed font-medium">
                   &ldquo;{t.review}&rdquo;
                 </p>
               </div>
 
-              {/* Bottom Author Section */}
               <div className="pt-4 border-t border-border/60 space-y-3">
                 <div className="flex items-center gap-3">
-                  {/* Default Clean Icon Avatar */}
                   <div className="w-11 h-11 rounded-xl bg-slate-200 dark:bg-slate-800 border border-border/80 flex items-center justify-center text-slate-600 dark:text-slate-300 shrink-0 shadow-inner">
                     <User size={22} className="stroke-[2]" />
                   </div>
 
                   {/* Author Details */}
-                  <div className="overflow-hidden">
-                    <h3 className="font-bold text-foreground text-sm leading-snug truncate">
+                  <div className="min-w-0 flex-1">
+                    <h4 className="font-bold text-xs sm:text-sm uppercase tracking-wide text-foreground truncate">
                       {t.name}
-                    </h3>
-                    <p className="text-muted-foreground text-[11px] font-semibold truncate">
+                    </h4>
+                    <p className="text-[11px] sm:text-xs text-muted-foreground font-semibold truncate">
                       {t.role}
                     </p>
                     <p className="text-[10px] text-muted-foreground/80 font-medium truncate">
@@ -151,11 +207,17 @@ export default function TestimonialsSection() {
                   </div>
                 </div>
 
-                {/* 5-Star Rating below info */}
-                <div className="flex items-center gap-1 text-primary pt-1">
-                  {Array.from({ length: t.rating }).map((_, s) => (
-                    <Star key={s} size={14} className="fill-primary text-primary" />
-                  ))}
+                {/* Rating & Location Row */}
+                <div className="flex items-center justify-between pt-1 border-t border-border/40">
+                  <div className="flex gap-0.5 text-primary">
+                    {Array.from({ length: t.rating }).map((_, i) => (
+                      <Star key={i} size={12} className="fill-primary text-primary" />
+                    ))}
+                  </div>
+                  <div className="flex items-center gap-1 text-[10px] font-bold text-muted-foreground uppercase tracking-wider">
+                    <MapPin size={10} className="text-primary" />
+                    <span className="truncate">{t.location}</span>
+                  </div>
                 </div>
               </div>
             </motion.div>

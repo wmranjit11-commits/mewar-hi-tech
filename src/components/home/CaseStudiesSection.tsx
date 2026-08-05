@@ -18,6 +18,7 @@ import {
   Layers,
   ChevronRight
 } from "lucide-react";
+import MobileCarousel from "@/components/ui/MobileCarousel";
 import Container from "../ui/Container";
 import { CASE_STUDIES, CaseStudy } from "@/data/case-studies-data";
 
@@ -67,8 +68,66 @@ export default function CaseStudiesSection() {
           </p>
         </div>
 
-        {/* Case Studies Grid (4 Cards) */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        {/* Mobile Auto Carousel Slider (1 Card at a time, 2 sec) */}
+        <div className="block md:hidden">
+          <MobileCarousel autoSlideInterval={2000}>
+            {featuredStudies.map((study) => (
+              <div
+                key={study.id}
+                onClick={() => setSelectedStudy(study)}
+                className="group bg-card border border-border/80 rounded-2xl overflow-hidden shadow-sm flex flex-col justify-between cursor-pointer w-full"
+              >
+                <div>
+                  <div className="relative aspect-[16/10] overflow-hidden bg-muted">
+                    <img
+                      src={study.image}
+                      alt={study.title}
+                      className="w-full h-full object-cover"
+                    />
+                    <div className="absolute top-3 left-3 bg-primary text-primary-foreground text-[10px] font-bold tracking-wider px-3 py-1 rounded-md uppercase shadow-md">
+                      {study.category}
+                    </div>
+                  </div>
+
+                  <div className="p-5 space-y-3">
+                    <h3 className="text-base font-bold text-[#0A1A3B] dark:text-white leading-snug line-clamp-2 min-h-[44px] flex items-center">
+                      {study.title}
+                    </h3>
+
+                    <div className="flex items-center gap-1.5 text-xs text-muted-foreground font-semibold pb-2 border-b border-border/50">
+                      <MapPin size={14} className="text-primary shrink-0" />
+                      <span>{study.location}</span>
+                    </div>
+
+                    <div className="grid grid-cols-3 gap-2 pt-2">
+                      {study.stats.map((stat, sIdx) => (
+                        <div key={sIdx} className="flex flex-col items-center text-center space-y-1">
+                          <div className="flex items-center gap-1">
+                            {renderStatIcon(stat.icon)}
+                            <span className="text-sm font-bold text-foreground">
+                              {stat.value}
+                            </span>
+                          </div>
+                          <span className="text-[10px] text-muted-foreground font-medium leading-tight line-clamp-2">
+                            {stat.label}
+                          </span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+
+                <div className="px-5 py-3.5 bg-muted/40 border-t border-border/60 flex items-center justify-center text-xs font-bold text-[#0A1A3B] dark:text-white uppercase tracking-wider gap-2">
+                  <span>VIEW CASE STUDY</span>
+                  <ArrowRight size={14} />
+                </div>
+              </div>
+            ))}
+          </MobileCarousel>
+        </div>
+
+        {/* Desktop Case Studies Grid (4 Cards) */}
+        <div className="hidden md:grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {featuredStudies.map((study, idx) => (
             <motion.div
               key={study.id}
