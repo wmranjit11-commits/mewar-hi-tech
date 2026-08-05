@@ -24,14 +24,12 @@ const AboutTeaser: React.FC = () => {
           </div>
 
           {/* 2. Text Copy Panel & Divider */}
-          <div className="flex-grow lg:px-8 space-y-3.5 max-w-lg text-center lg:text-left">
-            <p className="text-primary font-bold text-xs uppercase tracking-wider block">
-              Award Winning
+          <div className="flex-grow lg:px-8 space-y-3 max-w-lg text-center lg:text-left">
+            <p className="text-primary font-bold text-xs uppercase tracking-widest block font-sans">
+              AWARD WINNING
             </p>
-            <h2 className="font-sans text-xl sm:text-2xl lg:text-3xl font-bold leading-tight tracking-wide text-foreground uppercase">
-              RECOGNIZED EXCELLENCE.
-              <br />
-              TRUSTED WORLDWIDE.
+            <h2 className="font-sans text-2xl sm:text-3xl font-bold tracking-tight text-[#0A1A3B] dark:text-white uppercase leading-tight">
+              RECOGNIZED EXCELLENCE. TRUSTED WORLDWIDE.
             </h2>
             <p className="text-xs text-muted-foreground font-medium leading-relaxed">
               Our commitment to innovation, quality and performance has earned global recognition and trust.

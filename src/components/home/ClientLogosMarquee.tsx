@@ -37,12 +37,11 @@ const ClientLogosMarquee: React.FC = () => {
   return (
     <section className="py-8 lg:py-10 bg-background select-none border-y border-border/30 overflow-hidden">
       <Container>
-        {/* Header with arrows */}
-        <div className="flex items-center justify-between mb-8">
-          <span className="text-primary font-bold text-xs uppercase tracking-widest">
+        {/* Header */}
+        <div className="flex items-center justify-center mb-8 md:mb-12">
+          <h2 className="text-primary font-bold text-xl md:text-2xl lg:text-3xl uppercase tracking-widest text-center">
             Trusted by Industry Leaders
-          </span>
-
+          </h2>
         </div>
       </Container>
 

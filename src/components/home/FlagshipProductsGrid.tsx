@@ -1,13 +1,34 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { Download, Play, X } from "lucide-react";
+import { Download, Play, X, BookOpen, FileText, Wrench } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import BlobButton from "@/components/ui/BlobButton";
 import Container from "../ui/Container";
 
 const YOUTUBE_VIDEO_ID = "5M9sopYgqR4";
 const YOUTUBE_EMBED_URL = `https://www.youtube.com/embed/${YOUTUBE_VIDEO_ID}?autoplay=1&rel=0`;
+
+const BROCHURE_CARDS = [
+  {
+    title: "PRODUCT BROCHURE",
+    icon: BookOpen,
+    desc: "Comprehensive overview of features, benefits and applications.",
+    image: "/images/brochure/cone-crusher-brochure.webp",
+  },
+  {
+    title: "TECHNICAL DATASHEET",
+    icon: FileText,
+    desc: "Detailed technical specifications and performance data.",
+    image: "/images/brochure/datasheet-cone-crusher.webp",
+  },
+  {
+    title: "OPERATION & MAINTENANCE MANUAL",
+    icon: Wrench,
+    desc: "Step-by-step guide for safe operation, maintenance and best practices.",
+    image: "/images/brochure/operational-and-maintenece-manual.webp",
+  },
+];
 
 const FlagshipProductsGrid: React.FC = () => {
   const [isVideoOpen, setIsVideoOpen] = useState(false);
@@ -21,92 +42,129 @@ const FlagshipProductsGrid: React.FC = () => {
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, []);
 
+  const handleDownloadClick = () => {
+    window.dispatchEvent(new Event("open-brochure-modal"));
+  };
+
   return (
-    <section id="brochures" className="bg-muted py-6 lg:py-8 text-left select-none">
-      <Container>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          
-          {/* Download block */}
-          <div className="bg-card p-6 sm:p-8 flex flex-col lg:flex-row lg:items-center justify-between gap-6 border border-border rounded-lg shadow-sm">
-            <div className="flex-grow">
-              <p className="text-primary font-bold text-xs uppercase tracking-wider mb-2">
-                Download Resources
-              </p>
-              <h3 className="font-sans text-lg sm:text-xl lg:text-2xl font-bold text-foreground mb-3 leading-tight uppercase tracking-tight">
-                BROCHURES &amp; TECHNICAL DOCUMENTS
-              </h3>
-              <p className="text-xs text-muted-foreground mb-6 font-medium max-w-sm leading-relaxed">
-                Get detailed specs, product brochures, and technical documents in one click.
-              </p>
-              <BlobButton
-                variant="secondary"
-                onClick={() => window.dispatchEvent(new Event("open-brochure-modal"))}
-                className="!py-2.5 !px-5 text-xs font-bold transition-colors flex items-center justify-center rounded whitespace-nowrap"
+    <section id="brochures" className="bg-background py-12 lg:py-16 text-left select-none border-t border-border/80">
+      <Container className="space-y-12">
+        
+        {/* Section Header */}
+        <div className="max-w-3xl text-center mx-auto space-y-3">
+          <span className="text-primary font-bold text-xs uppercase tracking-widest block font-sans">
+            DOWNLOAD RESOURCES
+          </span>
+          <h2 className="font-sans text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight uppercase text-[#0A1A3B] dark:text-white">
+            TECHNICAL DOCUMENTATION &amp; BROCHURES
+          </h2>
+          <p className="text-sm text-muted-foreground font-medium max-w-xl mx-auto leading-relaxed">
+            Get instant access to complete product brochures, technical datasheets, and maintenance manuals for Mewar Hi-Tech machinery.
+          </p>
+        </div>
+
+        {/* 3 Brochure Cards Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
+          {BROCHURE_CARDS.map((card, idx) => {
+            const Icon = card.icon;
+            return (
+              <motion.div
+                key={card.title}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: idx * 0.1 }}
+                className="bg-card rounded-[20px] p-6 border border-border/80 shadow-sm hover:shadow-xl transition-all duration-300 flex items-center gap-5 group min-h-[250px]"
               >
-                <div className="flex items-center gap-2 whitespace-nowrap">
-                  <span>Download Center</span>
-                  <Download size={14} className="stroke-[2.5]" />
+                {/* Left Side: 3D Standing Cover Image standing tall */}
+                <div className="w-[45%] shrink-0 flex items-center justify-center relative overflow-hidden">
+                  <img
+                    src={card.image}
+                    alt={card.title}
+                    className="w-full h-auto max-h-[210px] object-contain drop-shadow-md group-hover:scale-105 transition-transform duration-500"
+                  />
                 </div>
-              </BlobButton>
-            </div>
-            
-            <div className="hidden sm:block lg:shrink-0 lg:pl-4 mx-auto lg:mx-0">
-              <img
-                src="/images/brochures.png"
-                alt="Brochure booklet cover"
-                className="h-28 lg:h-32 w-auto object-contain transform rotate-6 hover:rotate-0 transition-transform duration-300 drop-shadow-md rounded dark:opacity-90"
-              />
+
+                {/* Right Side: Details & Action */}
+                <div className="flex-1 min-w-0 flex flex-col justify-between h-full py-1">
+                  <div>
+                    {/* Orange Outline Icon */}
+                    <div className="w-8 h-8 rounded-lg bg-primary/10 border border-primary/20 flex items-center justify-center text-primary shrink-0 mb-3">
+                      <Icon size={16} className="stroke-[2.2]" />
+                    </div>
+
+                    {/* Card Title */}
+                    <h3 className="font-sans text-xs sm:text-sm font-bold uppercase tracking-wider text-[#0A1A3B] dark:text-white leading-snug min-h-[36px] flex items-center">
+                      {card.title}
+                    </h3>
+                    
+                    {/* Orange Accent Bar */}
+                    <div className="w-8 h-[2px] bg-primary rounded-full my-2" />
+
+                    {/* Card Description */}
+                    <p className="text-[11px] text-muted-foreground font-medium leading-relaxed min-h-[44px] flex items-center">
+                      {card.desc}
+                    </p>
+                  </div>
+
+                  {/* Outline Download PDF Button */}
+                  <div className="pt-3">
+                    <button
+                      onClick={handleDownloadClick}
+                      className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg border border-primary text-primary hover:bg-primary hover:text-primary-foreground text-[11px] font-bold uppercase tracking-wider transition-colors duration-200 cursor-pointer shadow-xs whitespace-nowrap"
+                    >
+                      <span>DOWNLOAD PDF</span>
+                      <Download size={12} className="stroke-[2.5]" />
+                    </button>
+                  </div>
+                </div>
+              </motion.div>
+            );
+          })}
+        </div>
+
+        {/* Video Banner Card */}
+        <div className="bg-card p-6 sm:p-8 rounded-2xl flex flex-col lg:flex-row lg:items-center justify-between gap-6 border border-border/80 shadow-sm hover:shadow-md transition-shadow">
+          <div className="flex-grow space-y-2">
+            <span className="text-primary font-bold text-xs uppercase tracking-widest block font-sans">
+              SEE IT IN ACTION
+            </span>
+            <h3 className="font-sans text-lg sm:text-xl lg:text-2xl font-bold text-[#0A1A3B] dark:text-white leading-tight uppercase tracking-tight">
+              MACHINES THAT WORK FOR YOU
+            </h3>
+            <p className="text-xs sm:text-sm text-muted-foreground font-medium max-w-lg leading-relaxed">
+              Watch our heavy crushers, feeders, and conveyors in action and see how they perform under extreme loading conditions.
+            </p>
+            <div className="pt-2">
+              <button
+                onClick={() => setIsVideoOpen(true)}
+                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-primary text-primary-foreground font-bold text-xs uppercase tracking-wider hover:bg-primary/90 transition-colors shadow-md cursor-pointer"
+              >
+                <span>Watch Operation Videos</span>
+                <Play size={12} className="fill-current" />
+              </button>
             </div>
           </div>
 
-          {/* Video block */}
-          <div className="bg-card p-6 sm:p-8 flex flex-col lg:flex-row lg:items-center justify-between gap-6 border border-border rounded-lg shadow-sm">
-            <div className="flex-grow">
-              <p className="text-primary font-bold text-xs uppercase tracking-wider mb-2">
-                See It In Action
-              </p>
-              <h3 className="font-sans text-lg sm:text-xl lg:text-2xl font-bold text-foreground mb-3 leading-tight uppercase tracking-tight">
-                MACHINES THAT WORK FOR YOU
-              </h3>
-              <p className="text-xs text-muted-foreground mb-6 font-medium max-w-sm leading-relaxed">
-                Watch our machines in action and see how they perform in real-world applications.
-              </p>
-              <BlobButton
-                variant="secondary"
-                onClick={() => setIsVideoOpen(true)}
-                className="!py-2.5 !px-5 text-xs font-bold transition-colors flex items-center justify-center rounded whitespace-nowrap cursor-pointer"
-              >
-                <div className="flex items-center gap-2 whitespace-nowrap">
-                  <span>Watch Videos</span>
-                  <div className="w-3.5 h-3.5 rounded-full border border-current flex items-center justify-center shrink-0">
-                    <Play size={8} className="fill-current ml-0.5" />
-                  </div>
-                </div>
-              </BlobButton>
-            </div>
-
-            <div className="hidden sm:block lg:shrink-0 lg:pl-4 mx-auto lg:mx-0">
-              <div 
-                onClick={() => setIsVideoOpen(true)}
-                className="relative w-40 lg:w-44 aspect-[16/10] rounded overflow-hidden shadow-sm border border-border group cursor-pointer"
-              >
-                <img
-                  src="/images/video_thumbnail.png"
-                  alt="Video Thumbnail"
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300 dark:opacity-90"
-                />
-                <div className="absolute inset-0 flex items-center justify-center bg-black/20 group-hover:bg-black/40 transition-colors">
-                  <div className="w-10 h-10 rounded-full border-2 border-white flex items-center justify-center bg-black/40 shadow-lg group-hover:scale-110 transition-transform">
-                    <svg className="w-3.5 h-3.5 text-white fill-white ml-0.5" viewBox="0 0 24 24">
-                      <path d="M8 5v14l11-7z" />
-                    </svg>
-                  </div>
+          <div className="shrink-0 mx-auto lg:mx-0">
+            <div 
+              onClick={() => setIsVideoOpen(true)}
+              className="relative w-48 sm:w-60 aspect-[16/10] rounded-xl overflow-hidden shadow-md border border-border group cursor-pointer"
+            >
+              <img
+                src="/images/video_thumbnail.png"
+                alt="Video Thumbnail"
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+              <div className="absolute inset-0 flex items-center justify-center bg-black/30 group-hover:bg-black/40 transition-colors">
+                <div className="w-11 h-11 rounded-full border-2 border-white flex items-center justify-center bg-black/40 shadow-xl group-hover:scale-110 transition-transform">
+                  <Play size={16} className="text-white fill-white ml-0.5" />
                 </div>
               </div>
             </div>
           </div>
-
         </div>
+
       </Container>
 
       {/* Fullscreen Video Popup Modal */}
@@ -119,7 +177,6 @@ const FlagshipProductsGrid: React.FC = () => {
             onClick={() => setIsVideoOpen(false)}
             className="fixed inset-0 z-50 bg-black/90 backdrop-blur-md flex items-center justify-center p-4 sm:p-8"
           >
-            {/* Close Button */}
             <div className="absolute top-6 right-6 z-20">
               <button
                 type="button"
@@ -130,7 +187,6 @@ const FlagshipProductsGrid: React.FC = () => {
               </button>
             </div>
 
-            {/* YouTube Embed Player */}
             <motion.div
               initial={{ scale: 0.95, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}

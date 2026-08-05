@@ -10,8 +10,7 @@ import ExploreMachinesSection from "@/components/home/ExploreMachinesSection";
 import WhyChooseUs from "@/components/home/WhyChooseUs";
 import SectorGrid from "@/components/home/SectorGrid";
 import VideoShowcase from "@/components/home/VideoShowcase";
-import LatestProjects from "@/components/home/LatestProjects";
-import ExportProjects from "@/components/home/ExportProjects";
+import CaseStudiesSection from "@/components/home/CaseStudiesSection";
 import TestimonialsSection from "@/components/home/TestimonialsSection";
 import TeamSection from "@/components/home/TeamSection";
 import AboutTeaser from "@/components/home/AboutTeaser";
@@ -52,13 +51,10 @@ export default function Home() {
         {/* 9. Heavy Engineering Video Showcase */}
         <VideoShowcase />
 
-        {/* 10. Latest Projects: Bento grid with lightbox modal */}
-        <LatestProjects />
+        {/* 10. Featured Case Studies: Success stories grid matching reference UI */}
+        <CaseStudiesSection />
 
-        {/* 11. Export Projects (Tanzania): Bento grid with lightbox modal */}
-        <ExportProjects />
-
-        {/* 12. Verified Client Reviews & Testimonials */}
+        {/* 11. Verified Client Reviews & Testimonials */}
         <TestimonialsSection />
 
         {/* 13. Management Team: Executive leadership profiles */}

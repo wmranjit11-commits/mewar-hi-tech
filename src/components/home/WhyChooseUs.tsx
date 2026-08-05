@@ -1,103 +1,161 @@
 "use client";
 
 import React from "react";
-import { Shield, Cog, TrendingUp, Headset, Award, Truck, Wrench, Leaf } from "lucide-react";
+import { Cog, Truck, Headset, Award } from "lucide-react";
 import { motion } from "framer-motion";
 import Container from "../ui/Container";
 
-const features = [
-  {
-    icon: Shield,
-    title: "Built Tough",
-    desc: "Built for durability in the harshest quarrying environments.",
-  },
+const LEFT_ICONS = [
   {
     icon: Cog,
-    title: "Low Operating Cost",
-    desc: "Optimized fuel efficiency and minimal maintenance overhead.",
-  },
-  {
-    icon: TrendingUp,
-    title: "Maximum Productivity",
-    desc: "High capacity, powerful output, and consistent grading results.",
-  },
-  {
-    icon: Headset,
-    title: "Global Support",
-    desc: "Expert engineering service and genuine spare parts worldwide.",
-  },
-  {
-    icon: Award,
-    title: "Premium Quality",
-    desc: "ISO certified manufacturing and rigorous quality checks.",
+    title: "ENGINEERING EXCELLENCE",
+    desc: "Advanced design.",
   },
   {
     icon: Truck,
-    title: "Fast Delivery",
-    desc: "Efficient supply chain ensuring timely equipment delivery.",
+    title: "TURNKEY SOLUTIONS",
+    desc: "End-to-end setup.",
   },
   {
-    icon: Wrench,
-    title: "Easy Maintenance",
-    desc: "Designed for quick part replacement and minimal downtime.",
+    icon: Headset,
+    title: "EXPERT SUPPORT",
+    desc: "24/7 service.",
   },
   {
-    icon: Leaf,
-    title: "Eco Friendly",
-    desc: "Advanced technology reducing emissions and environmental impact.",
+    icon: Award,
+    title: "CERTIFIED QUALITY",
+    desc: "ISO 9001:2008.",
   },
 ];
 
-const WhyChooseUs: React.FC = () => {
+const TOP_IMAGES = [
+  { title: "BUILT TOUGH", src: "/images/built_tough.png", colSpan: "col-span-12 sm:col-span-6" },
+  { title: "LOW OPERATING COST", src: "/images/low_operating_cost.png", colSpan: "col-span-12 sm:col-span-6" },
+  { title: "MAXIMUM PRODUCTIVITY", src: "/images/maximum_productivity.png", colSpan: "col-span-12 sm:col-span-7" },
+  { title: "GLOBAL SUPPORT", src: "/images/global_support.png", colSpan: "col-span-12 sm:col-span-5" },
+];
+
+const BOTTOM_IMAGES = [
+  { title: "PREMIUM QUALITY", src: "/images/premium_quality.png" },
+  { title: "FAST DELIVERY", src: "/images/export-projects-1.jpg" },
+  { title: "EASY MAINTENANCE", src: "/images/after-sales-1.jpg" },
+  { title: "ECO FRIENDLY", src: "/images/latest-projects-2.jpg" },
+];
+
+export default function WhyChooseUs() {
   return (
-    <section className="bg-card text-foreground py-6 lg:py-10 relative overflow-hidden select-none border-y border-border/80">
-      <Container className="relative z-10">
+    <section className="bg-background text-foreground py-12 lg:py-16 relative overflow-hidden select-none border-y border-border/80">
+      <Container className="relative z-10 space-y-3 sm:space-y-4">
         
-        {/* Section Header */}
-        <div className="max-w-3xl mx-auto mb-8 text-center space-y-3">
-          <span className="text-primary font-bold text-xs uppercase tracking-widest block font-sans">
-            The Kingson Advantage
-          </span>
-          <h2 className="common-heading text-3xl sm:text-4xl lg:text-5xl text-foreground font-bold tracking-tight">
-            Why Choose Us?
-          </h2>
-          <p className="text-sm md:text-base text-muted-foreground font-medium leading-relaxed max-w-xl mx-auto">
-            Delivering high-performance crushing technology engineered for durability, maximum uptime, and unmatched customer support across all sites.
-          </p>
+        {/* Top Section: Split Layout */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-6 items-start">
+          
+          {/* Left Column: Text & Icons */}
+          <div className="lg:col-span-5 space-y-8 lg:pr-6">
+            
+            <div className="space-y-4">
+              <div className="flex items-center gap-4 mb-2">
+                <div className="w-8 h-[2px] bg-primary"></div>
+                <span className="text-primary font-bold text-xs uppercase tracking-widest block font-sans">
+                  WHY CHOOSE US
+                </span>
+              </div>
+              <h2 className="font-sans text-3xl sm:text-4xl lg:text-5xl font-bold leading-[1.05] tracking-tight uppercase text-[#0A1A3B] dark:text-white">
+                ENGINEERED TO <span className="text-primary block">DELIVER MORE.</span>
+              </h2>
+              <p className="text-sm text-muted-foreground font-medium leading-relaxed max-w-md pt-2 text-justify">
+                At Mewar Hi-Tech, we deliver high-performance crushing technology engineered for durability, maximum uptime, and unmatched customer support across all sites. Here, every machine plays a part in building world-class infrastructure.
+              </p>
+            </div>
+
+            {/* Icons Grid (4 columns side by side) */}
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-2">
+              {LEFT_ICONS.map((item, idx) => {
+                const IconComponent = item.icon;
+                return (
+                  <motion.div 
+                    key={idx}
+                    initial={{ opacity: 0, y: 15 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.4, delay: idx * 0.1 }}
+                    className="flex flex-col items-center text-center space-y-3 group border-r border-border/40 last:border-0 pr-4 last:pr-0"
+                  >
+                    <div className="w-12 h-12 rounded-xl bg-card border border-border/80 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-colors duration-300 shadow-sm">
+                      <IconComponent size={22} className="stroke-[2]" />
+                    </div>
+                    <div className="space-y-1">
+                      <h4 className="text-[10px] font-bold text-foreground uppercase tracking-wider leading-tight">
+                        {item.title}
+                      </h4>
+                      <p className="text-[9px] text-muted-foreground font-medium leading-snug">
+                        {item.desc}
+                      </p>
+                    </div>
+                  </motion.div>
+                );
+              })}
+            </div>
+          </div>
+
+          {/* Right Column: Top 4 Images */}
+          <div className="lg:col-span-7">
+            <div className="grid grid-cols-12 gap-3 sm:gap-4">
+              {TOP_IMAGES.map((img, idx) => (
+                <motion.div
+                  key={idx}
+                  initial={{ opacity: 0, scale: 0.95 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: idx * 0.05 }}
+                  className={`${img.colSpan} relative rounded-xl overflow-hidden group shadow-sm bg-muted h-[180px] lg:h-[220px]`}
+                >
+                  <img 
+                    src={img.src} 
+                    alt={img.title}
+                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  />
+                  
+                  {/* Bottom Text Bar */}
+                  <div className="absolute bottom-0 left-0 right-0 bg-[#0A1A3B] border-t border-white/10 p-2.5 sm:p-3">
+                    <h3 className="text-white text-[10px] sm:text-xs font-bold uppercase tracking-widest text-center">
+                      {img.title}
+                    </h3>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
         </div>
 
-        {/* 8 Feature Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-8">
-          {features.map((item, idx) => {
-            const IconComponent = item.icon;
-            return (
-              <motion.div
-                key={item.title}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: idx * 0.1 }}
-                className="flex flex-col items-center text-center group"
-              >
-                <div 
-                  className="w-20 h-20 md:w-24 md:h-24 bg-primary text-primary-foreground flex items-center justify-center mb-4 transition-transform duration-300 group-hover:scale-105"
-                  style={{ clipPath: 'polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)' }}
-                >
-                  <IconComponent size={36} strokeWidth={1.5} className="md:w-10 md:h-10" />
-                </div>
-                <h4 className="text-base md:text-lg font-semibold text-foreground mb-3 group-hover:text-primary transition-colors">
-                  {item.title}
-                </h4>
-                <p className="text-muted-foreground text-xs md:text-sm leading-relaxed font-medium">
-                  {item.desc}
-                </p>
-              </motion.div>
-            );
-          })}
+        {/* Bottom Section: Full Width 4 Images */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
+          {BOTTOM_IMAGES.map((img, idx) => (
+            <motion.div
+              key={idx}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.2 + (idx * 0.1) }}
+              className="relative rounded-xl overflow-hidden group shadow-sm bg-muted h-[180px] lg:h-[220px]"
+            >
+              <img 
+                src={img.src} 
+                alt={img.title}
+                className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+              />
+              
+              {/* Bottom Text Bar */}
+              <div className="absolute bottom-0 left-0 right-0 bg-[#0A1A3B] border-t border-white/10 p-2.5 sm:p-3">
+                <h3 className="text-white text-[10px] sm:text-xs font-bold uppercase tracking-widest text-center">
+                  {img.title}
+                </h3>
+              </div>
+            </motion.div>
+          ))}
         </div>
+
       </Container>
     </section>
   );
 };
-
-export default WhyChooseUs;

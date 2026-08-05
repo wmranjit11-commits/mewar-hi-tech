@@ -22,7 +22,7 @@ const Showroom = () => {
       {/* Massive floating background text */}
       <Html position={[0, 40, -50]} center zIndexRange={[0, 0]} className="pointer-events-none select-none">
         <div className="flex flex-col items-center justify-center whitespace-nowrap">
-          <h1 className="text-[120px] font-black text-white drop-shadow-2xl font-oswald tracking-tighter leading-none">
+          <h1 className="text-[120px] font-bold text-white drop-shadow-2xl font-oswald tracking-tighter leading-none">
             3D <span className="text-primary">PRODUCT</span> TOUR
           </h1>
           <div className="bg-white text-black px-6 py-2 mt-2 text-4xl font-bold tracking-[0.2em] uppercase">

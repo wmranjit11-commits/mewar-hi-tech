@@ -14,11 +14,11 @@ export default function WelcomeTeaser() {
           {/* Left Text Column */}
           <div className="lg:col-span-6 space-y-6 text-left">
             <div className="space-y-2">
-              <span className="text-primary font-bold text-xs uppercase tracking-widest block">
-                Welcome to Mewar
+              <span className="text-primary font-bold text-xs uppercase tracking-widest block font-sans">
+                WELCOME TO MEWAR
               </span>
-              <h2 className="common-heading text-3xl sm:text-4xl text-foreground font-bold leading-tight">
-                Mewar Hitech Engineering Limited
+              <h2 className="font-sans text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight uppercase text-[#0A1A3B] dark:text-white">
+                MEWAR HITECH ENGINEERING LIMITED
               </h2>
             </div>
             <div className="text-muted-foreground text-sm leading-relaxed space-y-4 font-medium">

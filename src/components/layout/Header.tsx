@@ -28,6 +28,7 @@ const navItems: NavItem[] = [
   {
     label: "About",
     children: [
+      { label: "Our Case Studies", to: "/case-studies"},
       { label: "About Mewar Hitech", to: "/about" },
       { label: "Events", to: "/events" },
       { label: "Career", to: "/careers" },

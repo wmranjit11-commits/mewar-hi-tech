@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { Play, X, Video } from "lucide-react";
+import { Play, X, Video, Cog, ShieldCheck } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 export default function VideoShowcase() {
@@ -17,45 +17,72 @@ export default function VideoShowcase() {
   }, []);
 
   return (
-    <section className="py-6 lg:py-8 bg-background border-b border-border/60">
-      <div className="max-w-[1720px] mx-auto px-6 lg:px-8">
+    <section className="pt-8 pb-8 lg:pb-10 bg-background relative overflow-hidden">
+      {/* Optional decorative background elements */}
+      <div className="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-l from-primary/5 to-transparent pointer-events-none" />
+
+      <div className="max-w-[1720px] mx-auto px-6 lg:px-8 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-          
           {/* Left Text Block */}
-          <div className="lg:col-span-5 space-y-6 text-left">
-            <div className="space-y-2">
-              <span className="text-primary font-bold text-xs uppercase tracking-widest block">
-                Industrial Footprints
-              </span>
-              <h2 className="common-heading text-3xl sm:text-4xl text-foreground font-bold leading-tight">
-                Heavy Engineering Operations
+          <div className="lg:col-span-5 flex flex-col justify-center space-y-6">
+            <div className="space-y-3 text-left">
+              <p className="text-primary font-bold text-xs uppercase tracking-widest block font-sans">
+                INDUSTRIAL FOOTPRINTS
+              </p>
+
+              <h2 className="font-sans text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight uppercase text-[#0A1A3B] dark:text-white leading-tight">
+                HEAVY ENGINEERING OPERATIONS
               </h2>
+
+              <p className="text-muted-foreground text-sm sm:text-base leading-relaxed text-justify font-medium max-w-md">
+                Take a virtual tour of our heavy machinery assembly shop floor
+                and active quarry installations. Witness our crushers, feeders,
+                and conveyors executing high-throughput screening and size
+                reduction under extreme loading cycles.
+              </p>
             </div>
-            <p className="text-muted-foreground text-sm leading-relaxed font-semibold">
-              Take a virtual tour of our heavy machinery assembly shop floor and active quarry installations. Witness our crushers, feeders, and conveyors executing high-throughput screening and size reduction under extreme loading cycles.
-            </p>
-            
-            {/* Visual badge info */}
-            <div className="p-5 rounded-xl bg-muted/40 border border-border/80 flex items-start gap-4">
-              <div className="w-10 h-10 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center text-primary shrink-0">
-                <Video size={18} />
+
+            {/* Visual badge info blocks */}
+            <div className="space-y-4 max-w-md">
+              {/* Card 1 */}
+              <div className="p-5 rounded-2xl bg-card border border-border/50 shadow-sm flex items-center gap-4 hover:border-primary/30 hover:shadow-md transition-all duration-300 group cursor-default">
+                <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center text-primary shrink-0 group-hover:scale-110 group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-300">
+                  <Video size={22} className="stroke-[2]" />
+                </div>
+                <div className="space-y-1">
+                  <h4 className="font-sans text-sm font-bold uppercase tracking-wide text-foreground">
+                    Shop Floor & Field Footage
+                  </h4>
+                  <p className="text-[11px] text-muted-foreground font-medium leading-relaxed">
+                    High-definition mechanism demonstration of primary crushing
+                    plants and mobile tracks.
+                  </p>
+                </div>
               </div>
-              <div className="space-y-1">
-                <h4 className="font-heading text-xs font-bold uppercase text-foreground">
-                  Shop Floor &amp; Field Footage
-                </h4>
-                <p className="text-[10px] text-muted-foreground font-bold leading-normal">
-                  High-definition mechanism demonstration of primary crushing plants and mobile tracks.
-                </p>
+
+              {/* Card 2 */}
+              <div className="p-5 rounded-2xl bg-card border border-border/50 shadow-sm flex items-center gap-4 hover:border-primary/30 hover:shadow-md transition-all duration-300 group cursor-default">
+                <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center text-primary shrink-0 group-hover:scale-110 group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-300">
+                  <Cog size={22} className="stroke-[2]" />
+                </div>
+                <div className="space-y-1">
+                  <h4 className="font-sans text-sm font-bold uppercase tracking-wide text-foreground">
+                    Advanced Engineering
+                  </h4>
+                  <p className="text-[11px] text-muted-foreground font-medium leading-relaxed">
+                    Precision-engineered components designed for extreme
+                    environments and heavy loads.
+                  </p>
+                </div>
               </div>
             </div>
           </div>
 
           {/* Right Video Cover Block */}
           <div className="lg:col-span-7">
-            <div 
+            <div
               onClick={() => setIsPlaying(true)}
-              className="relative rounded-xl overflow-hidden border border-border bg-black aspect-[16/10] cursor-pointer group shadow-2xl"
+              className="relative rounded-[2rem] overflow-hidden border-4 border-background bg-muted aspect-[16/10] cursor-pointer group shadow-2xl ring-1 ring-border/50"
             >
               {/* Silent looping preview video with fallback industrial poster */}
               <video
@@ -66,24 +93,31 @@ export default function VideoShowcase() {
                 loop
                 playsInline
                 preload="metadata"
-                className="w-full h-full object-cover opacity-80 group-hover:scale-105 transition-transform duration-500"
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
               />
 
               {/* Darkening overlay */}
-              <div className="absolute inset-0 bg-black/30 group-hover:bg-black/45 transition-colors duration-300" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-black/10 group-hover:bg-black/40 transition-colors duration-500" />
 
-              {/* Floating Play Button - Perfectly Centered */}
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-primary text-primary-foreground flex items-center justify-center shadow-2xl scale-95 group-hover:scale-110 transition-transform duration-300">
-                <Play size={26} className="fill-current ml-1" />
+              {/* Floating Play Button - Centered */}
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 w-20 h-20 sm:w-24 sm:h-24 rounded-full bg-primary/90 backdrop-blur-sm text-primary-foreground flex items-center justify-center shadow-[0_0_40px_rgba(var(--primary),0.5)] scale-95 group-hover:scale-110 group-hover:bg-primary transition-all duration-500">
+                <Play size={32} className="fill-current ml-2" />
               </div>
 
               {/* Bottom label */}
-              <div className="absolute bottom-4 left-4 bg-black/60 backdrop-blur-md px-3.5 py-1.5 rounded-xl border border-white/10 text-[10px] font-bold uppercase tracking-wider text-white z-10">
-                Click to Watch Tour
+              <div className="absolute bottom-6 left-6 right-6 flex items-center justify-between z-10 translate-y-2 opacity-90 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500">
+                <div className="bg-black/40 backdrop-blur-md px-4 py-2 rounded-full border border-white/20 text-xs font-bold uppercase tracking-widest text-white flex items-center gap-2">
+                  <Play size={14} className="fill-current" />
+                  Click to Watch Tour
+                </div>
+                <div className="flex gap-1.5">
+                  <div className="w-2 h-2 rounded-full bg-primary animate-pulse" />
+                  <div className="w-2 h-2 rounded-full bg-white/50" />
+                  <div className="w-2 h-2 rounded-full bg-white/50" />
+                </div>
               </div>
             </div>
           </div>
-
         </div>
       </div>
 

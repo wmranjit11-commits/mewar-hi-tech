@@ -3,16 +3,16 @@
 import React from "react";
 import { motion } from "framer-motion";
 import Container from "../ui/Container";
-import { Star, Quote, ShieldCheck, MapPin, Building2, ThumbsUp } from "lucide-react";
+import { Star, ShieldCheck, MapPin, User } from "lucide-react";
 
 interface Testimonial {
   name: string;
   role: string;
   company: string;
   location: string;
+  experience: string;
   rating: number;
   review: string;
-  image: string;
   projectTag: string;
 }
 
@@ -22,10 +22,10 @@ const TESTIMONIALS_DATA: Testimonial[] = [
     role: "Managing Director",
     company: "Apex Mining & Aggregates Ltd.",
     location: "Rajasthan, India",
+    experience: "5+ Years with Mewar Machinery",
     rating: 5,
     review:
-      "Mewar Hi-Tech's jaw & cone crusher setup has transformed our quarry operations. We achieved a 35% throughput increase with virtually zero unexpected downtime over 2 years of continuous operation.",
-    image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=200&auto=format&fit=crop",
+      "Working with Mewar Hi-Tech has transformed our quarry operations. We achieved a 35% throughput increase with virtually zero unexpected downtime over 2 years of continuous heavy operation.",
     projectTag: "300 TPH Plant",
   },
   {
@@ -33,10 +33,10 @@ const TESTIMONIALS_DATA: Testimonial[] = [
     role: "Chief Operating Officer",
     company: "Deccan Infrastructure Projects",
     location: "Hyderabad, India",
+    experience: "4+ Years with Mewar Machinery",
     rating: 5,
     review:
       "Their track-mounted mobile screens and crushing units offer exceptional structural durability. The local technical support and spare parts availability in India are second to none.",
-    image: "https://images.unsplash.com/photo-1600486913747-55e5470d6f40?q=80&w=200&auto=format&fit=crop",
     projectTag: "Track Mobile Plant",
   },
   {
@@ -44,107 +44,121 @@ const TESTIMONIALS_DATA: Testimonial[] = [
     role: "General Manager",
     company: "East African Quarry Solutions",
     location: "Dar es Salaam, Tanzania",
+    experience: "3+ Years with Mewar Machinery",
     rating: 5,
     review:
       "Importing the 250 TPH turnkey plant for our Tanzania quarry site was smooth and on-schedule. Mewar Hi-Tech delivered heavy-duty engineering that effortlessly handles hard basalt.",
-    image: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=200&auto=format&fit=crop",
     projectTag: "Tanzania Export Site",
+  },
+  {
+    name: "Sneha Jadhav",
+    role: "Design & Plant Lead",
+    company: "Marwar Infra & Cement",
+    location: "Gujarat, India",
+    experience: "6+ Years with Mewar Machinery",
+    rating: 5,
+    review:
+      "Mewar Hi-Tech gives us the platform to learn, innovate and scale our plant outputs. The supportive technical team and continuous engineering improvements strengthen our site productivity.",
+    projectTag: "VSI Sand Plant",
   },
 ];
 
 export default function TestimonialsSection() {
   return (
-    <section className="py-8 lg:py-10 bg-background border-b border-border relative overflow-hidden select-none">
-
+    <section className="py-12 lg:py-16 bg-muted/30 border-b border-border relative overflow-hidden select-none">
       <Container className="relative z-10">
         
         {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-6">
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
           <div className="space-y-3 text-left">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-none border-2 border-border text-foreground text-[11px] font-bold uppercase tracking-widest">
-              <ShieldCheck size={13} className="text-primary" />
-              <span>Verified Client Reviews</span>
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-primary/10 border border-primary/20 text-primary text-[11px] font-bold uppercase tracking-widest">
+              <ShieldCheck size={14} />
+              <span>VERIFIED CLIENT REVIEWS</span>
             </div>
-            <h2 className="common-heading text-3xl sm:text-4xl lg:text-5xl text-foreground font-bold tracking-tight">
-              Trusted By Industry Leaders
+            <h2 className="font-sans text-3xl sm:text-4xl lg:text-5xl text-[#0A1A3B] dark:text-white font-bold tracking-tight uppercase">
+              TRUSTED BY INDUSTRY LEADERS
             </h2>
             <p className="text-sm text-muted-foreground font-medium max-w-xl leading-relaxed">
               Hear directly from quarry owners, mining executives, and infrastructure contractors who rely on our machinery daily.
             </p>
           </div>
 
-          {/* Rating Summary Pill */}
-          <div className="flex items-center gap-3 bg-card border-2 border-border p-3 px-5 rounded-none shadow-sm shrink-0 self-start md:self-end">
+          {/* Rating Summary Card */}
+          <div className="flex items-center gap-4 bg-card border border-border/80 p-4 px-6 rounded-2xl shadow-sm shrink-0 self-start md:self-end">
             <div className="flex gap-1 text-primary">
               {Array.from({ length: 5 }).map((_, i) => (
-                <Star key={i} size={16} className="fill-primary" />
+                <Star key={i} size={18} className="fill-primary text-primary" />
               ))}
             </div>
-            <div className="text-left border-l border-border/60 pl-3">
-              <span className="block text-sm font-bold text-foreground leading-none">
+            <div className="text-left border-l border-border/60 pl-4">
+              <span className="block text-base font-bold text-foreground leading-none">
                 4.9 / 5.0 Rating
               </span>
               <span className="text-[10px] font-bold text-muted-foreground uppercase tracking-wider">
-                Based on 320+ Client Reviews
+                BASED ON 320+ CLIENT REVIEWS
               </span>
             </div>
           </div>
         </div>
 
-        {/* Testimonials Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        {/* Testimonials Cards Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {TESTIMONIALS_DATA.map((t, idx) => (
-            <div
+            <motion.div
               key={t.name}
-              className="bg-card rounded-none p-8 border-2 border-border hover:border-primary shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between relative group text-left"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.4, delay: idx * 0.1 }}
+              className="bg-card rounded-2xl p-6 sm:p-7 border border-border/80 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between relative group text-left"
             >
               {/* Top Quote Icon Accent */}
-              <div className="absolute top-6 right-6 text-muted/40 group-hover:text-primary/20 transition-colors">
-                <Quote size={40} className="rotate-180" />
+              <div className="flex items-center justify-between mb-4">
+                <span className="px-2.5 py-1 rounded-md bg-primary/10 text-primary text-[10px] font-bold uppercase tracking-wider border border-primary/20">
+                  {t.projectTag}
+                </span>
+                <span className="text-primary font-serif text-3xl leading-none font-bold select-none">
+                  “
+                </span>
               </div>
 
-              <div>
-                {/* Project Tag Badge & Star Rating */}
-                <div className="flex items-center justify-between mb-6">
-                  <span className="px-3 py-1 rounded-none bg-primary text-primary-foreground border-none text-[10px] font-bold uppercase tracking-wider">
-                    {t.projectTag}
-                  </span>
-                  <div className="flex gap-1">
-                    {Array.from({ length: t.rating }).map((_, s) => (
-                      <Star key={s} size={14} className="fill-primary text-primary" />
-                    ))}
-                  </div>
-                </div>
-
-                {/* Review Text */}
-                <p className="text-foreground/90 text-sm leading-relaxed mb-8 font-medium italic relative z-10">
+              {/* Review Quote Content */}
+              <div className="flex-1 mb-6">
+                <p className="text-foreground/90 text-xs sm:text-sm leading-relaxed font-medium">
                   &ldquo;{t.review}&rdquo;
                 </p>
               </div>
 
-              <div className="flex items-center gap-4 pt-5 border-t border-border/60">
-                <img
-                  src={t.image}
-                  alt={t.name}
-                  className="w-12 h-12 rounded-none object-cover border-2 border-border shadow-xs shrink-0"
-                />
-                <div className="overflow-hidden">
-                  <div className="flex items-center gap-1.5">
-                    <h3 className="font-bold text-foreground text-sm uppercase font-heading leading-tight truncate">
+              {/* Bottom Author Section */}
+              <div className="pt-4 border-t border-border/60 space-y-3">
+                <div className="flex items-center gap-3">
+                  {/* Default Clean Icon Avatar */}
+                  <div className="w-11 h-11 rounded-xl bg-slate-200 dark:bg-slate-800 border border-border/80 flex items-center justify-center text-slate-600 dark:text-slate-300 shrink-0 shadow-inner">
+                    <User size={22} className="stroke-[2]" />
+                  </div>
+
+                  {/* Author Details */}
+                  <div className="overflow-hidden">
+                    <h3 className="font-bold text-foreground text-sm leading-snug truncate">
                       {t.name}
                     </h3>
-                    <ShieldCheck size={14} className="text-primary shrink-0" />
-                  </div>
-                  <p className="text-muted-foreground text-[11px] font-bold truncate">
-                    {t.role} • {t.company}
-                  </p>
-                  <div className="flex items-center gap-1 text-[10px] text-muted-foreground/80 font-semibold mt-0.5">
-                    <MapPin size={11} className="text-primary/80" />
-                    <span>{t.location}</span>
+                    <p className="text-muted-foreground text-[11px] font-semibold truncate">
+                      {t.role}
+                    </p>
+                    <p className="text-[10px] text-muted-foreground/80 font-medium truncate">
+                      {t.experience}
+                    </p>
                   </div>
                 </div>
+
+                {/* 5-Star Rating below info */}
+                <div className="flex items-center gap-1 text-primary pt-1">
+                  {Array.from({ length: t.rating }).map((_, s) => (
+                    <Star key={s} size={14} className="fill-primary text-primary" />
+                  ))}
+                </div>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
 

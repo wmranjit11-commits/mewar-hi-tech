@@ -44,156 +44,115 @@ const SectorGrid: React.FC = () => {
   };
 
   return (
-    <section className="py-6 lg:py-8 bg-background text-foreground select-none text-left border-y border-border/10">
+    <section className="pt-8 lg:pt-16 pb-0 bg-background text-foreground select-none text-left">
       <Container>
-        <div className="flex flex-col lg:flex-row overflow-hidden items-start gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
           
           {/* Left Form Panel */}
-          <div className="w-full lg:w-[35%] py-4 bg-background flex flex-col justify-start">
-            <p className="text-primary font-bold text-xs uppercase tracking-widest mb-2.5">
-              Find Your Perfect Machine
+          <div className="lg:col-span-5 py-4 bg-background flex flex-col justify-center h-full">
+            <p className="text-primary font-bold text-xs uppercase tracking-widest block font-sans mb-2">
+              FIND YOUR PERFECT MACHINE
             </p>
-            <h2 className="font-sans text-3xl font-bold text-foreground leading-none mb-4 uppercase tracking-tight">
-              SMART TOOLS.
-              <br />
-              SMARTER CHOICE.
+            <h2 className="font-sans text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight uppercase text-[#0A1A3B] dark:text-white leading-tight mb-3">
+              SMART TOOLS.<br />SMARTER CHOICE.
             </h2>
-            <p className="text-xs text-muted-foreground mb-6 font-medium leading-relaxed">
+            <p className="text-sm text-muted-foreground mb-8 font-medium leading-relaxed max-w-md">
               Select your application and material to discover the ideal machine for maximum performance.
             </p>
-            <form className="space-y-4 font-bold text-xs">
-              <div className="grid grid-cols-2 gap-4">
+            <form className="space-y-6 font-bold text-xs bg-card p-6 rounded-2xl border border-border shadow-sm">
+              <div className="grid grid-cols-2 gap-5">
                 <div>
-                  <label className="block text-[10px] text-muted-foreground mb-1.5 uppercase tracking-wider">Application</label>
+                  <label className="block text-[11px] text-muted-foreground mb-2 uppercase tracking-wider">Application</label>
                   <div className="relative">
                     <select
                       value={application}
                       onChange={(e) => setApplication(e.target.value)}
-                      className="w-full appearance-none border-2 border-border rounded-none text-xs bg-card text-foreground py-2.5 pl-3 pr-8 focus:outline-none focus:ring-0 focus:border-primary font-semibold transition-colors"
+                      className="w-full appearance-none border-2 border-border rounded-lg text-sm bg-background text-foreground py-3 pl-4 pr-10 focus:outline-none focus:ring-0 focus:border-primary font-semibold transition-colors cursor-pointer"
                     >
                       <option>Quarry</option>
                       <option>Mining</option>
                       <option>Recycling</option>
                     </select>
-                    <ChevronDown size={14} className="absolute right-2.5 top-3 text-muted-foreground pointer-events-none" />
+                    <ChevronDown size={16} className="absolute right-3.5 top-3.5 text-muted-foreground pointer-events-none" />
                   </div>
                 </div>
                 <div>
-                  <label className="block text-[10px] text-muted-foreground mb-1.5 uppercase tracking-wider">Material</label>
+                  <label className="block text-[11px] text-muted-foreground mb-2 uppercase tracking-wider">Material</label>
                   <div className="relative">
                     <select
                       value={material}
                       onChange={(e) => setMaterial(e.target.value)}
-                      className="w-full appearance-none border-2 border-border rounded-none text-xs bg-card text-foreground py-2.5 pl-3 pr-8 focus:outline-none focus:ring-0 focus:border-primary font-semibold transition-colors"
+                      className="w-full appearance-none border-2 border-border rounded-lg text-sm bg-background text-foreground py-3 pl-4 pr-10 focus:outline-none focus:ring-0 focus:border-primary font-semibold transition-colors cursor-pointer"
                     >
                       <option>Hard Rock</option>
                       <option>Gravel</option>
                       <option>Concrete</option>
                     </select>
-                    <ChevronDown size={14} className="absolute right-2.5 top-3 text-muted-foreground pointer-events-none" />
+                    <ChevronDown size={16} className="absolute right-3.5 top-3.5 text-muted-foreground pointer-events-none" />
                   </div>
                 </div>
               </div>
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-2 gap-5">
                 <div>
-                  <label className="block text-[10px] text-muted-foreground mb-1.5 uppercase tracking-wider">Output Capacity</label>
+                  <label className="block text-[11px] text-muted-foreground mb-2 uppercase tracking-wider">Output Capacity</label>
                   <div className="relative">
                     <select
                       value={capacity}
                       onChange={(e) => setCapacity(e.target.value)}
-                      className="w-full appearance-none border-2 border-border rounded-none text-xs bg-card text-foreground py-2.5 pl-3 pr-8 focus:outline-none focus:ring-0 focus:border-primary font-semibold transition-colors"
+                      className="w-full appearance-none border-2 border-border rounded-lg text-sm bg-background text-foreground py-3 pl-4 pr-10 focus:outline-none focus:ring-0 focus:border-primary font-semibold transition-colors cursor-pointer"
                     >
                       <option>150 - 300 TPH</option>
                       <option>300 - 500 TPH</option>
                       <option>500+ TPH</option>
                     </select>
-                    <ChevronDown size={14} className="absolute right-2.5 top-3 text-muted-foreground pointer-events-none" />
+                    <ChevronDown size={16} className="absolute right-3.5 top-3.5 text-muted-foreground pointer-events-none" />
                   </div>
                 </div>
                 <div>
-                  <label className="block text-[10px] text-muted-foreground mb-1.5 uppercase tracking-wider">Power Source</label>
+                  <label className="block text-[11px] text-muted-foreground mb-2 uppercase tracking-wider">Power Source</label>
                   <div className="relative">
                     <select
                       value={power}
                       onChange={(e) => setPower(e.target.value)}
-                      className="w-full appearance-none border-2 border-border rounded-none text-xs bg-card text-foreground py-2.5 pl-3 pr-8 focus:outline-none focus:ring-0 focus:border-primary font-semibold transition-colors"
+                      className="w-full appearance-none border-2 border-border rounded-lg text-sm bg-background text-foreground py-3 pl-4 pr-10 focus:outline-none focus:ring-0 focus:border-primary font-semibold transition-colors cursor-pointer"
                     >
                       <option>Electric</option>
                       <option>Diesel</option>
                       <option>Hybrid</option>
                     </select>
-                    <ChevronDown size={14} className="absolute right-2.5 top-3 text-muted-foreground pointer-events-none" />
+                    <ChevronDown size={16} className="absolute right-3.5 top-3.5 text-muted-foreground pointer-events-none" />
                   </div>
                 </div>
               </div>
               
-              <div className="pt-2">
+              <div className="pt-4">
                 <BlobButton
                   variant="primary"
                   type="button"
-                  className="!w-auto !py-3 !text-xs !font-bold px-6 rounded"
+                  className="w-full !py-4 !text-sm !font-bold rounded-xl"
                 >
-                  <div className="flex items-center gap-2 whitespace-nowrap">
+                  <div className="flex items-center justify-center gap-2 whitespace-nowrap">
                     <span>Find My Machine</span>
-                    <ArrowRight size={14} className="stroke-[2.5]" />
+                    <ArrowRight size={16} className="stroke-[2.5]" />
                   </div>
                 </BlobButton>
               </div>
             </form>
           </div>
 
-          {/* Thin Vertical Divider */}
-          <div className="hidden lg:block w-[1px] self-stretch bg-border mx-2" />
-
           {/* Right 3D Experience Panel */}
-          <div className="w-full lg:w-[65%] py-4 bg-background flex flex-col justify-start gap-4">
-            <div>
-              <p className="text-primary font-bold text-xs uppercase tracking-widest mb-4">
+          <div className="lg:col-span-7 py-4 bg-background flex flex-col justify-start gap-4">
+            <div className="flex flex-col items-center w-full">
+              <h2 className="text-primary font-bold text-xl md:text-2xl lg:text-3xl uppercase tracking-widest mb-6 text-center w-full">
                 Interactive 3D Experience
-              </p>
+              </h2>
               
-              <div className="grid grid-cols-1 md:grid-cols-5 gap-6 items-center">
+              <div className="flex flex-col items-center w-full max-w-3xl">
                 
-                {/* Feature Lists (2/5 Width) */}
-                <div className="md:col-span-2 space-y-4">
-                  <div className="flex items-center gap-3">
-                    <div className="text-muted-foreground hover:text-primary transition-colors shrink-0">
-                      <RotateCcw size={18} strokeWidth={2.2} />
-                    </div>
-                    <span className="text-[11px] font-bold text-foreground uppercase tracking-wider font-sans">
-                      360° Machine View
-                    </span>
-                  </div>
-                  <div className="flex items-center gap-3">
-                    <div className="text-muted-foreground hover:text-primary transition-colors shrink-0">
-                      <MapPin size={18} strokeWidth={2.2} />
-                    </div>
-                    <span className="text-[11px] font-bold text-foreground uppercase tracking-wider font-sans">
-                      Interactive Hotspots
-                    </span>
-                  </div>
-                  <div className="flex items-center gap-3">
-                    <div className="text-muted-foreground hover:text-primary transition-colors shrink-0">
-                      <Camera size={18} strokeWidth={2.2} />
-                    </div>
-                    <span className="text-[11px] font-bold text-foreground uppercase tracking-wider font-sans">
-                      Detailed Specifications
-                    </span>
-                  </div>
-                  <div className="flex items-center gap-3">
-                    <div className="text-muted-foreground hover:text-primary transition-colors shrink-0">
-                      <MapPin size={18} strokeWidth={2.2} />
-                    </div>
-                    <span className="text-[11px] font-bold text-foreground uppercase tracking-wider font-sans">
-                      Real Operation Insights
-                    </span>
-                  </div>
-                </div>
-
-                {/* 3D Viewer model-viewer (3/5 Width) */}
-                <div className="md:col-span-3 flex flex-col items-center relative w-full overflow-hidden max-w-full">
+                {/* 3D Viewer model-viewer */}
+                <div className="flex flex-col items-center relative w-full overflow-hidden">
                   
-                  <div className="relative w-full aspect-square sm:aspect-[4/3] flex items-center justify-center p-2">
+                  <div className="relative w-full aspect-square sm:aspect-[16/9] max-w-xl flex items-center justify-center p-2">
                     <model-viewer
                       ref={viewerRef}
                       src="/3dmodel/Meshy_AI_Kingson_Cone_Crusher_0704110926_texture.glb"
@@ -206,7 +165,7 @@ const SectorGrid: React.FC = () => {
                       interaction-prompt="none"
                       auto-rotate-delay="0"
                       className="w-full h-full rounded-xl"
-                      style={{ width: "100%", height: "100%", minHeight: "250px" }}
+                      style={{ width: "100%", height: "100%", minHeight: "350px" }}
                     >
                       {/* Hotspots */}
                       <button
@@ -252,7 +211,42 @@ const SectorGrid: React.FC = () => {
                       <ZoomIn size={14} strokeWidth={2.5} />
                     </button>
                   </div>
+                </div>
 
+                {/* Feature Lists (Below the 3D model) */}
+                <div className="w-full grid grid-cols-2 sm:grid-cols-4 gap-4 mt-8 px-4 justify-items-center border-t border-border/20 pt-8">
+                  <div className="flex flex-col sm:flex-row items-center gap-2 text-center sm:text-left">
+                    <div className="text-muted-foreground hover:text-primary transition-colors shrink-0">
+                      <RotateCcw size={20} strokeWidth={2.2} />
+                    </div>
+                    <span className="text-xs lg:text-sm font-bold text-foreground uppercase tracking-wider font-sans leading-tight">
+                      360° Machine View
+                    </span>
+                  </div>
+                  <div className="flex flex-col sm:flex-row items-center gap-2 text-center sm:text-left">
+                    <div className="text-muted-foreground hover:text-primary transition-colors shrink-0">
+                      <MapPin size={20} strokeWidth={2.2} />
+                    </div>
+                    <span className="text-xs lg:text-sm font-bold text-foreground uppercase tracking-wider font-sans leading-tight">
+                      Interactive Hotspots
+                    </span>
+                  </div>
+                  <div className="flex flex-col sm:flex-row items-center gap-2 text-center sm:text-left">
+                    <div className="text-muted-foreground hover:text-primary transition-colors shrink-0">
+                      <Camera size={20} strokeWidth={2.2} />
+                    </div>
+                    <span className="text-xs lg:text-sm font-bold text-foreground uppercase tracking-wider font-sans leading-tight">
+                      Detailed Specs
+                    </span>
+                  </div>
+                  <div className="flex flex-col sm:flex-row items-center gap-2 text-center sm:text-left">
+                    <div className="text-muted-foreground hover:text-primary transition-colors shrink-0">
+                      <MapPin size={20} strokeWidth={2.2} />
+                    </div>
+                    <span className="text-xs lg:text-sm font-bold text-foreground uppercase tracking-wider font-sans leading-tight">
+                      Real Insights
+                    </span>
+                  </div>
                 </div>
 
               </div>

@@ -123,74 +123,59 @@ export default function TeamSection() {
           {LEADERSHIP_MEMBERS.map((item, idx) => {
             const Icon = item.icon;
             const isHovered = hoveredIdx === idx;
-            const isAnyHovered = hoveredIdx !== null;
 
             return (
               <div
                 key={item.id}
                 onMouseEnter={() => setHoveredIdx(idx)}
                 onMouseLeave={() => setHoveredIdx(null)}
-                className={`group relative bg-card rounded-none p-7 border-2 transition-all duration-300 flex flex-col justify-between overflow-hidden cursor-pointer ${
-                  isHovered
-                    ? "border-primary shadow-lg z-20"
-                    : isAnyHovered
-                    ? "border-border shadow-sm opacity-75 scale-[0.99] z-10"
-                    : "border-border shadow-md hover:shadow-xl z-10"
+                className={`group relative bg-card rounded-[18px] p-6 border transition-all duration-300 flex flex-col justify-between overflow-hidden cursor-pointer shadow-sm hover:shadow-xl ${
+                  isHovered ? "border-primary shadow-lg ring-1 ring-primary/30" : "border-border/80"
                 }`}
               >
-                <div className="relative z-10">
-                  {/* Top Bar: Icon + Department Name + Accent Line */}
-                  <div className="flex items-center justify-between mb-7">
+                <div>
+                  {/* Top Bar: Icon + Department Name + Accent Line + Arrow */}
+                  <div className="flex items-center justify-between mb-6 pb-4 border-b border-border/40">
                     <div className="flex items-center gap-3.5">
-                      <div className="w-12 h-12 rounded-none bg-primary flex items-center justify-center text-primary-foreground shrink-0 group-hover:scale-110 transition-transform duration-300">
-                        <Icon size={22} className="stroke-[2.2]" />
+                      <div className="w-11 h-11 rounded-full bg-primary flex items-center justify-center text-primary-foreground shrink-0 shadow-xs group-hover:scale-105 transition-transform duration-300">
+                        <Icon size={20} className="stroke-[2.2]" />
                       </div>
                       <div>
-                        <h3 className="font-heading text-xs font-bold text-foreground tracking-wider uppercase">
+                        <h3 className="font-sans text-xs font-bold text-[#0A1A3B] dark:text-white tracking-wider uppercase">
                           {item.department}
                         </h3>
-                        <div className="w-8 h-[2.5px] bg-primary rounded-none mt-1 group-hover:w-14 transition-all duration-300" />
+                        <div className="w-7 h-[2px] bg-primary rounded-full mt-1 group-hover:w-12 transition-all duration-300" />
                       </div>
                     </div>
 
-                    <div className="w-7 h-7 rounded-none bg-muted flex items-center justify-center text-muted-foreground group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-300">
+                    <div className="w-7 h-7 rounded-full bg-muted flex items-center justify-center text-muted-foreground group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-300">
                       <ArrowUpRight size={14} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-300" />
                     </div>
                   </div>
 
                   {/* Main Card Content: Avatar + Leadership Info */}
-                  <div className="flex items-center gap-5">
-                    {/* Square Photo Avatar */}
-                    <div className="relative">
-                      <div className="w-20 h-20 sm:w-22 sm:h-22 rounded-none border-2 border-border/80 group-hover:border-primary shadow-md flex items-center justify-center shrink-0 relative overflow-hidden transition-all duration-300 group-hover:scale-105 bg-muted">
-                        {item.image ? (
-                          <img
-                            src={item.image}
-                            alt={item.name}
-                            className="w-full h-full object-cover object-top"
-                          />
-                        ) : (
-                          <span className="font-heading text-xl font-bold text-foreground tracking-widest">
-                            {item.initials}
-                          </span>
-                        )}
-                      </div>
+                  <div className="flex items-center gap-4">
+                    {/* Avatar Container */}
+                    <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-slate-100 dark:bg-slate-800/80 border border-border/80 flex items-center justify-center text-slate-500 dark:text-slate-400 shrink-0 overflow-hidden shadow-inner">
+                      <svg className="w-10 h-10 text-slate-400 dark:text-slate-500" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
+                      </svg>
                     </div>
 
                     {/* Name and Designation */}
-                    <div className="space-y-1.5 text-left min-w-0 flex-1">
-                      <h4 className="font-bold text-foreground text-base sm:text-lg group-hover:text-primary transition-colors duration-300 tracking-tight">
+                    <div className="space-y-1 text-left min-w-0 flex-1">
+                      <h4 className="font-sans font-bold text-[#0A1A3B] dark:text-white text-sm sm:text-base group-hover:text-primary transition-colors duration-300 uppercase tracking-tight leading-snug">
                         {item.name}
                       </h4>
-                      <p className="text-xs sm:text-sm font-semibold text-muted-foreground leading-snug">
+                      <p className="text-xs font-semibold text-muted-foreground leading-snug">
                         {item.role}
                       </p>
 
                       {/* Focus Tag Pill */}
                       <div className="pt-2">
-                        <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-none text-[10px] font-bold uppercase tracking-wider bg-transparent text-foreground border border-border whitespace-nowrap">
-                          <Award size={10} className="shrink-0" />
-                          <span>{item.focusTag}</span>
+                        <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider bg-muted/60 text-muted-foreground border border-border/60 whitespace-nowrap">
+                          <Award size={11} className="shrink-0 text-primary" />
+                          <span className="truncate">{item.focusTag}</span>
                         </span>
                       </div>
                     </div>

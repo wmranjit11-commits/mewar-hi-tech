@@ -13,12 +13,12 @@ const ExploreMachinesSection: React.FC = () => {
       <Container>
         
         {/* Section Header */}
-        <div className="max-w-3xl mb-12 text-center mx-auto space-y-3">
+        <div className="max-w-3xl mb-8 text-center mx-auto space-y-2">
           <span className="text-primary font-bold text-xs uppercase tracking-widest block font-sans">
-            Our Products
+            OUR MACHINERY
           </span>
-          <h2 className="common-heading text-3xl sm:text-4xl lg:text-5xl text-foreground font-bold tracking-tight">
-            Explore Our Machines
+          <h2 className="font-sans text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight uppercase text-[#0A1A3B] dark:text-white">
+            EXPLORE OUR MACHINES
           </h2>
         </div>
         

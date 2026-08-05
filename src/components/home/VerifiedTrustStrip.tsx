@@ -2,26 +2,26 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { CheckSquare, Award, ShieldCheck, CheckCircle2 } from "lucide-react";
+import { Award, Trophy, ShieldCheck } from "lucide-react";
 import Container from "../ui/Container";
 
 const TRUST_BADGES = [
   {
     title: "LEADING PROVIDER",
     subtitle: "OF INDUSTRIAL SOLUTIONS",
-    icon: CheckSquare,
+    icon: Award,
     badgeText: "Verified Quality",
   },
   {
     title: "NUMBER #1",
     subtitle: "SUPPLIER IN INDIA",
-    icon: CheckSquare,
+    icon: Trophy,
     badgeText: "Market Leader",
   },
   {
     title: "CERTIFIED",
     subtitle: "ISO 9001:2008",
-    icon: CheckSquare,
+    icon: ShieldCheck,
     badgeText: "Global Standard",
   },
 ];
