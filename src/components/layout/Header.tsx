@@ -230,7 +230,7 @@ const Header: React.FC = () => {
                                 href={sub.to ?? "/products"}
                                 className="block text-[13px] font-medium text-black/80 hover:text-black hover:translate-x-1.5 transition-all duration-400"
                               >
-                                - {sub.label}
+                                {sub.label}
                               </Link>
                             ))}
                           </div>
@@ -258,7 +258,7 @@ const Header: React.FC = () => {
                             href={child.to ?? "/"}
                             className="block text-[14px] font-medium text-black/80 hover:text-black hover:translate-x-1.5 transition-all duration-200"
                           >
-                            - {child.label}
+                            {child.label}
                           </Link>
                         )
                       ))}
