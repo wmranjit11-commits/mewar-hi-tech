@@ -173,8 +173,8 @@ const Header: React.FC = () => {
         <div
         className={`w-full px-6 lg:px-8 py-3 flex items-center justify-between transition-all duration-300 ${
           theme === "light"
-            ? "bg-white/50 backdrop-blur-md border-b border-gray-200/50 shadow-sm"
-            : "bg-secondary/50 backdrop-blur-md shadow-lg"
+            ? "bg-white border-b border-gray-200 shadow-sm"
+            : "bg-secondary border-b border-border shadow-md"
         }`}
       >
         {/* Left: Logo */}
