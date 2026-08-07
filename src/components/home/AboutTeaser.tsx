@@ -4,6 +4,7 @@ import React from "react";
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 import Container from "../ui/Container";
+import BlobButton from "@/components/ui/BlobButton";
 
 const AboutTeaser: React.FC = () => {
   return (
@@ -24,23 +25,28 @@ const AboutTeaser: React.FC = () => {
           </div>
 
           {/* 2. Text Copy Panel & Divider */}
-          <div className="flex-grow lg:px-8 space-y-3 max-w-lg text-center lg:text-left">
-            <p className="text-primary font-bold text-xs uppercase tracking-widest block font-sans">
-              AWARD WINNING
-            </p>
-            <h2 className="font-sans text-2xl sm:text-3xl font-bold tracking-tight text-[#0A1A3B] dark:text-white uppercase leading-tight">
-              RECOGNIZED EXCELLENCE. TRUSTED WORLDWIDE.
+          <div className="flex-grow lg:px-4 space-y-3 max-w-2xl text-center lg:text-left">
+            <div className="flex items-center gap-3 mb-2">
+              <div className="w-8 h-[2.5px] bg-primary shrink-0 rounded-full" />
+              <span className="text-primary font-bold text-[16px] sm:text-sm uppercase tracking-widest block font-sans">
+                AWARD WINNING
+              </span>
+            </div>
+            <h2 className="font-sans text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-[#0A1A3B] dark:text-white uppercase leading-tight">
+              RECOGNIZED EXCELLENCE.  <span className="text-primary inline-block">TRUSTED WORLDWIDE.</span> 
             </h2>
             <p className="text-xs text-muted-foreground font-medium leading-relaxed">
               Our commitment to innovation, quality and performance has earned global recognition and trust.
             </p>
             <div className="pt-1.5 flex justify-center lg:justify-start">
-              <Link
-                href="/about"
-                className="text-primary font-bold hover:text-foreground transition-colors flex items-center gap-2 text-xs uppercase tracking-wider"
-              >
-                <span>View Awards &amp; Achievements</span>
-                <ArrowRight size={14} className="stroke-[2.5]" />
+              <Link href="/about">
+                <BlobButton
+                  variant="primary"
+                  className="!px-6 !py-3 !text-xs !font-bold !uppercase !tracking-wider flex items-center gap-2"
+                >
+                  <span>View Awards &amp; Achievements</span>
+                  <ArrowRight size={14} />
+                </BlobButton>
               </Link>
             </div>
           </div>

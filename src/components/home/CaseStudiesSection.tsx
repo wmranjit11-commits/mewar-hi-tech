@@ -20,6 +20,7 @@ import {
 } from "lucide-react";
 import MobileCarousel from "@/components/ui/MobileCarousel";
 import Container from "../ui/Container";
+import BlobButton from "@/components/ui/BlobButton";
 import { CASE_STUDIES, CaseStudy } from "@/data/case-studies-data";
 
 export default function CaseStudiesSection() {
@@ -50,17 +51,16 @@ export default function CaseStudiesSection() {
     <section className="py-12 lg:py-20 bg-background text-foreground relative select-none border-b border-border/60">
       <Container>
         {/* Section Header */}
-        <div className="max-w-3xl mx-auto text-center space-y-3 mb-12">
-          <div className="flex items-center justify-center gap-3">
-            <div className="w-8 h-[2px] bg-primary"></div>
-            <span className="text-primary font-bold text-xs uppercase tracking-widest block font-sans">
+        <div className="mx-auto text-center space-y-3 mb-12">
+          <div className="flex items-center justify-center gap-3 mb-2">
+            <div className="w-8 h-[2.5px] bg-primary shrink-0 rounded-full" />
+            <span className="text-primary font-bold text-[16px] sm:text-sm uppercase tracking-widest block font-sans">
               RELATED CASE STUDIES
             </span>
-            <div className="w-8 h-[2px] bg-primary"></div>
           </div>
           
           <h2 className="font-sans text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight uppercase text-[#0A1A3B] dark:text-white">
-            EXPLORE MORE SUCCESS STORIES
+            EXPLORE MORE <span className="text-primary inline-block">SUCCESS STORIES</span>
           </h2>
           
           <p className="text-sm sm:text-base text-muted-foreground font-medium leading-relaxed max-w-2xl mx-auto">
@@ -192,13 +192,15 @@ export default function CaseStudiesSection() {
         </div>
 
         {/* Explore More Projects CTA */}
-        <div className="mt-12 text-center">
-          <Link
-            href="/case-studies"
-            className="inline-flex items-center gap-2.5 px-8 py-3.5 rounded-xl bg-primary text-primary-foreground font-bold text-sm tracking-wider uppercase shadow-lg hover:shadow-xl hover:bg-primary/90 transition-all duration-300 group"
-          >
-            <span>Explore All Projects &amp; Case Studies</span>
-            <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
+        <div className="mt-12 flex justify-center">
+          <Link href="/case-studies">
+            <BlobButton
+              variant="primary"
+              className="!px-6 !py-3 !text-xs !font-bold !uppercase !tracking-wider flex items-center gap-2"
+            >
+              <span>Explore All Projects &amp; Case Studies</span>
+              <ArrowRight size={14} />
+            </BlobButton>
           </Link>
         </div>
       </Container>
@@ -323,12 +325,14 @@ export default function CaseStudiesSection() {
 
                 {/* Modal Footer Link */}
                 <div className="pt-2 flex justify-end">
-                  <Link
-                    href="/case-studies"
-                    className="inline-flex items-center gap-2 px-6 py-2.5 rounded-xl bg-primary text-primary-foreground font-bold text-xs uppercase tracking-wider hover:bg-primary/90 transition-colors"
-                  >
-                    <span>Explore All Case Studies</span>
-                    <ArrowRight size={14} />
+                  <Link href="/case-studies">
+                    <BlobButton
+                      variant="primary"
+                      className="!px-6 !py-3 !text-xs !font-bold !uppercase !tracking-wider flex items-center gap-2"
+                    >
+                      <span>Explore All Case Studies</span>
+                      <ArrowRight size={14} />
+                    </BlobButton>
                   </Link>
                 </div>
               </div>

@@ -52,12 +52,15 @@ const FlagshipProductsGrid: React.FC = () => {
       <Container className="space-y-12">
         
         {/* Section Header */}
-        <div className="max-w-3xl text-center mx-auto space-y-3">
-          <span className="text-primary font-bold text-xs uppercase tracking-widest block font-sans">
-            DOWNLOAD RESOURCES
-          </span>
-          <h2 className="font-sans text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight uppercase text-[#0A1A3B] dark:text-white">
-            TECHNICAL DOCUMENTATION &amp; BROCHURES
+        <div className="mx-auto text-center space-y-3">
+          <div className="flex items-center justify-center gap-3 mb-2">
+            <div className="w-8 h-[2.5px] bg-primary shrink-0 rounded-full" />
+            <span className="text-primary font-bold text-[16px] sm:text-sm uppercase tracking-widest block font-sans">
+              DOWNLOAD RESOURCES
+            </span>
+          </div>
+          <h2 className="font-sans text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight uppercase text-[#0A1A3B] dark:text-white">
+            TECHNICAL <span className="text-primary">DOCUMENTATION &amp; BROCHURES</span>
           </h2>
           <p className="text-sm text-muted-foreground font-medium max-w-xl mx-auto leading-relaxed">
             Get instant access to complete product brochures, technical datasheets, and maintenance manuals for Mewar Hi-Tech machinery.
@@ -178,9 +181,12 @@ const FlagshipProductsGrid: React.FC = () => {
         {/* Video Banner Card */}
         <div className="bg-card p-6 sm:p-8 rounded-2xl flex flex-col lg:flex-row lg:items-center justify-between gap-6 border border-border/80 shadow-sm hover:shadow-md transition-shadow">
           <div className="flex-grow space-y-2">
-            <span className="text-primary font-bold text-xs uppercase tracking-widest block font-sans">
-              SEE IT IN ACTION
-            </span>
+            <div className="flex items-center gap-3 mb-2">
+              <div className="w-8 h-[2.5px] bg-primary shrink-0 rounded-full" />
+              <span className="text-primary font-bold text-[16px] sm:text-sm uppercase tracking-widest block font-sans">
+                SEE IT IN ACTION
+              </span>
+            </div>
             <h3 className="font-sans text-lg sm:text-xl lg:text-2xl font-bold text-[#0A1A3B] dark:text-white leading-tight uppercase tracking-tight">
               MACHINES THAT WORK FOR YOU
             </h3>
@@ -188,13 +194,14 @@ const FlagshipProductsGrid: React.FC = () => {
               Watch our heavy crushers, feeders, and conveyors in action and see how they perform under extreme loading conditions.
             </p>
             <div className="pt-2">
-              <button
+              <BlobButton
+                variant="primary"
                 onClick={() => setIsVideoOpen(true)}
-                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-primary text-primary-foreground font-bold text-xs uppercase tracking-wider hover:bg-primary/90 transition-colors shadow-md cursor-pointer"
+                className="!px-6 !py-3 !text-xs !font-bold !uppercase !tracking-wider flex items-center gap-2 cursor-pointer"
               >
                 <span>Watch Operation Videos</span>
-                <Play size={12} className="fill-current" />
-              </button>
+                <Play size={14} className="fill-current" />
+              </BlobButton>
             </div>
           </div>
 

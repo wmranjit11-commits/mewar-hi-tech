@@ -19,7 +19,7 @@ export const MachineFooter: React.FC<MachineFooterProps> = ({
 }) => {
   return (
     <motion.div
-      className="absolute bottom-0 left-0 right-0 p-5 sm:p-6 z-20 backdrop-blur-md bg-black/35 border-t border-white/10 flex flex-col justify-end overflow-hidden"
+      className="absolute bottom-0 left-0 right-0 p-5 sm:p-6 z-20 bg-[#0A1A3B] border-t border-border/40 flex flex-col justify-end overflow-hidden shadow-lg"
     >
       {/* Title & Arrow Row */}
       <div className="flex items-center justify-between">

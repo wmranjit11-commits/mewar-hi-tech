@@ -3,7 +3,6 @@
 import React from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
-import BlobButton from "@/components/ui/BlobButton";
 
 // Custom SVG Separator Component
 const Separator = () => (

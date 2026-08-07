@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import { ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import BlobButton from "@/components/ui/BlobButton";
@@ -40,8 +41,12 @@ const YellowDealerBanner: React.FC = () => {
           transition={{ duration: 0.5 }}
         >
           <Link href="/contact">
-            <BlobButton variant="secondary" className="!py-3 !px-6 text-xs font-bold">
-              Dealer Locator
+            <BlobButton
+              variant="secondary"
+              className="!px-6 !py-3 !text-xs !font-bold !uppercase !tracking-wider flex items-center gap-2"
+            >
+              <span>Dealer Locator</span>
+              <ArrowRight size={14} />
             </BlobButton>
           </Link>
         </motion.div>

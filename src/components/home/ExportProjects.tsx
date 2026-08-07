@@ -136,9 +136,11 @@ export default function ExportProjects() {
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-6">
           <div className="space-y-3 text-left">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary text-[11px] font-bold uppercase tracking-widest">
-              <Globe size={13} />
-              <span>International Exports & Projects</span>
+            <div className="flex items-center gap-3 mb-2">
+              <div className="w-8 h-[2.5px] bg-primary shrink-0 rounded-full" />
+              <span className="text-primary font-bold text-[16px] sm:text-sm uppercase tracking-widest block font-sans">
+                International Exports & Projects
+              </span>
             </div>
             <h2 className="common-heading text-3xl sm:text-4xl lg:text-5xl text-foreground font-bold tracking-tight">
               Export Projects (Tanzania)

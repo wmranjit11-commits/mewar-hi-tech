@@ -39,8 +39,8 @@ const ClientLogosMarquee: React.FC = () => {
       <Container>
         {/* Header */}
         <div className="flex items-center justify-center mb-8 md:mb-12">
-          <h2 className="text-primary font-bold text-xl md:text-2xl lg:text-3xl uppercase tracking-widest text-center">
-            Trusted by Industry Leaders
+          <h2 className="font-sans text-3xl sm:text-4xl lg:text-5xl font-bold uppercase tracking-tight text-[#0A1A3B] dark:text-white text-center">
+            TRUSTED BY <span className="text-primary inline-block">INDUSTRY LEADERS</span>
           </h2>
         </div>
       </Container>

@@ -26,12 +26,16 @@ export default function VideoShowcase() {
           {/* Left Text Block */}
           <div className="lg:col-span-5 flex flex-col justify-center space-y-6">
             <div className="space-y-3 text-left">
-              <p className="text-primary font-bold text-xs uppercase tracking-widest block font-sans">
-                INDUSTRIAL FOOTPRINTS
-              </p>
+              <div className="flex items-center gap-3 mb-2">
+                <div className="w-8 h-[2.5px] bg-primary shrink-0 rounded-full" />
+                <span className="text-primary font-bold text-[16px] sm:text-sm uppercase tracking-widest block font-sans">
+                  INDUSTRIAL FOOTPRINTS
+                </span>
+              </div>
 
-              <h2 className="font-sans text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight uppercase text-[#0A1A3B] dark:text-white leading-tight">
-                HEAVY ENGINEERING OPERATIONS
+              <h2 className="font-sans text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight uppercase text-[#0A1A3B] dark:text-white leading-tight">
+                HEAVY ENGINEERING{" "}
+                <span className="text-primary inline-block">OPERATIONS</span>
               </h2>
 
               <p className="text-muted-foreground text-sm sm:text-base leading-relaxed text-justify font-medium max-w-md">

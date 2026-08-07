@@ -49,12 +49,12 @@ export default function TeamSection() {
     <section className="relative py-8 sm:py-10 bg-[#FBFAF7] dark:bg-[#0B1020] text-foreground transition-colors duration-300 border-t border-b border-border/80 overflow-hidden select-none">
       {/* Background Masked Grid & Gradient Orbs */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        <div 
-          className="absolute inset-0 opacity-[0.04] dark:opacity-[0.07]" 
-          style={{ 
-            backgroundImage: `radial-gradient(#0A1A3B 1px, transparent 1px)`, 
-            backgroundSize: '24px 24px' 
-          }} 
+        <div
+          className="absolute inset-0 opacity-[0.04] dark:opacity-[0.07]"
+          style={{
+            backgroundImage: `radial-gradient(#0A1A3B 1px, transparent 1px)`,
+            backgroundSize: "24px 24px",
+          }}
         />
         <div className="absolute top-1/4 left-[-100px] w-96 h-96 bg-amber-500/10 rounded-full blur-3xl pointer-events-none" />
         <div className="absolute bottom-1/4 right-[-100px] w-96 h-96 bg-blue-600/10 rounded-full blur-3xl pointer-events-none" />
@@ -63,19 +63,22 @@ export default function TeamSection() {
       <Container className="relative z-10">
         {/* Header Section */}
         <div className="flex flex-col items-center justify-center text-center space-y-3 mb-8 lg:mb-10 px-4 mt-4">
-          <div className="inline-flex items-center gap-2">
-            <span className="text-primary font-bold text-xs uppercase tracking-widest">
+          <div className="flex items-center justify-center gap-3 mb-2">
+            <div className="w-8 h-[2.5px] bg-primary shrink-0 rounded-full" />
+            <span className="text-primary font-bold text-[16px] sm:text-sm uppercase tracking-widest block font-sans">
               OUR TEAM. YOUR SUPPORT.
             </span>
-            <div className="w-8 h-[2px] bg-primary rounded-none" />
           </div>
 
-          <h2 className="common-heading text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground uppercase tracking-tight">
-            EXECUTIVE LEADERSHIP DIRECTORY
+          <h2 className="font-sans text-3xl sm:text-4xl lg:text-5xl font-bold text-[#0A1A3B] dark:text-white uppercase tracking-tight">
+            EXECUTIVE LEADERSHIP{" "}
+            <span className="text-primary inline-block">DIRECTORY</span>
           </h2>
 
           <p className="text-muted-foreground text-sm sm:text-base font-medium max-w-2xl mx-auto">
-            Connect with the right leadership for your specific needs. Our executive leaders are ready to guide your crushing and screening solutions.
+            Connect with the right leadership for your specific needs. Our
+            executive leaders are ready to guide your crushing and screening
+            solutions.
           </p>
         </div>
 
@@ -110,7 +113,11 @@ export default function TeamSection() {
 
                     <div className="flex items-center gap-4">
                       <div className="w-16 h-16 rounded-full bg-slate-100 dark:bg-slate-800/80 border border-border/80 flex items-center justify-center text-slate-500 shrink-0 overflow-hidden shadow-inner">
-                        <svg className="w-9 h-9 text-slate-400 dark:text-slate-500" fill="currentColor" viewBox="0 0 24 24">
+                        <svg
+                          className="w-9 h-9 text-slate-400 dark:text-slate-500"
+                          fill="currentColor"
+                          viewBox="0 0 24 24"
+                        >
                           <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
                         </svg>
                       </div>
@@ -125,7 +132,10 @@ export default function TeamSection() {
 
                         <div className="pt-1.5">
                           <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[9px] font-bold uppercase tracking-wider bg-muted/60 text-muted-foreground border border-border/60 whitespace-nowrap">
-                            <Award size={10} className="shrink-0 text-primary" />
+                            <Award
+                              size={10}
+                              className="shrink-0 text-primary"
+                            />
                             <span className="truncate">{item.focusTag}</span>
                           </span>
                         </div>
@@ -150,7 +160,9 @@ export default function TeamSection() {
                 onMouseEnter={() => setHoveredIdx(idx)}
                 onMouseLeave={() => setHoveredIdx(null)}
                 className={`group relative bg-card rounded-[18px] p-6 border transition-all duration-300 flex flex-col justify-between overflow-hidden cursor-pointer shadow-sm hover:shadow-xl ${
-                  isHovered ? "border-primary shadow-lg ring-1 ring-primary/30" : "border-border/80"
+                  isHovered
+                    ? "border-primary shadow-lg ring-1 ring-primary/30"
+                    : "border-border/80"
                 }`}
               >
                 <div>
@@ -168,13 +180,20 @@ export default function TeamSection() {
                     </div>
 
                     <div className="w-7 h-7 rounded-full bg-muted flex items-center justify-center text-muted-foreground group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-300">
-                      <ArrowUpRight size={14} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-300" />
+                      <ArrowUpRight
+                        size={14}
+                        className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-300"
+                      />
                     </div>
                   </div>
 
                   <div className="flex items-center gap-4">
                     <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-slate-100 dark:bg-slate-800/80 border border-border/80 flex items-center justify-center text-slate-500 dark:text-slate-400 shrink-0 overflow-hidden shadow-inner">
-                      <svg className="w-10 h-10 text-slate-400 dark:text-slate-500" fill="currentColor" viewBox="0 0 24 24">
+                      <svg
+                        className="w-10 h-10 text-slate-400 dark:text-slate-500"
+                        fill="currentColor"
+                        viewBox="0 0 24 24"
+                      >
                         <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
                       </svg>
                     </div>
@@ -205,12 +224,18 @@ export default function TeamSection() {
         <div className="mt-8 pt-4 border-t border-border/60 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-semibold text-muted-foreground">
           <div className="flex items-center gap-2">
             <ShieldCheck size={18} className="text-primary shrink-0" />
-            <span>We ensure your query reaches the right leadership team for a quick and effective response.</span>
+            <span>
+              We ensure your query reaches the right leadership team for a quick
+              and effective response.
+            </span>
           </div>
 
           <div className="flex items-center gap-2">
             <Clock size={18} className="text-primary shrink-0" />
-            <span>Average Response Time: <strong className="text-foreground">Within 24 Hours</strong></span>
+            <span>
+              Average Response Time:{" "}
+              <strong className="text-foreground">Within 24 Hours</strong>
+            </span>
           </div>
         </div>
       </Container>

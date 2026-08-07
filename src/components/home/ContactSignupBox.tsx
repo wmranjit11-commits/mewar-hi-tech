@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import { ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import BlobButton from "@/components/ui/BlobButton";
@@ -57,8 +58,13 @@ const ContactSignupBox: React.FC = () => {
               />
             </div>
             <div>
-              <BlobButton type="submit" variant="primary" className="!py-3 !px-6 text-xs font-bold">
-                Sign Up
+              <BlobButton
+                type="submit"
+                variant="primary"
+                className="!px-6 !py-3 !text-xs !font-bold !uppercase !tracking-wider flex items-center justify-center gap-2"
+              >
+                <span>Sign Up</span>
+                <ArrowRight size={14} />
               </BlobButton>
             </div>
           </form>
@@ -91,8 +97,12 @@ const ContactSignupBox: React.FC = () => {
               Contact us!
             </h3>
             <Link href="/contact">
-              <BlobButton variant="primary" className="!py-3 !px-6 text-xs font-bold">
-                Contact us
+              <BlobButton
+                variant="primary"
+                className="!px-6 !py-3 !text-xs !font-bold !uppercase !tracking-wider flex items-center justify-center gap-2"
+              >
+                <span>Contact us</span>
+                <ArrowRight size={14} />
               </BlobButton>
             </Link>
           </div>

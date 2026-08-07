@@ -31,10 +31,26 @@ const LEFT_ICONS = [
 ];
 
 const TOP_IMAGES = [
-  { title: "BUILT TOUGH", src: "/images/built_tough.png", colSpan: "col-span-12 sm:col-span-6" },
-  { title: "LOW OPERATING COST", src: "/images/low_operating_cost.png", colSpan: "col-span-12 sm:col-span-6" },
-  { title: "MAXIMUM PRODUCTIVITY", src: "/images/maximum_productivity.png", colSpan: "col-span-12 sm:col-span-7" },
-  { title: "GLOBAL SUPPORT", src: "/images/global_support.png", colSpan: "col-span-12 sm:col-span-5" },
+  {
+    title: "BUILT TOUGH",
+    src: "/images/built_tough.png",
+    colSpan: "col-span-12 sm:col-span-6",
+  },
+  {
+    title: "LOW OPERATING COST",
+    src: "/images/low_operating_cost.png",
+    colSpan: "col-span-12 sm:col-span-6",
+  },
+  {
+    title: "MAXIMUM PRODUCTIVITY",
+    src: "/images/maximum_productivity.png",
+    colSpan: "col-span-12 sm:col-span-7",
+  },
+  {
+    title: "GLOBAL SUPPORT",
+    src: "/images/global_support.png",
+    colSpan: "col-span-12 sm:col-span-5",
+  },
 ];
 
 const BOTTOM_IMAGES = [
@@ -48,27 +64,28 @@ const ALL_FEATURE_IMAGES = [...TOP_IMAGES, ...BOTTOM_IMAGES];
 
 export default function WhyChooseUs() {
   return (
-    <section className="bg-background text-foreground py-12 lg:py-16 relative overflow-hidden select-none border-y border-border/80">
+    <section className="bg-background text-foreground py-10 lg:py-14 relative overflow-hidden select-none border-y border-border/80">
       <Container className="relative z-10 space-y-6 sm:space-y-4">
-        
         {/* Top Section: Split Layout */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-6 items-start">
-          
           {/* Left Column: Text & Icons */}
           <div className="lg:col-span-5 space-y-8 lg:pr-6">
-            
             <div className="space-y-4">
-              <div className="flex items-center gap-4 mb-2">
-                <div className="w-8 h-[2px] bg-primary"></div>
-                <span className="text-primary font-bold text-xs uppercase tracking-widest block font-sans">
+              <div className="flex items-center gap-3 mb-2">
+                <div className="w-8 h-[2.5px] bg-primary shrink-0 rounded-full" />
+                <span className="text-primary font-bold text-[16px] sm:text-sm uppercase tracking-widest block font-sans">
                   WHY CHOOSE US
                 </span>
               </div>
               <h2 className="font-sans text-3xl sm:text-4xl lg:text-5xl font-bold leading-[1.05] tracking-tight uppercase text-[#0A1A3B] dark:text-white">
-                ENGINEERED TO <span className="text-primary block">DELIVER MORE.</span>
+                ENGINEERED TO{" "}
+                <span className="text-primary block">DELIVER MORE.</span>
               </h2>
               <p className="text-sm text-muted-foreground font-medium leading-relaxed max-w-md pt-2 text-justify">
-                At Mewar Hi-Tech, we deliver high-performance crushing technology engineered for durability, maximum uptime, and unmatched customer support across all sites. Here, every machine plays a part in building world-class infrastructure.
+                At Mewar Hi-Tech, we deliver high-performance crushing
+                technology engineered for durability, maximum uptime, and
+                unmatched customer support across all sites. Here, every machine
+                plays a part in building world-class infrastructure.
               </p>
             </div>
 
@@ -77,7 +94,7 @@ export default function WhyChooseUs() {
               {LEFT_ICONS.map((item, idx) => {
                 const IconComponent = item.icon;
                 return (
-                  <motion.div 
+                  <motion.div
                     key={idx}
                     initial={{ opacity: 0, y: 15 }}
                     whileInView={{ opacity: 1, y: 0 }}
@@ -114,12 +131,12 @@ export default function WhyChooseUs() {
                   transition={{ duration: 0.5, delay: idx * 0.05 }}
                   className={`${img.colSpan} relative rounded-xl overflow-hidden group shadow-sm bg-muted h-[180px] lg:h-[220px]`}
                 >
-                  <img 
-                    src={img.src} 
+                  <img
+                    src={img.src}
                     alt={img.title}
                     className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                   />
-                  
+
                   {/* Bottom Text Bar */}
                   <div className="absolute bottom-0 left-0 right-0 bg-[#0A1A3B] border-t border-white/10 p-2.5 sm:p-3">
                     <h3 className="text-white text-[10px] sm:text-xs font-bold uppercase tracking-widest text-center">
@@ -140,8 +157,8 @@ export default function WhyChooseUs() {
                 key={idx}
                 className="relative rounded-xl overflow-hidden shadow-sm bg-muted h-[220px] w-full"
               >
-                <img 
-                  src={img.src} 
+                <img
+                  src={img.src}
                   alt={img.title}
                   className="absolute inset-0 w-full h-full object-cover"
                 />
@@ -163,15 +180,15 @@ export default function WhyChooseUs() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.2 + (idx * 0.1) }}
+              transition={{ duration: 0.5, delay: 0.2 + idx * 0.1 }}
               className="relative rounded-xl overflow-hidden group shadow-sm bg-muted h-[180px] lg:h-[220px]"
             >
-              <img 
-                src={img.src} 
+              <img
+                src={img.src}
                 alt={img.title}
                 className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
               />
-              
+
               {/* Bottom Text Bar */}
               <div className="absolute bottom-0 left-0 right-0 bg-[#0A1A3B] border-t border-white/10 p-2.5 sm:p-3">
                 <h3 className="text-white text-[10px] sm:text-xs font-bold uppercase tracking-widest text-center">
@@ -181,8 +198,7 @@ export default function WhyChooseUs() {
             </motion.div>
           ))}
         </div>
-
       </Container>
     </section>
   );
-};
+}

@@ -50,11 +50,14 @@ const SectorGrid: React.FC = () => {
           
           {/* Left Form Panel */}
           <div className="lg:col-span-5 py-4 bg-background flex flex-col justify-center h-full">
-            <p className="text-primary font-bold text-xs uppercase tracking-widest block font-sans mb-2">
-              FIND YOUR PERFECT MACHINE
-            </p>
-            <h2 className="font-sans text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight uppercase text-[#0A1A3B] dark:text-white leading-tight mb-3">
-              SMART TOOLS.<br />SMARTER CHOICE.
+            <div className="flex items-center gap-3 mb-2">
+              <div className="w-8 h-[2.5px] bg-primary shrink-0 rounded-full" />
+              <span className="text-primary font-bold text-[16px] sm:text-sm uppercase tracking-widest block font-sans">
+                FIND YOUR PERFECT MACHINE
+              </span>
+            </div>
+            <h2 className="font-sans text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight uppercase text-[#0A1A3B] dark:text-white leading-tight mb-3">
+              SMART TOOLS.<br /><span className="text-primary">SMARTER CHOICE.</span> 
             </h2>
             <p className="text-sm text-muted-foreground mb-8 font-medium leading-relaxed max-w-md">
               Select your application and material to discover the ideal machine for maximum performance.
@@ -129,12 +132,10 @@ const SectorGrid: React.FC = () => {
                 <BlobButton
                   variant="primary"
                   type="button"
-                  className="w-full !py-4 !text-sm !font-bold rounded-xl"
+                  className="w-full !px-6 !py-3 !text-xs !font-bold !uppercase !tracking-wider flex items-center justify-center gap-2 rounded-xl"
                 >
-                  <div className="flex items-center justify-center gap-2 whitespace-nowrap">
-                    <span>Find My Machine</span>
-                    <ArrowRight size={16} className="stroke-[2.5]" />
-                  </div>
+                  <span>Find My Machine</span>
+                  <ArrowRight size={14} />
                 </BlobButton>
               </div>
             </form>

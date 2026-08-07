@@ -4,7 +4,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import Container from "../ui/Container";
 import MobileCarousel from "@/components/ui/MobileCarousel";
-import { Star, ShieldCheck, MapPin, User } from "lucide-react";
+import { Star, MapPin, User } from "lucide-react";
 
 interface Testimonial {
   name: string;
@@ -66,18 +66,20 @@ const TESTIMONIALS_DATA: Testimonial[] = [
 
 export default function TestimonialsSection() {
   return (
-    <section className="py-12 lg:py-16 bg-muted/30 border-b border-border relative overflow-hidden select-none">
+    <section className="py-10 lg:py-14 bg-muted/30 border-b border-border relative overflow-hidden select-none">
       <Container className="relative z-10">
         
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
           <div className="space-y-3 text-left">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-primary/10 border border-primary/20 text-primary text-[11px] font-bold uppercase tracking-widest">
-              <ShieldCheck size={14} />
-              <span>VERIFIED CLIENT REVIEWS</span>
+            <div className="flex items-center gap-3 mb-2">
+              <div className="w-8 h-[2.5px] bg-primary shrink-0 rounded-full" />
+              <span className="text-primary font-bold text-[16px] sm:text-sm uppercase tracking-widest block font-sans">
+                VERIFIED CLIENT REVIEWS
+              </span>
             </div>
             <h2 className="font-sans text-3xl sm:text-4xl lg:text-5xl text-[#0A1A3B] dark:text-white font-bold tracking-tight uppercase">
-              TRUSTED BY INDUSTRY LEADERS
+              TRUSTED BY <span className="text-primary inline-block">INDUSTRY LEADERS</span>
             </h2>
             <p className="text-sm text-muted-foreground font-medium max-w-xl leading-relaxed">
               Hear directly from quarry owners, mining executives, and infrastructure contractors who rely on our machinery daily.
