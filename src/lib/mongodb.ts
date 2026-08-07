@@ -1,4 +1,12 @@
 import mongoose from "mongoose";
+import dns from "dns";
+
+// Set public DNS servers to prevent querySrv ECONNREFUSED errors caused by local ISP/Router DNS
+try {
+  dns.setServers(["8.8.8.8", "1.1.1.1"]);
+} catch (err) {
+  console.warn("Could not set custom DNS servers:", err);
+}
 
 const MONGODB_URI = process.env.MONGODB_URI!;
 
@@ -21,6 +29,10 @@ async function connectToDatabase() {
   }
 
   if (!cached.promise) {
+    try {
+      dns.setServers(["8.8.8.8", "1.1.1.1"]);
+    } catch {}
+
     const opts = {
       bufferCommands: false,
     };
