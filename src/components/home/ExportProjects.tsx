@@ -139,11 +139,11 @@ export default function ExportProjects() {
             <div className="flex items-center gap-3 mb-2">
               <div className="w-8 h-[2.5px] bg-primary shrink-0 rounded-full" />
               <span className="text-primary font-bold text-[16px] sm:text-sm uppercase tracking-widest block font-sans">
-                International Exports & Projects
+                INTERNATIONAL EXPORTS & PROJECTS
               </span>
             </div>
-            <h2 className="common-heading text-3xl sm:text-4xl lg:text-5xl text-foreground font-bold tracking-tight">
-              Export Projects (Tanzania)
+            <h2 className="font-sans text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight uppercase text-[#0A1A3B] dark:text-white">
+              EXPORT PROJECTS <span className="text-primary inline-block">(TANZANIA)</span>
             </h2>
             <p className="text-sm text-muted-foreground font-medium max-w-xl leading-relaxed">
               Demonstrating engineered reliability across East Africa with robust, high-tonnage turnkey installations.

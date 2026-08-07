@@ -201,8 +201,8 @@ export default function ServiceSlugPage({ params }: PageProps) {
               
               {/* Left Column: Description & Contacts */}
               <div className="lg:col-span-7 space-y-6 text-left">
-                <h2 className="common-heading text-2xl sm:text-3xl font-bold text-foreground uppercase tracking-tight font-heading">
-                  Overview &amp; Commitment
+                <h2 className="font-sans text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight uppercase text-[#0A1A3B] dark:text-white">
+                  OVERVIEW &amp; <span className="text-primary inline-block">COMMITMENT</span>
                 </h2>
                 <p className="text-muted-foreground text-sm leading-relaxed font-semibold">
                   {pageData.intro}
@@ -315,10 +315,13 @@ export default function ServiceSlugPage({ params }: PageProps) {
               
               {/* Header */}
               <div className="max-w-3xl mb-10 text-left space-y-2">
-                <span className="text-primary font-bold text-xs uppercase tracking-widest block font-sans">
-                  Visual Directory
-                </span>
-                <h2 className="common-heading text-2xl sm:text-3xl font-bold text-foreground uppercase tracking-tight">
+                <div className="flex items-center gap-3 mb-2">
+                  <div className="w-8 h-[2.5px] bg-primary shrink-0 rounded-full" />
+                  <span className="text-primary font-bold text-[16px] sm:text-sm uppercase tracking-widest block font-sans">
+                    VISUAL DIRECTORY
+                  </span>
+                </div>
+                <h2 className="font-sans text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight uppercase text-[#0A1A3B] dark:text-white">
                   {pageData.galleryTitle}
                 </h2>
               </div>

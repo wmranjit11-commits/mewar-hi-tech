@@ -108,11 +108,12 @@ export default function ProductDetailPage({ params }: PageProps) {
             </p>
             <div className="pt-2">
               <Link href="/products">
-                <BlobButton variant="primary" className="!px-6 !py-3">
-                  <div className="flex items-center gap-2">
-                    <ArrowLeft size={16} />
-                    <span>Back to Catalog</span>
-                  </div>
+                <BlobButton
+                  variant="primary"
+                  className="!px-6 !py-3 !text-xs !font-bold !uppercase !tracking-wider flex items-center justify-center gap-2"
+                >
+                  <ArrowLeft size={14} />
+                  <span>Back to Catalog</span>
                 </BlobButton>
               </Link>
             </div>
@@ -403,11 +404,14 @@ export default function ProductDetailPage({ params }: PageProps) {
                 className="lg:col-span-7 space-y-6 text-left"
               >
                 <div>
-                  <span className="text-primary font-bold text-xs uppercase tracking-widest block mb-2">
-                    Equipment Narrative &bull; Overview
-                  </span>
-                  <h2 className="common-heading text-3xl sm:text-4xl text-foreground leading-tight">
-                    Engineered for Precision, Continuous Tonnage &amp; Heavy Duty Life
+                  <div className="flex items-center gap-3 mb-2">
+                    <div className="w-8 h-[2.5px] bg-primary shrink-0 rounded-full" />
+                    <span className="text-primary font-bold text-[16px] sm:text-sm uppercase tracking-widest block font-sans">
+                      EQUIPMENT NARRATIVE &bull; OVERVIEW
+                    </span>
+                  </div>
+                  <h2 className="font-sans text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight uppercase text-[#0A1A3B] dark:text-white leading-tight">
+                    ENGINEERED FOR PRECISION, CONTINUOUS TONNAGE &amp; <span className="text-primary inline-block">HEAVY DUTY LIFE</span>
                   </h2>
                 </div>
 
@@ -508,11 +512,14 @@ export default function ProductDetailPage({ params }: PageProps) {
           <Container className="space-y-12">
             
             <div className="max-w-2xl space-y-3 text-left">
-              <span className="text-primary font-bold text-xs uppercase tracking-widest block">
-                Target Operations &bull; Applications
-              </span>
-              <h2 className="common-heading text-3xl sm:text-4xl text-foreground">
-                Versatile Industrial Operating Environments
+              <div className="flex items-center gap-3 mb-2">
+                <div className="w-8 h-[2.5px] bg-primary shrink-0 rounded-full" />
+                <span className="text-primary font-bold text-[16px] sm:text-sm uppercase tracking-widest block font-sans">
+                  TARGET OPERATIONS &bull; APPLICATIONS
+                </span>
+              </div>
+              <h2 className="font-sans text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight uppercase text-[#0A1A3B] dark:text-white">
+                VERSATILE INDUSTRIAL OPERATING <span className="text-primary inline-block">ENVIRONMENTS</span>
               </h2>
               <p className="text-xs sm:text-sm text-muted-foreground font-semibold">
                 Designed to operate under extreme crushing forces across diverse mineral processing sectors.
@@ -576,11 +583,14 @@ export default function ProductDetailPage({ params }: PageProps) {
             <Container className="space-y-12">
               
               <div className="max-w-3xl space-y-2 text-left">
-                <span className="text-primary font-bold text-xs uppercase tracking-widest block">
-                  Visual Media &bull; Technical Assets
-                </span>
-                <h2 className="common-heading text-3xl sm:text-4xl text-foreground">
-                  On-Site Inspection &amp; Working Video
+                <div className="flex items-center gap-3 mb-2">
+                  <div className="w-8 h-[2.5px] bg-primary shrink-0 rounded-full" />
+                  <span className="text-primary font-bold text-[16px] sm:text-sm uppercase tracking-widest block font-sans">
+                    VISUAL MEDIA &bull; TECHNICAL ASSETS
+                  </span>
+                </div>
+                <h2 className="font-sans text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight uppercase text-[#0A1A3B] dark:text-white">
+                  ON-SITE INSPECTION &amp; <span className="text-primary inline-block">WORKING VIDEO</span>
                 </h2>
               </div>
 
@@ -683,11 +693,14 @@ export default function ProductDetailPage({ params }: PageProps) {
             <Container className="space-y-10">
               
               <div className="max-w-3xl space-y-2 text-left">
-                <span className="text-primary font-bold text-xs uppercase tracking-widest block">
-                  Engineering Matrix &bull; Technical Data
-                </span>
-                <h2 className="common-heading text-3xl sm:text-4xl text-foreground">
-                  Machine Specifications &amp; Tonnage Chart
+                <div className="flex items-center gap-3 mb-2">
+                  <div className="w-8 h-[2.5px] bg-primary shrink-0 rounded-full" />
+                  <span className="text-primary font-bold text-[16px] sm:text-sm uppercase tracking-widest block font-sans">
+                    ENGINEERING MATRIX &bull; TECHNICAL DATA
+                  </span>
+                </div>
+                <h2 className="font-sans text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight uppercase text-[#0A1A3B] dark:text-white">
+                  MACHINE SPECIFICATIONS &amp; <span className="text-primary inline-block">TONNAGE CHART</span>
                 </h2>
                 <p className="text-xs sm:text-sm text-muted-foreground font-semibold">
                   Detailed dimensional, power, and capacity metrics for model selection.
@@ -768,11 +781,14 @@ export default function ProductDetailPage({ params }: PageProps) {
           <Container className="space-y-10">
             
             <div className="max-w-2xl space-y-2 text-left">
-              <span className="text-primary font-bold text-xs uppercase tracking-widest block">
-                Technical Documentation
-              </span>
-              <h2 className="common-heading text-3xl text-foreground">
-                Download Product Brochures &amp; Layouts
+              <div className="flex items-center gap-3 mb-2">
+                <div className="w-8 h-[2.5px] bg-primary shrink-0 rounded-full" />
+                <span className="text-primary font-bold text-[16px] sm:text-sm uppercase tracking-widest block font-sans">
+                  TECHNICAL DOCUMENTATION
+                </span>
+              </div>
+              <h2 className="font-sans text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight uppercase text-[#0A1A3B] dark:text-white">
+                DOWNLOAD PRODUCT BROCHURES &amp; <span className="text-primary inline-block">LAYOUTS</span>
               </h2>
             </div>
 
@@ -859,11 +875,14 @@ export default function ProductDetailPage({ params }: PageProps) {
               {/* Info Column */}
               <div className="lg:col-span-5 flex flex-col justify-between space-y-8 text-left">
                 <div className="space-y-4">
-                  <span className="text-primary font-bold text-xs uppercase tracking-widest block">
-                    Direct Factory Quote Request
-                  </span>
-                  <h2 className="common-heading text-3xl sm:text-4xl text-foreground leading-tight">
-                    Request Pricing &amp; Custom Flowsheet Design
+                  <div className="flex items-center gap-3 mb-2">
+                    <div className="w-8 h-[2.5px] bg-primary shrink-0 rounded-full" />
+                    <span className="text-primary font-bold text-[16px] sm:text-sm uppercase tracking-widest block font-sans">
+                      DIRECT FACTORY QUOTE REQUEST
+                    </span>
+                  </div>
+                  <h2 className="font-sans text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight uppercase text-[#0A1A3B] dark:text-white leading-tight">
+                    REQUEST PRICING &amp; CUSTOM FLOWSHEET <span className="text-primary inline-block">DESIGN</span>
                   </h2>
                   <p className="text-muted-foreground text-xs sm:text-sm leading-relaxed font-semibold">
                     Interested in integrating the <strong className="text-foreground">{product.name}</strong> into your crushing plant? Submit your application requirements below.
@@ -1025,11 +1044,14 @@ export default function ProductDetailPage({ params }: PageProps) {
               
               <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 text-left">
                 <div className="space-y-2">
-                  <span className="text-primary font-bold text-xs uppercase tracking-widest block">
-                    Product Portfolio
-                  </span>
-                  <h2 className="common-heading text-3xl sm:text-4xl text-foreground">
-                    Related Heavy Equipment
+                  <div className="flex items-center gap-3 mb-2">
+                    <div className="w-8 h-[2.5px] bg-primary shrink-0 rounded-full" />
+                    <span className="text-primary font-bold text-[16px] sm:text-sm uppercase tracking-widest block font-sans">
+                      PRODUCT PORTFOLIO
+                    </span>
+                  </div>
+                  <h2 className="font-sans text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight uppercase text-[#0A1A3B] dark:text-white">
+                    RELATED HEAVY <span className="text-primary inline-block">EQUIPMENT</span>
                   </h2>
                 </div>
 

@@ -40,11 +40,14 @@ const IndustriesGrid: React.FC = () => {
         <div
           className="max-w-2xl mb-16"
         >
-          <span className="text-primary font-bold text-xs uppercase tracking-widest block">
-            Industries We Serve
-          </span>
-          <h2 className="common-heading text-3xl sm:text-4xl text-foreground mt-3 leading-tight">
-            Powering Heavy Sectors
+          <div className="flex items-center gap-3 mb-2">
+            <div className="w-8 h-[2.5px] bg-primary shrink-0 rounded-full" />
+            <span className="text-primary font-bold text-[16px] sm:text-sm uppercase tracking-widest block font-sans">
+              INDUSTRIES WE SERVE
+            </span>
+          </div>
+          <h2 className="font-sans text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight uppercase text-[#0A1A3B] dark:text-white mt-3 leading-tight">
+            POWERING HEAVY <span className="text-primary inline-block">SECTORS</span>
           </h2>
         </div>
 

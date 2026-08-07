@@ -186,9 +186,9 @@ export default function PrivacyPolicyPage() {
                   </p>
                 </div>
                 <a href="mailto:sales@kingsoncrusher.com">
-                  <BlobButton variant="primary" className="!py-3 !px-6 text-xs tracking-wider uppercase whitespace-nowrap">
-                    <Mail size={16} />
+                  <BlobButton variant="primary" className="!px-6 !py-3 !text-xs !font-bold !uppercase !tracking-wider flex items-center gap-2 whitespace-nowrap">
                     <span>Contact Privacy Team</span>
+                    <Mail size={16} />
                   </BlobButton>
                 </a>
               </div>

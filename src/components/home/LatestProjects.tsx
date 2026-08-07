@@ -142,11 +142,11 @@ export default function LatestProjects() {
             <div className="flex items-center gap-3 mb-2">
               <div className="w-8 h-[2.5px] bg-primary shrink-0 rounded-full" />
               <span className="text-primary font-bold text-[16px] sm:text-sm uppercase tracking-widest block font-sans">
-                Proven Field Excellence
+                PROVEN FIELD EXCELLENCE
               </span>
             </div>
-            <h2 className="common-heading text-3xl sm:text-4xl lg:text-5xl text-foreground font-bold tracking-tight">
-              Latest Projects & Installations
+            <h2 className="font-sans text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight uppercase text-[#0A1A3B] dark:text-white">
+              LATEST PROJECTS & <span className="text-primary inline-block">INSTALLATIONS</span>
             </h2>
             <p className="text-sm text-muted-foreground font-medium max-w-xl leading-relaxed">
               Explore our recent heavy-duty crushing and screening plants deployed across quarrying, mining, and aggregate sites.

@@ -16,6 +16,7 @@ import {
   Users,
   Target,
   Sparkles,
+  ArrowRight,
 } from "lucide-react";
 import Link from "next/link";
 import Header from "@/components/layout/Header";
@@ -177,11 +178,14 @@ export default function About() {
           <div className="max-w-[1720px] mx-auto px-6 lg:px-8 space-y-6">
             <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
               <div>
-                <span className="text-primary font-bold text-xs uppercase tracking-widest block mb-1">
-                  Factory &amp; Engineering Showcase
-                </span>
-                <h2 className="common-heading text-2xl sm:text-3xl text-foreground">
-                  Manufacturing Facility Gallery
+                <div className="flex items-center gap-3 mb-2">
+                  <div className="w-8 h-[2.5px] bg-primary shrink-0 rounded-full" />
+                  <span className="text-primary font-bold text-[16px] sm:text-sm uppercase tracking-widest block font-sans">
+                    FACTORY &amp; ENGINEERING SHOWCASE
+                  </span>
+                </div>
+                <h2 className="font-sans text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight uppercase text-[#0A1A3B] dark:text-white">
+                  MANUFACTURING <span className="text-primary inline-block">FACILITY GALLERY</span>
                 </h2>
               </div>
               <p className="text-xs text-muted-foreground font-semibold max-w-md">
@@ -203,11 +207,14 @@ export default function About() {
                 className="lg:col-span-7 space-y-6"
               >
                 <div>
-                  <span className="text-primary font-bold text-xs uppercase tracking-widest block mb-2">
-                    Crusher Manufacturing Pioneers
-                  </span>
-                  <h2 className="common-heading text-3xl sm:text-4xl lg:text-5xl text-foreground leading-tight">
-                    100% In-House &amp; Hi-Tech Manufacturing
+                  <div className="flex items-center gap-3 mb-2">
+                    <div className="w-8 h-[2.5px] bg-primary shrink-0 rounded-full" />
+                    <span className="text-primary font-bold text-[16px] sm:text-sm uppercase tracking-widest block font-sans">
+                      CRUSHER MANUFACTURING PIONEERS
+                    </span>
+                  </div>
+                  <h2 className="font-sans text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight uppercase text-[#0A1A3B] dark:text-white leading-tight">
+                    100% IN-HOUSE &amp; <span className="text-primary inline-block">HI-TECH MANUFACTURING</span>
                   </h2>
                 </div>
 
@@ -286,11 +293,14 @@ export default function About() {
                 className="p-8 lg:p-10 rounded-none bg-card border-2 border-border shadow-xl space-y-6 flex flex-col justify-between"
               >
                 <div className="space-y-4">
-                  <span className="text-primary font-bold text-xs uppercase tracking-widest block">
-                    Engineering Mastery
-                  </span>
-                  <h3 className="common-heading text-2xl sm:text-3xl text-foreground">
-                    A Powerful &amp; Robust Design
+                  <div className="flex items-center gap-3 mb-2">
+                    <div className="w-8 h-[2.5px] bg-primary shrink-0 rounded-full" />
+                    <span className="text-primary font-bold text-[16px] sm:text-sm uppercase tracking-widest block font-sans">
+                      ENGINEERING MASTERY
+                    </span>
+                  </div>
+                  <h3 className="font-sans text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight uppercase text-[#0A1A3B] dark:text-white">
+                    A POWERFUL &amp; <span className="text-primary inline-block">ROBUST DESIGN</span>
                   </h3>
                   <p className="text-muted-foreground text-sm leading-relaxed">
                     Kingson Crushers by Mewar Hitech are modern Hi-tech crushers. Powerfully designed with a blend of speed and stroke to throw which promises fine crushing capability and high output performance along to ensure maximum profitability.
@@ -331,11 +341,14 @@ export default function About() {
                 className="p-8 lg:p-10 rounded-none bg-card border-2 border-border shadow-xl space-y-6 flex flex-col justify-between"
               >
                 <div className="space-y-4">
-                  <span className="text-primary font-bold text-xs uppercase tracking-widest block">
-                    Zero Compromise
-                  </span>
-                  <h3 className="common-heading text-2xl sm:text-3xl text-foreground">
-                    Quality Policy
+                  <div className="flex items-center gap-3 mb-2">
+                    <div className="w-8 h-[2.5px] bg-primary shrink-0 rounded-full" />
+                    <span className="text-primary font-bold text-[16px] sm:text-sm uppercase tracking-widest block font-sans">
+                      ZERO COMPROMISE
+                    </span>
+                  </div>
+                  <h3 className="font-sans text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight uppercase text-[#0A1A3B] dark:text-white">
+                    QUALITY <span className="text-primary inline-block">POLICY</span>
                   </h3>
                   <p className="text-muted-foreground text-sm leading-relaxed">
                     We, at Mewar Hitech, pay high attention to the quality of materials used in the manufacturing of our equipment and machinery. All of these materials, including castings done in-house, are pre-tested and continuously monitored by our Quality Assurance Cell.
@@ -399,11 +412,14 @@ export default function About() {
               className="lg:col-span-6 space-y-6"
             >
               <div>
-                <span className="text-primary font-bold text-xs uppercase tracking-widest block mb-2">
-                  Human Excellence &amp; Expertise
-                </span>
-                <h2 className="common-heading text-3xl sm:text-4xl text-foreground leading-tight">
-                  A Team Dedicated of Experts
+                <div className="flex items-center gap-3 mb-2">
+                  <div className="w-8 h-[2.5px] bg-primary shrink-0 rounded-full" />
+                  <span className="text-primary font-bold text-[16px] sm:text-sm uppercase tracking-widest block font-sans">
+                    HUMAN EXCELLENCE &amp; EXPERTISE
+                  </span>
+                </div>
+                <h2 className="font-sans text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight uppercase text-[#0A1A3B] dark:text-white leading-tight">
+                  A TEAM DEDICATED <span className="text-primary inline-block">OF EXPERTS</span>
                 </h2>
               </div>
 
@@ -417,8 +433,9 @@ export default function About() {
 
               <div className="pt-2">
                 <Link href="/contact">
-                  <BlobButton variant="primary" className="!py-3 !px-7 !text-xs !font-bold">
-                    Talk to Our Engineers
+                  <BlobButton variant="primary" className="!px-6 !py-3 !text-xs !font-bold !uppercase !tracking-wider flex items-center gap-2">
+                    <span>Talk to Our Engineers</span>
+                    <ArrowRight size={14} />
                   </BlobButton>
                 </Link>
               </div>
@@ -432,11 +449,14 @@ export default function About() {
           <div className="max-w-[1720px] mx-auto px-6 lg:px-8 space-y-12">
             
             <div className="text-center max-w-3xl mx-auto space-y-3">
-              <span className="text-primary font-bold text-xs uppercase tracking-widest block">
-                Respect, Mission &amp; Philosophy
-              </span>
-              <h2 className="common-heading text-3xl sm:text-4xl lg:text-5xl text-white">
-                Our 100% In-House Precision Equipment
+              <div className="flex items-center justify-center gap-3 mb-2">
+                <div className="w-8 h-[2.5px] bg-primary shrink-0 rounded-full" />
+                <span className="text-primary font-bold text-[16px] sm:text-sm uppercase tracking-widest block font-sans">
+                  RESPECT, MISSION &amp; PHILOSOPHY
+                </span>
+              </div>
+              <h2 className="font-sans text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight uppercase text-white">
+                OUR 100% IN-HOUSE <span className="text-primary inline-block">PRECISION EQUIPMENT</span>
               </h2>
               <p className="text-secondary-foreground/70 text-sm sm:text-base font-medium">
                 Mewar Hitech has a strong and committed team of highly qualified engineers. We ensure a steady supply of top-tier crushing and screening machinery through our advanced in-house setup:
@@ -494,11 +514,14 @@ export default function About() {
                 className="lg:col-span-6 space-y-6"
               >
                 <div>
-                  <span className="text-primary font-bold text-xs uppercase tracking-widest block mb-2">
-                    Our Shared Vision
-                  </span>
-                  <h2 className="common-heading text-3xl sm:text-4xl text-foreground leading-tight">
-                    We Thrive Only When Our Associates Do
+                  <div className="flex items-center gap-3 mb-2">
+                    <div className="w-8 h-[2.5px] bg-primary shrink-0 rounded-full" />
+                    <span className="text-primary font-bold text-[16px] sm:text-sm uppercase tracking-widest block font-sans">
+                      OUR SHARED VISION
+                    </span>
+                  </div>
+                  <h2 className="font-sans text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight uppercase text-[#0A1A3B] dark:text-white leading-tight">
+                    WE THRIVE ONLY WHEN <span className="text-primary inline-block">OUR ASSOCIATES DO</span>
                   </h2>
                 </div>
 

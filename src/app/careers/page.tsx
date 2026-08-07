@@ -210,11 +210,14 @@ export default function CareersPage() {
           <Container className="space-y-6">
             <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
               <div>
-                <span className="text-primary font-bold text-xs uppercase tracking-widest block mb-1">
-                  Workplace &amp; Engineering Environment
-                </span>
-                <h2 className="common-heading text-2xl sm:text-3xl text-foreground">
-                  Life At Mewar Hi-Tech
+                <div className="flex items-center gap-3 mb-2">
+                  <div className="w-8 h-[2.5px] bg-primary shrink-0 rounded-full" />
+                  <span className="text-primary font-bold text-[16px] sm:text-sm uppercase tracking-widest block font-sans">
+                    WORKPLACE &amp; ENGINEERING ENVIRONMENT
+                  </span>
+                </div>
+                <h2 className="font-sans text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight uppercase text-[#0A1A3B] dark:text-white">
+                  LIFE AT <span className="text-primary inline-block">MEWAR HI-TECH</span>
                 </h2>
               </div>
               <p className="text-xs text-muted-foreground font-semibold max-w-md">
@@ -239,11 +242,14 @@ export default function CareersPage() {
               className="lg:col-span-7 space-y-6"
             >
               <div>
-                <span className="text-primary font-bold text-xs uppercase tracking-widest block mb-2">
-                  Engineering &amp; Growth
-                </span>
-                <h2 className="common-heading text-3xl sm:text-4xl text-foreground leading-tight">
-                  Why Work With Mewar Hi-Tech?
+                <div className="flex items-center gap-3 mb-2">
+                  <div className="w-8 h-[2.5px] bg-primary shrink-0 rounded-full" />
+                  <span className="text-primary font-bold text-[16px] sm:text-sm uppercase tracking-widest block font-sans">
+                    ENGINEERING &amp; GROWTH
+                  </span>
+                </div>
+                <h2 className="font-sans text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight uppercase text-[#0A1A3B] dark:text-white leading-tight">
+                  WHY WORK WITH <span className="text-primary inline-block">MEWAR HI-TECH?</span>
                 </h2>
               </div>
 
@@ -319,11 +325,14 @@ export default function CareersPage() {
           <Container className="space-y-10">
             
             <div className="max-w-3xl space-y-2">
-              <span className="text-primary font-bold text-xs uppercase tracking-widest block">
-                Immediate Hiring
-              </span>
-              <h2 className="common-heading text-3xl sm:text-4xl text-foreground">
-                Current Job Openings
+              <div className="flex items-center gap-3 mb-2">
+                <div className="w-8 h-[2.5px] bg-primary shrink-0 rounded-full" />
+                <span className="text-primary font-bold text-[16px] sm:text-sm uppercase tracking-widest block font-sans">
+                  IMMEDIATE HIRING
+                </span>
+              </div>
+              <h2 className="font-sans text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight uppercase text-[#0A1A3B] dark:text-white">
+                CURRENT <span className="text-primary inline-block">JOB OPENINGS</span>
               </h2>
               <p className="text-xs sm:text-sm text-muted-foreground font-semibold">
                 Explore available roles at our Sukher manufacturing plant and corporate office in Udaipur.
@@ -405,11 +414,14 @@ export default function CareersPage() {
                 className="lg:col-span-5 flex flex-col justify-between h-full space-y-6"
               >
                 <div>
-                  <span className="text-primary font-bold text-xs uppercase tracking-widest block mb-2">
-                    Direct Resume Submission
-                  </span>
-                  <h2 className="common-heading text-3xl sm:text-4xl text-foreground leading-tight">
-                    Apply With Your Detailed Resume
+                  <div className="flex items-center gap-3 mb-2">
+                    <div className="w-8 h-[2.5px] bg-primary shrink-0 rounded-full" />
+                    <span className="text-primary font-bold text-[16px] sm:text-sm uppercase tracking-widest block font-sans">
+                      DIRECT RESUME SUBMISSION
+                    </span>
+                  </div>
+                  <h2 className="font-sans text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight uppercase text-[#0A1A3B] dark:text-white leading-tight">
+                    APPLY WITH YOUR <span className="text-primary inline-block">DETAILED RESUME</span>
                   </h2>
                   <p className="text-muted-foreground text-sm mt-2 leading-relaxed font-medium">
                     Interested candidates can apply online using the form or email their resume directly to our recruitment manager.
@@ -479,11 +491,14 @@ export default function CareersPage() {
                   <div className="absolute top-0 right-0 w-32 h-32 bg-primary/10 rounded-full blur-3xl pointer-events-none" />
 
                   <div>
-                    <span className="text-primary font-bold text-xs uppercase tracking-widest block mb-1">
-                      Online Job Application
-                    </span>
-                    <h3 className="common-heading text-2xl sm:text-3xl text-foreground">
-                      Submit Your Profile
+                    <div className="flex items-center gap-3 mb-2">
+                      <div className="w-8 h-[2.5px] bg-primary shrink-0 rounded-full" />
+                      <span className="text-primary font-bold text-[16px] sm:text-sm uppercase tracking-widest block font-sans">
+                        ONLINE JOB APPLICATION
+                      </span>
+                    </div>
+                    <h3 className="font-sans text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight uppercase text-[#0A1A3B] dark:text-white">
+                      SUBMIT <span className="text-primary inline-block">YOUR PROFILE</span>
                     </h3>
                   </div>
 

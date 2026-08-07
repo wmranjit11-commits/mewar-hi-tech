@@ -12,8 +12,8 @@ const PlaceholderSection: React.FC<PlaceholderSectionProps> = ({ pageName }) => 
         <div className="w-16 h-16 rounded-full bg-card border border-border flex items-center justify-center mx-auto mb-6 shadow-sm">
           <Construction size={28} className="text-primary" />
         </div>
-        <h2 className="common-heading text-2xl sm:text-3xl text-foreground mb-3">
-          Coming Soon
+        <h2 className="font-sans text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight uppercase text-[#0A1A3B] dark:text-white mb-3">
+          COMING <span className="text-primary inline-block">SOON</span>
         </h2>
         <p className="text-muted-foreground text-sm font-medium">
           The {pageName} page is being crafted. We are preparing rich media and full technical catalogs for this section.

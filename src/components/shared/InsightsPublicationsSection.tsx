@@ -61,17 +61,21 @@ const InsightsPublicationsSection: React.FC = () => {
         <div className="space-y-10">
           <div className="flex items-end justify-between flex-wrap gap-4">
             <div>
-              <span className="text-primary font-bold text-xs uppercase tracking-widest block mb-2">
-                Our News
-              </span>
-              <h2 className="common-heading text-3xl sm:text-4xl text-foreground leading-none">
+              <div className="flex items-center gap-3 mb-2">
+                <div className="w-8 h-[2.5px] bg-primary shrink-0 rounded-full" />
+                <span className="text-primary font-bold text-[16px] sm:text-sm uppercase tracking-widest block font-sans">
+                  OUR NEWS
+                </span>
+              </div>
+              <h2 className="font-sans text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight uppercase text-[#0A1A3B] dark:text-white leading-none">
                 Insights Worth{" "}
-                <span className="text-primary">Exploring</span>
+                <span className="text-primary inline-block">Exploring</span>
               </h2>
             </div>
             <Link href="/blogs">
-              <BlobButton variant="secondary" className="!py-2.5 !px-5 !text-xs font-bold">
-                See all
+              <BlobButton variant="secondary" className="!px-6 !py-3 !text-xs !font-bold !uppercase !tracking-wider flex items-center gap-2">
+                <span>See all</span>
+                <ArrowRight size={14} />
               </BlobButton>
             </Link>
           </div>
@@ -123,12 +127,13 @@ const InsightsPublicationsSection: React.FC = () => {
           {/* Sub-section 2: Publications (Cols 1-7) */}
           <div className="lg:col-span-7 space-y-8">
             <div className="flex items-end justify-between flex-wrap gap-4">
-              <h2 className="common-heading text-2xl text-foreground tracking-wide">
-                Our Publications
+              <h2 className="font-sans text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight uppercase text-[#0A1A3B] dark:text-white tracking-wide">
+                OUR <span className="text-primary inline-block">PUBLICATIONS</span>
               </h2>
               <Link href="/about">
-                <BlobButton variant="secondary" className="!py-2 !px-4 !text-[10px] font-bold">
-                  See all
+                <BlobButton variant="secondary" className="!px-6 !py-3 !text-xs !font-bold !uppercase !tracking-wider flex items-center gap-2">
+                  <span>See all</span>
+                  <ArrowRight size={14} />
                 </BlobButton>
               </Link>
             </div>
@@ -161,8 +166,8 @@ const InsightsPublicationsSection: React.FC = () => {
 
           {/* Sub-section 3: Upcoming Exhibitions (Cols 8-12) */}
           <div className="lg:col-span-5 space-y-8">
-            <h2 className="common-heading text-2xl text-foreground tracking-wide">
-              Upcoming Exhibitions
+            <h2 className="font-sans text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight uppercase text-[#0A1A3B] dark:text-white tracking-wide">
+              UPCOMING <span className="text-primary inline-block">EXHIBITIONS</span>
             </h2>
 
             <div className="space-y-4">

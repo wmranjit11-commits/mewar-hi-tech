@@ -188,11 +188,14 @@ export default function EventsPage() {
           <Container className="space-y-12">
             
             <div className="max-w-3xl space-y-3">
-              <span className="text-primary font-bold text-xs uppercase tracking-widest block">
-                Our Global Exhibitions
-              </span>
-              <h2 className="common-heading text-3xl sm:text-4xl text-foreground leading-tight">
-                Engineering Value &amp; Global Trade Fairs
+              <div className="flex items-center gap-3 mb-2">
+                <div className="w-8 h-[2.5px] bg-primary shrink-0 rounded-full" />
+                <span className="text-primary font-bold text-[16px] sm:text-sm uppercase tracking-widest block font-sans">
+                  OUR GLOBAL EXHIBITIONS
+                </span>
+              </div>
+              <h2 className="font-sans text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight uppercase text-[#0A1A3B] dark:text-white leading-tight">
+                ENGINEERING VALUE &amp; <span className="text-primary inline-block">GLOBAL TRADE FAIRS</span>
               </h2>
               <p className="text-muted-foreground text-sm sm:text-base leading-relaxed font-normal">
                 Mewar Hi-Tech is profoundly dedicated to offering high-performance crushing machinery and prompt technical support. Every single action is carefully created to give genuine incentive and long-term reliability to our clients.
@@ -248,11 +251,14 @@ export default function EventsPage() {
             
             <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
               <div>
-                <span className="text-primary font-bold text-xs uppercase tracking-widest block mb-1">
-                  Photo Showcase
-                </span>
-                <h2 className="common-heading text-3xl sm:text-4xl text-foreground">
-                  Exhibition Gallery ({filteredEvents.length})
+                <div className="flex items-center gap-3 mb-2">
+                  <div className="w-8 h-[2.5px] bg-primary shrink-0 rounded-full" />
+                  <span className="text-primary font-bold text-[16px] sm:text-sm uppercase tracking-widest block font-sans">
+                    PHOTO SHOWCASE
+                  </span>
+                </div>
+                <h2 className="font-sans text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight uppercase text-[#0A1A3B] dark:text-white">
+                  EXHIBITION <span className="text-primary inline-block">GALLERY ({filteredEvents.length})</span>
                 </h2>
               </div>
 
@@ -342,12 +348,15 @@ export default function EventsPage() {
               <div className="absolute top-0 right-0 w-64 h-64 bg-primary/10 rounded-full blur-3xl pointer-events-none" />
 
               <div className="space-y-3 max-w-2xl">
-                <span className="text-primary font-bold text-xs uppercase tracking-widest block">
-                  Connect With Our Engineers
-                </span>
-                <h3 className="common-heading text-2xl sm:text-4xl text-white">
-                  Meet Us At The Next Global Industrial Expo
-                </h3>
+                <div className="flex items-center gap-3 mb-2">
+                  <div className="w-8 h-[2.5px] bg-primary shrink-0 rounded-full" />
+                  <span className="text-primary font-bold text-[16px] sm:text-sm uppercase tracking-widest block font-sans">
+                    CONNECT WITH OUR ENGINEERS
+                  </span>
+                </div>
+                <h2 className="font-sans text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight uppercase text-white">
+                  MEET US AT THE NEXT <span className="text-primary inline-block">GLOBAL INDUSTRIAL EXPO</span>
+                </h2>
                 <p className="text-xs sm:text-sm text-gray-300 font-medium leading-relaxed">
                   Planning to visit our booth or need personalized machinery consultation for your aggregate quarry? Schedule an appointment with our Managing Director &amp; Technical Sales Team.
                 </p>

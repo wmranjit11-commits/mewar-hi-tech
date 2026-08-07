@@ -55,11 +55,14 @@ export default function ProjectsLandingPage() {
         <section className="py-16 lg:py-24 bg-background">
           <Container>
             <div className="max-w-3xl mb-12 text-left">
-              <span className="text-primary font-bold text-xs uppercase tracking-widest block">
-                Portfolio Classification
-              </span>
-              <h2 className="common-heading text-3xl font-bold text-foreground mt-2">
-                Project Installations
+              <div className="flex items-center gap-3 mb-2">
+                <div className="w-8 h-[2.5px] bg-primary shrink-0 rounded-full" />
+                <span className="text-primary font-bold text-[16px] sm:text-sm uppercase tracking-widest block font-sans">
+                  PORTFOLIO CLASSIFICATION
+                </span>
+              </div>
+              <h2 className="font-sans text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight uppercase text-[#0A1A3B] dark:text-white">
+                PROJECT <span className="text-primary inline-block">INSTALLATIONS</span>
               </h2>
             </div>
 
@@ -105,7 +108,7 @@ export default function ProjectsLandingPage() {
                       </div>
 
                       <Link href={`/projects/${category.slug}`} className="block">
-                        <BlobButton variant="primary" className="!w-full !h-11 !text-[11px] !font-bold !uppercase !tracking-wider flex items-center justify-center gap-2">
+                        <BlobButton variant="primary" className="!w-full !px-6 !py-3 !text-xs !font-bold !uppercase !tracking-wider flex items-center justify-center gap-2">
                           <span>Browse Gallery</span>
                           <ArrowRight size={14} />
                         </BlobButton>

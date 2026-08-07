@@ -83,11 +83,14 @@ export default function Contact() {
                 className="lg:col-span-5 flex flex-col justify-between h-full space-y-6"
               >
                 <div>
-                  <span className="text-primary font-bold text-xs uppercase tracking-widest block mb-2">
-                    Mobile Crusher Manufacturers
-                  </span>
-                  <h2 className="common-heading text-3xl sm:text-4xl text-foreground leading-tight">
-                    Direct Contact Details
+                  <div className="flex items-center gap-3 mb-2">
+                    <div className="w-8 h-[2.5px] bg-primary shrink-0 rounded-full" />
+                    <span className="text-primary font-bold text-[16px] sm:text-sm uppercase tracking-widest block font-sans">
+                      MOBILE CRUSHER MANUFACTURERS
+                    </span>
+                  </div>
+                  <h2 className="font-sans text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight uppercase text-[#0A1A3B] dark:text-white leading-tight">
+                    DIRECT CONTACT <span className="text-primary inline-block">DETAILS</span>
                   </h2>
                   <p className="text-muted-foreground text-sm mt-2 leading-relaxed">
                     Have questions about our crushing, screening, or feeding machinery? Get in touch with our dedicated department managers directly.
@@ -218,11 +221,14 @@ export default function Contact() {
                   <div className="absolute top-0 right-0 w-32 h-32 bg-primary/10 rounded-full blur-3xl pointer-events-none" />
 
                   <div>
-                    <span className="text-primary font-bold text-xs uppercase tracking-widest block mb-1">
-                      Quick Assistance
-                    </span>
-                    <h2 className="common-heading text-2xl sm:text-3xl text-foreground">
-                      Enquiry Now
+                    <div className="flex items-center gap-3 mb-2">
+                      <div className="w-8 h-[2.5px] bg-primary shrink-0 rounded-full" />
+                      <span className="text-primary font-bold text-[16px] sm:text-sm uppercase tracking-widest block font-sans">
+                        QUICK ASSISTANCE
+                      </span>
+                    </div>
+                    <h2 className="font-sans text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight uppercase text-[#0A1A3B] dark:text-white">
+                      ENQUIRY <span className="text-primary inline-block">NOW</span>
                     </h2>
                     <p className="text-xs text-muted-foreground font-semibold mt-1">
                       Fill out the form below and our engineering team will get back to you with specs &amp; pricing.
@@ -370,11 +376,14 @@ export default function Contact() {
             
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
               <div>
-                <span className="text-primary font-bold text-xs uppercase tracking-widest block mb-1">
-                  Visit Our Plant
-                </span>
-                <h2 className="common-heading text-2xl sm:text-3xl text-foreground">
-                  Plant Location &amp; Interactive Map
+                <div className="flex items-center gap-3 mb-2">
+                  <div className="w-8 h-[2.5px] bg-primary shrink-0 rounded-full" />
+                  <span className="text-primary font-bold text-[16px] sm:text-sm uppercase tracking-widest block font-sans">
+                    VISIT OUR PLANT
+                  </span>
+                </div>
+                <h2 className="font-sans text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight uppercase text-[#0A1A3B] dark:text-white">
+                  PLANT LOCATION &amp; <span className="text-primary inline-block">INTERACTIVE MAP</span>
                 </h2>
               </div>
               <a
