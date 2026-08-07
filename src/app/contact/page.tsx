@@ -38,11 +38,27 @@ export default function Contact() {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setSubmitting(true);
-    setTimeout(() => {
-      setSubmitting(false);
+    
+    try {
+      const res = await fetch("/api/enquiry", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          ...formData,
+          type: "Contact",
+        }),
+      });
+
+      if (!res.ok) {
+        const errorData = await res.json().catch(() => ({}));
+        throw new Error(errorData.message || "Failed to submit enquiry");
+      }
+
       toast.success(
         "Thank you for contacting Mewar Hi-Tech. Our sales team will respond shortly."
       );
@@ -54,7 +70,11 @@ export default function Contact() {
         address: "",
         message: "",
       });
-    }, 1200);
+    } catch (error: any) {
+      toast.error(error.message || "Failed to send enquiry. Please try again later.");
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   return (

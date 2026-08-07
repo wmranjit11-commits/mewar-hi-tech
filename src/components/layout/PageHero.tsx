@@ -13,7 +13,7 @@ const PageHero: React.FC<PageHeroProps> = ({
   label,
   title,
   description,
-  image = "/images/backgorund.webp",
+  image = "/images/background-hero.webp",
 }) => {
   return (
     <section className="relative pt-36 pb-20 lg:pt-48 lg:pb-28 bg-secondary overflow-hidden select-none border-b-4 border-border">
@@ -24,8 +24,6 @@ const PageHero: React.FC<PageHeroProps> = ({
           alt=""
           className="w-full h-full object-cover opacity-20"
         />
-        {/* Solid sharp overlay instead of soft gradient */}
-        <div className="absolute inset-0 bg-secondary/90" />
       </div>
 
       {/* Content */}

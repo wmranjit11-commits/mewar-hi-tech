@@ -75,11 +75,26 @@ export default function ProductDetailPage({ params }: PageProps) {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setSubmitting(true);
-    setTimeout(() => {
-      setSubmitting(false);
+    try {
+      const res = await fetch("/api/enquiry", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          ...formData,
+          type: "Product",
+          productName: product?.name,
+        }),
+      });
+
+      if (!res.ok) {
+        throw new Error("Failed to submit enquiry");
+      }
+
       toast.success("Engineering enquiry submitted! Our technical team will reach out within 24 hours.");
       setFormData({
         name: "",
@@ -87,7 +102,11 @@ export default function ProductDetailPage({ params }: PageProps) {
         phone: "",
         message: `I am interested in the ${product?.name || "equipment"}. Please send me the technical specifications and a quote.`,
       });
-    }, 1200);
+    } catch (error) {
+      toast.error("Failed to send enquiry. Please try again later.");
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   // Fallback 404 UI

@@ -9,25 +9,25 @@ export const PRODUCTS = [
   {
     name: "Jaw Crusher",
     description: "Heavy-duty primary crushing for high-capacity ore and rock reduction.",
-    image: "/images/double-toggle-oil-jaw-crusher.jpg",
+    image: "/images/double-toggle-oil-jaw-crusher.png",
     slug: "double-toggle-oil-jaw-crusher",
   },
   {
     name: "Cone Crusher",
     description: "Precision secondary crushing engineered for consistent particle shape.",
-    image: "/images/cone-crusher.jpg",
+    image: "/images/cone-crusher.png",
     slug: "cone-crusher",
   },
   {
     name: "Stone Crusher",
     description: "Robust crushing units built for aggregate and mining applications.",
-    image: "/images/double-toggle-grease-jaw-crusher.jpg",
+    image: "/images/double-toggle-grease-jaw-crusher.png",
     slug: "double-toggle-grease-jaw-crusher",
   },
   {
     name: "Roll Crusher",
     description: "Efficient compression crushing for medium-hard and soft materials.",
-    image: "/images/roll-crusher.jpg",
+    image: "/images/roll-crusher.png",
     slug: "roll-crusher",
   },
   {

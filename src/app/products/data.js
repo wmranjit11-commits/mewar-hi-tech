@@ -10,7 +10,7 @@ export const PRODUCTS_DATA = [
     category: "Crushers",
     subCategory: "Jaw Crusher",
     heroImage: "/images/double-toggle-oil-jaw-crusher-hero.png",
-    mainImage: "/images/double-toggle-oil-jaw-crusher.jpg",
+    mainImage: "/images/double-toggle-oil-jaw-crusher.png",
     model3d: "/3d-model-proudct-images/double_toggle_oi_jaw _crusher.glb",
     introText: "KINGSON is a credible and trustworthy brand known for its high quality and great manufacturing. We also acquired experience over the years in the manufacture of jaw crusher, which is commonly used in mining, quarry and material handling. KINGSON'S Double Toggle Oil Lubricated Jaw Crusher has a longer life as compared to the jaw plates of other crushers, in light of the fact that KINGSON's Toggle Jaw Crusher operates on the 'Crushing without Rubbing' concept. Also, automatic continuous spray lubrication is provided by coupling pump / vertical oil pump on the basis of toggle-pitman mechanism which enables the crusher to run safely.",
     features: [
@@ -81,7 +81,7 @@ export const PRODUCTS_DATA = [
     category: "Crushers",
     subCategory: "Jaw Crusher",
     heroImage: "/images/single-toggle-grease-jaw-crusher-hero.png",
-    mainImage: "/images/single-toggle-grease-jaw-crusher.jpg",
+    mainImage: "/images/single-toggle-grease-jaw-crusher.png",
     model3d: "/3d-model-proudct-images/single_toggle_greese_crusher.glb",
     introText: "Kingson's Single Toggle Grease Jaw Crusher is usually utilized where size conveyance isn't of fundamental significance, be that as it may, efficiency is to be increased with lower power utilization, in contrast with Double Toggle Grease Lubricated Jaw Crusher and hence working expense is lower. These do not require high operating skills and gap setting is easier and manageable. Additionally, the support necessity is much lower and it doesn't require high maintenance.",
     features: [
@@ -125,7 +125,7 @@ export const PRODUCTS_DATA = [
     category: "Crushers",
     subCategory: "Jaw Crusher",
     heroImage: "/images/double-toggle-grease-jaw-crusher-hero.png",
-    mainImage: "/images/double-toggle-grease-jaw-crusher.jpg",
+    mainImage: "/images/double-toggle-grease-jaw-crusher.png",
     model3d: "/3d-model-proudct-images/double_toggle_greese _crusher.glb",
     introText: "Our organization has garnered a striking position in this industry as the Exporter, Manufacturer, Service Provider and Supplier of Double Toggle Grease Based Jaw Crusher in Udaipur, Rajasthan, India. It is precisely designed by using excellent material and hi-end technology and innovation. Besides, our customers can procure our products at effectively moderate costs. The capacities may vary depending upon the type of rock gradation, breaking characteristics, compressive strength, rate and method of feeding, bulk density of feed, percentage of moisture in feed, method of operation etc. The production capacity is affected by the type of jaw plates (plain/toothed) and RPM of the machine cast through lifting on crushing stroke.",
     features: [
@@ -226,7 +226,7 @@ export const PRODUCTS_DATA = [
     category: "Crushers",
     subCategory: "Roll Crusher",
     heroImage: "/images/roll-crusher-hero.png",
-    mainImage: "/images/roll-crusher.jpg",
+    mainImage: "/images/roll-crusher.png",
     model3d: "/3d-model-proudct-images/roll_crusher.glb",
     introText: "KINGSON'S Roll Crusher machine is widely used for the powder process of mineral products, including metal and non-metal ore, fireproof material, bauxite, diamond dust, glass raw materials, architectural materials, artificial sand and all kinds of metals and materials. The design is robust to cater to the customer need.",
     features: [

@@ -21,6 +21,7 @@
     "framer-motion": "^12.42.2",
     "globals": "^16.4.0",
     "lucide-react": "^0.462.0",
+    "mongoose": "^9.9.1",
     "next": "^15.1.0",
     "postcss": "^8.4.49",
     "radix-ui": "^1.6.4",

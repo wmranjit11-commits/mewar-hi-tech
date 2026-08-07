@@ -173,11 +173,38 @@ export default function CareersPage() {
     }
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setSubmitting(true);
-    setTimeout(() => {
-      setSubmitting(false);
+    
+    try {
+      const fileInput = (e.target as HTMLFormElement).querySelector('input[type="file"]') as HTMLInputElement;
+      const file = fileInput?.files?.[0];
+
+      if (!file) {
+        toast.error("Please attach your resume.");
+        setSubmitting(false);
+        return;
+      }
+
+      const submitData = new FormData();
+      submitData.append("name", formData.name);
+      submitData.append("email", formData.email);
+      submitData.append("phone", formData.phone);
+      submitData.append("position", selectedJob);
+      submitData.append("experience", formData.experience);
+      submitData.append("resume", file);
+
+      const res = await fetch("/api/career", {
+        method: "POST",
+        body: submitData,
+      });
+
+      if (!res.ok) {
+        const errorData = await res.json().catch(() => ({}));
+        throw new Error(errorData.message || "Failed to submit application");
+      }
+
       toast.success(
         "Application submitted successfully. Our HR team will review your profile shortly."
       );
@@ -189,7 +216,13 @@ export default function CareersPage() {
         message: "",
       });
       setFileName("");
-    }, 1200);
+      
+      if (fileInput) fileInput.value = "";
+    } catch (error: any) {
+      toast.error(error.message || "Failed to submit application. Please try again later.");
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   return (
