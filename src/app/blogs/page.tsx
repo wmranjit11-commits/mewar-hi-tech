@@ -13,7 +13,7 @@ export default function Blogs() {
           label="Insights"
           title="Latest News &amp; Articles"
           description="Industry insights, product updates, and engineering perspectives from Keestrack."
-          image="/images/hero_crusher.png"
+          image="/images/backgorund.webp"
         />
         <PlaceholderSection pageName="Blogs" />
       </main>

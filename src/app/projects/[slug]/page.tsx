@@ -100,7 +100,7 @@ export default function ProjectDetailPage({ params }: PageProps) {
           label="Featured Installations"
           title={project.title}
           description={project.description}
-          image="/images/hero_crusher.png"
+          image="/images/backgorund.webp"
         />
 
         {/* Project Gallery Grid */}

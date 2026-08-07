@@ -48,7 +48,7 @@ export default function ProjectsLandingPage() {
           label="Our Operations"
           title="Featured Engineering Projects"
           description="Explore our complete line of stationary and mobile plant installations active across mining, quarrying, and recycling sites."
-          image="/images/hero_crusher.png"
+          image="/images/backgorund.webp"
         />
 
         {/* Categories Section */}

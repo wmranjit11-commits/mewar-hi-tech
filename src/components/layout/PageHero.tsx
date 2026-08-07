@@ -13,7 +13,7 @@ const PageHero: React.FC<PageHeroProps> = ({
   label,
   title,
   description,
-  image = "/images/hero_crusher.png",
+  image = "/images/backgorund.webp",
 }) => {
   return (
     <section className="relative pt-36 pb-20 lg:pt-48 lg:pb-28 bg-secondary overflow-hidden select-none border-b-4 border-border">

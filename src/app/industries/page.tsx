@@ -14,7 +14,7 @@ export default function Industries() {
           label="Industries"
           title="Sectors We Power"
           description="Our machinery serves critical industries across mining, construction, energy, and infrastructure."
-          image="/images/hero_crusher.png"
+          image="/images/backgorund.webp"
         />
         <IndustriesGrid />
         <PlaceholderSection pageName="Industries" />

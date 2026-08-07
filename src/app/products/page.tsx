@@ -14,7 +14,7 @@ export default function Products() {
           label="Our Products"
           title="Precision-Engineered Industrial Machinery"
           description="From primary crushers to complete conveyor systems, explore our full range of heavy-duty industrial equipment."
-          image="/images/hero_crusher.png"
+          image="/images/backgorund.webp"
         />
         <ProductsSection title="Complete Product Catalog" />
         <CTASection />

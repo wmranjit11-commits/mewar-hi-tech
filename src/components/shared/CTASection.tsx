@@ -11,7 +11,7 @@ const CTASection: React.FC = () => {
     <section className="relative py-20 lg:py-28 bg-secondary overflow-hidden select-none">
       <div className="absolute inset-0 opacity-10">
         <img
-          src="/images/hero_crusher.png"
+          src="/images/backgorund.webp"
           alt=""
           className="w-full h-full object-cover"
         />

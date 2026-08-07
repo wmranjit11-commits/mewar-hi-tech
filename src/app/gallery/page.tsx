@@ -13,7 +13,7 @@ export default function Gallery() {
           label="Gallery"
           title="Our Work in Action"
           description="A visual archive of manufacturing, installations, and machinery in the field."
-          image="/images/hero_crusher.png"
+          image="/images/backgorund.webp"
         />
         <PlaceholderSection pageName="Gallery" />
       </main>

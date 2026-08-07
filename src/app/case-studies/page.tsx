@@ -63,7 +63,7 @@ export default function CaseStudiesPage() {
           label="SUCCESS STORIES & PROJECTS"
           title="PROJECT CASE STUDIES"
           description="Explore our proven track record of heavy-duty crushing and screening plants deployed across India and globally."
-          image="/images/hero_crusher.png"
+          image="/images/backgorund.webp"
         />
 
         <Container className="pt-12">

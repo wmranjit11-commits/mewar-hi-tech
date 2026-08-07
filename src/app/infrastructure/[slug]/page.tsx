@@ -165,7 +165,7 @@ export default function InfrastructureDetailPage({ params }: PageProps) {
           label="Our Infrastructure"
           title={config.title}
           description={config.description}
-          image="/images/hero_crusher.png"
+          image="/images/backgorund.webp"
         />
 
         {/* Content Section */}

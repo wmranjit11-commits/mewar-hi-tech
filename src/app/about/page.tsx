@@ -393,7 +393,7 @@ export default function About() {
                 </div>
                 <model-viewer
                   src="/3dmodel/Meshy_AI_Hammer_Mill_0704071611_texture.glb"
-                  poster="/images/hero_crusher.png"
+                  poster="/images/backgorund.webp"
                   alt="3D Industrial Hammer Mill Machinery Model"
                   auto-rotate
                   camera-controls
