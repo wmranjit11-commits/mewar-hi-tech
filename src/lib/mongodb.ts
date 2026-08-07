@@ -8,14 +8,6 @@ try {
   console.warn("Could not set custom DNS servers:", err);
 }
 
-const MONGODB_URI = process.env.MONGODB_URI!;
-
-if (!MONGODB_URI) {
-  throw new Error(
-    "Please define the MONGODB_URI environment variable inside .env.local"
-  );
-}
-
 // Global is used here to maintain a cached connection across hot reloads in development.
 let cached = (global as any).mongoose;
 
@@ -24,6 +16,14 @@ if (!cached) {
 }
 
 async function connectToDatabase() {
+  const MONGODB_URI = process.env.MONGODB_URI;
+
+  if (!MONGODB_URI) {
+    throw new Error(
+      "Please define the MONGODB_URI environment variable inside .env.local or Vercel Environment Variables"
+    );
+  }
+
   if (cached.conn) {
     return cached.conn;
   }
