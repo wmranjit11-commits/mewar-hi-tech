@@ -157,7 +157,7 @@ const SectorGrid: React.FC = () => {
                     <model-viewer
                       ref={viewerRef}
                       src="/3dmodel/Meshy_AI_Kingson_Cone_Crusher_0704110926_texture.glb"
-                      poster="/images/robust_crusher_design.png"
+                      poster="/images/robust_crusher_design.webp"
                       alt="3D Kingson Cone Crusher Model"
                       auto-rotate
                       camera-controls

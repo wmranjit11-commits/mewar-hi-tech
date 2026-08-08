@@ -10,7 +10,7 @@ const CATEGORIES: MachineCategory[] = [
   {
     title: "Crushers",
     desc: "High performance crushing solutions for every need.",
-    image: "/images/cone-crusher.png",
+    image: "/images/cone-crusher.webp",
     icon: Hammer,
     to: "/products?category=crushers",
     exploreLabel: "Explore Crushers",
@@ -18,7 +18,7 @@ const CATEGORIES: MachineCategory[] = [
   {
     title: "Screeners",
     desc: "Efficient screening for precise separation and high productivity.",
-    image: "/images/vibrating-screen.png",
+    image: "/images/vibrating-screen.webp",
     icon: Layers,
     to: "/products?category=screens",
     exploreLabel: "Explore Screeners",
@@ -26,7 +26,7 @@ const CATEGORIES: MachineCategory[] = [
   {
     title: "Sand Making",
     desc: "Advanced aggregate processing solutions for easy washing and sizing.",
-    image: "/images/sand-making-machine.png",
+    image: "/images/sand-making-machine.webp",
     icon: ArrowLeftRight,
     to: "/products",
     exploreLabel: "Explore Sand Making",
@@ -34,7 +34,7 @@ const CATEGORIES: MachineCategory[] = [
   {
     title: "Feeders",
     desc: "Reliable feeding equipment for continuous performance.",
-    image: "/images/vibro-feeder.png",
+    image: "/images/vibro-feeder.webp",
     icon: Settings,
     to: "/products?category=feeders",
     exploreLabel: "Explore Feeders",

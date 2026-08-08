@@ -211,7 +211,7 @@ const FlagshipProductsGrid: React.FC = () => {
               className="relative w-48 sm:w-60 aspect-[16/10] rounded-xl overflow-hidden shadow-md border border-border group cursor-pointer"
             >
               <img
-                src="/images/video_thumbnail.png"
+                src="/images/video_thumbnail.webp"
                 alt="Video Thumbnail"
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
               />

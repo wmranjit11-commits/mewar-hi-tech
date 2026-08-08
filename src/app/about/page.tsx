@@ -313,7 +313,7 @@ export default function About() {
                 {/* Image & Caption */}
                 <div className="relative rounded-none overflow-hidden border-2 border-border">
                   <img
-                    src="/images/robust_crusher_design.png"
+                    src="/images/robust_crusher_design.webp"
                     alt="Heavy-Duty Mining & Rock Reduction Crusher"
                     className="w-full h-64 sm:h-72 object-cover"
                   />

@@ -9,8 +9,8 @@ export const PRODUCTS_DATA = [
     name: "Double Toggle Oil Jaw Crusher",
     category: "Crushers",
     subCategory: "Jaw Crusher",
-    heroImage: "/images/double-toggle-oil-jaw-crusher-hero.png",
-    mainImage: "/images/double-toggle-oil-jaw-crusher.png",
+    heroImage: "/images/double-toggle-oil-jaw-crusher-hero.webp",
+    mainImage: "/images/double-toggle-oil-jaw-crusher.webp",
     model3d: "/3d-model-proudct-images/double_toggle_oi_jaw _crusher.glb",
     introText: "KINGSON is a credible and trustworthy brand known for its high quality and great manufacturing. We also acquired experience over the years in the manufacture of jaw crusher, which is commonly used in mining, quarry and material handling. KINGSON'S Double Toggle Oil Lubricated Jaw Crusher has a longer life as compared to the jaw plates of other crushers, in light of the fact that KINGSON's Toggle Jaw Crusher operates on the 'Crushing without Rubbing' concept. Also, automatic continuous spray lubrication is provided by coupling pump / vertical oil pump on the basis of toggle-pitman mechanism which enables the crusher to run safely.",
     features: [
@@ -80,8 +80,8 @@ export const PRODUCTS_DATA = [
     name: "Single Toggle Grease Jaw Crusher",
     category: "Crushers",
     subCategory: "Jaw Crusher",
-    heroImage: "/images/single-toggle-grease-jaw-crusher-hero.png",
-    mainImage: "/images/single-toggle-grease-jaw-crusher.png",
+    heroImage: "/images/single-toggle-grease-jaw-crusher-hero.webp",
+    mainImage: "/images/single-toggle-grease-jaw-crusher.webp",
     model3d: "/3d-model-proudct-images/single_toggle_greese_crusher.glb",
     introText: "Kingson's Single Toggle Grease Jaw Crusher is usually utilized where size conveyance isn't of fundamental significance, be that as it may, efficiency is to be increased with lower power utilization, in contrast with Double Toggle Grease Lubricated Jaw Crusher and hence working expense is lower. These do not require high operating skills and gap setting is easier and manageable. Additionally, the support necessity is much lower and it doesn't require high maintenance.",
     features: [
@@ -124,8 +124,8 @@ export const PRODUCTS_DATA = [
     name: "Double Toggle Grease Jaw Crusher",
     category: "Crushers",
     subCategory: "Jaw Crusher",
-    heroImage: "/images/double-toggle-grease-jaw-crusher-hero.png",
-    mainImage: "/images/double-toggle-grease-jaw-crusher.png",
+    heroImage: "/images/double-toggle-grease-jaw-crusher-hero.webp",
+    mainImage: "/images/double-toggle-grease-jaw-crusher.webp",
     model3d: "/3d-model-proudct-images/double_toggle_greese _crusher.glb",
     introText: "Our organization has garnered a striking position in this industry as the Exporter, Manufacturer, Service Provider and Supplier of Double Toggle Grease Based Jaw Crusher in Udaipur, Rajasthan, India. It is precisely designed by using excellent material and hi-end technology and innovation. Besides, our customers can procure our products at effectively moderate costs. The capacities may vary depending upon the type of rock gradation, breaking characteristics, compressive strength, rate and method of feeding, bulk density of feed, percentage of moisture in feed, method of operation etc. The production capacity is affected by the type of jaw plates (plain/toothed) and RPM of the machine cast through lifting on crushing stroke.",
     features: [
@@ -175,8 +175,8 @@ export const PRODUCTS_DATA = [
     name: "Cone Crusher",
     category: "Crushers",
     subCategory: "Cone Crusher",
-    heroImage: "/images/cone-crusher-hero.png",
-    mainImage: "/images/cone-crusher.png",
+    heroImage: "/images/cone-crusher-hero.webp",
+    mainImage: "/images/cone-crusher.webp",
     model3d: "/3d-model-proudct-images/cone_crusher.glb",
     introText: "Mewar Hi-tech is proud to reveal that it is one of the top Cone Crusher manufacturers providing the highest grade machinery for the crushing of feed materials. We don't simply concentrate on helping our clients in getting their ideal outcomes yet additionally on making the procedure progressively solid, financially savvy, and flexible. Along these lines, we resolve to give you the most lucrative outcome.",
     features: [
@@ -225,8 +225,8 @@ export const PRODUCTS_DATA = [
     name: "Roll Crusher",
     category: "Crushers",
     subCategory: "Roll Crusher",
-    heroImage: "/images/roll-crusher-hero.png",
-    mainImage: "/images/roll-crusher.png",
+    heroImage: "/images/roll-crusher-hero.webp",
+    mainImage: "/images/roll-crusher.webp",
     model3d: "/3d-model-proudct-images/roll_crusher.glb",
     introText: "KINGSON'S Roll Crusher machine is widely used for the powder process of mineral products, including metal and non-metal ore, fireproof material, bauxite, diamond dust, glass raw materials, architectural materials, artificial sand and all kinds of metals and materials. The design is robust to cater to the customer need.",
     features: [
@@ -263,8 +263,8 @@ export const PRODUCTS_DATA = [
     name: "Horizontal Shaft Impactor",
     category: "Impactors",
     subCategory: "Impactor",
-    heroImage: "/images/horizontal-shaft-impactor-hero.png",
-    mainImage: "/images/horizontal-shaft-impactor.png",
+    heroImage: "/images/horizontal-shaft-impactor-hero.webp",
+    mainImage: "/images/horizontal-shaft-impactor.webp",
     model3d: "/3d-model-proudct-images/horizontal_shaft.glb",
     introText: "KINGSON'S product series of Horizontal Shaft impactor is widely used in the mining, energy and chemical industry. The Horizontal Shaft Impactor has reasonable structure, high productivity, easy maintenance and safe performance. The most remarkable advantage of this machine is that its completed item is fit as a fiddle, non-tensile and crevice. Our Horizontal Shaft Impactor is known for the most outstanding advantage of the delivering goods cubic shapes, non-tensile and cranny products. Not only do they find a wide application in various industries but is also the first choice of crushing industries.",
     features: [
@@ -310,8 +310,8 @@ export const PRODUCTS_DATA = [
     name: "Vertical Shaft Impactor",
     category: "Impactors",
     subCategory: "Impactor",
-    heroImage: "/images/vertical-shaft-impactor-hero.png",
-    mainImage: "/images/vertical-shaft-impactor.png",
+    heroImage: "/images/vertical-shaft-impactor-hero.webp",
+    mainImage: "/images/vertical-shaft-impactor.webp",
     model3d: "/3d-model-proudct-images/verticle_shaft_impactor.glb",
     introText: "KINGSON'S Impact Crusher-VSI Crusher incorporates rock-on-rock crushing technology that has revolutionized the aggregates and mineral industries worldwide. It is designed for low services requirement, with ease of lubrication and the assurance of continuous services. KINGSON VSI is an excellent third and fourth stage reduction unit, combing a unique crushing and grinding action in a single machine for the processing of abrasive friable or sticky material.",
     features: [
@@ -349,8 +349,8 @@ export const PRODUCTS_DATA = [
     name: "Sand Making Machine",
     category: "Impactors",
     subCategory: "Impactor",
-    heroImage: "/images/sand-making-machine-hero.png",
-    mainImage: "/images/sand-making-machine.png",
+    heroImage: "/images/sand-making-machine-hero.webp",
+    mainImage: "/images/sand-making-machine.webp",
     model3d: "/3d-model-proudct-images/sand_making_machine.glb",
     introText: "KINGSON'S Sand Making Machine is widely used for fines size reduction of mineral product including metal and non-metal ore, fireproof material, bauxite, diamond dust, glass raw materials, architectural materials, artificial Materials of all sorts of metal ores.",
     features: [
@@ -393,8 +393,8 @@ export const PRODUCTS_DATA = [
     name: "Vibrating Screen",
     category: "Screens",
     subCategory: "Screen",
-    heroImage: "/images/vibrating-screen-hero.png",
-    mainImage: "/images/vibrating-screen.png",
+    heroImage: "/images/vibrating-screen-hero.webp",
+    mainImage: "/images/vibrating-screen.webp",
     model3d: "/3d-model-proudct-images/vibrating_screen.glb",
     introText: "KINGSON'S vibrating screen, with a circular motion, is a two bearing free floating vibrating screen which proficiently screens all moderately free-flowing material. The circular throw action is delivered from uneven weights which are attached to the ends of the screening surfaces and ensure that the material travels over the screening surfaces at a constant rate. the amplitude or degree of vibration can be acclimated to fit a difference in obligation by adding a subtracting balance weight plate. The circular motion ensures rapid strait. The yield of the screen relies upon screen tendency; taking care of technique, screen RPM and vibration. We undertake all ranges of vibrating screens as per the capacity of plant and choices of the clients.",
     features: [
@@ -449,8 +449,8 @@ export const PRODUCTS_DATA = [
     name: "Sand Washer",
     category: "Screens",
     subCategory: "Screen",
-    heroImage: "/images/sand-washer-hero.png",
-    mainImage: "/images/sand-washer.png",
+    heroImage: "/images/sand-washer-hero.webp",
+    mainImage: "/images/sand-washer.webp",
     model3d: "/3d-model-proudct-images/sand_washer.glb",
     introText: "Sand Washers use pressure hydraulic separation with water as the medium to clean and organise sand particles by weight. Bigger particles weigh more, sink and are gathered in the base of the trough. The sand particles are transported to the slanted release end by a double pitched steel spiral shaft with replaceable cast wear shoes. The lighter undesirable particles float to the surface of the claim settling pool and are released over the weirs. Dewatering happens as the winding shaft transports the settled sand up to the grade of the trough and is released.",
     features: [
@@ -462,7 +462,7 @@ export const PRODUCTS_DATA = [
       "Lower end shaft coupling ensures precise alignment and an easy method for removing the shaft for maintenance."
     ],
     gallery: [
-      "/images/sand-washer-pro.png"
+      "/images/sand-washer-pro.webp"
     ],
     video: null,
     specsTable: {
@@ -495,8 +495,8 @@ export const PRODUCTS_DATA = [
     name: "Belt Conveyor",
     category: "Screens",
     subCategory: "Screen",
-    heroImage: "/images/belt-conveyor-hero.png",
-    mainImage: "/images/belt-conveyor.png",
+    heroImage: "/images/belt-conveyor-hero.webp",
+    mainImage: "/images/belt-conveyor.webp",
     model3d: "/3d-model-proudct-images/belt_conveyor.glb",
     introText: "The Belt conveyor is a mechanical material handling equipment that moves materials and products from a point and a level to another. Its maintenance is easy and is generally associated with size reduction equipment. Most of the conveying of the materials is handled by the belt conveyor as it is the most suitable equipment for material transfer.\n\nMewar Hitech offers a wide range of belt conveyors and portable conveyors. Our equipment is ideal for all regular crushing plants and mobile crushing units. The conveyors are designed according to operations, such as transportation, accumulation and sorting, the material sizes, weights and shapes and where the loading and pickup points need to be.",
     features: [
@@ -527,8 +527,8 @@ export const PRODUCTS_DATA = [
     name: "Vibro Feeder",
     category: "Feeders",
     subCategory: "Feeder",
-    heroImage: "/images/vibro-feeder-hero.png",
-    mainImage: "/images/vibro-feeder.png",
+    heroImage: "/images/vibro-feeder-hero.webp",
+    mainImage: "/images/vibro-feeder.webp",
     model3d: "/3d-model-proudct-images/vibro_feeder.glb",
     introText: "The Vibro Feeder is used for transferring the large size materials and granular material from the hopper to the receiving device uniformly, periodically and continuously in the production flow and to feed material into the crusher continuously and uniformly to the screen. Capacity figures are indicative fir material of 99.88 IBS / CU FT bulk density. The actual capacity result may vary by depending upon the feed, RPM, grading, grit and moisture, etc.",
     features: [
@@ -576,8 +576,8 @@ export const PRODUCTS_DATA = [
     name: "Single Shaft Feeders",
     category: "Feeders",
     subCategory: "Feeder",
-    heroImage: "/images/single-shaft-feeders-hero.png",
-    mainImage: "/images/single-shaft-feeders.png",
+    heroImage: "/images/single-shaft-feeders-hero.webp",
+    mainImage: "/images/single-shaft-feeders.webp",
     model3d: "/3d-model-proudct-images/single_shaft_feed.glb",
     introText: "KINGSON'S Grizzly is a massive welded frame construction to withstand extreme shock loads. These are basically conveying decks with a combination of pan and grizzly and back & side renewable liners. Grizzly Feeder is non-stopping and ventured grizzly, independently inexhaustible, for material inclining and simple fines passing. It vibrating using installed consists of two contra-rotating eccentric shafts, geared together in oil-bath. The setting of amplitude is affected at the still machine by varying unbalance. Actuation is by 4-pole motor and V-belts drive. Special steel springs are arranged for the installation on concrete or steel supporting structure.",
     features: [

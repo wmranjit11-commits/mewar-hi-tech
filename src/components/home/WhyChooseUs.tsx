@@ -33,28 +33,28 @@ const LEFT_ICONS = [
 const TOP_IMAGES = [
   {
     title: "BUILT TOUGH",
-    src: "/images/built_tough.png",
+    src: "/images/built_tough.webp",
     colSpan: "col-span-12 sm:col-span-6",
   },
   {
     title: "LOW OPERATING COST",
-    src: "/images/low_operating_cost.png",
+    src: "/images/low_operating_cost.webp",
     colSpan: "col-span-12 sm:col-span-6",
   },
   {
     title: "MAXIMUM PRODUCTIVITY",
-    src: "/images/maximum_productivity.png",
+    src: "/images/maximum_productivity.webp",
     colSpan: "col-span-12 sm:col-span-7",
   },
   {
     title: "GLOBAL SUPPORT",
-    src: "/images/global_support.png",
+    src: "/images/global_support.webp",
     colSpan: "col-span-12 sm:col-span-5",
   },
 ];
 
 const BOTTOM_IMAGES = [
-  { title: "PREMIUM QUALITY", src: "/images/premium_quality.png" },
+  { title: "PREMIUM QUALITY", src: "/images/premium_quality.webp" },
   { title: "FAST DELIVERY", src: "/images/export-projects-1.jpg" },
   { title: "EASY MAINTENANCE", src: "/images/after-sales-1.jpg" },
   { title: "ECO FRIENDLY", src: "/images/latest-projects-2.jpg" },

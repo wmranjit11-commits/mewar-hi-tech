@@ -103,7 +103,7 @@ const SERVICE_TAB_CONTENT = [
       "High-Chrome HSI Blow Bars & VSI Anvils / Rotors",
       "Forged Alloy Shafts, Spherical Bearings & Toggle Plates",
     ],
-    image: "/images/video_thumbnail.png",
+    image: "/images/video_thumbnail.webp",
   },
   {
     id: "erection-commissioning",

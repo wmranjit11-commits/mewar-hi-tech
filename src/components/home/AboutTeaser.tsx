@@ -16,7 +16,7 @@ const AboutTeaser: React.FC = () => {
           <div className="flex items-center gap-8 shrink-0">
             <div className="w-40 h-40 sm:w-48 sm:h-48 flex items-center justify-center relative">
               <img
-                src="/images/gold_trophy.png"
+                src="/images/gold_trophy.webp"
                 alt="3D Gold Trophy"
                 className="h-40 sm:h-56 w-auto object-contain drop-shadow-[0_0_15px_rgba(255,184,0,0.15)] dark:drop-shadow-[0_0_15px_rgba(255,184,0,0.25)]"
               />
@@ -60,7 +60,7 @@ const AboutTeaser: React.FC = () => {
             {/* Reddot Winner */}
             <div className="text-center flex flex-col items-center">
               <img
-                src="/images/reddot_badge.png"
+                src="/images/reddot_badge.webp"
                 alt="Red Dot Winner 2023"
                 className="w-24 h-24 sm:w-28 sm:h-28 object-contain dark:opacity-90"
               />
@@ -75,7 +75,7 @@ const AboutTeaser: React.FC = () => {
             {/* iF Gold Award */}
             <div className="text-center flex flex-col items-center">
               <img
-                src="/images/if_gold_badge.png"
+                src="/images/if_gold_badge.webp"
                 alt="iF Gold Award 2023"
                 className="w-24 h-24 sm:w-28 sm:h-28 object-contain dark:opacity-90"
               />
@@ -90,7 +90,7 @@ const AboutTeaser: React.FC = () => {
             {/* EquipmentWatch */}
             <div className="text-center flex flex-col items-center">
               <img
-                src="/images/equipment_watch_badge.png"
+                src="/images/equipment_watch_badge.webp"
                 alt="EquipmentWatch Highest Retained Value 2023"
                 className="w-24 h-24 sm:w-28 sm:h-28 object-contain dark:opacity-90"
               />

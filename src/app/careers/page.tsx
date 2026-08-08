@@ -143,7 +143,7 @@ export default function CareersPage() {
 
   // Theme-aware illustration image
   const careerIllustration =
-    theme === "dark" ? "/images/career-dark.png" : "/images/career-light.png";
+    theme === "dark" ? "/images/career-dark.webp" : "/images/career-light.webp";
 
   // Auto-play slide timer
   useEffect(() => {

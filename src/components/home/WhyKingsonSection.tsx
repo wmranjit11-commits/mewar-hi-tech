@@ -15,7 +15,7 @@ const CARDS_DATA = [
     description:
       "Wide range of high-capacity jaw crushers, cone units, screeners, and feeders built to withstand severe crushing environments.",
     link: "/products",
-    image: "/images/heavy_machinery_card_1785825248756.png",
+    image: "/images/heavy_machinery_card_1785825248756.webp",
   },
   {
     icon: Factory,
@@ -23,7 +23,7 @@ const CARDS_DATA = [
     description:
       "State-of-the-art casting foundry and assembly halls equipped with modern CNC tools and heavy lathe machines.",
     link: "/infrastructure/manufacturing",
-    image: "/images/advanced_infrastructure_card_1785825261337.png",
+    image: "/images/advanced_infrastructure_card_1785825261337.webp",
   },
   {
     icon: ClipboardCheck,
@@ -31,7 +31,7 @@ const CARDS_DATA = [
     description:
       "Complete plant installations spanning design layout, equipment manufacturing, field erection, and maintenance.",
     link: "/projects",
-    image: "/images/turnkey_projects_card_1785825275121.png",
+    image: "/images/turnkey_projects_card_1785825275121.webp",
   },
 ];
 
@@ -40,7 +40,7 @@ export default function WhyKingsonSection() {
     <section
       className="py-10 lg:py-14 text-white select-none relative"
       style={{
-        backgroundImage: "url('/images/construction_bg.png')",
+        backgroundImage: "url('/images/construction_bg.webp')",
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
